@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9yW-Ot-PYU">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="RescueApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7kR-r8-jVl">
+                                <rect key="frame" x="112" y="252.5" width="150" height="66"/>
+                                <color key="backgroundColor" red="0.086274509803921567" green="0.023529411764705882" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="contentEdgeInsets" minX="24" minY="24" maxX="24" maxY="24"/>
+                                <state key="normal" title="Resuce People">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="4hN-3u-VHL" kind="show" id="T4K-mT-fcb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uzg-vc-JIF">
+                                <rect key="frame" x="99" y="348.5" width="176" height="66"/>
+                                <color key="backgroundColor" red="0.086274509799999996" green="0.023529411760000001" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="contentEdgeInsets" minX="24" minY="24" maxX="24" maxY="24"/>
+                                <state key="normal" title="Provide Resources">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="tik-t5-mYt" kind="show" id="ME3-bq-Vap"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="7kR-r8-jVl" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-48" id="8vc-xp-9QZ"/>
+                            <constraint firstItem="Uzg-vc-JIF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DKk-XZ-r4P"/>
+                            <constraint firstItem="7kR-r8-jVl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ztg-U3-xpP"/>
+                            <constraint firstItem="Uzg-vc-JIF" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="48" id="qOu-SS-NOy"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="mu5-pv-dXR"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="901.60000000000002" y="-581.55922038980509"/>
+        </scene>
+        <!--Provide Resources View Controller-->
+        <scene sceneID="mu1-AS-XV2">
+            <objects>
+                <viewController id="tik-t5-mYt" customClass="ProvideResourcesViewController" customModule="RescueApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="79M-Nk-5ZE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="o8H-zI-JY0">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <connections>
+                                    <outlet property="delegate" destination="tik-t5-mYt" id="4n5-6Q-Ny9"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="o8H-zI-JY0" firstAttribute="top" secondItem="79M-Nk-5ZE" secondAttribute="top" id="EWV-m5-Dr9"/>
+                            <constraint firstItem="o8H-zI-JY0" firstAttribute="leading" secondItem="nSV-L5-ufA" secondAttribute="leading" id="K7v-8Q-HCi"/>
+                            <constraint firstItem="o8H-zI-JY0" firstAttribute="trailing" secondItem="nSV-L5-ufA" secondAttribute="trailing" id="WQ7-49-fCF"/>
+                            <constraint firstItem="o8H-zI-JY0" firstAttribute="bottom" secondItem="nSV-L5-ufA" secondAttribute="bottom" id="af4-dZ-c86"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="nSV-L5-ufA"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="o8H-zI-JY0" id="pGT-Cd-Enm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gHI-Be-3Fs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1804" y="-315"/>
+        </scene>
+        <!--Rescue People View Controller-->
+        <scene sceneID="BDg-1Q-fK1">
+            <objects>
+                <viewController id="4hN-3u-VHL" customClass="RescuePeopleViewController" customModule="RescueApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1hz-29-s47">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="lc1-SE-en1">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <connections>
+                                    <outlet property="delegate" destination="4hN-3u-VHL" id="AWW-iv-n8B"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="lc1-SE-en1" firstAttribute="top" secondItem="1hz-29-s47" secondAttribute="top" id="5Rd-hK-Kq2"/>
+                            <constraint firstItem="lc1-SE-en1" firstAttribute="bottom" secondItem="NrG-Pe-h1K" secondAttribute="bottom" id="7BX-O9-CnN"/>
+                            <constraint firstItem="lc1-SE-en1" firstAttribute="leading" secondItem="NrG-Pe-h1K" secondAttribute="leading" id="KdG-1g-1NO"/>
+                            <constraint firstItem="lc1-SE-en1" firstAttribute="trailing" secondItem="NrG-Pe-h1K" secondAttribute="trailing" id="hlg-xc-2pZ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="NrG-Pe-h1K"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="lc1-SE-en1" id="EHR-6q-SUS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bnk-mC-Cmv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1804" y="-1075"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="VJz-MH-aqj">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9yW-Ot-PYU" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5Ny-Ue-SWQ">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="2uX-qe-92Z"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QDC-2x-DUZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="112.8" y="-579.76011994002999"/>
+        </scene>
+    </scenes>
+</document>
