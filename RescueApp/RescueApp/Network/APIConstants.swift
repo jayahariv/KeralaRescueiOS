@@ -11,5 +11,5 @@ Abstract:
 import Foundation
 
 struct APIConstants {
-    static let RESOURCE_URL = "https://keralarescue.in/data/"
+    static let RESOURCE_URL = "https://keralarescue.in/data/?page=1"
 }
