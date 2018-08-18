@@ -13,6 +13,8 @@
 		082230462127CB8700B7FBF2 /* ResultOptimizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082230452127CB8700B7FBF2 /* ResultOptimizer.swift */; };
 		0822304B2127E6F400B7FBF2 /* RAAddressTypeahead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0822304A2127E6F400B7FBF2 /* RAAddressTypeahead.swift */; };
 		0822304D2127E7F500B7FBF2 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0822304C2127E7F500B7FBF2 /* Utility.swift */; };
+		0822304F2127ECC700B7FBF2 /* RAAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0822304E2127ECC700B7FBF2 /* RAAnnotationView.swift */; };
+		082230512127ED8100B7FBF2 /* RAAnnotationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 082230502127ED8100B7FBF2 /* RAAnnotationView.xib */; };
 		E9DBF96A2127806700CFD933 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DBF9692127806700CFD933 /* AppDelegate.swift */; };
 		E9DBF96C2127806700CFD933 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DBF96B2127806700CFD933 /* HomeViewController.swift */; };
 		E9DBF96F2127806700CFD933 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9DBF96D2127806700CFD933 /* Main.storyboard */; };
@@ -50,6 +52,8 @@
 		082230452127CB8700B7FBF2 /* ResultOptimizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultOptimizer.swift; sourceTree = "<group>"; };
 		0822304A2127E6F400B7FBF2 /* RAAddressTypeahead.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAAddressTypeahead.swift; sourceTree = "<group>"; };
 		0822304C2127E7F500B7FBF2 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		0822304E2127ECC700B7FBF2 /* RAAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAAnnotationView.swift; sourceTree = "<group>"; };
+		082230502127ED8100B7FBF2 /* RAAnnotationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RAAnnotationView.xib; sourceTree = "<group>"; };
 		E9DBF9662127806700CFD933 /* RescueApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RescueApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9DBF9692127806700CFD933 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9DBF96B2127806700CFD933 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +111,8 @@
 			isa = PBXGroup;
 			children = (
 				0822304A2127E6F400B7FBF2 /* RAAddressTypeahead.swift */,
+				0822304E2127ECC700B7FBF2 /* RAAnnotationView.swift */,
+				082230502127ED8100B7FBF2 /* RAAnnotationView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -293,6 +299,7 @@
 			files = (
 				E9DBF9742127806A00CFD933 /* LaunchScreen.storyboard in Resources */,
 				E9DBF9712127806A00CFD933 /* Assets.xcassets in Resources */,
+				082230512127ED8100B7FBF2 /* RAAnnotationView.xib in Resources */,
 				E9DBF96F2127806700CFD933 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -328,6 +335,7 @@
 				082230462127CB8700B7FBF2 /* ResultOptimizer.swift in Sources */,
 				0822304D2127E7F500B7FBF2 /* Utility.swift in Sources */,
 				0822303F212799EA00B7FBF2 /* APIConstants.swift in Sources */,
+				0822304F2127ECC700B7FBF2 /* RAAnnotationView.swift in Sources */,
 				E9DBF96A2127806700CFD933 /* AppDelegate.swift in Sources */,
 				E9DBF99A2127829000CFD933 /* ResourceNeedsMapViewController.swift in Sources */,
 			);

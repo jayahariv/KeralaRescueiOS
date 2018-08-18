@@ -97,6 +97,33 @@ extension ResourceNeedsMapViewController {
         
         mapView.setRegion(region, animated: true)
     }
+    
+    func showDirection(sourceLocation: CLLocationCoordinate2D, destinationLocation: CLLocationCoordinate2D) {
+        let sourcePlaceMark = MKPlacemark(coordinate: sourceLocation)
+        let destinationPlaceMark = MKPlacemark(coordinate: destinationLocation)
+        
+        let directionRequest = MKDirectionsRequest()
+        directionRequest.source = MKMapItem(placemark: sourcePlaceMark)
+        directionRequest.destination = MKMapItem(placemark: destinationPlaceMark)
+        directionRequest.transportType = .automobile
+        
+        let directions = MKDirections(request: directionRequest)
+        directions.calculate { (response, error) in
+            guard let directionResonse = response else {
+                if let error = error {
+                    let simpleAlert = Alert.errorAlert(title: "Error", message: error.localizedDescription)
+                    self.present(simpleAlert, animated: true)
+                }
+                return
+            }
+            
+            let route = directionResonse.routes[0]
+            self.mapView.add(route.polyline, level: .aboveRoads)
+            
+            let rect = route.polyline.boundingMapRect
+            self.mapView.setRegion(MKCoordinateRegionForMapRect(rect), animated: true)
+        }
+    }
 }
 
 // MARK: AddToiletViewController -> CLLocationManagerDelegate
@@ -134,43 +161,6 @@ extension ResourceNeedsMapViewController: MKMapViewDelegate {
             view.rightCalloutAccessoryView = nil
         }
         return view
-    }
-
-    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        guard let coordinate = locationManager.location?.coordinate
-            else {
-                let simpleAlert = Alert.errorAlert(title: "Error", message: "Unable to draw directions")
-                self.present(simpleAlert, animated: true)
-                return
-            }
-        showDirection(sourceLocation: coordinate, destinationLocation: (view.annotation?.coordinate ?? coordinate))
-    }
-
-    func showDirection(sourceLocation: CLLocationCoordinate2D, destinationLocation: CLLocationCoordinate2D) {
-        let sourcePlaceMark = MKPlacemark(coordinate: sourceLocation)
-        let destinationPlaceMark = MKPlacemark(coordinate: destinationLocation)
-
-        let directionRequest = MKDirectionsRequest()
-        directionRequest.source = MKMapItem(placemark: sourcePlaceMark)
-        directionRequest.destination = MKMapItem(placemark: destinationPlaceMark)
-        directionRequest.transportType = .automobile
-
-        let directions = MKDirections(request: directionRequest)
-        directions.calculate { (response, error) in
-            guard let directionResonse = response else {
-                if let error = error {
-                    let simpleAlert = Alert.errorAlert(title: "Error", message: error.localizedDescription)
-                    self.present(simpleAlert, animated: true)
-                }
-                return
-            }
-
-            let route = directionResonse.routes[0]
-            self.mapView.add(route.polyline, level: .aboveRoads)
-
-            let rect = route.polyline.boundingMapRect
-            self.mapView.setRegion(MKCoordinateRegionForMapRect(rect), animated: true)
-        }
     }
     
     //MARK:- MapKit delegates
