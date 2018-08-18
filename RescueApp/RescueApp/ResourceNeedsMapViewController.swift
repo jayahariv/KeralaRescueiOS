@@ -154,12 +154,7 @@ extension ResourceNeedsMapViewController: MKMapViewDelegate {
             dequeuedView.annotation = annotation
             view = dequeuedView
         } else {
-            
             view = RAAnnotationView(annotation: annotation, reuseIdentifier: C.mapAnnotationIdentifier)
-//            view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: C.mapAnnotationIdentifier)
-//            view.canShowCallout = true
-//            view.calloutOffset = CGPoint(x: -5, y: 5)
-//            view.rightCalloutAccessoryView =
         }
         return view
     }
