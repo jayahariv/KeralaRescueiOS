@@ -31,11 +31,6 @@ class ResourceNeedsMapViewController: UIViewController {
         loadResourceIfNotAlreadyPresent()
         getCurrentLocation()
     }
-
-    func initialise() {
-        //set delegate for mapview
-        self.mapView.delegate = self
-    }
     
     @IBAction func onTouchUpList(_ sender: Any) {
         let vc = storyboard?.instantiateViewController(withIdentifier: C.ResourceListViewController)
@@ -53,6 +48,12 @@ class ResourceNeedsMapViewController: UIViewController {
 }
 
 extension ResourceNeedsMapViewController {
+    
+    func initialise() {
+        //set delegate for mapview
+        self.mapView.delegate = self
+        title = "Help Kerala"
+    }
     
     
     func loadResourceIfNotAlreadyPresent() {
@@ -82,7 +83,9 @@ extension ResourceNeedsMapViewController {
             let allAnnotations = self?.mapView.annotations ?? []
             self?.mapView.removeAnnotations(allAnnotations)
             if let values = self?.requests.values {
-                let annotations = Array(values).filter({!$0.is_request_for_others})
+                let annotations = Array(values).filter({ (request) -> Bool in
+                    return !request.is_request_for_others
+                })
                 self?.mapView.addAnnotations(annotations)
             }
         }

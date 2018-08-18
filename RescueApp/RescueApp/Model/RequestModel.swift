@@ -26,7 +26,7 @@ final class RequestModel: NSObject, Codable, MKAnnotation {
     var detailwater: String?
     var district: String?
     var id: Int?
-    var is_request_for_others: Bool = false
+    var is_request_for_others: Bool = true
     var latlng: String?
     var latlng_accuracy: String?
     var location: String?
