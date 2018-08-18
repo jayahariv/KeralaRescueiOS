@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MapKit
 
 enum RequestStatus{
     case new;
@@ -14,7 +15,7 @@ enum RequestStatus{
     case closed;
 }
 
-final class RequestModel: NSObject, Codable {
+final class RequestModel: NSObject, Codable, MKAnnotation {
     var dateadded: String?
     var detailcloth: String?
     var detailfood: String?
@@ -23,11 +24,10 @@ final class RequestModel: NSObject, Codable {
     var detailrescue: String?
     var detailtoilet: String?
     var detailwater: String?
-    var district: District?
+    var district: String?
     var id: Int?
     var is_request_for_others: Bool = false
-    var lat: Double?
-    var lon: Double?
+    var latlng: String?
     var latlng_accuracy: String?
     var location: String?
     var needcloth: Bool = false
@@ -40,8 +40,31 @@ final class RequestModel: NSObject, Codable {
     var needwater: Bool = false
     var requestee: String?
     var requestee_phone: String?
-    var status: RequestStatus?
+    var status: String?
     var supply_details: String?
+    
+    var coordinate: CLLocationCoordinate2D {
+        return CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
+    }
+    
+    var title: String? {
+        return requestee
+    }
+    
+    var subtitle: String? {
+        return location
+    }
+    
+    var lat: Double? {
+        return 0.0
+    }
+    var lon: Double? {
+        return 0.0
+    }
+    
+    var requestStatus: RequestStatus? {
+        return .new
+    }
     
     enum CodingKeys: String, CodingKey {
         case dateadded
@@ -52,11 +75,10 @@ final class RequestModel: NSObject, Codable {
         case detailrescue
         case detailtoilet
         case detailwater
-        //        case district // TODO:
+        case district
         case id
         case is_request_for_others
-//        case lat
-//        case lon
+        case latlng
         case latlng_accuracy
         case location
         case needcloth
@@ -69,7 +91,9 @@ final class RequestModel: NSObject, Codable {
         case needwater
         case requestee
         case requestee_phone
-//        case status: RequestStatus?
+        case status
         case supply_details
     }
+    
+    
 }

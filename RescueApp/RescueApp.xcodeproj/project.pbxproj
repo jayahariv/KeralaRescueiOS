@@ -16,7 +16,7 @@
 		E9DBF9742127806A00CFD933 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9DBF9722127806A00CFD933 /* LaunchScreen.storyboard */; };
 		E9DBF97F2127806A00CFD933 /* RescueAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DBF97E2127806A00CFD933 /* RescueAppTests.swift */; };
 		E9DBF98A2127806A00CFD933 /* RescueAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DBF9892127806A00CFD933 /* RescueAppUITests.swift */; };
-		E9DBF99A2127829000CFD933 /* ProvideResourcesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DBF9992127829000CFD933 /* ProvideResourcesViewController.swift */; };
+		E9DBF99A2127829000CFD933 /* ResourceNeedsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DBF9992127829000CFD933 /* ResourceNeedsMapViewController.swift */; };
 		E9DBF99D2127846E00CFD933 /* RequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DBF99C2127846E00CFD933 /* RequestModel.swift */; };
 		E9DBF99F212785E000CFD933 /* DistrictEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DBF99E212785E000CFD933 /* DistrictEnum.swift */; };
 		E9DBF9A22127872A00CFD933 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DBF9A12127872A00CFD933 /* ApiClient.swift */; };
@@ -55,7 +55,7 @@
 		E9DBF9852127806A00CFD933 /* RescueAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RescueAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9DBF9892127806A00CFD933 /* RescueAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RescueAppUITests.swift; sourceTree = "<group>"; };
 		E9DBF98B2127806A00CFD933 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E9DBF9992127829000CFD933 /* ProvideResourcesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProvideResourcesViewController.swift; sourceTree = "<group>"; };
+		E9DBF9992127829000CFD933 /* ResourceNeedsMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceNeedsMapViewController.swift; sourceTree = "<group>"; };
 		E9DBF99C2127846E00CFD933 /* RequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestModel.swift; sourceTree = "<group>"; };
 		E9DBF99E212785E000CFD933 /* DistrictEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistrictEnum.swift; sourceTree = "<group>"; };
 		E9DBF9A12127872A00CFD933 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
@@ -117,7 +117,7 @@
 				E9DBF9702127806A00CFD933 /* Assets.xcassets */,
 				E9DBF9722127806A00CFD933 /* LaunchScreen.storyboard */,
 				E9DBF9752127806A00CFD933 /* Info.plist */,
-				E9DBF9992127829000CFD933 /* ProvideResourcesViewController.swift */,
+				E9DBF9992127829000CFD933 /* ResourceNeedsMapViewController.swift */,
 				0822304021279FD200B7FBF2 /* ResourceNeedsListViewController.swift */,
 			);
 			path = RescueApp;
@@ -297,7 +297,7 @@
 				E9DBF99F212785E000CFD933 /* DistrictEnum.swift in Sources */,
 				0822303F212799EA00B7FBF2 /* APIConstants.swift in Sources */,
 				E9DBF96A2127806700CFD933 /* AppDelegate.swift in Sources */,
-				E9DBF99A2127829000CFD933 /* ProvideResourcesViewController.swift in Sources */,
+				E9DBF99A2127829000CFD933 /* ResourceNeedsMapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -99,10 +99,10 @@
             </objects>
             <point key="canvasLocation" x="2695.1999999999998" y="-579.76011994002999"/>
         </scene>
-        <!--Provide Resources View Controller-->
+        <!--Resource Needs Map View Controller-->
         <scene sceneID="mu1-AS-XV2">
             <objects>
-                <viewController id="tik-t5-mYt" customClass="ProvideResourcesViewController" customModule="RescueApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ResourceNeedsMapViewController" id="tik-t5-mYt" customClass="ResourceNeedsMapViewController" customModule="RescueApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="79M-Nk-5ZE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

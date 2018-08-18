@@ -1,5 +1,5 @@
 //
-//  ProvideResourcesViewController.swift
+//  ResourceNeedsMapViewController.swift
 //  RescueApp
 //
 //  Created by Jayahari Vavachan on 8/17/18.
@@ -9,9 +9,11 @@
 import UIKit
 import MapKit
 
-class ProvideResourcesViewController: UIViewController {
+class ResourceNeedsMapViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
+    
+    private var requests = [RequestModel]()
     
     struct C {
         static let animationIdentifier = "ResourceListViewControllerFlip"
@@ -37,10 +39,19 @@ class ProvideResourcesViewController: UIViewController {
 }
 
 
-extension ProvideResourcesViewController {
+extension ResourceNeedsMapViewController {
     func getResources() {
-        ApiClient.shared.getResourceNeeds { (requests) in
-            print(requests)
+        ApiClient.shared.getResourceNeeds { [weak self] (requests) in
+            self?.requests = requests
+            DispatchQueue.main.async { [weak self] in
+                self?.updateMap()
+            }
         }
+    }
+    
+    func updateMap() {
+        let allAnnotations = mapView.annotations
+        mapView.removeAnnotations(allAnnotations)
+        mapView.addAnnotations(requests)
     }
 }
