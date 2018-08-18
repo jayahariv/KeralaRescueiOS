@@ -37,7 +37,7 @@ class ResourceNeedsMapViewController: UIViewController {
         self.mapView.delegate = self
     }
     
-    @IBAction func onTouchUpList(_ sender: UIButton) {
+    @IBAction func onTouchUpList(_ sender: Any) {
         let vc = storyboard?.instantiateViewController(withIdentifier: C.ResourceListViewController)
         UIView.beginAnimations(C.animationIdentifier, context: nil)
         UIView.setAnimationDuration(1.0)
