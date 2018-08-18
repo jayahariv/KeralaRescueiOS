@@ -18,8 +18,11 @@ final class ResultOptimizer: NSObject {
         return instance
     }
     
-    func filter(_ list: [RequestModel]) -> [RequestModel] {
-        var map = [String: RequestModel]()
+    var locations = [String: String]()
+    var filtered = [String: RequestModel]()
+    
+    func filter(_ list: [RequestModel]) {
+        
         for request in list {
             
             guard let phone = request.requestee_phone else {
@@ -30,7 +33,7 @@ final class ResultOptimizer: NSObject {
                 continue
             }
             
-            guard map[phone] == nil else {
+            guard filtered[phone] == nil else {
                 continue
             }
             
@@ -38,9 +41,13 @@ final class ResultOptimizer: NSObject {
                 continue
             }
             
-            map[phone] = request
+            guard let locationName = request.location else {
+                continue;
+            }
+            
+            filtered[phone] = request
+            locations[locationName] = phone
             
         }
-        return Array(map.values)
     }
 }

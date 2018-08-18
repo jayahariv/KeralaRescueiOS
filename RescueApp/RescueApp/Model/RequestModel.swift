@@ -83,6 +83,10 @@ final class RequestModel: NSObject, Codable, MKAnnotation {
         return .new
     }
     
+    var districtEnum: District {
+        return District.getFromString(district)
+    }
+    
     enum CodingKeys: String, CodingKey {
         case dateadded
         case detailcloth
@@ -111,6 +115,4 @@ final class RequestModel: NSObject, Codable, MKAnnotation {
         case status
         case supply_details
     }
-    
-    
 }
