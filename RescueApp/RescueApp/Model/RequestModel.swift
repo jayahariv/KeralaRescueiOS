@@ -44,7 +44,7 @@ final class RequestModel: NSObject, Codable, MKAnnotation {
     var supply_details: String?
     
     var coordinate: CLLocationCoordinate2D {
-        return CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
+        return CLLocationCoordinate2D(latitude: lat, longitude: lon)
     }
     
     var title: String? {
@@ -55,11 +55,28 @@ final class RequestModel: NSObject, Codable, MKAnnotation {
         return location
     }
     
-    var lat: Double? {
-        return 0.0
+    var lat: Double {
+        let latlongArray = latlng?.split(separator: ",")
+        guard let latlonString = latlongArray?.first else {
+            return 0.0
+        }
+        
+        guard let validDouble = Double(String(latlonString)) else {
+            return 0.0
+        }
+        
+        return validDouble
     }
-    var lon: Double? {
-        return 0.0
+    var lon: Double {
+        let latlongArray = latlng?.split(separator: ",")
+        guard let latlonString = latlongArray?.last else {
+            return 0.0
+        }
+        
+        guard let validDouble = Double(String(latlonString)) else {
+            return 0.0
+        }
+        return validDouble
     }
     
     var requestStatus: RequestStatus? {
