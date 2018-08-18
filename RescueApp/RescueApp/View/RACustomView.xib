@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="RAAnnotationView" customModule="RescueApp" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="RACustomView" customModule="RescueApp" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="240" height="145"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -54,8 +54,11 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="foodIcon" destination="aYx-in-IGT" id="YHV-Qk-F56"/>
                 <outlet property="location" destination="Jpp-jt-BdJ" id="r7G-ai-nkq"/>
+                <outlet property="medIcon" destination="MPj-Hh-kHN" id="aXN-A8-XDl"/>
                 <outlet property="name" destination="3DI-dc-PEX" id="Qex-hg-4hm"/>
+                <outlet property="resIcon" destination="nKo-2j-ZhA" id="f9q-Rq-WJd"/>
             </connections>
             <point key="canvasLocation" x="-29" y="-197.5"/>
         </view>

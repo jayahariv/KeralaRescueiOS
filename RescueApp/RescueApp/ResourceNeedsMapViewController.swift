@@ -147,18 +147,19 @@ extension ResourceNeedsMapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard let annotation = annotation as? RequestModel else { return nil }
-        var view: MKMarkerAnnotationView
+        var view: RAAnnotationView
         
         if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: C.mapAnnotationIdentifier)
-            as? MKMarkerAnnotationView {
+            as? RAAnnotationView {
             dequeuedView.annotation = annotation
             view = dequeuedView
         } else {
             
-            view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: C.mapAnnotationIdentifier)
-            view.canShowCallout = true
-            view.calloutOffset = CGPoint(x: -5, y: 5)
-            view.rightCalloutAccessoryView = nil
+            view = RAAnnotationView(annotation: annotation, reuseIdentifier: C.mapAnnotationIdentifier)
+//            view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: C.mapAnnotationIdentifier)
+//            view.canShowCallout = true
+//            view.calloutOffset = CGPoint(x: -5, y: 5)
+//            view.rightCalloutAccessoryView =
         }
         return view
     }
