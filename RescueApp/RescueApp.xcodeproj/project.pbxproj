@@ -13,6 +13,10 @@
 		082230462127CB8700B7FBF2 /* ResultOptimizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082230452127CB8700B7FBF2 /* ResultOptimizer.swift */; };
 		0822304B2127E6F400B7FBF2 /* RAAddressTypeahead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0822304A2127E6F400B7FBF2 /* RAAddressTypeahead.swift */; };
 		0822304D2127E7F500B7FBF2 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0822304C2127E7F500B7FBF2 /* Utility.swift */; };
+		28386F612128191E0012F429 /* TagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28386F5D2128191E0012F429 /* TagCollectionViewCell.xib */; };
+		28386F622128191E0012F429 /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28386F5E2128191E0012F429 /* TagCollectionViewCell.swift */; };
+		28386F632128191E0012F429 /* RescueSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28386F5F2128191E0012F429 /* RescueSearchView.swift */; };
+		28386F642128191E0012F429 /* TagFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28386F602128191E0012F429 /* TagFlowLayout.swift */; };
 		75DA37292127EF6E00A9D00A /* ListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DA37282127EF6E00A9D00A /* ListViewCell.swift */; };
 		75DA372B2127FEC000A9D00A /* RAAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DA372A2127FEC000A9D00A /* RAAnnotationView.swift */; };
 		75DA372D2127FF0A00A9D00A /* RACustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DA372C2127FF0A00A9D00A /* RACustomView.swift */; };
@@ -55,6 +59,10 @@
 		082230452127CB8700B7FBF2 /* ResultOptimizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultOptimizer.swift; sourceTree = "<group>"; };
 		0822304A2127E6F400B7FBF2 /* RAAddressTypeahead.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAAddressTypeahead.swift; sourceTree = "<group>"; };
 		0822304C2127E7F500B7FBF2 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		28386F5D2128191E0012F429 /* TagCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TagCollectionViewCell.xib; sourceTree = "<group>"; };
+		28386F5E2128191E0012F429 /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagCollectionViewCell.swift; sourceTree = "<group>"; };
+		28386F5F2128191E0012F429 /* RescueSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RescueSearchView.swift; sourceTree = "<group>"; };
+		28386F602128191E0012F429 /* TagFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagFlowLayout.swift; sourceTree = "<group>"; };
 		75DA37282127EF6E00A9D00A /* ListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewCell.swift; sourceTree = "<group>"; };
 		75DA372A2127FEC000A9D00A /* RAAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAAnnotationView.swift; sourceTree = "<group>"; };
 		75DA372C2127FF0A00A9D00A /* RACustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RACustomView.swift; sourceTree = "<group>"; };
@@ -125,6 +133,17 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		28386F5C212818B10012F429 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				28386F5F2128191E0012F429 /* RescueSearchView.swift */,
+				28386F5E2128191E0012F429 /* TagCollectionViewCell.swift */,
+				28386F5D2128191E0012F429 /* TagCollectionViewCell.xib */,
+				28386F602128191E0012F429 /* TagFlowLayout.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		E9DBF95D2127806700CFD933 = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +167,7 @@
 		E9DBF9682127806700CFD933 /* RescueApp */ = {
 			isa = PBXGroup;
 			children = (
+				28386F5C212818B10012F429 /* Search */,
 				082230492127E6F400B7FBF2 /* View */,
 				082230422127A71A00B7FBF2 /* Utility */,
 				E9DBF9A02127871100CFD933 /* Network */,
@@ -308,6 +328,7 @@
 			files = (
 				E9DBF9742127806A00CFD933 /* LaunchScreen.storyboard in Resources */,
 				E9DBF9712127806A00CFD933 /* Assets.xcassets in Resources */,
+				28386F612128191E0012F429 /* TagCollectionViewCell.xib in Resources */,
 				75DA372F2127FF1600A9D00A /* RACustomView.xib in Resources */,
 				E9DBF96F2127806700CFD933 /* Main.storyboard in Resources */,
 			);
@@ -348,6 +369,9 @@
 				0822304D2127E7F500B7FBF2 /* Utility.swift in Sources */,
 				75DA372B2127FEC000A9D00A /* RAAnnotationView.swift in Sources */,
 				0822303F212799EA00B7FBF2 /* APIConstants.swift in Sources */,
+				28386F642128191E0012F429 /* TagFlowLayout.swift in Sources */,
+				28386F622128191E0012F429 /* TagCollectionViewCell.swift in Sources */,
+				28386F632128191E0012F429 /* RescueSearchView.swift in Sources */,
 				E9DBF96A2127806700CFD933 /* AppDelegate.swift in Sources */,
 				E9DBF99A2127829000CFD933 /* ResourceNeedsMapViewController.swift in Sources */,
 			);
