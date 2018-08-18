@@ -42,7 +42,10 @@ class ApiClient: NSObject {
             
             let decoder = JSONDecoder()
             do {
-                let requests = try decoder.decode([RequestModel].self, from: data)
+                var requests = try decoder.decode([RequestModel].self, from: data)
+                print(requests.count)
+                requests = ResultOptimizer.shared.filter(requests)
+                print(requests.count)
                 completion(requests)
             } catch {
                 print(error)
