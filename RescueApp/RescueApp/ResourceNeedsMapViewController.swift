@@ -41,7 +41,9 @@ class ResourceNeedsMapViewController: UIViewController {
 
 extension ResourceNeedsMapViewController {
     func getResources() {
+        Overlay.shared.show()
         ApiClient.shared.getResourceNeeds { [weak self] (requests) in
+            Overlay.shared.remove()
             self?.requests = requests
             DispatchQueue.main.async { [weak self] in
                 self?.updateMap()

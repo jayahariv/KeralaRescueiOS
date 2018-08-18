@@ -19,12 +19,15 @@ class ApiClient: NSObject {
         return instance
     }
     
-    func getResourceNeeds(completion: ResourceNeeds) {
+    func getResourceNeeds(completion: @escaping ResourceNeeds) {
         guard let url = URL(string: APIConstants.RESOURCE_URL) else {
             return
         }
         let urlRequest = URLRequest(url: url)
         let dataTask = defaultSession.dataTask(with: urlRequest) { (data, response, error) in
+            
+            // TODO: Handle all error conditions
+            
             guard error == nil else {
                 return
             }
@@ -40,7 +43,7 @@ class ApiClient: NSObject {
             let decoder = JSONDecoder()
             do {
                 let requests = try decoder.decode([RequestModel].self, from: data)
-                print(requests)
+                completion(requests)
             } catch {
                 print(error)
             }
