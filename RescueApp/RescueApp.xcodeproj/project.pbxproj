@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0822303F212799EA00B7FBF2 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0822303E212799EA00B7FBF2 /* APIConstants.swift */; };
 		E9DBF96A2127806700CFD933 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DBF9692127806700CFD933 /* AppDelegate.swift */; };
-		E9DBF96C2127806700CFD933 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DBF96B2127806700CFD933 /* ViewController.swift */; };
+		E9DBF96C2127806700CFD933 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DBF96B2127806700CFD933 /* HomeViewController.swift */; };
 		E9DBF96F2127806700CFD933 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9DBF96D2127806700CFD933 /* Main.storyboard */; };
 		E9DBF9712127806A00CFD933 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9DBF9702127806A00CFD933 /* Assets.xcassets */; };
 		E9DBF9742127806A00CFD933 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9DBF9722127806A00CFD933 /* LaunchScreen.storyboard */; };
 		E9DBF97F2127806A00CFD933 /* RescueAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DBF97E2127806A00CFD933 /* RescueAppTests.swift */; };
 		E9DBF98A2127806A00CFD933 /* RescueAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DBF9892127806A00CFD933 /* RescueAppUITests.swift */; };
-		E9DBF9982127828000CFD933 /* RescuePeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DBF9972127828000CFD933 /* RescuePeopleViewController.swift */; };
 		E9DBF99A2127829000CFD933 /* ProvideResourcesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DBF9992127829000CFD933 /* ProvideResourcesViewController.swift */; };
 		E9DBF99D2127846E00CFD933 /* RequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DBF99C2127846E00CFD933 /* RequestModel.swift */; };
 		E9DBF99F212785E000CFD933 /* DistrictEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DBF99E212785E000CFD933 /* DistrictEnum.swift */; };
@@ -39,9 +39,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0822303E212799EA00B7FBF2 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		E9DBF9662127806700CFD933 /* RescueApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RescueApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9DBF9692127806700CFD933 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E9DBF96B2127806700CFD933 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E9DBF96B2127806700CFD933 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E9DBF96E2127806700CFD933 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E9DBF9702127806A00CFD933 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E9DBF9732127806A00CFD933 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -52,7 +53,6 @@
 		E9DBF9852127806A00CFD933 /* RescueAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RescueAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9DBF9892127806A00CFD933 /* RescueAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RescueAppUITests.swift; sourceTree = "<group>"; };
 		E9DBF98B2127806A00CFD933 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E9DBF9972127828000CFD933 /* RescuePeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RescuePeopleViewController.swift; sourceTree = "<group>"; };
 		E9DBF9992127829000CFD933 /* ProvideResourcesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProvideResourcesViewController.swift; sourceTree = "<group>"; };
 		E9DBF99C2127846E00CFD933 /* RequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestModel.swift; sourceTree = "<group>"; };
 		E9DBF99E212785E000CFD933 /* DistrictEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistrictEnum.swift; sourceTree = "<group>"; };
@@ -110,12 +110,11 @@
 				E9DBF9A02127871100CFD933 /* Network */,
 				E9DBF99B2127844100CFD933 /* Model */,
 				E9DBF9692127806700CFD933 /* AppDelegate.swift */,
-				E9DBF96B2127806700CFD933 /* ViewController.swift */,
+				E9DBF96B2127806700CFD933 /* HomeViewController.swift */,
 				E9DBF96D2127806700CFD933 /* Main.storyboard */,
 				E9DBF9702127806A00CFD933 /* Assets.xcassets */,
 				E9DBF9722127806A00CFD933 /* LaunchScreen.storyboard */,
 				E9DBF9752127806A00CFD933 /* Info.plist */,
-				E9DBF9972127828000CFD933 /* RescuePeopleViewController.swift */,
 				E9DBF9992127829000CFD933 /* ProvideResourcesViewController.swift */,
 			);
 			path = RescueApp;
@@ -152,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				E9DBF9A12127872A00CFD933 /* ApiClient.swift */,
+				0822303E212799EA00B7FBF2 /* APIConstants.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -289,11 +289,11 @@
 			files = (
 				E9DBF9A22127872A00CFD933 /* ApiClient.swift in Sources */,
 				E9DBF99D2127846E00CFD933 /* RequestModel.swift in Sources */,
-				E9DBF96C2127806700CFD933 /* ViewController.swift in Sources */,
+				E9DBF96C2127806700CFD933 /* HomeViewController.swift in Sources */,
 				E9DBF99F212785E000CFD933 /* DistrictEnum.swift in Sources */,
+				0822303F212799EA00B7FBF2 /* APIConstants.swift in Sources */,
 				E9DBF96A2127806700CFD933 /* AppDelegate.swift in Sources */,
 				E9DBF99A2127829000CFD933 /* ProvideResourcesViewController.swift in Sources */,
-				E9DBF9982127828000CFD933 /* RescuePeopleViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

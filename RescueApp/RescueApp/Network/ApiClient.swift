@@ -20,7 +20,7 @@ class ApiClient: NSObject {
     }
     
     func getResourceNeeds(completion: ResourceNeeds) {
-        guard let url = URL(string: "https://keralarescue.in/data/") else {
+        guard let url = URL(string: APIConstants.RESOURCE_URL) else {
             return
         }
         let urlRequest = URLRequest(url: url)
@@ -44,8 +44,6 @@ class ApiClient: NSObject {
             } catch {
                 print(error)
             }
-        
-            
         }
         dataTask.resume()
     }
