@@ -13,6 +13,7 @@
 		082230462127CB8700B7FBF2 /* ResultOptimizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082230452127CB8700B7FBF2 /* ResultOptimizer.swift */; };
 		0822304B2127E6F400B7FBF2 /* RAAddressTypeahead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0822304A2127E6F400B7FBF2 /* RAAddressTypeahead.swift */; };
 		0822304D2127E7F500B7FBF2 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0822304C2127E7F500B7FBF2 /* Utility.swift */; };
+		75DA37292127EF6E00A9D00A /* ListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DA37282127EF6E00A9D00A /* ListViewCell.swift */; };
 		E9DBF96A2127806700CFD933 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DBF9692127806700CFD933 /* AppDelegate.swift */; };
 		E9DBF96C2127806700CFD933 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DBF96B2127806700CFD933 /* HomeViewController.swift */; };
 		E9DBF96F2127806700CFD933 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9DBF96D2127806700CFD933 /* Main.storyboard */; };
@@ -50,6 +51,7 @@
 		082230452127CB8700B7FBF2 /* ResultOptimizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultOptimizer.swift; sourceTree = "<group>"; };
 		0822304A2127E6F400B7FBF2 /* RAAddressTypeahead.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAAddressTypeahead.swift; sourceTree = "<group>"; };
 		0822304C2127E7F500B7FBF2 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		75DA37282127EF6E00A9D00A /* ListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewCell.swift; sourceTree = "<group>"; };
 		E9DBF9662127806700CFD933 /* RescueApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RescueApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9DBF9692127806700CFD933 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9DBF96B2127806700CFD933 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				0822304A2127E6F400B7FBF2 /* RAAddressTypeahead.swift */,
+				75DA37282127EF6E00A9D00A /* ListViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				E9DBF9A22127872A00CFD933 /* ApiClient.swift in Sources */,
 				0822304B2127E6F400B7FBF2 /* RAAddressTypeahead.swift in Sources */,
 				082230442127A72F00B7FBF2 /* Overlay.swift in Sources */,
+				75DA37292127EF6E00A9D00A /* ListViewCell.swift in Sources */,
 				E9DBF99D2127846E00CFD933 /* RequestModel.swift in Sources */,
 				0822304121279FD200B7FBF2 /* ResourceNeedsListViewController.swift in Sources */,
 				E9DBF96C2127806700CFD933 /* HomeViewController.swift in Sources */,

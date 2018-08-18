@@ -39,12 +39,15 @@ extension ResourceNeedsListViewController {
 
 extension ResourceNeedsListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return ResultOptimizer.shared.filtered.count
+
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
-        cell?.textLabel?.text = "test"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? ListViewCell
+        var model = Array(ResultOptimizer.shared.filtered.values)[indexPath.row]
+        cell?.nameLabel.text = model.requestee
+        cell?.locationLabel.text = model.location
         return cell!
     }
 }
