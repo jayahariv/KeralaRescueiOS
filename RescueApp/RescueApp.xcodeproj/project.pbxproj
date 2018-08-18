@@ -21,7 +21,7 @@
 		75DA372B2127FEC000A9D00A /* RAAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DA372A2127FEC000A9D00A /* RAAnnotationView.swift */; };
 		75DA372D2127FF0A00A9D00A /* RACustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DA372C2127FF0A00A9D00A /* RACustomView.swift */; };
 		75DA372F2127FF1600A9D00A /* RACustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75DA372E2127FF1600A9D00A /* RACustomView.xib */; };
-		75DA3731212810FC00A9D00A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DA3730212810FC00A9D00A /* DetailViewController.swift */; };
+		75DA373521289FC400A9D00A /* RescueNeedsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DA373421289FC400A9D00A /* RescueNeedsDetailViewController.swift */; };
 		E9DBF96A2127806700CFD933 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DBF9692127806700CFD933 /* AppDelegate.swift */; };
 		E9DBF96C2127806700CFD933 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DBF96B2127806700CFD933 /* HomeViewController.swift */; };
 		E9DBF96F2127806700CFD933 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9DBF96D2127806700CFD933 /* Main.storyboard */; };
@@ -67,7 +67,7 @@
 		75DA372A2127FEC000A9D00A /* RAAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAAnnotationView.swift; sourceTree = "<group>"; };
 		75DA372C2127FF0A00A9D00A /* RACustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RACustomView.swift; sourceTree = "<group>"; };
 		75DA372E2127FF1600A9D00A /* RACustomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RACustomView.xib; sourceTree = "<group>"; };
-		75DA3730212810FC00A9D00A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		75DA373421289FC400A9D00A /* RescueNeedsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RescueNeedsDetailViewController.swift; sourceTree = "<group>"; };
 		E9DBF9662127806700CFD933 /* RescueApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RescueApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9DBF9692127806700CFD933 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9DBF96B2127806700CFD933 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +167,7 @@
 		E9DBF9682127806700CFD933 /* RescueApp */ = {
 			isa = PBXGroup;
 			children = (
+				75DA373421289FC400A9D00A /* RescueNeedsDetailViewController.swift */,
 				28386F5C212818B10012F429 /* Search */,
 				082230492127E6F400B7FBF2 /* View */,
 				082230422127A71A00B7FBF2 /* Utility */,
@@ -180,7 +181,6 @@
 				E9DBF9752127806A00CFD933 /* Info.plist */,
 				E9DBF9992127829000CFD933 /* ResourceNeedsMapViewController.swift */,
 				0822304021279FD200B7FBF2 /* ResourceNeedsListViewController.swift */,
-				75DA3730212810FC00A9D00A /* DetailViewController.swift */,
 			);
 			path = RescueApp;
 			sourceTree = "<group>";
@@ -362,7 +362,6 @@
 				75DA37292127EF6E00A9D00A /* ListViewCell.swift in Sources */,
 				E9DBF99D2127846E00CFD933 /* RequestModel.swift in Sources */,
 				0822304121279FD200B7FBF2 /* ResourceNeedsListViewController.swift in Sources */,
-				75DA3731212810FC00A9D00A /* DetailViewController.swift in Sources */,
 				E9DBF96C2127806700CFD933 /* HomeViewController.swift in Sources */,
 				E9DBF99F212785E000CFD933 /* DistrictEnum.swift in Sources */,
 				082230462127CB8700B7FBF2 /* ResultOptimizer.swift in Sources */,
@@ -373,6 +372,7 @@
 				28386F622128191E0012F429 /* TagCollectionViewCell.swift in Sources */,
 				28386F632128191E0012F429 /* RescueSearchView.swift in Sources */,
 				E9DBF96A2127806700CFD933 /* AppDelegate.swift in Sources */,
+				75DA373521289FC400A9D00A /* RescueNeedsDetailViewController.swift in Sources */,
 				E9DBF99A2127829000CFD933 /* ResourceNeedsMapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
