@@ -97,6 +97,33 @@ extension ResourceNeedsMapViewController {
         
         mapView.setRegion(region, animated: true)
     }
+    
+    func showDirection(sourceLocation: CLLocationCoordinate2D, destinationLocation: CLLocationCoordinate2D) {
+        let sourcePlaceMark = MKPlacemark(coordinate: sourceLocation)
+        let destinationPlaceMark = MKPlacemark(coordinate: destinationLocation)
+        
+        let directionRequest = MKDirectionsRequest()
+        directionRequest.source = MKMapItem(placemark: sourcePlaceMark)
+        directionRequest.destination = MKMapItem(placemark: destinationPlaceMark)
+        directionRequest.transportType = .automobile
+        
+        let directions = MKDirections(request: directionRequest)
+        directions.calculate { (response, error) in
+            guard let directionResonse = response else {
+                if let error = error {
+                    let simpleAlert = Alert.errorAlert(title: "Error", message: error.localizedDescription)
+                    self.present(simpleAlert, animated: true)
+                }
+                return
+            }
+            
+            let route = directionResonse.routes[0]
+            self.mapView.add(route.polyline, level: .aboveRoads)
+            
+            let rect = route.polyline.boundingMapRect
+            self.mapView.setRegion(MKCoordinateRegionForMapRect(rect), animated: true)
+        }
+    }
 }
 
 // MARK: AddToiletViewController -> CLLocationManagerDelegate
@@ -120,57 +147,16 @@ extension ResourceNeedsMapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard let annotation = annotation as? RequestModel else { return nil }
-        var view: MKMarkerAnnotationView
+        var view: RAAnnotationView
         
         if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: C.mapAnnotationIdentifier)
-            as? MKMarkerAnnotationView {
+            as? RAAnnotationView {
             dequeuedView.annotation = annotation
             view = dequeuedView
         } else {
-            
-            view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: C.mapAnnotationIdentifier)
-            view.canShowCallout = true
-            view.calloutOffset = CGPoint(x: -5, y: 5)
-            view.rightCalloutAccessoryView = nil
+            view = RAAnnotationView(annotation: annotation, reuseIdentifier: C.mapAnnotationIdentifier)
         }
         return view
-    }
-
-    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        guard let coordinate = locationManager.location?.coordinate
-            else {
-                let simpleAlert = Alert.errorAlert(title: "Error", message: "Unable to draw directions")
-                self.present(simpleAlert, animated: true)
-                return
-            }
-        showDirection(sourceLocation: coordinate, destinationLocation: (view.annotation?.coordinate ?? coordinate))
-    }
-
-    func showDirection(sourceLocation: CLLocationCoordinate2D, destinationLocation: CLLocationCoordinate2D) {
-        let sourcePlaceMark = MKPlacemark(coordinate: sourceLocation)
-        let destinationPlaceMark = MKPlacemark(coordinate: destinationLocation)
-
-        let directionRequest = MKDirectionsRequest()
-        directionRequest.source = MKMapItem(placemark: sourcePlaceMark)
-        directionRequest.destination = MKMapItem(placemark: destinationPlaceMark)
-        directionRequest.transportType = .automobile
-
-        let directions = MKDirections(request: directionRequest)
-        directions.calculate { (response, error) in
-            guard let directionResonse = response else {
-                if let error = error {
-                    let simpleAlert = Alert.errorAlert(title: "Error", message: error.localizedDescription)
-                    self.present(simpleAlert, animated: true)
-                }
-                return
-            }
-
-            let route = directionResonse.routes[0]
-            self.mapView.add(route.polyline, level: .aboveRoads)
-
-            let rect = route.polyline.boundingMapRect
-            self.mapView.setRegion(MKCoordinateRegionForMapRect(rect), animated: true)
-        }
     }
     
     //MARK:- MapKit delegates

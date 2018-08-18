@@ -296,6 +296,7 @@
 			files = (
 				E9DBF9742127806A00CFD933 /* LaunchScreen.storyboard in Resources */,
 				E9DBF9712127806A00CFD933 /* Assets.xcassets in Resources */,
+				082230512127ED8100B7FBF2 /* RACustomView.xib in Resources */,
 				E9DBF96F2127806700CFD933 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -332,6 +333,8 @@
 				082230462127CB8700B7FBF2 /* ResultOptimizer.swift in Sources */,
 				0822304D2127E7F500B7FBF2 /* Utility.swift in Sources */,
 				0822303F212799EA00B7FBF2 /* APIConstants.swift in Sources */,
+				082230532127F6A400B7FBF2 /* RAAnnotationView.swift in Sources */,
+				0822304F2127ECC700B7FBF2 /* RACustomView.swift in Sources */,
 				E9DBF96A2127806700CFD933 /* AppDelegate.swift in Sources */,
 				E9DBF99A2127829000CFD933 /* ResourceNeedsMapViewController.swift in Sources */,
 			);
