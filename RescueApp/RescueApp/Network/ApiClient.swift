@@ -6,7 +6,7 @@
 //  Copyright © 2018 Jayahari Vavachan. All rights reserved.
 //
 
-typealias ResourceNeeds = ([RequestModel]) -> Void
+typealias ResourceNeeds = () -> Void
 
 import Foundation
 
@@ -42,8 +42,11 @@ class ApiClient: NSObject {
             
             let decoder = JSONDecoder()
             do {
-                let requests = try decoder.decode([RequestModel].self, from: data)
-                completion(requests)
+                var requests = try decoder.decode([RequestModel].self, from: data)
+                // filter the result
+                ResultOptimizer.shared.filter(requests)
+                
+                completion()
             } catch {
                 print(error)
             }

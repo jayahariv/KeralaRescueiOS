@@ -13,7 +13,9 @@ class ResourceNeedsMapViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     
-    private var requests = [RequestModel]()
+    private var requests:  [String: RequestModel] {
+        return ResultOptimizer.shared.filtered
+    }
     private let locationManager = CLLocationManager()
     
     struct C {
@@ -50,9 +52,8 @@ class ResourceNeedsMapViewController: UIViewController {
 extension ResourceNeedsMapViewController {
     func getResources() {
         Overlay.shared.show()
-        ApiClient.shared.getResourceNeeds { [weak self] (requests) in
+        ApiClient.shared.getResourceNeeds { [weak self] in
             Overlay.shared.remove()
-            self?.requests = requests
             DispatchQueue.main.async { [weak self] in
                 self?.updateMap()
             }
@@ -63,7 +64,8 @@ extension ResourceNeedsMapViewController {
         requests = requests.filter{!$0.is_request_for_others}
         let allAnnotations = mapView.annotations
         mapView.removeAnnotations(allAnnotations)
-        mapView.addAnnotations(requests)
+        let annotations = Array(requests.values)
+        mapView.addAnnotations(annotations)
     }
     
     /**
