@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -94,7 +95,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nSV-L5-ufA"/>
                     </view>
-                    <navigationItem key="navigationItem" id="zZk-69-R6X"/>
+                    <navigationItem key="navigationItem" id="zZk-69-R6X">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="refresh" id="XHs-xd-sNk">
+                            <connections>
+                                <action selector="onRefresh" destination="tik-t5-mYt" id="APQ-oe-ITX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="o8H-zI-JY0" id="pGT-Cd-Enm"/>
                     </connections>
@@ -213,7 +220,7 @@
                                                             <rect key="frame" x="0.0" y="78.5" width="342" height="40"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Co-an-OGB">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="114" height="40"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="114.5" height="40"/>
                                                                     <subviews>
                                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rescue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wha-u4-Emn">
                                                                             <rect key="frame" x="28.5" y="10" width="56.5" height="20.5"/>
@@ -235,7 +242,7 @@
                                                                     </constraints>
                                                                 </view>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X6O-Z6-Kpf">
-                                                                    <rect key="frame" x="114" y="0.0" width="113.5" height="40"/>
+                                                                    <rect key="frame" x="114.5" y="0.0" width="113.5" height="40"/>
                                                                     <subviews>
                                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Food/water" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CeK-WX-ZJ4">
                                                                             <rect key="frame" x="13.5" y="10" width="87" height="20.5"/>
@@ -257,7 +264,7 @@
                                                                     </constraints>
                                                                 </view>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wq5-nZ-G9H">
-                                                                    <rect key="frame" x="227.5" y="0.0" width="114.5" height="40"/>
+                                                                    <rect key="frame" x="228" y="0.0" width="114" height="40"/>
                                                                     <subviews>
                                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Medicine" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zLj-4k-12H">
                                                                             <rect key="frame" x="23" y="10" width="69.5" height="20.5"/>

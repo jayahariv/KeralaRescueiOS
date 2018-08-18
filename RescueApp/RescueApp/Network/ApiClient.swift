@@ -22,8 +22,12 @@ class ApiClient: NSObject {
         return instance
     }
     
+    func getOfflineData(completion: @escaping ResourceNeeds) {
+        getOfflineResourceNeeds(completion: completion)
+    }
+    
     func getResourceNeeds(completion: @escaping ResourceNeeds) {
-        guard reachability.connection == .none else {
+        guard reachability.connection != .none else {
             getOfflineResourceNeeds(completion: completion)
             return
         }

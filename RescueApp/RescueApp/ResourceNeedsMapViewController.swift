@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import CouchbaseLiteSwift
 
 class ResourceNeedsMapViewController: UIViewController {
     
@@ -26,9 +27,8 @@ class ResourceNeedsMapViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         initialise()
-        getResources()
+        loadResourceIfNotAlreadyPresent()
         getCurrentLocation()
     }
 
@@ -47,24 +47,45 @@ class ResourceNeedsMapViewController: UIViewController {
         UIView.commitAnimations()
     }
 
+    @IBAction func onRefresh() {
+        getResources()
+    }
 }
 
 extension ResourceNeedsMapViewController {
+    
+    
+    func loadResourceIfNotAlreadyPresent() {
+        if let db = try? Database(name: "RescueApp"), let _ = db.document(withID: "json") {
+            getOfflineData()
+        } else {
+            getResources()
+        }
+    }
+    
     func getResources() {
         Overlay.shared.show()
         ApiClient.shared.getResourceNeeds { [weak self] in
             Overlay.shared.remove()
-            DispatchQueue.main.async { [weak self] in
-                self?.updateMap()
-            }
+            self?.updateMap()
+        }
+    }
+    
+    func getOfflineData() {
+        ApiClient.shared.getOfflineData { [weak self] in
+            self?.updateMap()
         }
     }
     
     func updateMap() {
-        let allAnnotations = mapView.annotations
-        mapView.removeAnnotations(allAnnotations)
-        let annotations = Array(requests.values).filter{!$0.is_request_for_others}
-        mapView.addAnnotations(annotations)
+        DispatchQueue.main.async { [weak self] in
+            let allAnnotations = self?.mapView.annotations ?? []
+            self?.mapView.removeAnnotations(allAnnotations)
+            if let values = self?.requests.values {
+                let annotations = Array(values).filter({!$0.is_request_for_others})
+                self?.mapView.addAnnotations(annotations)
+            }
+        }
     }
     
     /**
