@@ -16,18 +16,24 @@ class ResourceNeedsListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        configureUI()
     }
     
     // MARK: Button Actions
     
-    @IBAction func onMap(_ sender: UIButton) {
+    @objc func onMap(_ sender: UIButton) {
         UIView.beginAnimations("View Flip", context: nil)
         UIView.setAnimationDuration(1.0)
         UIView.setAnimationCurve(.easeInOut)
         UIView.setAnimationTransition(.flipFromRight, for: (navigationController?.view)!, cache: false)
         navigationController?.popViewController(animated: false)
         UIView.commitAnimations()
+    }
+}
+
+extension ResourceNeedsListViewController {
+    func configureUI() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Map", style: .plain, target: self, action: #selector(onMap(_:)))
     }
 }
 
