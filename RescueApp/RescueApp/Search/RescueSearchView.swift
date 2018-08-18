@@ -21,6 +21,7 @@ class RescueSearchView: UIView {
     private var searchBar: UISearchBar!
     private var tags: Tags!
     private var shouldSetupConstraints = true
+    private var collectionLayoutHeightConstraint: NSLayoutConstraint!
     
     weak var delegate: RescueSearchViewDelegate? = nil
     
@@ -37,7 +38,7 @@ class RescueSearchView: UIView {
         searchBar.searchBarStyle = .minimal;
         searchBar.tintColor = .lightGray
         tagCollection = UICollectionView(frame: CGRect.zero, collectionViewLayout: alignedFlowLayout)
-        tagCollection.backgroundColor = UIColor.white
+        tagCollection.backgroundColor = .white
         tagCollection.translatesAutoresizingMaskIntoConstraints = false
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(searchBar)
@@ -63,9 +64,16 @@ class RescueSearchView: UIView {
             
             let buttonLeftConstraint = collection.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8)
             let buttonRightConstraint = collection.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8)
-            let buttonBottomConstraint = collection.bottomAnchor.constraint(equalTo: self.bottomAnchor)
-            NSLayoutConstraint.activate([buttonLeftConstraint1, buttonRightConstraint1, buttonBottomConstraint1, buttonTopConstraint1, buttonLeftConstraint, buttonRightConstraint, buttonBottomConstraint, heightConstraint])
+            let buttonBottomConstraint = collection.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8)
+            collectionLayoutHeightConstraint = collection.heightAnchor.constraint(equalToConstant: 100)
+            collectionLayoutHeightConstraint.priority = UILayoutPriority(rawValue: 500)
+            NSLayoutConstraint.activate([buttonLeftConstraint1, buttonRightConstraint1, buttonBottomConstraint1, buttonTopConstraint1, buttonLeftConstraint, buttonRightConstraint, buttonBottomConstraint, heightConstraint, collectionLayoutHeightConstraint])
         }
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        collectionLayoutHeightConstraint.constant = tagCollection.contentSize.height
     }
     
     required init?(coder aDecoder: NSCoder) {
