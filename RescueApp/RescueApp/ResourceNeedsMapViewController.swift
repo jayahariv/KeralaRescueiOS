@@ -61,10 +61,9 @@ extension ResourceNeedsMapViewController {
     }
     
     func updateMap() {
-        requests = requests.filter{!$0.is_request_for_others}
         let allAnnotations = mapView.annotations
         mapView.removeAnnotations(allAnnotations)
-        let annotations = Array(requests.values)
+        let annotations = Array(requests.values).filter{!$0.is_request_for_others}
         mapView.addAnnotations(annotations)
     }
     
@@ -81,8 +80,22 @@ extension ResourceNeedsMapViewController {
         }
     }
     
-    @objc func onTouchMapAnnotation(_ sender: MKAnnotation) {
-        // remove
+    
+    /**
+     sets the region of the map with given latitide, longitude and delta(for both latitude and longitude)
+     - parameters:
+     - latitude: self descriptive
+     - longitude: self descriptive
+     - delta: this delta will be used for both latitude and longitude delta values
+     */
+    func setRegion(_ latitude: Double, longitude: Double, delta: Double) {
+        let span = MKCoordinateSpan(latitudeDelta: delta,
+                                    longitudeDelta: delta)
+        let center = CLLocationCoordinate2D(latitude: latitude,
+                                            longitude: longitude)
+        let region = MKCoordinateRegion(center: center, span: span)
+        
+        mapView.setRegion(region, animated: true)
     }
 }
 
@@ -166,5 +179,24 @@ extension ResourceNeedsMapViewController: MKMapViewDelegate {
         renderer.strokeColor = UIColor.blue
         renderer.lineWidth = 4.0
         return renderer
+    }
+}
+
+
+//MARK: MapViewController -> CIAddressTypeaheadProtocol
+
+extension ResourceNeedsMapViewController: RAAddressTypeaheadProtocol {
+    func didSelectAddress(placemark: MKPlacemark) {
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = CLLocationCoordinate2DMake(placemark.coordinate.latitude,
+                                                           placemark.coordinate.longitude)
+        annotation.title = placemark.title
+        annotation.subtitle = placemark.subLocality
+        
+        mapView.addAnnotation(annotation)
+        
+        setRegion(placemark.coordinate.latitude,
+                  longitude: placemark.coordinate.longitude,
+                  delta: 0.02)
     }
 }

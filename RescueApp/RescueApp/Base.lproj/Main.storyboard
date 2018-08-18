@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -99,7 +98,7 @@
             </objects>
             <point key="canvasLocation" x="2695.1999999999998" y="-579.76011994002999"/>
         </scene>
-        <!--Resource Needs Map View Controller-->
+        <!--Typeahead Delegate-->
         <scene sceneID="mu1-AS-XV2">
             <objects>
                 <viewController storyboardIdentifier="ResourceNeedsMapViewController" id="tik-t5-mYt" customClass="ResourceNeedsMapViewController" customModule="RescueApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -124,15 +123,27 @@
                                     <action selector="onTouchUpList:" destination="tik-t5-mYt" eventType="touchUpInside" id="Rdf-X7-KRX"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZK8-wO-kfL" customClass="RAAddressTypeahead" customModule="RescueApp" customModuleProvider="target">
+                                <rect key="frame" x="16" y="80" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="typeaheadDelegate" destination="tik-t5-mYt" id="zAb-RR-ITk"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="nSV-L5-ufA" firstAttribute="bottom" secondItem="rij-Ny-4rG" secondAttribute="bottom" constant="16" id="4L5-Gm-TaM"/>
+                            <constraint firstItem="ZK8-wO-kfL" firstAttribute="top" secondItem="nSV-L5-ufA" secondAttribute="top" constant="16" id="7uB-BV-Jyn"/>
                             <constraint firstItem="o8H-zI-JY0" firstAttribute="top" secondItem="79M-Nk-5ZE" secondAttribute="top" id="EWV-m5-Dr9"/>
                             <constraint firstItem="o8H-zI-JY0" firstAttribute="leading" secondItem="nSV-L5-ufA" secondAttribute="leading" id="K7v-8Q-HCi"/>
                             <constraint firstItem="rij-Ny-4rG" firstAttribute="leading" secondItem="nSV-L5-ufA" secondAttribute="leading" constant="16" id="MxU-8Y-hFG"/>
                             <constraint firstItem="o8H-zI-JY0" firstAttribute="trailing" secondItem="nSV-L5-ufA" secondAttribute="trailing" id="WQ7-49-fCF"/>
                             <constraint firstItem="o8H-zI-JY0" firstAttribute="bottom" secondItem="nSV-L5-ufA" secondAttribute="bottom" id="af4-dZ-c86"/>
+                            <constraint firstItem="nSV-L5-ufA" firstAttribute="trailing" secondItem="ZK8-wO-kfL" secondAttribute="trailing" constant="16" id="g8o-if-9aL"/>
+                            <constraint firstItem="ZK8-wO-kfL" firstAttribute="leading" secondItem="nSV-L5-ufA" secondAttribute="leading" constant="16" id="opK-Os-E4X"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nSV-L5-ufA"/>
                     </view>

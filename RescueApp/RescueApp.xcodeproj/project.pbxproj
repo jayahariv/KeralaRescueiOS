@@ -11,6 +11,8 @@
 		0822304121279FD200B7FBF2 /* ResourceNeedsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0822304021279FD200B7FBF2 /* ResourceNeedsListViewController.swift */; };
 		082230442127A72F00B7FBF2 /* Overlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082230432127A72F00B7FBF2 /* Overlay.swift */; };
 		082230462127CB8700B7FBF2 /* ResultOptimizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082230452127CB8700B7FBF2 /* ResultOptimizer.swift */; };
+		0822304B2127E6F400B7FBF2 /* RAAddressTypeahead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0822304A2127E6F400B7FBF2 /* RAAddressTypeahead.swift */; };
+		0822304D2127E7F500B7FBF2 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0822304C2127E7F500B7FBF2 /* Utility.swift */; };
 		E9DBF96A2127806700CFD933 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DBF9692127806700CFD933 /* AppDelegate.swift */; };
 		E9DBF96C2127806700CFD933 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DBF96B2127806700CFD933 /* HomeViewController.swift */; };
 		E9DBF96F2127806700CFD933 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9DBF96D2127806700CFD933 /* Main.storyboard */; };
@@ -22,7 +24,6 @@
 		E9DBF99D2127846E00CFD933 /* RequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DBF99C2127846E00CFD933 /* RequestModel.swift */; };
 		E9DBF99F212785E000CFD933 /* DistrictEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DBF99E212785E000CFD933 /* DistrictEnum.swift */; };
 		E9DBF9A22127872A00CFD933 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DBF9A12127872A00CFD933 /* ApiClient.swift */; };
-		EC04FC4E2127E1940034A216 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC04FC4D2127E1940034A216 /* Utility.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,8 @@
 		0822304021279FD200B7FBF2 /* ResourceNeedsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceNeedsListViewController.swift; sourceTree = "<group>"; };
 		082230432127A72F00B7FBF2 /* Overlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Overlay.swift; sourceTree = "<group>"; };
 		082230452127CB8700B7FBF2 /* ResultOptimizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultOptimizer.swift; sourceTree = "<group>"; };
+		0822304A2127E6F400B7FBF2 /* RAAddressTypeahead.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAAddressTypeahead.swift; sourceTree = "<group>"; };
+		0822304C2127E7F500B7FBF2 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		E9DBF9662127806700CFD933 /* RescueApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RescueApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9DBF9692127806700CFD933 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9DBF96B2127806700CFD933 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -64,7 +67,6 @@
 		E9DBF99C2127846E00CFD933 /* RequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestModel.swift; sourceTree = "<group>"; };
 		E9DBF99E212785E000CFD933 /* DistrictEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistrictEnum.swift; sourceTree = "<group>"; };
 		E9DBF9A12127872A00CFD933 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
-		EC04FC4D2127E1940034A216 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,10 +97,18 @@
 		082230422127A71A00B7FBF2 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				EC04FC4D2127E1940034A216 /* Utility.swift */,
+				0822304C2127E7F500B7FBF2 /* Utility.swift */,
 				082230432127A72F00B7FBF2 /* Overlay.swift */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		082230492127E6F400B7FBF2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0822304A2127E6F400B7FBF2 /* RAAddressTypeahead.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		E9DBF95D2127806700CFD933 = {
@@ -124,6 +134,7 @@
 		E9DBF9682127806700CFD933 /* RescueApp */ = {
 			isa = PBXGroup;
 			children = (
+				082230492127E6F400B7FBF2 /* View */,
 				082230422127A71A00B7FBF2 /* Utility */,
 				E9DBF9A02127871100CFD933 /* Network */,
 				E9DBF99B2127844100CFD933 /* Model */,
@@ -307,14 +318,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC04FC4E2127E1940034A216 /* Utility.swift in Sources */,
 				E9DBF9A22127872A00CFD933 /* ApiClient.swift in Sources */,
+				0822304B2127E6F400B7FBF2 /* RAAddressTypeahead.swift in Sources */,
 				082230442127A72F00B7FBF2 /* Overlay.swift in Sources */,
 				E9DBF99D2127846E00CFD933 /* RequestModel.swift in Sources */,
 				0822304121279FD200B7FBF2 /* ResourceNeedsListViewController.swift in Sources */,
 				E9DBF96C2127806700CFD933 /* HomeViewController.swift in Sources */,
 				E9DBF99F212785E000CFD933 /* DistrictEnum.swift in Sources */,
 				082230462127CB8700B7FBF2 /* ResultOptimizer.swift in Sources */,
+				0822304D2127E7F500B7FBF2 /* Utility.swift in Sources */,
 				0822303F212799EA00B7FBF2 /* APIConstants.swift in Sources */,
 				E9DBF96A2127806700CFD933 /* AppDelegate.swift in Sources */,
 				E9DBF99A2127829000CFD933 /* ResourceNeedsMapViewController.swift in Sources */,
