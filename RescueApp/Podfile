@@ -1,0 +1,18 @@
+platform :ios, '11.0'
+
+target 'RescueApp' do
+  use_frameworks!
+
+  # Pods for RescueApp
+  pod 'CouchbaseLite-Swift-Enterprise', '~> 2.0.0'
+  pod 'ReachabilitySwift'
+
+  target 'RescueAppTests' do
+    inherit! :search_paths
+  end
+
+  target 'RescueAppUITests' do
+    inherit! :search_paths
+  end
+
+end
