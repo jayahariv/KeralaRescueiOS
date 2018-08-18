@@ -19,12 +19,12 @@ final class RAAnnotationView: MKAnnotationView {
     
     override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
-        self.canShowCallout = false
+        self.canShowCallout = true
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.canShowCallout = false
+        self.canShowCallout = true
     }
     
     // MARK: - callout showing and hiding
@@ -67,6 +67,7 @@ final class RAAnnotationView: MKAnnotationView {
     func loadRACustomMapView() -> RACustomView? {
         let view = RACustomView(frame: CGRect(x: 0, y: 0, width: 240, height: 280))
         return view
+        //RACustomView.instanceFromNib()
     }
     
     override func prepareForReuse() {

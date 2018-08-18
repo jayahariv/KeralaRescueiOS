@@ -30,4 +30,9 @@ final class RACustomView: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+    
+    class func instanceFromNib() -> RACustomView {
+        return UINib(nibName: "RACustomView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! RACustomView
+    }
+    
 }

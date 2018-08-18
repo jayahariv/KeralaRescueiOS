@@ -64,7 +64,13 @@ extension ResourceNeedsMapViewController {
         let allAnnotations = mapView.annotations
         mapView.removeAnnotations(allAnnotations)
         let annotations = Array(requests.values).filter{!$0.is_request_for_others}
-        mapView.addAnnotations(annotations)
+        var anpoints:[MKPointAnnotation] = [MKPointAnnotation]()
+        for annotation in annotations{
+            let ann = MKPointAnnotation()
+            ann.coordinate = annotation.coordinate
+            anpoints.append(ann)
+        }
+        mapView.addAnnotations(anpoints)
     }
     
     /**
@@ -98,7 +104,7 @@ extension ResourceNeedsMapViewController {
         mapView.setRegion(region, animated: true)
     }
     
-    func showDirection(sourceLocation: CLLocationCoordinate2D, destinationLocation: CLLocationCoordinate2D) {
+   /* func showDirection(sourceLocation: CLLocationCoordinate2D, destinationLocation: CLLocationCoordinate2D) {
         let sourcePlaceMark = MKPlacemark(coordinate: sourceLocation)
         let destinationPlaceMark = MKPlacemark(coordinate: destinationLocation)
         
@@ -123,7 +129,7 @@ extension ResourceNeedsMapViewController {
             let rect = route.polyline.boundingMapRect
             self.mapView.setRegion(MKCoordinateRegionForMapRect(rect), animated: true)
         }
-    }
+    }*/
 }
 
 // MARK: AddToiletViewController -> CLLocationManagerDelegate
@@ -184,5 +190,6 @@ extension ResourceNeedsMapViewController: RAAddressTypeaheadProtocol {
         setRegion(placemark.coordinate.latitude,
                   longitude: placemark.coordinate.longitude,
                   delta: 0.02)
+        
     }
 }
