@@ -27,7 +27,6 @@ class ResourceNeedsMapViewController: UIViewController {
 
         initialise()
         getResources()
-        
         getCurrentLocation()
     }
 
@@ -61,6 +60,7 @@ extension ResourceNeedsMapViewController {
     }
     
     func updateMap() {
+        requests = requests.filter{!$0.is_request_for_others}
         let allAnnotations = mapView.annotations
         mapView.removeAnnotations(allAnnotations)
         mapView.addAnnotations(requests)
@@ -80,12 +80,11 @@ extension ResourceNeedsMapViewController {
     }
     
     @objc func onTouchMapAnnotation(_ sender: MKAnnotation) {
-        // TODO: action on click annotation
+        // remove
     }
 }
 
 // MARK: AddToiletViewController -> CLLocationManagerDelegate
-
 extension ResourceNeedsMapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         locationManager.stopUpdatingLocation()
@@ -102,13 +101,10 @@ extension ResourceNeedsMapViewController: CLLocationManagerDelegate {
 }
 
 // MARK: MapViewController -> MKMapViewDelegate
-
 extension ResourceNeedsMapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        
         guard let annotation = annotation as? RequestModel else { return nil }
-        
         var view: MKMarkerAnnotationView
         
         if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: C.mapAnnotationIdentifier)
@@ -120,11 +116,19 @@ extension ResourceNeedsMapViewController: MKMapViewDelegate {
             view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: C.mapAnnotationIdentifier)
             view.canShowCallout = true
             view.calloutOffset = CGPoint(x: -5, y: 5)
-            let button = UIButton(type: .detailDisclosure)
-            button.addTarget(self, action: #selector(onTouchMapAnnotation(_:)), for: .touchUpInside)
-            view.rightCalloutAccessoryView = button
+            view.rightCalloutAccessoryView = nil
         }
         return view
+    }
+
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        guard let coordinate = locationManager.location?.coordinate
+            else {
+                let simpleAlert = Alert.errorAlert(title: "Error", message: "Unable to draw directions")
+                self.present(simpleAlert, animated: true)
+                return
+            }
+        showDirection(sourceLocation: coordinate, destinationLocation: (view.annotation?.coordinate ?? coordinate))
     }
 
     func showDirection(sourceLocation: CLLocationCoordinate2D, destinationLocation: CLLocationCoordinate2D) {
@@ -140,7 +144,8 @@ extension ResourceNeedsMapViewController: MKMapViewDelegate {
         directions.calculate { (response, error) in
             guard let directionResonse = response else {
                 if let error = error {
-                    print("we have error getting directions==\(error.localizedDescription)")
+                    let simpleAlert = Alert.errorAlert(title: "Error", message: error.localizedDescription)
+                    self.present(simpleAlert, animated: true)
                 }
                 return
             }
