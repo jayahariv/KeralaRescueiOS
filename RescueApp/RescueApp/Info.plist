@@ -41,5 +41,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Data will only be used locally in your device to filter results and show nearby, NO DATA will be send to server. </string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Data will only be used locally in your device to filter results and show nearby, NO DATA will be send to server. </string>
 </dict>
 </plist>

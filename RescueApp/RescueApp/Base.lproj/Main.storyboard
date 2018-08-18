@@ -44,7 +44,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="901.60000000000002" y="-581.55922038980509"/>
+            <point key="canvasLocation" x="855" y="-1033"/>
         </scene>
         <!--Resource Needs List View Controller-->
         <scene sceneID="Bq4-72-KPm">
@@ -136,6 +136,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nSV-L5-ufA"/>
                     </view>
+                    <navigationItem key="navigationItem" id="zZk-69-R6X"/>
                     <connections>
                         <outlet property="mapView" destination="o8H-zI-JY0" id="pGT-Cd-Enm"/>
                     </connections>
@@ -155,12 +156,15 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="2uX-qe-92Z"/>
+                        <segue destination="tik-t5-mYt" kind="relationship" relationship="rootViewController" id="tba-6t-ys2"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QDC-2x-DUZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="112.8" y="-579.76011994002999"/>
+            <point key="canvasLocation" x="130" y="-537"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="tba-6t-ys2"/>
+    </inferredMetricsTieBreakers>
 </document>
