@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import CouchbaseLiteSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    var database: Database?
 }
 

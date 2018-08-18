@@ -33,6 +33,7 @@ class ResourceNeedsListViewController: UIViewController {
 
 extension ResourceNeedsListViewController {
     func configureUI() {
+        title = "Help Kerala"
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Map", style: .plain, target: self, action: #selector(onMap(_:)))
     }
 }
@@ -45,7 +46,7 @@ extension ResourceNeedsListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? ListViewCell
-        var model = Array(ResultOptimizer.shared.filtered.values)[indexPath.row]
+        let model = Array(ResultOptimizer.shared.filtered.values)[indexPath.row]
         cell?.nameLabel.text = model.requestee
         cell?.locationLabel.text = model.location
         return cell!

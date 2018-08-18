@@ -23,6 +23,7 @@ final class ResultOptimizer: NSObject {
     
     func filter(_ list: [RequestModel]) {
         
+        
         for request in list {
             
             guard let phone = request.requestee_phone else {
@@ -45,9 +46,24 @@ final class ResultOptimizer: NSObject {
                 continue;
             }
             
+            guard
+                request.needmed ||
+                request.needfood ||
+                request.needcloth ||
+                request.needwater ||
+                (request.needothers != nil) ||
+                request.needrescue ||
+                request.needtoilet ||
+                request.needkit_util
+            else {
+                continue;
+            }
+            
             filtered[phone] = request
             locations[locationName] = phone
             
         }
+        
+        print("optmized: \(list.count - filtered.values.count)")
     }
 }
