@@ -78,6 +78,10 @@ extension ResourceNeedsMapViewController {
             locationManager.startUpdatingLocation()
         }
     }
+    
+    @objc func onTouchMapAnnotation(_ sender: MKAnnotation) {
+        // TODO: action on click annotation
+    }
 }
 
 // MARK: AddToiletViewController -> CLLocationManagerDelegate
@@ -116,7 +120,9 @@ extension ResourceNeedsMapViewController: MKMapViewDelegate {
             view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: C.mapAnnotationIdentifier)
             view.canShowCallout = true
             view.calloutOffset = CGPoint(x: -5, y: 5)
-            view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+            let button = UIButton(type: .detailDisclosure)
+            button.addTarget(self, action: #selector(onTouchMapAnnotation(_:)), for: .touchUpInside)
+            view.rightCalloutAccessoryView = button
         }
         return view
     }
