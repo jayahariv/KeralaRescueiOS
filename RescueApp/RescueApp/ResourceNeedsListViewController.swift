@@ -61,4 +61,12 @@ extension ResourceNeedsListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? ResourseNeedsDetailViewController else {
+            return
+        }
+        vc.selectedRescue = Array(ResultOptimizer.shared.filtered.values)[indexPath.row]
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
