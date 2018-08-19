@@ -6,7 +6,7 @@
 //  Copyright © 2018 Jayahari Vavachan. All rights reserved.
 //
 
-typealias ResourceNeeds = () -> Void
+typealias ResourceNeeds = (_ requests: [RequestModel]) -> Void
 
 import Foundation
 import Reachability
@@ -22,23 +22,49 @@ class ApiClient: NSObject {
         return instance
     }
     
-    func getOfflineData(completion: @escaping ResourceNeeds) {
-        getOfflineResourceNeeds(completion: completion)
+    // MARK: Get Public Methods
+    
+    /**
+     gets the offline data
+     
+     - returns: array of requests
+     */
+    func getOfflineData() -> [RequestModel] {
+        return getOfflineResourceNeeds()
     }
     
+    /**
+     get specifically the online data
+     
+     - parameters: completeion handler
+     */
+    func getOnlineData(completion: @escaping ResourceNeeds) {
+        getOnlineResourceNeeds(completion: completion)
+    }
+    
+    /**
+     get offline data if present, else online data
+     
+     - parameters: completion handler
+     */
     func getResourceNeeds(completion: @escaping ResourceNeeds) {
         
+        let url = URL(string: APIConstants.RESOURCE_URL)
         if let doc = database?.document(withID: "json") {
             let str = doc.string(forKey: "json")
             if str != nil {
-                getOfflineResourceNeeds(completion: completion)
-                return
+                return completion(getOfflineResourceNeeds())
             }
             
+        } else if let reachable = (try? url?.checkResourceIsReachable()) ?? false, reachable {
+            getOnlineResourceNeeds(completion: completion)
         }
-//        fetchFileDataAndSave()
-//        getOfflineResourceNeeds(completion: completion)
-        getOnlineResourceNeeds(completion: completion)
+        
+        // fetch the locally saved data
+        fetchFileDataAndSave()
+        
+        completion(getOfflineResourceNeeds())
+        
     }
 }
 
@@ -55,31 +81,24 @@ private extension ApiClient {
         }
     }
     
-    func getOfflineResourceNeeds(completion: @escaping ResourceNeeds) {
+    func getOfflineResourceNeeds() -> [RequestModel] {
         guard let db = database else {
-            return
+            return []
         }
         
         let decoder = JSONDecoder()
-        
-        do {
-            
-            let document = db.document(withID: "json")
-            
-            if let documentData = document?.string(forKey: "json")?.data(using: .utf8) {
-                
+        let document = db.document(withID: "json")
+        if let documentData = document?.string(forKey: "json")?.data(using: .utf8) {
+            do {
                 let requestsData = try decoder.decode(RequestsData.self, from: documentData)
-                
-//                let requests = try decoder.decode([RequestModel].self, from: documentData)
-                
                 ResultOptimizer.shared.save(requestsData.data)
+                return requestsData.data
             }
-            
-            completion()
-            
-        } catch {
-            print(error)
+            catch {
+                print(error)
+            }
         }
+        return []
     }
     
     func getOnlineResourceNeeds(completion: @escaping ResourceNeeds) {
@@ -92,18 +111,23 @@ private extension ApiClient {
             
             // TODO: Handle all error conditions
             
+            func onError() {
+                completion([])
+                return
+            }
+            
             guard error == nil else {
-                completion()
+                onError()
                 return
             }
             
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
-                completion()
+                onError()
                 return
             }
             
             guard let data = data else {
-                completion()
+                onError()
                 return
             }
             
@@ -122,11 +146,13 @@ private extension ApiClient {
                 // filter the result
                 ResultOptimizer.shared.save(requestsData.data)
                 
-                completion()
+                completion(requestsData.data)
                 
             } catch {
                 print(error)
             }
+            
+            
         }
         dataTask.resume()
     }
