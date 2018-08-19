@@ -34,24 +34,25 @@ class ResourseNeedsDetailViewController: UIViewController {
         var detailsString = ""
         if let phone = selectedRescue?.requestee_phone {
             detailsString = phone
-            detailsString = detailsString + "/n"
+            detailsString = detailsString + "\n"
         }
-        if let rescueDetail = selectedRescue?.detailrescue {
+        if let rescueDetail = selectedRescue?.detailrescue, !rescueDetail.isEmpty {
             detailsString = detailsString + rescueDetail
-            detailsString = detailsString + "/n"
+            detailsString = detailsString + "\n"
         }
-        if let medDetails = selectedRescue?.detailmed {
+        if let medDetails = selectedRescue?.detailmed, !medDetails.isEmpty {
             detailsString = detailsString + medDetails
-            detailsString = detailsString + "/n"
+            detailsString = detailsString + "\n"
         }
-        if let foodDetail = selectedRescue?.detailfood {
+        if let foodDetail = selectedRescue?.detailfood, !foodDetail.isEmpty {
             detailsString = detailsString + foodDetail
-            detailsString = detailsString + "/n"
+            detailsString = detailsString + "\n"
         }
-        if let waterDetail = selectedRescue?.detailwater {
+        if let waterDetail = selectedRescue?.detailwater, !waterDetail.isEmpty {
             detailsString = detailsString + waterDetail
-            detailsString = detailsString + "/n"
+            detailsString = detailsString + "\n"
         }
+        details.text = detailsString
         dateLabel.text = selectedRescue?.dateadded
     }
     
