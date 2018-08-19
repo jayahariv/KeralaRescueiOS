@@ -27,15 +27,29 @@ class ApiClient: NSObject {
     }
     
     func getResourceNeeds(completion: @escaping ResourceNeeds) {
-        guard reachability.connection != .none else {
+        
+        if let _ = database?.document(withID: "json") {
             getOfflineResourceNeeds(completion: completion)
             return
+        } else {
+            fetchFileDataAndSave()
+            getOfflineResourceNeeds(completion: completion)
         }
-        getOnlineResourceNeeds(completion: completion)
     }
 }
 
 private extension ApiClient {
+    
+    func fetchFileDataAndSave() {
+        if let path = Bundle.main.path(forResource: "Data", ofType: "plist"),
+            let myDict = NSDictionary(contentsOfFile: path),
+            let json = myDict["data"] as? String
+        {
+            let doc = MutableDocument(id: "json")
+            doc.setString(json, forKey: "json")
+            try? database?.saveDocument(doc)
+        }
+    }
     
     func getOfflineResourceNeeds(completion: @escaping ResourceNeeds) {
         guard let db = database else {
