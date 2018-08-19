@@ -17,6 +17,7 @@ class HomeViewController: UIViewController {
         static let waterSegueID = "waterRequest"
         static let medicineSegueID = "medicineRequest"
         static let clothesSegueID = "clothesRequest"
+        static let alertMessage = "Data we provide is getting from keralarescue.in. We will fetch through the service or if not saved data on 19/08/2018."
     }
     
     private var requests:  [String: RequestModel] {
