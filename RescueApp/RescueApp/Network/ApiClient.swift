@@ -28,13 +28,17 @@ class ApiClient: NSObject {
     
     func getResourceNeeds(completion: @escaping ResourceNeeds) {
         
-        if let _ = database?.document(withID: "json") {
-            getOfflineResourceNeeds(completion: completion)
-            return
-        } else {
-            fetchFileDataAndSave()
-            getOfflineResourceNeeds(completion: completion)
+        if let doc = database?.document(withID: "json") {
+            let str = doc.string(forKey: "json")
+            if str != nil {
+                getOfflineResourceNeeds(completion: completion)
+                return
+            }
+            
         }
+//        fetchFileDataAndSave()
+//        getOfflineResourceNeeds(completion: completion)
+        getOnlineResourceNeeds(completion: completion)
     }
 }
 
@@ -64,9 +68,11 @@ private extension ApiClient {
             
             if let documentData = document?.string(forKey: "json")?.data(using: .utf8) {
                 
-                let requests = try decoder.decode([RequestModel].self, from: documentData)
+                let requestsData = try decoder.decode(RequestsData.self, from: documentData)
                 
-                ResultOptimizer.shared.save(requests)
+//                let requests = try decoder.decode([RequestModel].self, from: documentData)
+                
+                ResultOptimizer.shared.save(requestsData.data)
             }
             
             completion()
@@ -111,10 +117,10 @@ private extension ApiClient {
             
             do {
                 
-                let requests = try decoder.decode([RequestModel].self, from: data)
+                let requestsData = try decoder.decode(RequestsData.self, from: data)
                 
                 // filter the result
-                ResultOptimizer.shared.save(requests)
+                ResultOptimizer.shared.save(requestsData.data)
                 
                 completion()
                 
