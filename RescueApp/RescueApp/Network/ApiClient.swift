@@ -52,7 +52,7 @@ private extension ApiClient {
                 
                 let requests = try decoder.decode([RequestModel].self, from: documentData)
                 
-                ResultOptimizer.shared.filter(requests)
+                ResultOptimizer.shared.save(requests)
             }
             
             completion()
@@ -66,20 +66,24 @@ private extension ApiClient {
         guard let url = URL(string: APIConstants.RESOURCE_URL) else {
             return
         }
-        let urlRequest = URLRequest(url: url)
+        var urlRequest = URLRequest(url: url)
+        urlRequest.timeoutInterval = 10
         let dataTask = defaultSession.dataTask(with: urlRequest) { [weak self] (data, response, error) in
             
             // TODO: Handle all error conditions
             
             guard error == nil else {
+                completion()
                 return
             }
             
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
+                completion()
                 return
             }
             
             guard let data = data else {
+                completion()
                 return
             }
             
@@ -96,7 +100,7 @@ private extension ApiClient {
                 let requests = try decoder.decode([RequestModel].self, from: data)
                 
                 // filter the result
-                ResultOptimizer.shared.filter(requests)
+                ResultOptimizer.shared.save(requests)
                 
                 completion()
                 

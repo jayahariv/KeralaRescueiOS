@@ -18,6 +18,10 @@ final class Overlay: NSObject {
     private var view: UIView?
     
     public func show() {
+        showWithMessage()
+    }
+    
+    public func showWithMessage(_ message: String? = nil) {
         
         guard view == nil else {
             return
@@ -31,18 +35,36 @@ final class Overlay: NSObject {
                 
                 let darkBackground = UIView(frame: windowFrame)
                 darkBackground.backgroundColor = UIColor.black
-                darkBackground.alpha = 0.25
+                darkBackground.alpha = 0.85
                 self.view!.addSubview(darkBackground)
                 
-                let activity = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+                
+                let center = self.view!.center
+                let activity = UIActivityIndicatorView(activityIndicatorStyle: .white)
                 self.view?.addSubview(activity)
-                activity.center = self.view!.center
+                activity.center = center
                 activity.startAnimating()
+                
+                if message != nil {
+                    
+                    let padding: CGFloat = 20
+                    var frame = activity.frame
+                    frame.origin.y += (frame.size.height + padding)
+                    frame.size.width = 400
+                    let label = UILabel(frame: frame)
+                    label.center = center
+                    label.center.y += activity.frame.size.height + padding
+                    label.text = message
+                    label.textAlignment = .center
+                    label.textColor = UIColor.yellow
+                    self.view?.addSubview(label)
+                }
                 delegate.window?.addSubview(self.view!)
             }
         }
-        
     }
+    
+    
     
     public func remove() {
         DispatchQueue.main.async { [unowned self] in

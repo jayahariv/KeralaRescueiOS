@@ -14,9 +14,7 @@ class ResourceNeedsMapViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     
-    private var requests:  [String: RequestModel] {
-        return ResultOptimizer.shared.filtered
-    }
+    var requests =  [RequestModel]()
     private let locationManager = CLLocationManager()
     
     struct C {
@@ -28,8 +26,8 @@ class ResourceNeedsMapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initialise()
-        loadResourceIfNotAlreadyPresent()
         getCurrentLocation()
+        updateMap()
     }
     
     @IBAction func onTouchUpList(_ sender: Any) {
@@ -50,20 +48,11 @@ class ResourceNeedsMapViewController: UIViewController {
 extension ResourceNeedsMapViewController {
     
     func initialise() {
-        //set delegate for mapview
         self.mapView.delegate = self
         title = "Help Kerala"
     }
     
-    
-    func loadResourceIfNotAlreadyPresent() {
-        if let db = try? Database(name: "RescueApp"), let _ = db.document(withID: "json") {
-            getOfflineData()
-        } else {
-            getResources()
-        }
-    }
-    
+
     func getResources() {
         Overlay.shared.show()
         ApiClient.shared.getResourceNeeds { [weak self] in
@@ -72,18 +61,12 @@ extension ResourceNeedsMapViewController {
         }
     }
     
-    func getOfflineData() {
-        ApiClient.shared.getOfflineData { [weak self] in
-            self?.updateMap()
-        }
-    }
-    
     func updateMap() {
         DispatchQueue.main.async { [weak self] in
             let allAnnotations = self?.mapView.annotations ?? []
             self?.mapView.removeAnnotations(allAnnotations)
-            if let values = self?.requests.values {
-                let annotations = Array(values).filter({ (request) -> Bool in
+            if let values = self?.requests {
+                let annotations = values.filter({ (request) -> Bool in
                     return !request.is_request_for_others
                 })
                 self?.mapView.addAnnotations(annotations)

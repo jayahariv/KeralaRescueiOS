@@ -18,33 +18,78 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uzg-vc-JIF">
-                                <rect key="frame" x="99" y="300.5" width="176" height="66"/>
-                                <color key="backgroundColor" red="0.086274509799999996" green="0.023529411760000001" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <inset key="contentEdgeInsets" minX="24" minY="24" maxX="24" maxY="24"/>
-                                <state key="normal" title="Provide Resources">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <segue destination="tik-t5-mYt" kind="show" id="ME3-bq-Vap"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="qGM-Pt-3Nk">
+                                <rect key="frame" x="64.5" y="175.5" width="246" height="156"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="1zR-hA-t0C">
+                                        <rect key="frame" x="0.0" y="0.0" width="246" height="66"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VI0-uP-C3c">
+                                                <rect key="frame" x="0.0" y="0.0" width="111" height="66"/>
+                                                <color key="backgroundColor" red="0.27031259062095242" green="0.46845220824454042" blue="0.92219293420084836" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <inset key="contentEdgeInsets" minX="24" minY="24" maxX="24" maxY="24"/>
+                                                <state key="normal" title="Food">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="tik-t5-mYt" kind="show" identifier="foodRequest" id="ebf-Ts-sHy"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6rB-WG-kB9">
+                                                <rect key="frame" x="135" y="0.0" width="111" height="66"/>
+                                                <color key="backgroundColor" red="0.27031259062095242" green="0.46845220824454042" blue="0.92219293420084836" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <inset key="contentEdgeInsets" minX="24" minY="24" maxX="24" maxY="24"/>
+                                                <state key="normal" title="Water">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="tik-t5-mYt" kind="show" identifier="waterRequest" id="LWU-Wg-4gv"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="Kga-24-eQB">
+                                        <rect key="frame" x="0.0" y="90" width="246" height="66"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h55-V0-KUn">
+                                                <rect key="frame" x="0.0" y="0.0" width="111" height="66"/>
+                                                <color key="backgroundColor" red="0.27031259062095242" green="0.46845220824454042" blue="0.92219293420084836" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <inset key="contentEdgeInsets" minX="24" minY="24" maxX="24" maxY="24"/>
+                                                <state key="normal" title="Medicine">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="tik-t5-mYt" kind="show" identifier="medicineRequest" id="qvC-f2-Ef5"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v7Q-y4-LFj">
+                                                <rect key="frame" x="135" y="0.0" width="111" height="66"/>
+                                                <color key="backgroundColor" red="0.27031259062095242" green="0.46845220824454042" blue="0.92219293420084836" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <inset key="contentEdgeInsets" minX="24" minY="24" maxX="24" maxY="24"/>
+                                                <state key="normal" title="Clothes">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="tik-t5-mYt" kind="show" identifier="clothesRequest" id="dmj-nj-iNX"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Uzg-vc-JIF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DKk-XZ-r4P"/>
-                            <constraint firstItem="Uzg-vc-JIF" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="qOu-SS-NOy"/>
+                            <constraint firstItem="qGM-Pt-3Nk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="N9f-1I-b3y"/>
+                            <constraint firstItem="qGM-Pt-3Nk" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-80" id="lsK-3g-RaM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="mu5-pv-dXR"/>
-                    <connections>
-                        <outlet property="provideResource" destination="Uzg-vc-JIF" id="TB7-0t-FAx"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="855" y="-1033"/>
+            <point key="canvasLocation" x="916" y="-580"/>
         </scene>
         <!--Typeahead Delegate-->
         <scene sceneID="mu1-AS-XV2">
@@ -113,12 +158,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="tik-t5-mYt" kind="relationship" relationship="rootViewController" id="tba-6t-ys2"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Tah-lv-q0b"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QDC-2x-DUZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="130" y="-537"/>
+            <point key="canvasLocation" x="22" y="-581"/>
         </scene>
         <!--Resource Needs List View Controller-->
         <scene sceneID="lX3-Yu-CTO">
@@ -351,6 +396,6 @@
         <image name="call" width="40" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="tba-6t-ys2"/>
+        <segue reference="dmj-nj-iNX"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -10,6 +10,13 @@ Abstract:
 
 import Foundation
 
+enum RequestType {
+    case food
+    case water
+    case medicine
+    case clothes
+}
+
 final class ResultOptimizer: NSObject {
     
     private static var instance = ResultOptimizer()
@@ -20,10 +27,12 @@ final class ResultOptimizer: NSObject {
     
     var locations = [String: String]()
     var filtered = [String: RequestModel]()
+    var forFood = [RequestModel]()
+    var forWater = [RequestModel]()
+    var forMedicine = [RequestModel]()
+    var forClothes = [RequestModel]()
     
-    func filter(_ list: [RequestModel]) {
-        
-        
+    func save(_ list: [RequestModel]) {
         for request in list {
             
             guard let phone = request.requestee_phone else {
@@ -59,11 +68,40 @@ final class ResultOptimizer: NSObject {
                 continue;
             }
             
+            if request.needfood {
+                forFood.append(request)
+            }
+            
+            if request.needwater {
+                forWater.append(request)
+            }
+            
+            if request.needmed {
+                forMedicine.append(request)
+            }
+            
+            if request.needcloth {
+                forClothes.append(request)
+            }
+            
             filtered[phone] = request
             locations[locationName] = phone
             
         }
         
         print("optmized: \(list.count - filtered.values.count)")
+    }
+    
+    func getRequests( _ type: RequestType) -> [RequestModel]{
+        switch type {
+        case .food:
+            return forFood
+        case .water:
+            return forWater
+        case .medicine:
+            return forMedicine
+        case .clothes:
+            return forClothes
+        }
     }
 }
