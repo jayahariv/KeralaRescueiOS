@@ -147,6 +147,10 @@ extension ResourceNeedsMapViewController: CLLocationManagerDelegate {
         }
         
     }
+    
+    @objc func onTouchMapAnnotation() {
+        
+    }
 }
 
 // MARK: MapViewController -> MKMapViewDelegate
@@ -154,17 +158,19 @@ extension ResourceNeedsMapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard let annotation = annotation as? RequestModel else { return nil }
-        var view: RAAnnotationView
+        var view: MKAnnotationView
         
-        if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: C.mapAnnotationIdentifier)
-            as? RAAnnotationView {
+        if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: C.mapAnnotationIdentifier) {
             dequeuedView.annotation = annotation
             view = dequeuedView
         } else {
-            view = RAAnnotationView(annotation: annotation, reuseIdentifier: C.mapAnnotationIdentifier)
+            view = MKAnnotationView(annotation: annotation, reuseIdentifier: C.mapAnnotationIdentifier)
         }
         view.canShowCallout = true
         view.image =  UIImage(named: "myLocation")
+        let button = UIButton(type: .infoLight)
+        button.addTarget(self, action: #selector(onTouchMapAnnotation), for: .touchUpInside)
+        view.rightCalloutAccessoryView = button
         return view
     }
     
