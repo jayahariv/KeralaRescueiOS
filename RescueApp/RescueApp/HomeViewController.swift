@@ -58,7 +58,7 @@ extension HomeViewController {
     
     func getResources() {
         Overlay.shared.showWithMessage("Please wait loading data...")
-        ApiClient.shared.getResourceNeeds {
+        ApiClient.shared.getResourceNeeds { (_) in
             Overlay.shared.remove()
         }
     }
