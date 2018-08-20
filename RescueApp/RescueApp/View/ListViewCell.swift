@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 class ListViewCell: UITableViewCell {
-    @IBOutlet weak var phoneImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     
