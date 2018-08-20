@@ -13,6 +13,9 @@ import UIKit
 class ResourceNeedsListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    
+    var requests = [RequestModel]()
+    var requestsType: RequestType!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +23,7 @@ class ResourceNeedsListViewController: UIViewController {
     }
     
     // MARK: Button Actions
-    
+    // UNUSED METHOD FOR NOW
     @objc func onMap(_ sender: UIButton) {
         UIView.beginAnimations("View Flip", context: nil)
         UIView.setAnimationDuration(1.0)
@@ -33,20 +36,19 @@ class ResourceNeedsListViewController: UIViewController {
 
 extension ResourceNeedsListViewController {
     func configureUI() {
-        title = "Help Kerala"
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Map", style: .plain, target: self, action: #selector(onMap(_:)))
+        title = requestsType.rawValue
     }
 }
 
 extension ResourceNeedsListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ResultOptimizer.shared.filtered.count
+        return requests.count
 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? ListViewCell
-        let model = Array(ResultOptimizer.shared.filtered.values)[indexPath.row]
+        let model = requests[indexPath.row]
         cell?.nameLabel.text = model.requestee
         cell?.locationLabel.text = model.location
         return cell!
@@ -66,7 +68,7 @@ extension ResourceNeedsListViewController: UITableViewDelegate {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? ResourseNeedsDetailViewController else {
             return
         }
-        vc.selectedRescue = Array(ResultOptimizer.shared.filtered.values)[indexPath.row]
+        vc.selectedRescue = requests[indexPath.row]
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

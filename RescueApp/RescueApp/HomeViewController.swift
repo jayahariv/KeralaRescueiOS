@@ -10,7 +10,8 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    @IBOutlet weak var provideResource: UIButton!
+    @IBOutlet weak var headingLabel: UILabel!
+    @IBOutlet weak var subHeadingLabel: UILabel!
     
     private struct C {
         static let foodSegueID = "foodRequest"
@@ -18,6 +19,8 @@ class HomeViewController: UIViewController {
         static let medicineSegueID = "medicineRequest"
         static let clothesSegueID = "clothesRequest"
         static let alertMessage = "Data we provide is getting from keralarescue.in. We will fetch through the service or if not saved data on 19/08/2018."
+        static let headingLabelText = "Click below if you are a volunteer and need to find the people who are in need. "
+        static let subHeadingLabelText = "If you have a spare bottle of water or an extra meal, you can look for people near you and help them. "
     }
     
     private var requests:  [String: RequestModel] {
@@ -35,25 +38,41 @@ class HomeViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         var requests = [RequestModel]()
+        var requestType: RequestType!
         if segue.identifier == C.foodSegueID {
             requests = ResultOptimizer.shared.forFood
+            requestType = .food
         } else if segue.identifier == C.waterSegueID {
             requests = ResultOptimizer.shared.forWater
+            requestType = .water
         } else if segue.identifier == C.medicineSegueID {
             requests = ResultOptimizer.shared.forMedicine
+            requestType = .medicine
         } else if segue.identifier == C.clothesSegueID {
             requests = ResultOptimizer.shared.forClothes
+            requestType = .clothes
         }
         
-        let vc =  segue.destination as! ResourceNeedsMapViewController
+        let vc =  segue.destination as! ResourceNeedsListViewController
         vc.requests = requests
+        vc.requestsType = requestType
     }
 }
 
 extension HomeViewController {
     
     func configureUI() {
-        // TODO: Set any UIs
+        // title color
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        
+        // back button
+        let backItem = UIBarButtonItem()
+        backItem.title = "Home"
+        navigationItem.backBarButtonItem = backItem
+        
+        // set texts
+        headingLabel.text = C.headingLabelText
+        subHeadingLabel.text = C.subHeadingLabelText
     }
     
     func getResources() {
