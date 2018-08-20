@@ -56,6 +56,7 @@ class RequestFilterViewController: UIViewController {
     @IBAction func onApply(_ sender: Any) {
         
         print(requests.count)
+        print(requests)
         var filteredRequests = requests
         if let locationName = locationTextfield.text, locationName.count > 0 {
             filteredRequests = filterWithLocationName(locationName, requests: filteredRequests)
@@ -90,6 +91,13 @@ private extension RequestFilterViewController {
      */
     func configureUI() {
         navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        guard let _filterModel = appDelegate.filterModel else {
+            return
+        }
+        locationTextfield.text = _filterModel.locationName
+        keywordsTextfield.text = _filterModel.keyWord
+        timePeriods.titleLabel?.text = _filterModel.timePeriod
     }
     
     func refreshUI() {

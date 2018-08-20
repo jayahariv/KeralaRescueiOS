@@ -116,3 +116,13 @@ final class RequestModel: NSObject, Codable, MKAnnotation {
         case supply_details
     }
 }
+
+/**
+ Filter Request Model
+ */
+
+class FilterModel: NSObject {
+    var locationName:String = ""
+    var keyWord:String = ""
+    var timePeriod:String = ""
+}

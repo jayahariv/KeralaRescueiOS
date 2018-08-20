@@ -15,5 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     var database: Database?
+    var filterModel:FilterModel?
 }
 
