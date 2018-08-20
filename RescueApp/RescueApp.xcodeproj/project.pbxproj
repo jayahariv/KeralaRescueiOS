@@ -13,7 +13,7 @@
 		082230462127CB8700B7FBF2 /* ResultOptimizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082230452127CB8700B7FBF2 /* ResultOptimizer.swift */; };
 		0822304B2127E6F400B7FBF2 /* RAAddressTypeahead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0822304A2127E6F400B7FBF2 /* RAAddressTypeahead.swift */; };
 		0822304D2127E7F500B7FBF2 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0822304C2127E7F500B7FBF2 /* Utility.swift */; };
-		08D8A1962129025E00C4ED8F /* Data.plist in Resources */ = {isa = PBXBuildFile; fileRef = 08D8A1952129025E00C4ED8F /* Data.plist */; };
+		0864D51E212A45EC00DE403D /* OfflineData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0864D51D212A45EC00DE403D /* OfflineData.plist */; };
 		08FDDE5F2129F9D0006B84BE /* RequestsDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FDDE5E2129F9D0006B84BE /* RequestsDictionary.swift */; };
 		28386F612128191E0012F429 /* TagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28386F5D2128191E0012F429 /* TagCollectionViewCell.xib */; };
 		28386F622128191E0012F429 /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28386F5E2128191E0012F429 /* TagCollectionViewCell.swift */; };
@@ -77,7 +77,7 @@
 		082230452127CB8700B7FBF2 /* ResultOptimizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultOptimizer.swift; sourceTree = "<group>"; };
 		0822304A2127E6F400B7FBF2 /* RAAddressTypeahead.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAAddressTypeahead.swift; sourceTree = "<group>"; };
 		0822304C2127E7F500B7FBF2 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
-		08D8A1952129025E00C4ED8F /* Data.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Data.plist; sourceTree = "<group>"; };
+		0864D51D212A45EC00DE403D /* OfflineData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = OfflineData.plist; sourceTree = "<group>"; };
 		08FDDE5E2129F9D0006B84BE /* RequestsDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsDictionary.swift; sourceTree = "<group>"; };
 		0C95AB2BC92A00D878E0C564 /* Pods-RescueAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RescueAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RescueAppUITests/Pods-RescueAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		1CE4AA0045A339F04DBAB0DA /* Pods_RescueAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RescueAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -159,7 +159,7 @@
 			children = (
 				0822304C2127E7F500B7FBF2 /* Utility.swift */,
 				082230432127A72F00B7FBF2 /* Overlay.swift */,
-				08D8A1952129025E00C4ED8F /* Data.plist */,
+				0864D51D212A45EC00DE403D /* OfflineData.plist */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -390,7 +390,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08D8A1962129025E00C4ED8F /* Data.plist in Resources */,
+				0864D51E212A45EC00DE403D /* OfflineData.plist in Resources */,
 				E9DBF9742127806A00CFD933 /* LaunchScreen.storyboard in Resources */,
 				E9DBF9712127806A00CFD933 /* Assets.xcassets in Resources */,
 				28386F612128191E0012F429 /* TagCollectionViewCell.xib in Resources */,

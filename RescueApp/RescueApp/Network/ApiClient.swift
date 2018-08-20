@@ -58,6 +58,7 @@ class ApiClient: NSObject {
             
         } else if let reachable = (try? url?.checkResourceIsReachable()) ?? false, reachable {
             getOnlineResourceNeeds(completion: completion)
+            return
         }
         
         // fetch the locally saved data
@@ -71,7 +72,7 @@ class ApiClient: NSObject {
 private extension ApiClient {
     
     func fetchFileDataAndSave() {
-        if let path = Bundle.main.path(forResource: "Data", ofType: "plist"),
+        if let path = Bundle.main.path(forResource: "OfflineData", ofType: "plist"),
             let myDict = NSDictionary(contentsOfFile: path),
             let json = myDict["data"] as? String
         {
