@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import MapKit
+import MessageUI
 
 class ResourseNeedsDetailViewController: UIViewController {
     @IBOutlet weak var nameAndDist: UILabel!
@@ -68,4 +69,23 @@ class ResourseNeedsDetailViewController: UIViewController {
         formatter.dateFormat = "dd-MM-yyyy"
         return formatter.string(from: _date)
     }
+    
+    @IBAction func onWeCare(_ sender: Any) {
+        // todo send an sms saying. "we will overcome, and we too care for you."
+        if (MFMessageComposeViewController.canSendText()) {
+            let controller = MFMessageComposeViewController()
+            controller.body = "We all care for you. Together we will overcome!"
+            controller.recipients = ["123456789"]
+            controller.messageComposeDelegate = self
+            present(controller, animated: true, completion: nil)
+        }
+    }
+}
+
+extension ResourseNeedsDetailViewController: MFMessageComposeViewControllerDelegate {
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
 }
