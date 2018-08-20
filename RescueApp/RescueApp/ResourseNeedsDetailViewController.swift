@@ -70,8 +70,14 @@ class ResourseNeedsDetailViewController: UIViewController {
         return formatter.string(from: _date)
     }
     
+    /**
+     on click We Care button, we will send an SMS, mentioning we all care for them.  giving a hope!!
+     
+     - todo: send only one message to one person.
+     - notice: receipent number need to mention and connect to IB
+     */
     @IBAction func onWeCare(_ sender: Any) {
-        // todo send an sms saying. "we will overcome, and we too care for you."
+        // todo send this only once to a single person
         if (MFMessageComposeViewController.canSendText()) {
             let controller = MFMessageComposeViewController()
             controller.body = "We all care for you. Together we will overcome!"
