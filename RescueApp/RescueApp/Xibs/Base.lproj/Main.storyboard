@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9yW-Ot-PYU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9yW-Ot-PYU">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,36 +10,85 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Kerala Rescue-->
+        <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="RescueApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="qGM-Pt-3Nk">
-                                <rect key="frame" x="84" y="175.66666666666666" width="246" height="155.99999999999997"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PIy-LI-Qxy">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="160"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="1zR-hA-t0C">
-                                        <rect key="frame" x="0.0" y="0.0" width="246" height="66"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KERALA RESCUE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5P4-fV-pEn">
+                                        <rect key="frame" x="8" y="26" width="398" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="29" id="cIu-Np-wbI"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can also help people in need. Check each section for people in need. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lal-wa-b26">
+                                        <rect key="frame" x="20" y="88" width="374" height="28.666666666666671"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.28627450980392155" green="0.58823529411764708" blue="0.95686274509803926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="5P4-fV-pEn" firstAttribute="top" secondItem="PIy-LI-Qxy" secondAttribute="top" constant="26" id="5nR-cB-CzG"/>
+                                    <constraint firstAttribute="trailing" secondItem="5P4-fV-pEn" secondAttribute="trailing" constant="8" id="DJx-dN-fDb"/>
+                                    <constraint firstItem="lal-wa-b26" firstAttribute="leading" secondItem="PIy-LI-Qxy" secondAttribute="leading" constant="20" id="NOm-5S-8gl"/>
+                                    <constraint firstItem="5P4-fV-pEn" firstAttribute="leading" secondItem="PIy-LI-Qxy" secondAttribute="leading" constant="8" id="kr2-gw-kMw"/>
+                                    <constraint firstAttribute="height" constant="160" id="oiV-Rr-X9F"/>
+                                    <constraint firstItem="lal-wa-b26" firstAttribute="top" secondItem="5P4-fV-pEn" secondAttribute="bottom" constant="33" id="rWL-Vd-Fsa"/>
+                                    <constraint firstAttribute="trailing" secondItem="lal-wa-b26" secondAttribute="trailing" constant="20" id="s1c-Jl-9SF"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you have a spare bottle of water or an extra meal, you can look for people near you and help them. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRk-hW-cHH">
+                                <rect key="frame" x="16" y="476" width="382" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="cVp-H8-ukm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="qGM-Pt-3Nk">
+                                <rect key="frame" x="54.666666666666657" y="204" width="305" height="245"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="1zR-hA-t0C">
+                                        <rect key="frame" x="0.0" y="0.0" width="305" height="120"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VI0-uP-C3c">
-                                                <rect key="frame" x="0.0" y="0.0" width="111" height="66"/>
-                                                <color key="backgroundColor" red="0.27031259062095242" green="0.46845220824454042" blue="0.92219293420084836" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VI0-uP-C3c">
+                                                <rect key="frame" x="0.0" y="0.0" width="150" height="120"/>
+                                                <color key="backgroundColor" red="0.90980392156862744" green="0.39215686274509803" blue="0.46666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="150" id="8ic-Ms-t5f"/>
+                                                    <constraint firstAttribute="height" constant="120" id="Sqn-nD-m8S"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                 <inset key="contentEdgeInsets" minX="24" minY="24" maxX="24" maxY="24"/>
-                                                <state key="normal" title="Food">
+                                                <inset key="titleEdgeInsets" minX="-52" minY="80" maxX="0.0" maxY="0.0"/>
+                                                <inset key="imageEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <state key="normal" title="FOOD" image="Food">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
                                                     <segue destination="Unh-e1-xBk" kind="show" identifier="foodRequest" id="EjX-6F-mgH"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6rB-WG-kB9">
-                                                <rect key="frame" x="135" y="0.0" width="111" height="66"/>
-                                                <color key="backgroundColor" red="0.27031259062095242" green="0.46845220824454042" blue="0.92219293420084836" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6rB-WG-kB9">
+                                                <rect key="frame" x="155" y="0.0" width="150" height="120"/>
+                                                <color key="backgroundColor" red="0.3411764705882353" green="0.70980392156862748" blue="0.81568627450980391" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                 <inset key="contentEdgeInsets" minX="24" minY="24" maxX="24" maxY="24"/>
-                                                <state key="normal" title="Water">
+                                                <inset key="titleEdgeInsets" minX="-52" minY="80" maxX="0.0" maxY="0.0"/>
+                                                <inset key="imageEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <state key="normal" title="WATER" image="Water">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
@@ -48,25 +97,35 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="Kga-24-eQB">
-                                        <rect key="frame" x="0.0" y="90.000000000000028" width="246" height="66"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Kga-24-eQB">
+                                        <rect key="frame" x="0.0" y="125" width="305" height="120"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h55-V0-KUn">
-                                                <rect key="frame" x="0.0" y="0.0" width="111" height="66"/>
-                                                <color key="backgroundColor" red="0.27031259062095242" green="0.46845220824454042" blue="0.92219293420084836" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h55-V0-KUn">
+                                                <rect key="frame" x="0.0" y="0.0" width="150" height="120"/>
+                                                <color key="backgroundColor" red="0.47843137254901963" green="0.5490196078431373" blue="0.8901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="sfI-et-cZ6"/>
+                                                    <constraint firstAttribute="height" constant="120" id="tlv-zt-syQ"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                 <inset key="contentEdgeInsets" minX="24" minY="24" maxX="24" maxY="24"/>
-                                                <state key="normal" title="Medicine">
+                                                <inset key="titleEdgeInsets" minX="-52" minY="80" maxX="0.0" maxY="0.0"/>
+                                                <inset key="imageEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <state key="normal" title="MEDICINE" image="Medicine">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
                                                     <segue destination="Unh-e1-xBk" kind="show" identifier="medicineRequest" id="riX-iA-pbl"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v7Q-y4-LFj">
-                                                <rect key="frame" x="135" y="0.0" width="111" height="66"/>
-                                                <color key="backgroundColor" red="0.27031259062095242" green="0.46845220824454042" blue="0.92219293420084836" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v7Q-y4-LFj">
+                                                <rect key="frame" x="155" y="0.0" width="150" height="120"/>
+                                                <color key="backgroundColor" red="0.94117647058823528" green="0.7803921568627451" blue="0.31764705882352939" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                 <inset key="contentEdgeInsets" minX="24" minY="24" maxX="24" maxY="24"/>
-                                                <state key="normal" title="Clothes">
+                                                <inset key="titleEdgeInsets" minX="-52" minY="80" maxX="0.0" maxY="0.0"/>
+                                                <inset key="imageEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <state key="normal" title="CLOTHES" image="Clothes">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
@@ -77,39 +136,21 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click below if you are a volunteer and need to find the people who are in need. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lal-wa-b26">
-                                <rect key="frame" x="16" y="80" width="382" height="72"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="72" id="zGe-tA-LId"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you have a spare bottle of water or an extra meal, you can look for people near you and help them. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRk-hW-cHH">
-                                <rect key="frame" x="16" y="371" width="382" height="141"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="141" id="cVp-H8-ukm"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="qGM-Pt-3Nk" firstAttribute="top" secondItem="lal-wa-b26" secondAttribute="bottom" constant="24" id="5hK-co-UgG"/>
-                            <constraint firstItem="eRk-hW-cHH" firstAttribute="top" secondItem="qGM-Pt-3Nk" secondAttribute="bottom" constant="40" id="6St-M0-fpa"/>
+                            <constraint firstItem="eRk-hW-cHH" firstAttribute="top" secondItem="qGM-Pt-3Nk" secondAttribute="bottom" constant="27" id="6St-M0-fpa"/>
                             <constraint firstItem="eRk-hW-cHH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="82r-Yo-xuU"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lal-wa-b26" secondAttribute="trailing" constant="16" id="IAW-kU-9qv"/>
-                            <constraint firstItem="lal-wa-b26" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="IBa-zR-2j3"/>
+                            <constraint firstItem="PIy-LI-Qxy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="BDC-xE-7Ic"/>
+                            <constraint firstItem="PIy-LI-Qxy" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="D4W-IM-HFL"/>
                             <constraint firstItem="qGM-Pt-3Nk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="N9f-1I-b3y"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eRk-hW-cHH" secondAttribute="trailing" constant="16" id="e4V-6v-3Kg"/>
-                            <constraint firstItem="lal-wa-b26" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="s6W-pH-YfD"/>
+                            <constraint firstItem="qGM-Pt-3Nk" firstAttribute="top" secondItem="PIy-LI-Qxy" secondAttribute="bottom" constant="44" id="eyi-hm-DFv"/>
+                            <constraint firstItem="PIy-LI-Qxy" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="hPv-d7-1DL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Kerala Rescue" id="mu5-pv-dXR">
+                    <navigationItem key="navigationItem" id="mu5-pv-dXR">
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="6k5-Ox-8nS">
                             <connections>
                                 <action selector="onRefresh:" destination="BYZ-38-t0r" id="IyL-EU-XRN"/>
@@ -194,10 +235,10 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9yW-Ot-PYU" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5Ny-Ue-SWQ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="5Ny-Ue-SWQ">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.28627450980000002" green="0.58823529409999997" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -213,11 +254,11 @@
             <objects>
                 <viewController storyboardIdentifier="ResourceNeedsListViewController" id="Unh-e1-xBk" customClass="ResourceNeedsListViewController" customModule="RescueApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0fR-NN-Dl9">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fUu-Yt-vUO">
-                                <rect key="frame" x="0.0" y="64" width="414" height="628"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="628"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" rowHeight="120" id="NQQ-Rb-A4o" customClass="ListViewCell" customModule="RescueApp" customModuleProvider="target">
@@ -815,6 +856,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Clothes" width="48" height="46"/>
+        <image name="Food" width="48" height="48"/>
+        <image name="Medicine" width="48" height="47"/>
+        <image name="Water" width="48" height="48"/>
         <image name="list" width="170" height="170"/>
         <image name="tick" width="64" height="64"/>
     </resources>
