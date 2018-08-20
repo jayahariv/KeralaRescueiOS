@@ -84,7 +84,7 @@
 "eR4-Gf-WzE.text" = "വെള്ളം";
 
 /* Class = "UILabel"; text = "If you have a spare bottle of water or an extra meal, you can look for people near you and help them. "; ObjectID = "eRk-hW-cHH"; */
-"eRk-hW-cHH.text" = "If you have a spare bottle of water or an extra meal, you can look for people near you and help them. ";
+"eRk-hW-cHH.text" = "നിങ്ങൾക് ഒരു കുപ്പി വെള്ളം അല്ലെങ്കിൽ ഒരു നേരത്തെ ആഹാരം ഉണ്ടെൻകിൽ, നിങ്ങളുടെ അടുത്തുള്ള ആളുകളെ കണ്ടു പിടിക്കാൻ ഞങ്ങൾ സഹായിക്കുന്നു. അവര്ക് അത് കൊടുക്കാൻ സഹായിക്കുന്നു.";
 
 /* Class = "UILabel"; text = "District"; ObjectID = "gCb-Z1-F5d"; */
 "gCb-Z1-F5d.text" = "ജില്ല";
@@ -108,7 +108,7 @@
 "kb2-Vj-DIu.text" = "Label";
 
 /* Class = "UILabel"; text = "Click below if you are a volunteer and need to find the people who are in need. "; ObjectID = "lal-wa-b26"; */
-"lal-wa-b26.text" = "Click below if you are a volunteer and need to find the people who are in need. ";
+"lal-wa-b26.text" = "നിങ്ങൾക് സഹായം നല്കാൻ ആഗ്രഹം ഉണ്ടെങ്കിൽ ഓരോ വകുപ്പിൽ പരിശോധിക്കുക.";
 
 /* Class = "UILabel"; text = "East kadangallur"; ObjectID = "m45-48-S4r"; */
 "m45-48-S4r.text" = "East kadangallur";
