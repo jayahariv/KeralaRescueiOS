@@ -41,6 +41,14 @@ class ResourceNeedsListViewController: UIViewController {
     @objc func onFilter(_ sender: Any) {
         performSegue(withIdentifier: C.segueToFilter, sender: nil)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == C.segueToFilter {
+            let vc = segue.destination as! RequestFilterViewController
+            vc.requests = requests
+            vc.delegate = self
+        }
+    }
 }
 
 extension ResourceNeedsListViewController {
@@ -99,5 +107,12 @@ extension ResourceNeedsListViewController: UITableViewDelegate {
         }
         vc.selectedRescue = requests[indexPath.row]
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+extension ResourceNeedsListViewController: RequestFilterProtocol {
+    func didFinishApplyingFilters(filters: [RequestModel]) {
+        requests = filters
+        tableView.reloadData()
     }
 }
