@@ -15,6 +15,7 @@
 		0822304D2127E7F500B7FBF2 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0822304C2127E7F500B7FBF2 /* Utility.swift */; };
 		082235F9212A5FD000D2808D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 082235F8212A5FD000D2808D /* Info.plist */; };
 		082235FE212A604E00D2808D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 082235FC212A604E00D2808D /* InfoPlist.strings */; };
+		08223606212A806100D2808D /* RequestFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08223605212A806100D2808D /* RequestFilterViewController.swift */; };
 		0864D51E212A45EC00DE403D /* OfflineData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0864D51D212A45EC00DE403D /* OfflineData.plist */; };
 		0864D523212A53AE00DE403D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0864D525212A53AE00DE403D /* Localizable.strings */; };
 		08FDDE5F2129F9D0006B84BE /* RequestsDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FDDE5E2129F9D0006B84BE /* RequestsDictionary.swift */; };
@@ -25,9 +26,6 @@
 		3F9FC6EAED58CD1EE4698A0E /* Pods_RescueAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CE4AA0045A339F04DBAB0DA /* Pods_RescueAppTests.framework */; };
 		62AC70FEEF4DD6944AFBD284 /* Pods_RescueAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 662EF3BA2C627D0A61CDF329 /* Pods_RescueAppUITests.framework */; };
 		75DA37292127EF6E00A9D00A /* ListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DA37282127EF6E00A9D00A /* ListViewCell.swift */; };
-		75DA372B2127FEC000A9D00A /* RAAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DA372A2127FEC000A9D00A /* RAAnnotationView.swift */; };
-		75DA372D2127FF0A00A9D00A /* RACustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DA372C2127FF0A00A9D00A /* RACustomView.swift */; };
-		75DA372F2127FF1600A9D00A /* RACustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75DA372E2127FF1600A9D00A /* RACustomView.xib */; };
 		75DA37372128A0DC00A9D00A /* ResourseNeedsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DA37362128A0DC00A9D00A /* ResourseNeedsDetailViewController.swift */; };
 		ACC4BDC9B27F0806EBB0AB63 /* Pods_RescueApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59D2A431FA5AD15EF5F0D3EB /* Pods_RescueApp.framework */; };
 		E9DBF96A2127806700CFD933 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DBF9692127806700CFD933 /* AppDelegate.swift */; };
@@ -84,6 +82,7 @@
 		082235FD212A604E00D2808D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		082235FF212A607000D2808D /* ml-IN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ml-IN"; path = "ml-IN.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		08223603212A6E3600D2808D /* ml-IN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ml-IN"; path = "ml-IN.lproj/Main.strings"; sourceTree = "<group>"; };
+		08223605212A806100D2808D /* RequestFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFilterViewController.swift; sourceTree = "<group>"; };
 		0864D51D212A45EC00DE403D /* OfflineData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = OfflineData.plist; sourceTree = "<group>"; };
 		0864D520212A537400DE403D /* ml-IN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ml-IN"; path = "ml-IN.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		0864D524212A53AE00DE403D /* ml-IN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ml-IN"; path = "ml-IN.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -98,9 +97,6 @@
 		59D2A431FA5AD15EF5F0D3EB /* Pods_RescueApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RescueApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		662EF3BA2C627D0A61CDF329 /* Pods_RescueAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RescueAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		75DA37282127EF6E00A9D00A /* ListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewCell.swift; sourceTree = "<group>"; };
-		75DA372A2127FEC000A9D00A /* RAAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAAnnotationView.swift; sourceTree = "<group>"; };
-		75DA372C2127FF0A00A9D00A /* RACustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RACustomView.swift; sourceTree = "<group>"; };
-		75DA372E2127FF1600A9D00A /* RACustomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RACustomView.xib; sourceTree = "<group>"; };
 		75DA37362128A0DC00A9D00A /* ResourseNeedsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourseNeedsDetailViewController.swift; sourceTree = "<group>"; };
 		7F0350EC64490B12D85ED635 /* Pods-RescueAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RescueAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RescueAppTests/Pods-RescueAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		A59EEFF9F5B713B364EE93C6 /* Pods-RescueApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RescueApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RescueApp/Pods-RescueApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -177,12 +173,30 @@
 			isa = PBXGroup;
 			children = (
 				0822304A2127E6F400B7FBF2 /* RAAddressTypeahead.swift */,
-				75DA372A2127FEC000A9D00A /* RAAnnotationView.swift */,
-				75DA372C2127FF0A00A9D00A /* RACustomView.swift */,
-				75DA372E2127FF1600A9D00A /* RACustomView.xib */,
 				75DA37282127EF6E00A9D00A /* ListViewCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		08223604212A804600D2808D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E9DBF96B2127806700CFD933 /* HomeViewController.swift */,
+				08223605212A806100D2808D /* RequestFilterViewController.swift */,
+				E9DBF9992127829000CFD933 /* ResourceNeedsMapViewController.swift */,
+				0822304021279FD200B7FBF2 /* ResourceNeedsListViewController.swift */,
+				75DA37362128A0DC00A9D00A /* ResourseNeedsDetailViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		08223607212A807800D2808D /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				E9DBF96D2127806700CFD933 /* Main.storyboard */,
+				E9DBF9722127806A00CFD933 /* LaunchScreen.storyboard */,
+			);
+			path = Xibs;
 			sourceTree = "<group>";
 		};
 		28386F5C212818B10012F429 /* Search */ = {
@@ -234,22 +248,18 @@
 		E9DBF9682127806700CFD933 /* RescueApp */ = {
 			isa = PBXGroup;
 			children = (
-				082235FC212A604E00D2808D /* InfoPlist.strings */,
-				082235F8212A5FD000D2808D /* Info.plist */,
 				28386F5C212818B10012F429 /* Search */,
 				082230492127E6F400B7FBF2 /* View */,
 				082230422127A71A00B7FBF2 /* Utility */,
 				E9DBF9A02127871100CFD933 /* Network */,
 				E9DBF99B2127844100CFD933 /* Model */,
-				E9DBF9692127806700CFD933 /* AppDelegate.swift */,
-				E9DBF96B2127806700CFD933 /* HomeViewController.swift */,
-				E9DBF96D2127806700CFD933 /* Main.storyboard */,
-				E9DBF9702127806A00CFD933 /* Assets.xcassets */,
-				E9DBF9722127806A00CFD933 /* LaunchScreen.storyboard */,
-				E9DBF9992127829000CFD933 /* ResourceNeedsMapViewController.swift */,
-				0822304021279FD200B7FBF2 /* ResourceNeedsListViewController.swift */,
-				75DA37362128A0DC00A9D00A /* ResourseNeedsDetailViewController.swift */,
+				08223604212A804600D2808D /* ViewControllers */,
+				08223607212A807800D2808D /* Xibs */,
+				082235F8212A5FD000D2808D /* Info.plist */,
+				082235FC212A604E00D2808D /* InfoPlist.strings */,
 				0864D525212A53AE00DE403D /* Localizable.strings */,
+				E9DBF9692127806700CFD933 /* AppDelegate.swift */,
+				E9DBF9702127806A00CFD933 /* Assets.xcassets */,
 			);
 			path = RescueApp;
 			sourceTree = "<group>";
@@ -408,7 +418,6 @@
 				E9DBF9712127806A00CFD933 /* Assets.xcassets in Resources */,
 				0864D523212A53AE00DE403D /* Localizable.strings in Resources */,
 				28386F612128191E0012F429 /* TagCollectionViewCell.xib in Resources */,
-				75DA372F2127FF1600A9D00A /* RACustomView.xib in Resources */,
 				082235FE212A604E00D2808D /* InfoPlist.strings in Resources */,
 				E9DBF96F2127806700CFD933 /* Main.storyboard in Resources */,
 			);
@@ -517,15 +526,14 @@
 				E9DBF9A22127872A00CFD933 /* ApiClient.swift in Sources */,
 				0822304B2127E6F400B7FBF2 /* RAAddressTypeahead.swift in Sources */,
 				082230442127A72F00B7FBF2 /* Overlay.swift in Sources */,
-				75DA372D2127FF0A00A9D00A /* RACustomView.swift in Sources */,
 				75DA37292127EF6E00A9D00A /* ListViewCell.swift in Sources */,
 				E9DBF99D2127846E00CFD933 /* RequestModel.swift in Sources */,
 				0822304121279FD200B7FBF2 /* ResourceNeedsListViewController.swift in Sources */,
 				E9DBF96C2127806700CFD933 /* HomeViewController.swift in Sources */,
+				08223606212A806100D2808D /* RequestFilterViewController.swift in Sources */,
 				E9DBF99F212785E000CFD933 /* DistrictEnum.swift in Sources */,
 				082230462127CB8700B7FBF2 /* ResultOptimizer.swift in Sources */,
 				0822304D2127E7F500B7FBF2 /* Utility.swift in Sources */,
-				75DA372B2127FEC000A9D00A /* RAAnnotationView.swift in Sources */,
 				75DA37372128A0DC00A9D00A /* ResourseNeedsDetailViewController.swift in Sources */,
 				08FDDE5F2129F9D0006B84BE /* RequestsDictionary.swift in Sources */,
 				0822303F212799EA00B7FBF2 /* APIConstants.swift in Sources */,
