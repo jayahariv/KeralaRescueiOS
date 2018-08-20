@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import MapKit
+import MessageUI
 
 class ResourseNeedsDetailViewController: UIViewController {
     @IBOutlet weak var nameAndDist: UILabel!

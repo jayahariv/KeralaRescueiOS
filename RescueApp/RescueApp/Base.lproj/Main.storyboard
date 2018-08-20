@@ -109,7 +109,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Kerala Rescue" id="mu5-pv-dXR"/>
+                    <navigationItem key="navigationItem" title="Kerala Rescue" id="mu5-pv-dXR">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="6k5-Ox-8nS">
+                            <connections>
+                                <action selector="onRefresh:" destination="BYZ-38-t0r" id="IyL-EU-XRN"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="headingLabel" destination="lal-wa-b26" id="6nu-sp-efv"/>
                         <outlet property="subHeadingLabel" destination="eRk-hW-cHH" id="4Ja-CM-324"/>

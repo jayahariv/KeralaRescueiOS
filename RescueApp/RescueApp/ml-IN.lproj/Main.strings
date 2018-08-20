@@ -1,0 +1,153 @@
+
+/* Class = "UILabel"; text = "Requesting for self"; ObjectID = "2sV-ix-1LC"; */
+"2sV-ix-1LC.text" = "സ്വന്തമായി സഹായം ചോദിച്ചത്";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "3eS-DU-8KU"; */
+"3eS-DU-8KU.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "5g4-GV-1Ef"; */
+"5g4-GV-1Ef.text" = "Label";
+
+/* Class = "UILabel"; text = "Details for food"; ObjectID = "5oJ-Gf-bRO"; */
+"5oJ-Gf-bRO.text" = "ഭക്ഷണം വിശദാംശങ്ങള്‍";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "6F6-Qb-Ejm"; */
+"6F6-Qb-Ejm.text" = "Label";
+
+/* Class = "UILabel"; text = "Details for water"; ObjectID = "6Fd-J4-l9f"; */
+"6Fd-J4-l9f.text" = "വെള്ളം വിശദാംശങ്ങള്‍";
+
+/* Class = "UIButton"; normalTitle = "Water"; ObjectID = "6rB-WG-kB9"; */
+"6rB-WG-kB9.normalTitle" = "വെള്ളം";
+
+/* Class = "UILabel"; text = "Details"; ObjectID = "AFu-8k-foQ"; */
+"AFu-8k-foQ.text" = "വിശദാംശങ്ങള്‍";
+
+/* Class = "UILabel"; text = "Phone"; ObjectID = "CLv-64-ZwY"; */
+"CLv-64-ZwY.text" = "ഫോൺ";
+
+/* Class = "UILabel"; text = "Food/water"; ObjectID = "CeK-WX-ZJ4"; */
+"CeK-WX-ZJ4.text" = "ഭക്ഷണം/വെള്ളം";
+
+/* Class = "UILabel"; text = "2018-08-16"; ObjectID = "JEL-dx-p5t"; */
+"JEL-dx-p5t.text" = "2018-08-16";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "KT6-2s-gZo"; */
+"KT6-2s-gZo.text" = "Label";
+
+/* Class = "UILabel"; text = "Requestee"; ObjectID = "KkF-ae-TgV"; */
+"KkF-ae-TgV.text" = "അഭ്യര്ഥിച്ചയാൾ";
+
+/* Class = "UILabel"; text = "Rescue"; ObjectID = "PQI-q8-BCj"; */
+"PQI-q8-BCj.text" = "രക്ഷപ്പെടുത്തല്‍";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "PmP-45-O0g"; */
+"PmP-45-O0g.text" = "Label";
+
+/* Class = "UILabel"; text = "Food/Water"; ObjectID = "UTx-eC-IhS"; */
+"UTx-eC-IhS.text" = "ഭക്ഷണം/വെള്ളം";
+
+/* Class = "UILabel"; text = "Cloths"; ObjectID = "V8k-4m-l3q"; */
+"V8k-4m-l3q.text" = "വസ്ത്രം";
+
+/* Class = "UIButton"; normalTitle = "Food"; ObjectID = "VI0-uP-C3c"; */
+"VI0-uP-C3c.normalTitle" = "ഭക്ഷണം";
+
+/* Class = "UILabel"; text = "Cloth"; ObjectID = "VrF-TQ-bnk"; */
+"VrF-TQ-bnk.text" = "വസ്ത്രം";
+
+/* Class = "UILabel"; text = "Rescue"; ObjectID = "Wha-u4-Emn"; */
+"Wha-u4-Emn.text" = "രക്ഷപ്പെടുത്തല്‍";
+
+/* Class = "UILabel"; text = "Rescue details"; ObjectID = "YMA-7M-USR"; */
+"YMA-7M-USR.text" = "രക്ഷപ്പെടുത്തല്‍ വിശദാംശങ്ങള്‍";
+
+/* Class = "UILabel"; text = "Utility kit details"; ObjectID = "ZDZ-u6-jXW"; */
+"ZDZ-u6-jXW.text" = "Utility kit വിശദാംശങ്ങള്‍";
+
+/* Class = "UILabel"; text = "Other needs"; ObjectID = "bre-3d-fQq"; */
+"bre-3d-fQq.text" = "Other needs";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "byA-2m-BhB"; */
+"byA-2m-BhB.text" = "Label";
+
+/* Class = "UILabel"; text = "Geo coordinates"; ObjectID = "c7n-DU-3lr"; */
+"c7n-DU-3lr.text" = "Geo coordinates";
+
+/* Class = "UILabel"; text = "Medicine"; ObjectID = "dsE-JW-nNK"; */
+"dsE-JW-nNK.text" = "Medicine";
+
+/* Class = "UILabel"; text = "Food"; ObjectID = "eMv-Nz-ifb"; */
+"eMv-Nz-ifb.text" = "Food";
+
+/* Class = "UILabel"; text = "Water"; ObjectID = "eR4-Gf-WzE"; */
+"eR4-Gf-WzE.text" = "Water";
+
+/* Class = "UILabel"; text = "If you have a spare bottle of water or an extra meal, you can look for people near you and help them. "; ObjectID = "eRk-hW-cHH"; */
+"eRk-hW-cHH.text" = "If you have a spare bottle of water or an extra meal, you can look for people near you and help them. ";
+
+/* Class = "UILabel"; text = "District"; ObjectID = "gCb-Z1-F5d"; */
+"gCb-Z1-F5d.text" = "District";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "gPH-Y6-OjU"; */
+"gPH-Y6-OjU.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Medicine"; ObjectID = "h55-V0-KUn"; */
+"h55-V0-KUn.normalTitle" = "Medicine";
+
+/* Class = "UILabel"; text = "Medicine"; ObjectID = "hXo-RE-FKw"; */
+"hXo-RE-FKw.text" = "Medicine";
+
+/* Class = "UILabel"; text = "Eranakulam"; ObjectID = "jbV-UD-QlE"; */
+"jbV-UD-QlE.text" = "Eranakulam";
+
+/* Class = "UIButton"; normalTitle = "Call"; ObjectID = "jvV-U7-1Or"; */
+"jvV-U7-1Or.normalTitle" = "Call";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "kb2-Vj-DIu"; */
+"kb2-Vj-DIu.text" = "Label";
+
+/* Class = "UILabel"; text = "Click below if you are a volunteer and need to find the people who are in need. "; ObjectID = "lal-wa-b26"; */
+"lal-wa-b26.text" = "Click below if you are a volunteer and need to find the people who are in need. ";
+
+/* Class = "UILabel"; text = "East kadangallur"; ObjectID = "m45-48-S4r"; */
+"m45-48-S4r.text" = "East kadangallur";
+
+/* Class = "UINavigationItem"; title = "Kerala Rescue"; ObjectID = "mu5-pv-dXR"; */
+"mu5-pv-dXR.title" = "Kerala Rescue";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "n20-O0-gEA"; */
+"n20-O0-gEA.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "ooe-oL-LR2"; */
+"ooe-oL-LR2.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "pcf-92-Bz2"; */
+"pcf-92-Bz2.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "qGF-vc-X8W"; */
+"qGF-vc-X8W.text" = "Label";
+
+/* Class = "UILabel"; text = "Requesting for self"; ObjectID = "sNX-6E-lWM"; */
+"sNX-6E-lWM.text" = "Requesting for self";
+
+/* Class = "UILabel"; text = "Details for medicine"; ObjectID = "tCw-Ag-glz"; */
+"tCw-Ag-glz.text" = "Details for medicine";
+
+/* Class = "UILabel"; text = "Need kit"; ObjectID = "uUW-rl-pYG"; */
+"uUW-rl-pYG.text" = "Need kit";
+
+/* Class = "UIButton"; normalTitle = "Clothes"; ObjectID = "v7Q-y4-LFj"; */
+"v7Q-y4-LFj.normalTitle" = "Clothes";
+
+/* Class = "UILabel"; text = "Rescue"; ObjectID = "xR2-Yy-LoJ"; */
+"xR2-Yy-LoJ.text" = "Rescue";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "yNq-5V-Ths"; */
+"yNq-5V-Ths.text" = "Label";
+
+/* Class = "UILabel"; text = "Location"; ObjectID = "yXx-c4-5I4"; */
+"yXx-c4-5I4.text" = "Location";
+
+/* Class = "UILabel"; text = "Medicine"; ObjectID = "zLj-4k-12H"; */
+"zLj-4k-12H.text" = "Medicine";

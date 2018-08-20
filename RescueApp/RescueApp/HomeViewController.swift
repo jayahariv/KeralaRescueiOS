@@ -18,7 +18,7 @@ class HomeViewController: UIViewController {
         static let waterSegueID = "waterRequest"
         static let medicineSegueID = "medicineRequest"
         static let clothesSegueID = "clothesRequest"
-        static let alertMessage = "Data we provide is getting from keralarescue.in. We will fetch through the service or if not saved data on 19/08/2018."
+        static let alertMessage = "Data we provide is from keralarescue.in. We will fetch once from the webservice provided by keralarescue.in or else saved data on 19/08/2018."
         static let headingLabelText = "Click below if you are a volunteer and need to find the people who are in need. "
         static let subHeadingLabelText = "If you have a spare bottle of water or an extra meal, you can look for people near you and help them. "
     }
@@ -57,6 +57,10 @@ class HomeViewController: UIViewController {
         vc.requests = requests
         vc.requestsType = requestType
     }
+    
+    @IBAction func onRefresh(_ sender: Any) {
+        refresh()
+    }
 }
 
 extension HomeViewController {
@@ -80,6 +84,13 @@ extension HomeViewController {
         ApiClient.shared.getResourceNeeds { (_) in
             Overlay.shared.remove()
         }
+    }
+    
+    func refresh() {
+        Overlay.shared.showWithMessage("Please wait loading data...")
+        ApiClient.shared.getOnlineData(completion: { (_) in
+            Overlay.shared.remove()
+        })
     }
 }
 
