@@ -86,10 +86,10 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you have a spare bottle of water or an extra meal, you can look for people near you and help them. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRk-hW-cHH">
-                                <rect key="frame" x="16" y="371" width="382" height="76"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you have a spare bottle of water or an extra meal, you can look for people near you and help them. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRk-hW-cHH">
+                                <rect key="frame" x="16" y="371" width="382" height="141"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="76" id="cVp-H8-ukm"/>
+                                    <constraint firstAttribute="height" constant="141" id="cVp-H8-ukm"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -123,7 +123,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="916" y="-580.65967016491754"/>
+            <point key="canvasLocation" x="915.94202898550736" y="-581.25"/>
         </scene>
         <!--Typeahead Delegate-->
         <scene sceneID="mu1-AS-XV2">
