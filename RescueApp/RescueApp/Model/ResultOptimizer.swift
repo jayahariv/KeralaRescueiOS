@@ -10,11 +10,11 @@ Abstract:
 
 import Foundation
 
-enum RequestType {
-    case food
-    case water
-    case medicine
-    case clothes
+enum RequestType: String {
+    case food = "Food"
+    case water = "Water"
+    case medicine = "Medicine"
+    case clothes = "Clothes"
 }
 
 final class ResultOptimizer: NSObject {
