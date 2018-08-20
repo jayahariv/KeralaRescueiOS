@@ -378,8 +378,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="foodWaterView" destination="X6O-Z6-Kpf" id="cJ6-9P-kEj"/>
                                             <outlet property="locationLabel" destination="5g4-GV-1Ef" id="ao6-HV-7kp"/>
+                                            <outlet property="medicineView" destination="wq5-nZ-G9H" id="37A-2r-d6z"/>
                                             <outlet property="nameLabel" destination="byA-2m-BhB" id="8vm-tb-rO4"/>
+                                            <outlet property="rescueView" destination="3Co-an-OGB" id="OL7-fM-XOt"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -597,16 +600,16 @@
                                                         <rect key="frame" x="0.0" y="210" width="414" height="50"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Requesting for self" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2sV-ix-1LC">
-                                                                <rect key="frame" x="10" y="14" width="143.66666666666666" height="21"/>
+                                                                <rect key="frame" x="10.000000000000007" y="14" width="121.66666666666669" height="21"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="42" id="6QA-yf-tmL"/>
                                                                     <constraint firstAttribute="height" constant="21" id="sVq-WV-Ufk"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="if_button_ok_1710" translatesAutoresizingMaskIntoConstraints="NO" id="aJr-rz-bhM">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tick" translatesAutoresizingMaskIntoConstraints="NO" id="aJr-rz-bhM">
                                                                 <rect key="frame" x="374" y="10" width="30" height="30"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="30" id="ltb-M1-BqT"/>
@@ -685,12 +688,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fIF-l0-omq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4568.8000000000002" y="-1190.5547226386807"/>
+            <point key="canvasLocation" x="2803" y="-581"/>
         </scene>
     </scenes>
     <resources>
-        <image name="if_button_ok_1710" width="48" height="48"/>
         <image name="list" width="170" height="170"/>
+        <image name="tick" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="EjX-6F-mgH"/>

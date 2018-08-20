@@ -26,8 +26,13 @@ class ResourseNeedsDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Details"
+        updateUI()
+    }
+    
+    func updateUI() {
         populateData()
         updateRequestedServiceView()
+        updateRequestForSelf()
     }
     
     func populateData() {
@@ -101,6 +106,15 @@ class ResourseNeedsDetailViewController: UIViewController {
             foodWater.isHidden = false
         } else {
             foodWater.isHidden = true
+        }
+    }
+    
+    func updateRequestForSelf() {
+        guard let requestForOthers = selectedRescue?.is_request_for_others else { return }
+        if  requestForOthers {
+            requestForSelfImage.image = #imageLiteral(resourceName: "cross")
+        } else {
+            requestForSelfImage.image = #imageLiteral(resourceName: "tick")
         }
     }
 }

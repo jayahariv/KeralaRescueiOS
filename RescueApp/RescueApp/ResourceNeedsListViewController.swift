@@ -51,7 +51,26 @@ extension ResourceNeedsListViewController: UITableViewDataSource {
         let model = requests[indexPath.row]
         cell?.nameLabel.text = model.requestee
         cell?.locationLabel.text = model.location
+        updateRequestedServiceView(for: cell!, with: model)
         return cell!
+    }
+    
+    func updateRequestedServiceView(for cell: ListViewCell, with model: RequestModel?) {
+        if let _needRescue = model?.needrescue, _needRescue {
+            cell.rescueView.isHidden = false
+        } else {
+            cell.rescueView.isHidden = true
+        }
+        if let _needmed = model?.needmed, _needmed {
+            cell.medicineView.isHidden = false
+        } else {
+            cell.medicineView.isHidden = true
+        }
+        if let _needwater = model?.needwater, let _needfood = model?.needfood, (_needwater || _needfood) {
+            cell.foodWaterView.isHidden = false
+        } else {
+            cell.foodWaterView.isHidden = true
+        }
     }
 }
 
