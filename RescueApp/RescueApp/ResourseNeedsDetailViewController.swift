@@ -68,6 +68,10 @@ class ResourseNeedsDetailViewController: UIViewController {
         UIApplication.shared.open(number)
     }
     
+    @IBAction func weCareAction(sender: Any) {
+        
+    }
+    
     func date(from dateString: String?) -> Date? {
         guard let _date = dateString else {
             return nil
