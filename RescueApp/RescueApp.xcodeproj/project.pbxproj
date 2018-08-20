@@ -83,8 +83,8 @@
 		082235F8212A5FD000D2808D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		082235FD212A604E00D2808D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		082235FF212A607000D2808D /* ml-IN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ml-IN"; path = "ml-IN.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		08223603212A6E3600D2808D /* ml-IN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ml-IN"; path = "ml-IN.lproj/Main.strings"; sourceTree = "<group>"; };
 		0864D51D212A45EC00DE403D /* OfflineData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = OfflineData.plist; sourceTree = "<group>"; };
-		0864D51F212A537400DE403D /* ml-IN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ml-IN"; path = "ml-IN.lproj/Main.strings"; sourceTree = "<group>"; };
 		0864D520212A537400DE403D /* ml-IN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ml-IN"; path = "ml-IN.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		0864D524212A53AE00DE403D /* ml-IN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ml-IN"; path = "ml-IN.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		0864D526212A53E200DE403D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -591,7 +591,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				E9DBF96E2127806700CFD933 /* Base */,
-				0864D51F212A537400DE403D /* ml-IN */,
+				08223603212A6E3600D2808D /* ml-IN */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

@@ -673,7 +673,6 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="callButtonActionWithSender:" destination="tha-iO-Pth" eventType="touchUpInside" id="KoJ-nF-JJ1"/>
                                     <action selector="weCareActionWithSender:" destination="tha-iO-Pth" eventType="touchUpInside" id="Hzm-XD-0aR"/>
                                 </connections>
                             </button>

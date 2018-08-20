@@ -23,6 +23,10 @@ class ResourseNeedsDetailViewController: UIViewController {
     @IBOutlet weak var requestForSelfImage: UIImageView!
     var selectedRescue: RequestModel?
     
+    private struct C {
+        static let weCareMessageBody = "WeCareMessageBody"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Details"
@@ -69,7 +73,17 @@ class ResourseNeedsDetailViewController: UIViewController {
     }
     
     @IBAction func weCareAction(sender: Any) {
-        
+         guard
+            let phoneNo = selectedRescue?.requestee_phone,
+            MFMessageComposeViewController.canSendText()
+        else {
+            return
+        }
+        let controller = MFMessageComposeViewController()
+        controller.body = NSLocalizedString(C.weCareMessageBody, comment: "localized")
+        controller.recipients = [phoneNo]
+        controller.messageComposeDelegate = self
+        self.present(controller, animated: true, completion: nil)
     }
     
     func date(from dateString: String?) -> Date? {
@@ -122,3 +136,13 @@ class ResourseNeedsDetailViewController: UIViewController {
         }
     }
 }
+
+extension ResourseNeedsDetailViewController: MFMessageComposeViewControllerDelegate {
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        dismiss(animated: true, completion: nil)
+    }
+}
+
+
+
+

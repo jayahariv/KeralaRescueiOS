@@ -20,6 +20,9 @@
 /* Class = "UIButton"; normalTitle = "Water"; ObjectID = "6rB-WG-kB9"; */
 "6rB-WG-kB9.normalTitle" = "വെള്ളം";
 
+/* Class = "UIButton"; normalTitle = "We Care"; ObjectID = "RIP-zK-jpz"; */
+"RIP-zK-jpz.normalTitle" = "പറയാം നമ്മുക് ഒരു സന്ദേശം";
+
 /* Class = "UILabel"; text = "Details"; ObjectID = "AFu-8k-foQ"; */
 "AFu-8k-foQ.text" = "വിശദാംശങ്ങള്‍";
 
