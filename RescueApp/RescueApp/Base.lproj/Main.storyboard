@@ -112,7 +112,7 @@
                     <navigationItem key="navigationItem" title="Kerala Rescue" id="mu5-pv-dXR"/>
                     <connections>
                         <outlet property="headingLabel" destination="lal-wa-b26" id="6nu-sp-efv"/>
-                        <outlet property="subHeadingLable" destination="eRk-hW-cHH" id="qqk-4t-OwA"/>
+                        <outlet property="subHeadingLabel" destination="eRk-hW-cHH" id="4Ja-CM-324"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
