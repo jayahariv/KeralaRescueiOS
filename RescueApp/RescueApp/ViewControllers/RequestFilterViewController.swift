@@ -32,11 +32,11 @@ class RequestFilterViewController: UIViewController {
 
     // MARK: Button Actions
     @IBAction func onCancel(_ sender: Any) {
-        
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func onApply(_ sender: Any) {
-        
+        dismiss(animated: true, completion: nil)
     }    
 }
 

@@ -16,6 +16,11 @@ class ResourceNeedsListViewController: UIViewController {
     
     var requests = [RequestModel]()
     var requestsType: RequestType!
+    
+    private struct C {
+        static let filterStoryBoardID = "RequestFilterViewController"
+        static let segueToFilter = "segueToFilter"
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,11 +37,16 @@ class ResourceNeedsListViewController: UIViewController {
         navigationController?.popViewController(animated: false)
         UIView.commitAnimations()
     }
+    
+    @objc func onFilter(_ sender: Any) {
+        performSegue(withIdentifier: C.segueToFilter, sender: nil)
+    }
 }
 
 extension ResourceNeedsListViewController {
     func configureUI() {
         title = requestsType.rawValue
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Filter", style: .plain, target: self, action: #selector(onFilter(_:)))
     }
 }
 
