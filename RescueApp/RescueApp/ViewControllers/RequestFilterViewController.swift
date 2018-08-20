@@ -101,23 +101,37 @@ private extension RequestFilterViewController {
     }
     
     func filterWithKeywords(_ keywords: String, requests from: [RequestModel]) -> [RequestModel] {
-        return from.filter { $0.supply_details?.lowercased().contains(keywords.lowercased()) ?? false }
+        return from.filter {
+            $0.supply_details?.lowercased().contains(keywords.lowercased()) ?? false ||
+            $0.detailmed?.lowercased().contains(keywords.lowercased()) ?? false ||
+            $0.detailfood?.lowercased().contains(keywords.lowercased()) ?? false ||
+            $0.detailcloth?.lowercased().contains(keywords.lowercased()) ?? false ||
+            $0.detailwater?.lowercased().contains(keywords.lowercased()) ?? false ||
+            $0.detailtoilet?.lowercased().contains(keywords.lowercased()) ?? false ||
+            $0.detailkit_util?.lowercased().contains(keywords.lowercased()) ?? false 
+        }
     }
     
     func filterWithDatePeriod(_ period: Int, requests from: [RequestModel]) -> [RequestModel] {
+        print(period)
         var minimDate: String!
+        var date = Date()
         switch period {
         case 1:
-            minimDate = dateString(date: Date().addingTimeInterval(TimeInterval(C.oneDayInSeconds)))
+            date.addTimeInterval(-TimeInterval(C.oneDayInSeconds))
+            minimDate = dateString(date: date)
         case 2:
-            minimDate = dateString(date: Date().addingTimeInterval(TimeInterval(C.oneWeekInSeconds)))
+            date.addTimeInterval(-TimeInterval(C.oneWeekInSeconds))
+            minimDate = dateString(date: date)
         case 3:
-            minimDate = dateString(date: Date().addingTimeInterval(TimeInterval(C.oneMonthInSeconds)))
+            date.addTimeInterval(-TimeInterval(C.oneMonthInSeconds))
+            minimDate = dateString(date: date)
         default:
             return from
         }
         
-        return from.filter {$0.dateadded?.compare(minimDate) == ComparisonResult.orderedAscending}
+        print(minimDate)
+        return from.filter { $0.dateadded?.compare(minimDate) != ComparisonResult.orderedAscending }
     }
     
     func dateString(date: Date?) -> String? {
@@ -125,7 +139,7 @@ private extension RequestFilterViewController {
             return nil
         }
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd-MM-yyyy"
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
         return formatter.string(from: _date)
     }
 }
@@ -141,5 +155,11 @@ extension RequestFilterViewController: UIPickerViewDataSource, UIPickerViewDeleg
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return datePeriods[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectedDatePeriod = row + 1
+        timePeriods.setTitle(datePeriods[row], for: .normal)
+        timePeriods.setTitle(datePeriods[row], for: .selected)
     }
 }
