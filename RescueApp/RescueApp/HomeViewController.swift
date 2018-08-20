@@ -21,6 +21,7 @@ class HomeViewController: UIViewController {
         static let alertMessage = "Data we provide is from keralarescue.in. We will fetch once from the webservice provided by keralarescue.in or else saved data on 19/08/2018."
         static let headingLabelText = "HomeHeading"
         static let subHeadingLabelText = "HomeSubHeading"
+        static let alertTitle = "FirstAlert"
     }
     
     private var requests:  [String: RequestModel] {
@@ -33,6 +34,7 @@ class HomeViewController: UIViewController {
         configureUI()
         
         getResources()
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -77,6 +79,14 @@ extension HomeViewController {
         // set texts
         headingLabel.text = NSLocalizedString(C.headingLabelText, comment: "localised")
         subHeadingLabel.text = NSLocalizedString(C.subHeadingLabelText, comment: "localised")
+        
+        
+        if !UserDefaults.standard.bool(forKey: "firstTimeLoggedIn") {
+            let alert = Alert.errorAlert(title: NSLocalizedString(C.alertTitle, comment: "localized"), message: nil)
+            present(alert, animated: true, completion: nil)
+            UserDefaults.standard.set(true, forKey: "firstTimeLoggedIn")
+        }
+        
     }
     
     func getResources() {
