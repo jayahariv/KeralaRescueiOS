@@ -669,6 +669,7 @@
                         <outlet property="cloths" destination="Wkf-hs-gXp" id="4dZ-zy-f9e"/>
                         <outlet property="dateLabel" destination="JEL-dx-p5t" id="XKT-W3-V7q"/>
                         <outlet property="details" destination="AFu-8k-foQ" id="Eod-iN-PvW"/>
+                        <outlet property="foodWater" destination="Q9l-X5-fhl" id="t1A-Fq-Fjk"/>
                         <outlet property="location" destination="m45-48-S4r" id="zIH-My-VNz"/>
                         <outlet property="medicine" destination="L9l-DM-CMo" id="Ykf-Lp-Qie"/>
                         <outlet property="nameAndDist" destination="jbV-UD-QlE" id="zlP-yN-opz"/>

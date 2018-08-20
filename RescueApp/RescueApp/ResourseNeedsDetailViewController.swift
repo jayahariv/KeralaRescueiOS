@@ -26,6 +26,7 @@ class ResourseNeedsDetailViewController: UIViewController {
         super.viewDidLoad()
         self.title = "Details"
         populateData()
+        updateRequestedServiceView()
     }
     
     func populateData() {
@@ -53,11 +54,21 @@ class ResourseNeedsDetailViewController: UIViewController {
             detailsString = detailsString + "\n"
         }
         details.text = detailsString
-        dateLabel.text = selectedRescue?.dateadded
+        dateLabel.text = dateString(date: date(from: selectedRescue?.dateadded))
     }
     
     @IBAction func callButtonAction(sender: Any) {
+        guard let phoneNo = selectedRescue?.requestee_phone, let number = URL(string: "tel://\(phoneNo)") else { return }
+        UIApplication.shared.open(number)
+    }
     
+    func date(from dateString: String?) -> Date? {
+        guard let _date = dateString else {
+            return nil
+        }
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        return formatter.date(from: _date)
     }
     
     func dateString(date: Date?) -> String? {
@@ -67,5 +78,28 @@ class ResourseNeedsDetailViewController: UIViewController {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd-MM-yyyy"
         return formatter.string(from: _date)
+    }
+    
+    func updateRequestedServiceView() {
+        if let _needRescue = selectedRescue?.needrescue, _needRescue {
+            rescue.isHidden = false
+        } else {
+            rescue.isHidden = true
+        }
+        if let _needcloth = selectedRescue?.needcloth, _needcloth {
+            cloths.isHidden = false
+        } else {
+            cloths.isHidden = true
+        }
+        if let _needmed = selectedRescue?.needmed, _needmed {
+            medicine.isHidden = false
+        } else {
+            medicine.isHidden = true
+        }
+        if let _needwater = selectedRescue?.needwater, let _needfood = selectedRescue?.needfood, (_needwater || _needfood) {
+            foodWater.isHidden = false
+        } else {
+            foodWater.isHidden = true
+        }
     }
 }
