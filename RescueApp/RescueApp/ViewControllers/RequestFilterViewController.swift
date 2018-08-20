@@ -57,16 +57,20 @@ class RequestFilterViewController: UIViewController {
         
         print(requests.count)
         print(requests)
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         var filteredRequests = requests
         if let locationName = locationTextfield.text, locationName.count > 0 {
+            appDelegate.filterModel?.locationName = locationName
             filteredRequests = filterWithLocationName(locationName, requests: filteredRequests)
         }
         
         if let keywords = keywordsTextfield.text, keywords.count > 0 {
+            appDelegate.filterModel?.keyWord = keywords
             filteredRequests = filterWithKeywords(keywords, requests: filteredRequests)
         }
         
         if let period = selectedDatePeriod {
+            appDelegate.filterModel?.timePeriod = period
             filteredRequests = filterWithDatePeriod(period, requests: filteredRequests)
         }
         
@@ -97,7 +101,6 @@ private extension RequestFilterViewController {
         }
         locationTextfield.text = _filterModel.locationName
         keywordsTextfield.text = _filterModel.keyWord
-        timePeriods.titleLabel?.text = _filterModel.timePeriod
     }
     
     func refreshUI() {
