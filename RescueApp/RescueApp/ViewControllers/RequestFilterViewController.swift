@@ -31,6 +31,8 @@ class RequestFilterViewController: UIViewController {
     @IBOutlet private weak var keywordsTextfield: UITextField!
     @IBOutlet private weak var timePeriods: UIButton!
     @IBOutlet private weak var timePeriodsPickerView: UIPickerView!
+    @IBOutlet private weak var applyButton: UIButton!
+    @IBOutlet private weak var clearAllButton: UIButton!
     
     private var datePeriods = ["only last day", "within last week", "within last month", "all"]
     private var selectedDatePeriod: Int? = 0
@@ -45,8 +47,12 @@ class RequestFilterViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configureUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateUI()
     }
 
     // MARK: Button Actions
@@ -120,6 +126,16 @@ private extension RequestFilterViewController {
         }
         locationTextfield.text = _filterModel.locationName
         keywordsTextfield.text = _filterModel.keyWord
+        
+    }
+    
+    func updateUI() {
+        GradientHelper.addHorizontalGradient(RAColorSet.RAGREEN.cgColor,
+                                   bottom: RAColorSet.RABLUE_GREENISH.cgColor,
+                                   toView: applyButton)
+        GradientHelper.addHorizontalGradient(RAColorSet.RAGREEN.cgColor,
+                                             bottom: RAColorSet.RABLUE_GREENISH.cgColor,
+                                             toView: clearAllButton)
     }
     
     func refreshUI() {

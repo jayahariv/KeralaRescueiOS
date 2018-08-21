@@ -12,6 +12,7 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var headingLabel: UILabel!
     @IBOutlet weak var subHeadingLabel: UILabel!
+    @IBOutlet weak var headingContainer: UIView!
     
     private struct C {
         static let foodSegueID = "foodRequest"
@@ -89,6 +90,9 @@ extension HomeViewController {
             UserDefaults.standard.set(true, forKey: "firstTimeLoggedIn")
         }
         
+        GradientHelper.addVerticalGradient(RAColorSet.RABLUE_LIGHT.cgColor,
+                                           bottom: RAColorSet.RABLUE.cgColor,
+                                           toView: headingContainer)
     }
     
     func clearSavedFilters() {
@@ -97,7 +101,7 @@ extension HomeViewController {
     }
     
     func updateUI() {
-        navigationController?.navigationBar.barTintColor = UIColor(red: 73/255, green: 150/255, blue: 244/255, alpha: 1.0)
+        navigationController?.navigationBar.barTintColor = RAColorSet.RABLUE_LIGHT
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
     }
