@@ -21,6 +21,8 @@ class ResourseNeedsDetailViewController: UIViewController {
     @IBOutlet weak var medicine: UIView!
     @IBOutlet weak var cloths: UIView!
     @IBOutlet weak var requestForSelfImage: UIImageView!
+    @IBOutlet weak var sendMessageButton: UIButton!
+    @IBOutlet weak var callButton: UIButton!
     var selectedRescue: RequestModel?
     
     private struct C {
@@ -34,6 +36,8 @@ class ResourseNeedsDetailViewController: UIViewController {
     }
     
     func updateUI() {
+        GradientHelper.addHorizontalGradient(RAColorSet.GRADIENTSTART.cgColor, bottom: RAColorSet.GRADIENTEND.cgColor, toView: callButton)
+        GradientHelper.addHorizontalGradient(RAColorSet.GRADIENTSTART.cgColor, bottom: RAColorSet.GRADIENTEND.cgColor, toView: sendMessageButton)
         populateData()
         updateRequestedServiceView()
         updateRequestForSelf()

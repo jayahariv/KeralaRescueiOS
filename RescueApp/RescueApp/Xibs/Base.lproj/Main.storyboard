@@ -574,7 +574,6 @@
                                 <rect key="frame" x="20" y="367" width="374" height="45"/>
                                 <color key="backgroundColor" red="0.40392156862745099" green="0.73333333333333328" blue="0.90588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="9Yg-0d-xdg"/>
                                     <constraint firstAttribute="height" constant="45" id="aAf-S0-Uze"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -594,8 +593,6 @@
                             <constraint firstItem="pio-hP-Ho0" firstAttribute="leading" secondItem="DdQ-nQ-jMk" secondAttribute="leading" constant="20" id="M8x-Ve-PP2"/>
                             <constraint firstItem="CQE-XL-TE4" firstAttribute="leading" secondItem="DdQ-nQ-jMk" secondAttribute="leading" id="R9y-lq-iba"/>
                             <constraint firstItem="DdQ-nQ-jMk" firstAttribute="trailing" secondItem="RDw-bw-MxS" secondAttribute="trailing" constant="20" id="VCB-CS-PtX"/>
-                            <constraint firstItem="DdQ-nQ-jMk" firstAttribute="trailing" secondItem="pio-hP-Ho0" secondAttribute="trailing" constant="20" id="gKV-Xo-1l0"/>
-                            <constraint firstItem="DdQ-nQ-jMk" firstAttribute="trailing" secondItem="B60-il-9go" secondAttribute="trailing" constant="20" id="hZS-QW-oam"/>
                             <constraint firstItem="CQE-XL-TE4" firstAttribute="bottom" secondItem="DdQ-nQ-jMk" secondAttribute="bottom" id="jwJ-C9-Kiz"/>
                             <constraint firstItem="B60-il-9go" firstAttribute="leading" secondItem="DdQ-nQ-jMk" secondAttribute="leading" constant="20" id="mQA-oa-crx"/>
                             <constraint firstItem="DdQ-nQ-jMk" firstAttribute="trailing" secondItem="pio-hP-Ho0" secondAttribute="trailing" constant="20" id="pFd-ik-LI2"/>
@@ -937,7 +934,7 @@
                                     <constraint firstAttribute="height" constant="30" id="gY9-eK-KMN"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="We Care">
+                                <state key="normal" title="Send Message">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -967,6 +964,7 @@
                         <viewLayoutGuide key="safeArea" id="68U-Gx-poq"/>
                     </view>
                     <connections>
+                        <outlet property="callButton" destination="U2h-6w-Fxa" id="hDH-It-lLm"/>
                         <outlet property="cloths" destination="6U6-fD-Xa0" id="xYB-If-NGX"/>
                         <outlet property="dateLabel" destination="PjV-ox-P84" id="LHj-KB-mBn"/>
                         <outlet property="details" destination="zoi-wn-mzx" id="yQh-e4-cK2"/>
@@ -976,6 +974,7 @@
                         <outlet property="nameAndDist" destination="aIb-1S-cwL" id="UYF-mE-bHc"/>
                         <outlet property="requestForSelfImage" destination="joL-VF-CIV" id="2KU-lI-5JW"/>
                         <outlet property="rescue" destination="Unh-dD-rYv" id="vAN-uE-9AP"/>
+                        <outlet property="sendMessageButton" destination="PJ7-OC-0Jp" id="O4a-oc-axm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yzU-YN-y1V" userLabel="First Responder" sceneMemberID="firstResponder"/>

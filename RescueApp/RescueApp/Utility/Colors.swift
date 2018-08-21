@@ -16,6 +16,8 @@ struct RAColorSet {
     static let RABLUE_GREENISH = UIColor(red: 102/255, green: 189/255, blue: 231/255, alpha: 1.0)
     static let RARED = UIColor(red: 232/255, green: 100/255, blue: 119/255, alpha: 1.0)
     static let RAGREEN = UIColor(red: 109/255, green: 195/255, blue: 132/255, alpha: 1.0)
+    static let GRADIENTSTART = UIColor(red: 72/255, green: 201/255, blue: 104/255, alpha: 1.0)
+    static let GRADIENTEND = UIColor(red: 69/255, green: 189/255, blue: 236/255, alpha: 1.0)
 }
 
 final class Colors: NSObject {
@@ -41,7 +43,7 @@ final class GradientHelper: NSObject {
         backgroundLayer?.frame = toView.bounds
         backgroundLayer?.startPoint = CGPoint(x: 0.0, y: 0.5)
         backgroundLayer?.endPoint = CGPoint(x: 1.0, y: 0.5)
-        backgroundLayer?.cornerRadius = 22.5
+        backgroundLayer?.cornerRadius = 10
         toView.layer.insertSublayer(backgroundLayer!, at: 0)
     }
     
