@@ -95,7 +95,7 @@ extension HomeViewController {
                                            bottom: RAColorSet.RABLUE.cgColor,
                                            toView: headingContainer)
         
-//        titleLabel.text = NSLocalizedString("AppTitle", comment: "localised")
+        titleLabel.text = NSLocalizedString("AppTitle", comment: "localised")
         
     }
     
