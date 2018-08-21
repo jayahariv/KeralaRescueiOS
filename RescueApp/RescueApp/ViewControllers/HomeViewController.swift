@@ -92,6 +92,8 @@ extension HomeViewController {
     
     func updateUI() {
         navigationController?.navigationBar.barTintColor = UIColor(red: 73/255, green: 150/255, blue: 244/255, alpha: 1.0)
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationController?.navigationBar.shadowImage = UIImage()
     }
     
     func getResources() {
