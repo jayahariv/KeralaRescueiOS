@@ -33,14 +33,14 @@ final class Overlay: NSObject {
             DispatchQueue.main.async { [unowned self] in
                 self.view = UIView(frame: windowFrame)
                 
-                let darkBackground = UIView(frame: windowFrame)
-                darkBackground.backgroundColor = UIColor.black
-                darkBackground.alpha = 0.85
-                self.view!.addSubview(darkBackground)
+                let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+                let backgroundView = UIVisualEffectView(effect: blurEffect)
+                backgroundView.frame = windowFrame
+                self.view!.addSubview(backgroundView)
                 
                 
                 let center = self.view!.center
-                let activity = UIActivityIndicatorView(activityIndicatorStyle: .white)
+                let activity = UIActivityIndicatorView(activityIndicatorStyle: .gray)
                 self.view?.addSubview(activity)
                 activity.center = center
                 activity.startAnimating()
@@ -56,7 +56,6 @@ final class Overlay: NSObject {
                     label.center.y += activity.frame.size.height + padding
                     label.text = message
                     label.textAlignment = .center
-                    label.textColor = UIColor.yellow
                     self.view?.addSubview(label)
                 }
                 delegate.window?.addSubview(self.view!)
