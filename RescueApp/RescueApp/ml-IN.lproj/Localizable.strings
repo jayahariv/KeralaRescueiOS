@@ -22,3 +22,9 @@
 "Send SMS" = "SMS അയക്കുക";
 "Call" = "ഫോൺ വിളിക്കുക";
 "RequestingForSelfText" = "സ്വയം സഹായം അഭ്യർഥിച്ചത്";
+"Apply" = "നടപ്പിലാക്കുക";
+"ClearAllFilters" = "ഫിൽറ്ററുകൾ എല്ലാം ഒഴിവാക്കുക";
+"Filters" = "ഫിൽറ്ററുകൾ";
+"LocationsSearchPlaceholder" = "സ്ഥലപ്പേര് ഉപയോഗിച് തിരയുക...";
+"KeywordsSearchPlaceholder" = "കീവേഡ് ഉപയോഗിച് തിരയുക, ഉദാ. rice, bread..";
+"Cancel" = "ക്യാൻസൽ";

@@ -33,6 +33,7 @@ class RequestFilterViewController: UIViewController {
     @IBOutlet private weak var timePeriodsPickerView: UIPickerView!
     @IBOutlet private weak var applyButton: UIButton!
     @IBOutlet private weak var clearAllButton: UIButton!
+    @IBOutlet private weak var cancelButton: UIBarButtonItem!
     
     private var datePeriods = ["only last day", "within last week", "within last month", "all"]
     private var selectedDatePeriod: Int? = 0
@@ -126,16 +127,26 @@ private extension RequestFilterViewController {
         }
         locationTextfield.text = _filterModel.locationName
         keywordsTextfield.text = _filterModel.keyWord
-        
     }
     
     func updateUI() {
+        title = NSLocalizedString("Filters", comment: "")
         GradientHelper.addHorizontalGradient(RAColorSet.RAGREEN.cgColor,
                                    bottom: RAColorSet.RABLUE_GREENISH.cgColor,
                                    toView: applyButton)
         GradientHelper.addHorizontalGradient(RAColorSet.RAGREEN.cgColor,
                                              bottom: RAColorSet.RABLUE_GREENISH.cgColor,
                                              toView: clearAllButton)
+        applyButton.setTitle(NSLocalizedString("Apply", comment: ""), for: .normal)
+        applyButton.setTitle(NSLocalizedString("Apply", comment: ""), for: .selected)
+        
+        clearAllButton.setTitle(NSLocalizedString("ClearAllFilters", comment: ""), for: .normal)
+        clearAllButton.setTitle(NSLocalizedString("ClearAllFilters", comment: ""), for: .selected)
+        
+        locationTextfield.placeholder = NSLocalizedString("LocationsSearchPlaceholder", comment: "")
+        keywordsTextfield.placeholder = NSLocalizedString("KeywordsSearchPlaceholder", comment: "")
+        
+        cancelButton.title = NSLocalizedString("Cancel", comment: "")
     }
     
     func refreshUI() {

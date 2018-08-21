@@ -586,6 +586,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="applyButton" destination="B60-il-9go" id="Ycs-Kt-mb1"/>
+                        <outlet property="cancelButton" destination="Ewb-rr-c02" id="K7L-vV-YO1"/>
                         <outlet property="clearAllButton" destination="pio-hP-Ho0" id="ncr-Fy-UvV"/>
                         <outlet property="keywordsTextfield" destination="4fq-KT-Rm8" id="Pvb-BJ-jSM"/>
                         <outlet property="locationTextfield" destination="CNN-Ow-03r" id="Uk7-Zj-n85"/>

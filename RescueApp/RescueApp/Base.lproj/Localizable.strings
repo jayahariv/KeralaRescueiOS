@@ -22,3 +22,9 @@
 "Send SMS" = "Send SMS";
 "Call" = "Call";
 "RequestingForSelfText" = "Requesting for Self";
+"Apply" = "Apply";
+"ClearAllFilters" = "Clear All Filters";
+"Filters" = "Filters";
+"LocationsSearchPlaceholder" = "Search locations by name";
+"KeywordsSearchPlaceholder" = "Search keywords like rice, bread etc..";
+"Cancel" = "Cancel";
