@@ -23,4 +23,5 @@ If you are willing to help anyone with something,
 Currently we are using the data from keralarescue.in. We hard-coded some data if users are not having internet connectivity or service down time. So the data on which the data is hard-coded is August 19th, 2018. 
 
 ## Screenshots
-<img width="160" alt="home_gray" src="https://user-images.githubusercontent.com/10448770/44315072-538e5b00-a3d5-11e8-97ab-1be1757805a5.png">
+<img width="160" alt="home" src="https://user-images.githubusercontent.com/10448770/44382102-70578b00-a4c8-11e8-94cf-4265278739b1.png">
+<img width="160" alt="list" src="https://user-images.githubusercontent.com/10448770/44382103-70f02180-a4c8-11e8-8fec-af873e4b1752.png">
