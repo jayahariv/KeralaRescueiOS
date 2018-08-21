@@ -49,7 +49,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you have a spare bottle of water or an extra meal, you can look for people near you and help them. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRk-hW-cHH">
-                                <rect key="frame" x="16" y="476" width="343" height="32"/>
+                                <rect key="frame" x="16" y="466" width="343" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="cVp-H8-ukm"/>
                                 </constraints>
@@ -58,7 +58,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="qGM-Pt-3Nk">
-                                <rect key="frame" x="35" y="204" width="305" height="245"/>
+                                <rect key="frame" x="35" y="194" width="305" height="245"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="1zR-hA-t0C">
                                         <rect key="frame" x="0.0" y="0.0" width="305" height="120"/>
@@ -145,7 +145,7 @@
                             <constraint firstItem="PIy-LI-Qxy" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="D4W-IM-HFL"/>
                             <constraint firstItem="qGM-Pt-3Nk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="N9f-1I-b3y"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eRk-hW-cHH" secondAttribute="trailing" constant="16" id="e4V-6v-3Kg"/>
-                            <constraint firstItem="qGM-Pt-3Nk" firstAttribute="top" secondItem="PIy-LI-Qxy" secondAttribute="bottom" constant="44" id="eyi-hm-DFv"/>
+                            <constraint firstItem="qGM-Pt-3Nk" firstAttribute="top" secondItem="PIy-LI-Qxy" secondAttribute="bottom" constant="34" id="eyi-hm-DFv"/>
                             <constraint firstItem="PIy-LI-Qxy" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="hPv-d7-1DL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -539,7 +539,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B60-il-9go">
-                                <rect key="frame" x="20" y="234" width="335" height="45"/>
+                                <rect key="frame" x="20" y="182" width="335" height="45"/>
                                 <color key="backgroundColor" red="0.42745098039215684" green="0.76470588235294112" blue="0.51764705882352946" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="uV6-AK-GuK"/>
@@ -551,7 +551,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pio-hP-Ho0">
-                                <rect key="frame" x="20" y="299" width="335" height="45"/>
+                                <rect key="frame" x="20" y="247" width="335" height="45"/>
                                 <color key="backgroundColor" red="0.40392156862745099" green="0.73333333333333328" blue="0.90588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="aAf-S0-Uze"/>
@@ -566,7 +566,7 @@
                         <color key="backgroundColor" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="pio-hP-Ho0" firstAttribute="top" secondItem="B60-il-9go" secondAttribute="bottom" constant="20" id="1xj-BE-xFb"/>
-                            <constraint firstItem="B60-il-9go" firstAttribute="top" secondItem="RDw-bw-MxS" secondAttribute="bottom" constant="102" id="207-jg-pHq"/>
+                            <constraint firstItem="B60-il-9go" firstAttribute="top" secondItem="RDw-bw-MxS" secondAttribute="bottom" constant="50" id="207-jg-pHq"/>
                             <constraint firstItem="RDw-bw-MxS" firstAttribute="leading" secondItem="DdQ-nQ-jMk" secondAttribute="leading" constant="20" id="4Le-SL-Q5y"/>
                             <constraint firstItem="RDw-bw-MxS" firstAttribute="top" secondItem="DdQ-nQ-jMk" secondAttribute="top" constant="20" id="EJd-CZ-bi5"/>
                             <constraint firstItem="pio-hP-Ho0" firstAttribute="leading" secondItem="DdQ-nQ-jMk" secondAttribute="leading" constant="20" id="M8x-Ve-PP2"/>
@@ -918,7 +918,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="callButtonActionWithSender:" destination="Qnf-Ti-vBl" eventType="touchUpInside" id="wUr-SU-JOH"/>
                                     <action selector="weCareActionWithSender:" destination="Qnf-Ti-vBl" eventType="touchUpInside" id="CWB-Xc-aZh"/>
                                 </connections>
                             </button>
