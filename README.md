@@ -25,3 +25,5 @@ Currently we are using the data from keralarescue.in. We hard-coded some data if
 ## Screenshots
 !<img width="160" alt="home" src="https://user-images.githubusercontent.com/10448770/44382102-70578b00-a4c8-11e8-94cf-4265278739b1.png">
 <img width="160" alt="list" src="https://user-images.githubusercontent.com/10448770/44382103-70f02180-a4c8-11e8-8fec-af873e4b1752.png">
+<img width="160" alt="home-m" src="https://user-images.githubusercontent.com/10448770/44382566-47d09080-a4ca-11e8-8797-0ae8dc8eea9e.png">
+<img width="160" alt="list-m" src="https://user-images.githubusercontent.com/10448770/44382567-47d09080-a4ca-11e8-9c62-7024ef01513a.png">
