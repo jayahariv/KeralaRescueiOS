@@ -94,7 +94,8 @@ private extension RequestFilterViewController {
      here all the UI is configured once when view is loaded
      */
     func configureUI() {
-        navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        UIApplication.shared.statusBarStyle = .lightContent
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         guard let _filterModel = appDelegate.filterModel else {
             return

@@ -49,7 +49,8 @@ class ResourceNeedsListViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == C.segueToFilter {
-            let vc = segue.destination as! RequestFilterViewController
+            let nc = segue.destination as! UINavigationController
+            let vc = nc.topViewController as! RequestFilterViewController
             vc.requests = requests
             vc.delegate = self
         }
