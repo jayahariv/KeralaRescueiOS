@@ -41,6 +41,12 @@ class ResourseNeedsDetailViewController: UIViewController {
         populateData()
         updateRequestedServiceView()
         updateRequestForSelf()
+        
+        sendMessageButton.setTitle(NSLocalizedString("Send SMS", comment: ""), for: .normal)
+        sendMessageButton.setTitle(NSLocalizedString("Send SMS", comment: ""), for: .selected)
+        
+        callButton.setTitle(NSLocalizedString("Call", comment: ""), for: .normal)
+        callButton.setTitle(NSLocalizedString("Call", comment: ""), for: .selected)
     }
     
     func populateData() {
