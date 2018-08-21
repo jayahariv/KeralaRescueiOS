@@ -31,7 +31,7 @@ class ResourseNeedsDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Details"
+        self.title = NSLocalizedString("Details", comment: "")
         updateUI()
     }
     

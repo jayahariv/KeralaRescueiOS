@@ -10,6 +10,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var headingLabel: UILabel!
     @IBOutlet weak var subHeadingLabel: UILabel!
     @IBOutlet weak var headingContainer: UIView!
@@ -19,10 +20,10 @@ class HomeViewController: UIViewController {
         static let waterSegueID = "waterRequest"
         static let medicineSegueID = "medicineRequest"
         static let clothesSegueID = "clothesRequest"
-        static let alertMessage = "Data we provide is from keralarescue.in. We will fetch once from the webservice provided by keralarescue.in or else saved data on 19/08/2018."
         static let headingLabelText = "HomeHeading"
         static let subHeadingLabelText = "HomeSubHeading"
         static let alertTitle = "FirstAlert"
+        static let LoadingDataFromServer = "LoadingDataFromServer"
     }
     
     private var requests:  [String: RequestModel] {
@@ -93,6 +94,9 @@ extension HomeViewController {
         GradientHelper.addVerticalGradient(RAColorSet.RABLUE_LIGHT.cgColor,
                                            bottom: RAColorSet.RABLUE.cgColor,
                                            toView: headingContainer)
+        
+//        titleLabel.text = NSLocalizedString("AppTitle", comment: "localised")
+        
     }
     
     func clearSavedFilters() {
@@ -107,14 +111,14 @@ extension HomeViewController {
     }
     
     func getResources() {
-        Overlay.shared.showWithMessage("Please wait loading data...")
+        Overlay.shared.showWithMessage(NSLocalizedString(C.LoadingDataFromServer, comment: ""))
         ApiClient.shared.getResourceNeeds { (_) in
             Overlay.shared.remove()
         }
     }
     
     func refresh() {
-        Overlay.shared.showWithMessage("Please wait loading data...")
+        Overlay.shared.showWithMessage(NSLocalizedString(C.LoadingDataFromServer, comment: ""))
         ApiClient.shared.getOnlineData(completion: { (_) in
             Overlay.shared.remove()
         })
