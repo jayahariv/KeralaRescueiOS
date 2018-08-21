@@ -21,13 +21,6 @@ Version 1.0.0 is a quick release, so it only included the read-only version of d
 ## Data 
 Currently we are using the data from keralarescue.in. We hardcoded some data if users are not having internet connectivity or if the service is down. Data which is hardcoded is dated on 19th Auguest, 2018. 
 
-## Contributors
-Special thanks to Rony Anand for his awesome design. Contributors are, 
-- @SebinRoyRVS
-- @nitingeorge227
-- @albin-joseph 
-- @Ajithkattacherry
-
 ## Screenshots
 ### English
 !<img width="160" alt="home" src="https://user-images.githubusercontent.com/10448770/44382102-70578b00-a4c8-11e8-94cf-4265278739b1.png">
