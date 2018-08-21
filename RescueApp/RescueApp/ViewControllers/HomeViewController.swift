@@ -37,6 +37,7 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateUI()
+        clearSavedFilters()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -88,6 +89,11 @@ extension HomeViewController {
             UserDefaults.standard.set(true, forKey: "firstTimeLoggedIn")
         }
         
+    }
+    
+    func clearSavedFilters() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.filterModel = nil
     }
     
     func updateUI() {

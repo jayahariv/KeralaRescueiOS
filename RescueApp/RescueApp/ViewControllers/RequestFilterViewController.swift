@@ -58,23 +58,33 @@ class RequestFilterViewController: UIViewController {
         
         print(requests.count)
         print(requests)
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        
         var filteredRequests = requests
+        let filterModel = FilterModel()
         if let locationName = locationTextfield.text, locationName.count > 0 {
-            appDelegate.filterModel?.locationName = locationName
+            filterModel.locationName = locationName
             filteredRequests = filterWithLocationName(locationName, requests: filteredRequests)
+        } else {
+            filterModel.locationName = ""
         }
         
         if let keywords = keywordsTextfield.text, keywords.count > 0 {
-            appDelegate.filterModel?.keyWord = keywords
+            filterModel.keyWord = keywords
             filteredRequests = filterWithKeywords(keywords, requests: filteredRequests)
+        } else {
+            filterModel.keyWord = ""
         }
         
         if let period = selectedDatePeriod {
-            appDelegate.filterModel?.timePeriod = period
+            filterModel.timePeriod = period
             filteredRequests = filterWithDatePeriod(period, requests: filteredRequests)
+        } else {
+            filterModel.timePeriod = 0
         }
         
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.filterModel = filterModel
         delegate?.didFinishApplyingFilters(filters: filteredRequests)
             
         dismiss(animated: true, completion: nil)
@@ -87,6 +97,8 @@ class RequestFilterViewController: UIViewController {
     }
     
     @IBAction func onClearAllFilters(_ sender: Any) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.filterModel = nil
         delegate?.didFinishApplyingFilters(filters: ResultOptimizer.shared.getRequests(requestType))
         dismiss(animated: true, completion: nil)
     }
