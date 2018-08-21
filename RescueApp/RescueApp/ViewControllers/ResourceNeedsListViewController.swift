@@ -53,6 +53,7 @@ class ResourceNeedsListViewController: UIViewController {
             let vc = nc.topViewController as! RequestFilterViewController
             vc.requests = requests
             vc.delegate = self
+            vc.requestType = requestsType
         }
     }
     

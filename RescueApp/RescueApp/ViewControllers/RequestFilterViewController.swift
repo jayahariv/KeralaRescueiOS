@@ -24,6 +24,7 @@ class RequestFilterViewController: UIViewController {
     
     var requests = [RequestModel]()
     var delegate: RequestFilterProtocol?
+    var requestType: RequestType!
     
     @IBOutlet private weak var navigationBar: UINavigationBar!
     @IBOutlet private weak var locationTextfield: UITextField!
@@ -31,7 +32,7 @@ class RequestFilterViewController: UIViewController {
     @IBOutlet private weak var timePeriods: UIButton!
     @IBOutlet private weak var timePeriodsPickerView: UIPickerView!
     
-    private var datePeriods = ["yesterday", "within last week", "within last month" ]
+    private var datePeriods = ["only last day", "within last week", "within last month", "all"]
     private var selectedDatePeriod: Int? = 0
     
     private struct C {
@@ -81,8 +82,13 @@ class RequestFilterViewController: UIViewController {
     
     @IBAction func onSelectTimePeriod(_ sender: Any) {
         timePeriods.isSelected = !timePeriods.isSelected
-        
+        selectedDatePeriod = 1
         refreshUI()
+    }
+    
+    @IBAction func onClearAllFilters(_ sender: Any) {
+        delegate?.didFinishApplyingFilters(filters: ResultOptimizer.shared.getRequests(requestType))
+        dismiss(animated: true, completion: nil)
     }
 }
 

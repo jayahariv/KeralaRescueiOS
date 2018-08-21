@@ -818,18 +818,34 @@
                                     <action selector="onApply:" destination="ChO-Pn-WMU" eventType="touchUpInside" id="XKH-Fh-u3j"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pio-hP-Ho0">
+                                <rect key="frame" x="20" y="367" width="374" height="45"/>
+                                <color key="backgroundColor" red="0.40392156862745099" green="0.73333333333333328" blue="0.90588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="9Yg-0d-xdg"/>
+                                    <constraint firstAttribute="height" constant="45" id="aAf-S0-Uze"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Clear All Filters"/>
+                                <connections>
+                                    <action selector="onClearAllFilters:" destination="ChO-Pn-WMU" eventType="touchUpInside" id="acu-5d-a1L"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="pio-hP-Ho0" firstAttribute="top" secondItem="B60-il-9go" secondAttribute="bottom" constant="20" id="1xj-BE-xFb"/>
                             <constraint firstItem="B60-il-9go" firstAttribute="top" secondItem="RDw-bw-MxS" secondAttribute="bottom" constant="102" id="207-jg-pHq"/>
                             <constraint firstItem="RDw-bw-MxS" firstAttribute="leading" secondItem="DdQ-nQ-jMk" secondAttribute="leading" constant="20" id="4Le-SL-Q5y"/>
                             <constraint firstItem="RDw-bw-MxS" firstAttribute="top" secondItem="DdQ-nQ-jMk" secondAttribute="top" constant="20" id="EJd-CZ-bi5"/>
                             <constraint firstItem="CQE-XL-TE4" firstAttribute="trailing" secondItem="DdQ-nQ-jMk" secondAttribute="trailing" id="Fz1-s6-eyF"/>
+                            <constraint firstItem="pio-hP-Ho0" firstAttribute="leading" secondItem="DdQ-nQ-jMk" secondAttribute="leading" constant="20" id="M8x-Ve-PP2"/>
                             <constraint firstItem="CQE-XL-TE4" firstAttribute="leading" secondItem="DdQ-nQ-jMk" secondAttribute="leading" id="R9y-lq-iba"/>
                             <constraint firstItem="DdQ-nQ-jMk" firstAttribute="trailing" secondItem="RDw-bw-MxS" secondAttribute="trailing" constant="20" id="VCB-CS-PtX"/>
                             <constraint firstItem="DdQ-nQ-jMk" firstAttribute="trailing" secondItem="B60-il-9go" secondAttribute="trailing" constant="20" id="hZS-QW-oam"/>
                             <constraint firstItem="CQE-XL-TE4" firstAttribute="bottom" secondItem="DdQ-nQ-jMk" secondAttribute="bottom" id="jwJ-C9-Kiz"/>
                             <constraint firstItem="B60-il-9go" firstAttribute="leading" secondItem="DdQ-nQ-jMk" secondAttribute="leading" constant="20" id="mQA-oa-crx"/>
+                            <constraint firstItem="DdQ-nQ-jMk" firstAttribute="trailing" secondItem="pio-hP-Ho0" secondAttribute="trailing" constant="20" id="pFd-ik-LI2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DdQ-nQ-jMk"/>
                     </view>
