@@ -42,6 +42,13 @@ class HomeViewController: UIViewController {
         clearSavedFilters()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        GradientHelper.addVerticalGradient(RAColorSet.RABLUE_LIGHT.cgColor,
+                                           bottom: RAColorSet.RABLUE.cgColor,
+                                           toView: headingContainer)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         var requests = [RequestModel]()
@@ -90,10 +97,6 @@ extension HomeViewController {
             present(alert, animated: true, completion: nil)
             UserDefaults.standard.set(true, forKey: "firstTimeLoggedIn")
         }
-        
-        GradientHelper.addVerticalGradient(RAColorSet.RABLUE_LIGHT.cgColor,
-                                           bottom: RAColorSet.RABLUE.cgColor,
-                                           toView: headingContainer)
         
         titleLabel.text = NSLocalizedString("AppTitle", comment: "localised")
         

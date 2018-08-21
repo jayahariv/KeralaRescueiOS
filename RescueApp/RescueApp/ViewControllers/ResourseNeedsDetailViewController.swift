@@ -36,9 +36,14 @@ class ResourseNeedsDetailViewController: UIViewController {
         updateUI()
     }
     
-    func updateUI() {
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         GradientHelper.addHorizontalGradient(RAColorSet.GRADIENTSTART.cgColor, bottom: RAColorSet.GRADIENTEND.cgColor, toView: callButton)
         GradientHelper.addHorizontalGradient(RAColorSet.GRADIENTSTART.cgColor, bottom: RAColorSet.GRADIENTEND.cgColor, toView: sendMessageButton)
+    }
+    
+    func updateUI() {
+        
         populateData()
         updateRequestedServiceView()
         updateRequestForSelf()

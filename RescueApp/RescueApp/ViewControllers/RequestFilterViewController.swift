@@ -55,6 +55,16 @@ class RequestFilterViewController: UIViewController {
         super.viewWillAppear(animated)
         updateUI()
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        GradientHelper.addHorizontalGradient(RAColorSet.RAGREEN.cgColor,
+                                             bottom: RAColorSet.RABLUE_GREENISH.cgColor,
+                                             toView: applyButton)
+        GradientHelper.addHorizontalGradient(RAColorSet.RAGREEN.cgColor,
+                                             bottom: RAColorSet.RABLUE_GREENISH.cgColor,
+                                             toView: clearAllButton)
+    }
 
     // MARK: Button Actions
     @IBAction func onCancel(_ sender: Any) {
@@ -131,12 +141,7 @@ private extension RequestFilterViewController {
     
     func updateUI() {
         title = NSLocalizedString("Filters", comment: "")
-        GradientHelper.addHorizontalGradient(RAColorSet.RAGREEN.cgColor,
-                                   bottom: RAColorSet.RABLUE_GREENISH.cgColor,
-                                   toView: applyButton)
-        GradientHelper.addHorizontalGradient(RAColorSet.RAGREEN.cgColor,
-                                             bottom: RAColorSet.RABLUE_GREENISH.cgColor,
-                                             toView: clearAllButton)
+        
         applyButton.setTitle(NSLocalizedString("Apply", comment: ""), for: .normal)
         applyButton.setTitle(NSLocalizedString("Apply", comment: ""), for: .selected)
         
