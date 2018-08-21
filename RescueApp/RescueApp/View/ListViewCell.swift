@@ -15,4 +15,5 @@ class ListViewCell: UITableViewCell {
     @IBOutlet weak var rescueView: UIView!
     @IBOutlet weak var foodWaterView: UIView!
     @IBOutlet weak var medicineView: UIView!
+    @IBOutlet weak var clothsView: UIView!
 }

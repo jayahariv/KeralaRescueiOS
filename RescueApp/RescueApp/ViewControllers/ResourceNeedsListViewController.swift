@@ -106,6 +106,11 @@ extension ResourceNeedsListViewController: UITableViewDataSource {
         } else {
             cell.foodWaterView.isHidden = true
         }
+        if let _needcloth = model?.needcloth, _needcloth {
+            cell.clothsView.isHidden = false
+        } else {
+            cell.clothsView.isHidden = true
+        }
     }
 }
 
