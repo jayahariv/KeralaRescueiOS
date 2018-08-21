@@ -1,7 +1,11 @@
-# RescueApp iOS
+# Kerala Rescue iOS
 
 ## Overview
-This app will help the volunteers too look for needed people.
+Kerala Rescue is an iPhone app, which will help users to find the people in need. We categorized the needs into four sections, including Food, Water, Medicine, Clothes. Our main audience include the anyone who are willing to help people in need. 
+
+Users can download the App, go to respective category, find people and enquire about the needs. After they find someone, they can directly call them or send an SMS. SMS charges and call are done via cell service. 
+
+Users can filter the result using the locations keyword, for example "munnar", "aluva", etc. Users can search for keywords like "rice", "bread", etc.. to description containing the keywords.
 
 ## Installation
 1. Open terminal and move to the desired folder to checkout. `cd ~/Desktop`
@@ -12,15 +16,10 @@ This app will help the volunteers too look for needed people.
 
 
 ## Version 1.0.0
-This version is a read-only app which will show the requests from different people. You can look for people who are in need for food, water, clothes or medicines. 
-
-If you are willing to help anyone with something, 
-1. you can call directly from the application to enquire whether its already served
-2. you can ask them to collect it from you or drop them the items in the mentioned place. 
-
+Version 1.0.0 is a quick release, so it only included the read-only version of data. Which anyone can look for the people in need. 
 
 ## Data 
-Currently we are using the data from keralarescue.in. We hard-coded some data if users are not having internet connectivity or service down time. So the data on which the data is hard-coded is August 19th, 2018. 
+Currently we are using the data from keralarescue.in. We hardcoded some data if users are not having internet connectivity or if the service is down. Data which is hardcoded is dated on 19th Auguest, 2018. 
 
 ## Screenshots
 !<img width="160" alt="home" src="https://user-images.githubusercontent.com/10448770/44382102-70578b00-a4c8-11e8-94cf-4265278739b1.png">
