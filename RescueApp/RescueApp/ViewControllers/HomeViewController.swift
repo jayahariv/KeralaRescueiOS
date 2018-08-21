@@ -14,10 +14,6 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var headingLabel: UILabel!
     @IBOutlet weak var subHeadingLabel: UILabel!
     @IBOutlet weak var headingContainer: UIView!
-    @IBOutlet weak var foodButton: UIButton!
-    @IBOutlet weak var waterButton: UIButton!
-    @IBOutlet weak var medicineButton: UIButton!
-    @IBOutlet weak var clothesButton: UIButton!
     
     private struct C {
         static let foodSegueID = "foodRequest"
@@ -100,18 +96,7 @@ extension HomeViewController {
                                            toView: headingContainer)
         
 //        titleLabel.text = NSLocalizedString("AppTitle", comment: "localised")
-//
-//        foodButton.setTitle(NSLocalizedString("Food", comment: "localised"), for: .normal)
-//        foodButton.setTitle(NSLocalizedString("Food", comment: "localised"), for: .selected)
-//
-//        waterButton.setTitle(NSLocalizedString("Water", comment: "localised"), for: .normal)
-//        waterButton.setTitle(NSLocalizedString("Water", comment: "localised"), for: .selected)
-//
-//        medicineButton.setTitle(NSLocalizedString("Medicine", comment: ""), for: .normal)
-//        medicineButton.setTitle(NSLocalizedString("Medicine", comment: ""), for: .selected)
-//
-//        clothesButton.setTitle(NSLocalizedString("Clothes", comment: ""), for: .normal)
-//        clothesButton.setTitle(NSLocalizedString("Clothes", comment: ""), for: .selected)
+        
     }
     
     func clearSavedFilters() {
