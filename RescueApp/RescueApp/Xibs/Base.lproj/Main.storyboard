@@ -238,7 +238,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="5Ny-Ue-SWQ">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.28627450980000002" green="0.58823529409999997" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.90980392160000001" green="0.3921568627" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -767,7 +767,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="FUn-qX-lTb"/>
                                 </constraints>
-                                <color key="barTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="barTintColor" red="0.90980392160000001" green="0.3921568627" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <items>
                                     <navigationItem title="Filters" id="HkY-KE-WZJ">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Ebz-ef-fY4">
@@ -827,17 +827,29 @@
                                     <outlet property="delegate" destination="ChO-Pn-WMU" id="xeC-UD-PTU"/>
                                 </connections>
                             </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B60-il-9go">
+                                <rect key="frame" x="20" y="366" width="374" height="45"/>
+                                <color key="backgroundColor" red="0.42745098039215684" green="0.76470588235294112" blue="0.51764705882352946" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="uV6-AK-GuK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Apply"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="B60-il-9go" firstAttribute="top" secondItem="RDw-bw-MxS" secondAttribute="bottom" constant="102" id="207-jg-pHq"/>
                             <constraint firstItem="RDw-bw-MxS" firstAttribute="leading" secondItem="DdQ-nQ-jMk" secondAttribute="leading" constant="20" id="4Le-SL-Q5y"/>
                             <constraint firstItem="Ru2-24-weT" firstAttribute="top" secondItem="DdQ-nQ-jMk" secondAttribute="top" id="7zl-qW-ld2"/>
                             <constraint firstItem="CQE-XL-TE4" firstAttribute="trailing" secondItem="DdQ-nQ-jMk" secondAttribute="trailing" id="Fz1-s6-eyF"/>
                             <constraint firstItem="RDw-bw-MxS" firstAttribute="top" secondItem="Ru2-24-weT" secondAttribute="bottom" constant="20" id="JoH-R4-BZh"/>
                             <constraint firstItem="CQE-XL-TE4" firstAttribute="leading" secondItem="DdQ-nQ-jMk" secondAttribute="leading" id="R9y-lq-iba"/>
                             <constraint firstItem="DdQ-nQ-jMk" firstAttribute="trailing" secondItem="RDw-bw-MxS" secondAttribute="trailing" constant="20" id="VCB-CS-PtX"/>
+                            <constraint firstItem="DdQ-nQ-jMk" firstAttribute="trailing" secondItem="B60-il-9go" secondAttribute="trailing" constant="20" id="hZS-QW-oam"/>
                             <constraint firstItem="CQE-XL-TE4" firstAttribute="bottom" secondItem="DdQ-nQ-jMk" secondAttribute="bottom" id="jwJ-C9-Kiz"/>
                             <constraint firstItem="Ru2-24-weT" firstAttribute="trailing" secondItem="DdQ-nQ-jMk" secondAttribute="trailing" id="lBd-zI-eBW"/>
+                            <constraint firstItem="B60-il-9go" firstAttribute="leading" secondItem="DdQ-nQ-jMk" secondAttribute="leading" constant="20" id="mQA-oa-crx"/>
                             <constraint firstItem="Ru2-24-weT" firstAttribute="leading" secondItem="DdQ-nQ-jMk" secondAttribute="leading" id="rIc-Pd-ews"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DdQ-nQ-jMk"/>
@@ -864,7 +876,7 @@
         <image name="tick" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="EjX-6F-mgH"/>
+        <segue reference="wIh-Gy-DNq"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

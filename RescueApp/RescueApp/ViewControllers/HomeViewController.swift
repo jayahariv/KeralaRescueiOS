@@ -30,11 +30,13 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configureUI()
-        
         getResources()
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateUI()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -86,6 +88,10 @@ extension HomeViewController {
             UserDefaults.standard.set(true, forKey: "firstTimeLoggedIn")
         }
         
+    }
+    
+    func updateUI() {
+        navigationController?.navigationBar.barTintColor = UIColor(red: 73/255, green: 150/255, blue: 244/255, alpha: 1.0)
     }
     
     func getResources() {

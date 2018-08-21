@@ -27,6 +27,11 @@ class ResourceNeedsListViewController: UIViewController {
         configureUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateUI()
+    }
+    
     // MARK: Button Actions
     // UNUSED METHOD FOR NOW
     @objc func onMap(_ sender: UIButton) {
@@ -49,12 +54,22 @@ class ResourceNeedsListViewController: UIViewController {
             vc.delegate = self
         }
     }
+    
+    @objc func onBack(_ sender: Any) {
+        navigationController?.navigationBar.barTintColor = UIColor(red: 73/255, green: 150/255, blue: 244/255, alpha: 1.0)
+        navigationController?.popViewController(animated: true)
+    }
 }
 
 extension ResourceNeedsListViewController {
     func configureUI() {
         title = requestsType.rawValue
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Filter", style: .plain, target: self, action: #selector(onFilter(_:)))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Home", style: .done, target: self, action: #selector(onBack(_:)))
+    }
+    
+    func updateUI() {
+        navigationController?.navigationBar.barTintColor = UIColor(red: 232/255, green: 100/255, blue: 119/255, alpha: 1.0)
     }
 }
 
