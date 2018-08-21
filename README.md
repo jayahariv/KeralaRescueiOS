@@ -1,9 +1,9 @@
 # Kerala Rescue iOS
 
 ## Overview
-Kerala Rescue is an iPhone app, which will help users to find the people in need. We categorized the needs into four sections, including Food, Water, Medicine, Clothes. Our main audience include the anyone who are willing to help people in need. 
+Kerala Rescue is an iPhone app, which will help users to find the people in need. We categorized the needs into four sections, including Food, Water, Medicine, Clothes. Anyone who are willing to help people in need can use the application. 
 
-Users can download the App, go to respective category, find people and enquire about the needs. After they find someone, they can directly call them or send an SMS. SMS charges and call are done via cell service. 
+Users can go to respective category and find people. After they find someone, they can directly call them or send an SMS. SMS and call services are done via respective cell service. 
 
 Users can filter the result using the locations keyword, for example "munnar", "aluva", etc. Users can search for keywords like "rice", "bread", etc.. to description containing the keywords.
 
