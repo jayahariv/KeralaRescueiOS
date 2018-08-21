@@ -23,6 +23,7 @@ class ResourseNeedsDetailViewController: UIViewController {
     @IBOutlet weak var requestForSelfImage: UIImageView!
     @IBOutlet weak var sendMessageButton: UIButton!
     @IBOutlet weak var callButton: UIButton!
+    @IBOutlet weak var requestingForSelfLabel: UILabel!
     var selectedRescue: RequestModel?
     
     private struct C {
@@ -47,6 +48,8 @@ class ResourseNeedsDetailViewController: UIViewController {
         
         callButton.setTitle(NSLocalizedString("Call", comment: ""), for: .normal)
         callButton.setTitle(NSLocalizedString("Call", comment: ""), for: .selected)
+        
+        requestingForSelfLabel.text = NSLocalizedString("RequestingForSelfText", comment: "")
     }
     
     func populateData() {
