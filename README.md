@@ -36,4 +36,4 @@ Special thanks to Rony Anand for his awesome design. Contributors are,
 ### Malayalam
 !<img width="160" alt="home-m" src="https://user-images.githubusercontent.com/10448770/44382566-47d09080-a4ca-11e8-8797-0ae8dc8eea9e.png">
 <img width="160" alt="list-m" src="https://user-images.githubusercontent.com/10448770/44382567-47d09080-a4ca-11e8-9c62-7024ef01513a.png">
-<img width="160" alt="details-m" src="https://user-images.githubusercontent.com/10448770/44383238-e78f1e00-a4cc-11e8-9591-23fa44a9054d.png">
+<img width="160" alt="details-m" src="https://user-images.githubusercontent.com/10448770/44384370-d34d2000-a4d0-11e8-9add-e756d9a70261.png">
