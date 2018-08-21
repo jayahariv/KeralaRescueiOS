@@ -132,7 +132,7 @@ class ResourseNeedsDetailViewController: UIViewController {
         if  requestForOthers {
             requestForSelfImage.image = #imageLiteral(resourceName: "cross")
         } else {
-            requestForSelfImage.image = #imageLiteral(resourceName: "tick")
+            requestForSelfImage.image = #imageLiteral(resourceName: "checked")
         }
     }
 }
