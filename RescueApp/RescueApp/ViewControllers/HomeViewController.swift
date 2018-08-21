@@ -10,19 +10,24 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var headingLabel: UILabel!
     @IBOutlet weak var subHeadingLabel: UILabel!
     @IBOutlet weak var headingContainer: UIView!
+    @IBOutlet weak var foodButton: UIButton!
+    @IBOutlet weak var waterButton: UIButton!
+    @IBOutlet weak var medicineButton: UIButton!
+    @IBOutlet weak var clothesButton: UIButton!
     
     private struct C {
         static let foodSegueID = "foodRequest"
         static let waterSegueID = "waterRequest"
         static let medicineSegueID = "medicineRequest"
         static let clothesSegueID = "clothesRequest"
-        static let alertMessage = "Data we provide is from keralarescue.in. We will fetch once from the webservice provided by keralarescue.in or else saved data on 19/08/2018."
         static let headingLabelText = "HomeHeading"
         static let subHeadingLabelText = "HomeSubHeading"
         static let alertTitle = "FirstAlert"
+        static let LoadingDataFromServer = "LoadingDataFromServer"
     }
     
     private var requests:  [String: RequestModel] {
@@ -93,6 +98,20 @@ extension HomeViewController {
         GradientHelper.addVerticalGradient(RAColorSet.RABLUE_LIGHT.cgColor,
                                            bottom: RAColorSet.RABLUE.cgColor,
                                            toView: headingContainer)
+        
+//        titleLabel.text = NSLocalizedString("AppTitle", comment: "localised")
+//
+//        foodButton.setTitle(NSLocalizedString("Food", comment: "localised"), for: .normal)
+//        foodButton.setTitle(NSLocalizedString("Food", comment: "localised"), for: .selected)
+//
+//        waterButton.setTitle(NSLocalizedString("Water", comment: "localised"), for: .normal)
+//        waterButton.setTitle(NSLocalizedString("Water", comment: "localised"), for: .selected)
+//
+//        medicineButton.setTitle(NSLocalizedString("Medicine", comment: ""), for: .normal)
+//        medicineButton.setTitle(NSLocalizedString("Medicine", comment: ""), for: .selected)
+//
+//        clothesButton.setTitle(NSLocalizedString("Clothes", comment: ""), for: .normal)
+//        clothesButton.setTitle(NSLocalizedString("Clothes", comment: ""), for: .selected)
     }
     
     func clearSavedFilters() {
@@ -107,14 +126,14 @@ extension HomeViewController {
     }
     
     func getResources() {
-        Overlay.shared.showWithMessage("Please wait loading data...")
+        Overlay.shared.showWithMessage(NSLocalizedString(C.LoadingDataFromServer, comment: ""))
         ApiClient.shared.getResourceNeeds { (_) in
             Overlay.shared.remove()
         }
     }
     
     func refresh() {
-        Overlay.shared.showWithMessage("Please wait loading data...")
+        Overlay.shared.showWithMessage(NSLocalizedString(C.LoadingDataFromServer, comment: ""))
         ApiClient.shared.getOnlineData(completion: { (_) in
             Overlay.shared.remove()
         })

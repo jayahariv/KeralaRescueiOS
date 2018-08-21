@@ -65,9 +65,13 @@ class ResourceNeedsListViewController: UIViewController {
 
 extension ResourceNeedsListViewController {
     func configureUI() {
-        title = requestsType.rawValue
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Filter", style: .plain, target: self, action: #selector(onFilter(_:)))
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Home", style: .done, target: self, action: #selector(onBack(_:)))
+        title = NSLocalizedString(requestsType.rawValue, comment: "")
+        //UIBarButtonItem(title: "Filter", )
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "filter"), style: .plain, target: self, action: #selector(onFilter(_:)))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Home", comment: ""),
+                                                           style: .done,
+                                                           target: self,
+                                                           action: #selector(onBack(_:)))
     }
     
     func updateUI() {
