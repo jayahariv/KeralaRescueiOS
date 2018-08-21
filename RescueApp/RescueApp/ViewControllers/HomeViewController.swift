@@ -90,7 +90,9 @@ extension HomeViewController {
             UserDefaults.standard.set(true, forKey: "firstTimeLoggedIn")
         }
         
-        GradientHelper.addGradient(RAColorSet.RABLUE_LIGHT.cgColor, bottom: RAColorSet.RABLUE.cgColor, toView: headingContainer)
+        GradientHelper.addVerticalGradient(RAColorSet.RABLUE_LIGHT.cgColor,
+                                           bottom: RAColorSet.RABLUE.cgColor,
+                                           toView: headingContainer)
     }
     
     func clearSavedFilters() {
