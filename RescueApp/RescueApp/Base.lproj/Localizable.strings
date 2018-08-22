@@ -8,7 +8,7 @@
 
 "HomeHeading" = "Reach out a helping hand for the needy. Choose from the given sections to share your spare commodities.";
 "HomeSubHeading" = "\"We make a living by what we get, We make a life by what we give.\"";
-"FirstAlert" = "We are using the data from keralarescue.in. We hardcoded some data if users are not having internet connectivity or service down time. So the data on which the data is hardcoded is August 19th, 2018.";
+"FirstAlert" = "We are using the data from keralarescue.in. We hardcoded some data if users are not having internet connectivity or service down time. So the date on which the data is hardcoded is August 19th, 2018.";
 "WeCareMessageBody" = "";
 "LoadingDataFromServer" = "Please wait, loading data...";
 "AppTitle" = "KERALA RESCUE";
