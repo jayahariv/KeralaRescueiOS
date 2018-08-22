@@ -13,7 +13,6 @@ import UIKit
 enum FilterTypes {
     case location
     case keywords
-    case datePeriods
 }
 
 protocol RequestFilterProtocol {
@@ -29,19 +28,13 @@ class RequestFilterViewController: UIViewController {
     @IBOutlet private weak var navigationBar: UINavigationBar!
     @IBOutlet private weak var locationTextfield: UITextField!
     @IBOutlet private weak var keywordsTextfield: UITextField!
-    @IBOutlet private weak var timePeriods: UIButton!
-    @IBOutlet private weak var timePeriodsPickerView: UIPickerView!
     @IBOutlet private weak var applyButton: UIButton!
     @IBOutlet private weak var clearAllButton: UIButton!
     @IBOutlet private weak var cancelButton: UIBarButtonItem!
-    
-    private var datePeriods = ["only last day", "within last week", "within last month", "all"]
-    private var selectedDatePeriod: Int? = 0
+    @IBOutlet private weak var districtSelector: UIButton!
     
     private struct C {
-        static let oneDayInSeconds = 24 * 60 * 60
-        static let oneWeekInSeconds = 7 * 24 * 60 * 60
-        static let oneMonthInSeconds = 31 * 24 * 60 * 60
+        static let segueToDistrictList = "segueToDistrict"
     }
     
     // MARK: View Lifecycle
@@ -65,17 +58,21 @@ class RequestFilterViewController: UIViewController {
                                              bottom: RAColorSet.RABLUE_GREENISH.cgColor,
                                              toView: clearAllButton)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == C.segueToDistrictList {
+            let vc = segue.destination as! DistrictListViewController
+            vc.delegate = self
+        }
+    }
 
     // MARK: Button Actions
+    
     @IBAction func onCancel(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func onApply(_ sender: Any) {
-        
-        print(requests.count)
-        print(requests)
-        
         
         var filteredRequests = requests
         let filterModel = FilterModel()
@@ -93,24 +90,11 @@ class RequestFilterViewController: UIViewController {
             filterModel.keyWord = ""
         }
         
-        if let period = selectedDatePeriod {
-            filterModel.timePeriod = period
-            filteredRequests = filterWithDatePeriod(period, requests: filteredRequests)
-        } else {
-            filterModel.timePeriod = 0
-        }
-        
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.filterModel = filterModel
         delegate?.didFinishApplyingFilters(filters: filteredRequests)
             
         dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func onSelectTimePeriod(_ sender: Any) {
-        timePeriods.isSelected = !timePeriods.isSelected
-        selectedDatePeriod = 1
-        refreshUI()
     }
     
     @IBAction func onClearAllFilters(_ sender: Any) {
@@ -119,12 +103,14 @@ class RequestFilterViewController: UIViewController {
         delegate?.didFinishApplyingFilters(filters: ResultOptimizer.shared.getRequests(requestType))
         dismiss(animated: true, completion: nil)
     }
+    
 }
 
 
 // MARK: Helper methods
 
 private extension RequestFilterViewController {
+    
     /**
      here all the UI is configured once when view is loaded
      */
@@ -139,6 +125,10 @@ private extension RequestFilterViewController {
         keywordsTextfield.text = _filterModel.keyWord
     }
     
+    /**
+     this method will be called whenever view appears. so any UI refreshing logic can be added inside this method
+     
+     */
     func updateUI() {
         title = NSLocalizedString("Filters", comment: "")
         
@@ -154,14 +144,26 @@ private extension RequestFilterViewController {
         cancelButton.title = NSLocalizedString("Cancel", comment: "")
     }
     
-    func refreshUI() {
-        timePeriodsPickerView.isHidden = !timePeriods.isSelected
-    }
-    
+    /**
+     filters the requests given with the locationname
+     
+     - parameters:
+         - locationName: location name string
+         - requests: list of request model objects.
+     - returns: filtered list of requests.
+     */
     func filterWithLocationName(_ locationName: String, requests from: [RequestModel]) -> [RequestModel] {
         return from.filter { $0.location?.lowercased().contains(locationName.lowercased()) ?? false }
     }
     
+    /**
+     filter using the keywords.
+     
+     - parameters:
+         - keywords: keyword string to filter, like rice, bread.
+         - requests: requests to be filtered.
+     - returns: result of filter
+     */
     func filterWithKeywords(_ keywords: String, requests from: [RequestModel]) -> [RequestModel] {
         return from.filter {
             $0.supply_details?.lowercased().contains(keywords.lowercased()) ?? false ||
@@ -173,55 +175,23 @@ private extension RequestFilterViewController {
             $0.detailkit_util?.lowercased().contains(keywords.lowercased()) ?? false 
         }
     }
-    
-    func filterWithDatePeriod(_ period: Int, requests from: [RequestModel]) -> [RequestModel] {
-        print(period)
-        var minimDate: String!
-        var date = Date()
-        switch period {
-        case 1:
-            date.addTimeInterval(-TimeInterval(C.oneDayInSeconds))
-            minimDate = dateString(date: date)
-        case 2:
-            date.addTimeInterval(-TimeInterval(C.oneWeekInSeconds))
-            minimDate = dateString(date: date)
-        case 3:
-            date.addTimeInterval(-TimeInterval(C.oneMonthInSeconds))
-            minimDate = dateString(date: date)
-        default:
-            return from
-        }
-        
-        print(minimDate)
-        return from.filter { $0.dateadded?.compare(minimDate) != ComparisonResult.orderedAscending }
-    }
-    
-    func dateString(date: Date?) -> String? {
-        guard let _date = date else {
-            return nil
-        }
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-        return formatter.string(from: _date)
+}
+
+
+// MARK: RequestFilterViewController -> UITextFieldDelegate
+
+extension RequestFilterViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
 
-extension RequestFilterViewController: UIPickerViewDataSource, UIPickerViewDelegate {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return datePeriods.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return datePeriods[row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        selectedDatePeriod = row + 1
-        timePeriods.setTitle(datePeriods[row], for: .normal)
-        timePeriods.setTitle(datePeriods[row], for: .selected)
+// MARK: RequestFilterViewController -> DistrictListProtocol
+
+extension RequestFilterViewController: DistrictListProtocol {
+    func didSelectDistricts(_ districts: [District]) {
+        
+        // TODO: Filter the result
     }
 }

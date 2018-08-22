@@ -17,6 +17,8 @@
 		08223606212A806100D2808D /* RequestFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08223605212A806100D2808D /* RequestFilterViewController.swift */; };
 		0822360A212BB16B00D2808D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08223609212BB16B00D2808D /* Colors.swift */; };
 		08223610212CFD3800D2808D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0822360F212CFD3800D2808D /* Constants.swift */; };
+		08223612212D310600D2808D /* DistrictListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08223611212D310600D2808D /* DistrictListViewController.swift */; };
+		08223614212D378B00D2808D /* DistrictTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08223613212D378B00D2808D /* DistrictTableViewCell.swift */; };
 		0864D51E212A45EC00DE403D /* OfflineData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0864D51D212A45EC00DE403D /* OfflineData.plist */; };
 		0864D523212A53AE00DE403D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0864D525212A53AE00DE403D /* Localizable.strings */; };
 		08FDDE5F2129F9D0006B84BE /* RequestsDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FDDE5E2129F9D0006B84BE /* RequestsDictionary.swift */; };
@@ -88,6 +90,8 @@
 		0822360C212BCC6300D2808D /* ml-IN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ml-IN"; path = "ml-IN.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		0822360E212BCC7100D2808D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		0822360F212CFD3800D2808D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		08223611212D310600D2808D /* DistrictListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistrictListViewController.swift; sourceTree = "<group>"; };
+		08223613212D378B00D2808D /* DistrictTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistrictTableViewCell.swift; sourceTree = "<group>"; };
 		0864D51D212A45EC00DE403D /* OfflineData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = OfflineData.plist; sourceTree = "<group>"; };
 		0864D524212A53AE00DE403D /* ml-IN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ml-IN"; path = "ml-IN.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		0864D526212A53E200DE403D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -180,6 +184,7 @@
 			children = (
 				0822304A2127E6F400B7FBF2 /* RAAddressTypeahead.swift */,
 				75DA37282127EF6E00A9D00A /* ListViewCell.swift */,
+				08223613212D378B00D2808D /* DistrictTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -192,6 +197,7 @@
 				E9DBF9992127829000CFD933 /* ResourceNeedsMapViewController.swift */,
 				0822304021279FD200B7FBF2 /* ResourceNeedsListViewController.swift */,
 				75DA37362128A0DC00A9D00A /* ResourseNeedsDetailViewController.swift */,
+				08223611212D310600D2808D /* DistrictListViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -538,6 +544,7 @@
 				E9DBF96C2127806700CFD933 /* HomeViewController.swift in Sources */,
 				08223606212A806100D2808D /* RequestFilterViewController.swift in Sources */,
 				E9DBF99F212785E000CFD933 /* DistrictEnum.swift in Sources */,
+				08223614212D378B00D2808D /* DistrictTableViewCell.swift in Sources */,
 				082230462127CB8700B7FBF2 /* ResultOptimizer.swift in Sources */,
 				08223610212CFD3800D2808D /* Constants.swift in Sources */,
 				0822304D2127E7F500B7FBF2 /* Utility.swift in Sources */,
@@ -548,6 +555,7 @@
 				28386F622128191E0012F429 /* TagCollectionViewCell.swift in Sources */,
 				28386F632128191E0012F429 /* RescueSearchView.swift in Sources */,
 				E9DBF96A2127806700CFD933 /* AppDelegate.swift in Sources */,
+				08223612212D310600D2808D /* DistrictListViewController.swift in Sources */,
 				E9DBF99A2127829000CFD933 /* ResourceNeedsMapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

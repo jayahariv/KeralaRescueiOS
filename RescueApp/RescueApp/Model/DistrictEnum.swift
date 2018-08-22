@@ -8,22 +8,22 @@
 
 import Foundation
 
-enum District {
-    case AL // alapuzha
-    case EK // ernakulam
-    case ID // idukki
-    case KN // kannur
-    case KS // kasagod
-    case KL // kollam
-    case KT // kottayam
-    case KZ // kaozhikodu
-    case MA // malapuram
-    case PL // palakaad
-    case PT // Pathanamtitta
-    case TV // trivandrum
-    case TS // thrissur
-    case WA // wayanad
-    case UNKNOWN // unknown
+enum District: String {
+    case AL = "Alapuzha"
+    case EK = "Ernakulam"
+    case ID = "Idukki"
+    case KN = "Kannur"
+    case KS = "Kasargod"
+    case KL = "Kollam"
+    case KT = "Kottayam"
+    case KZ = "kozhikodu"
+    case MA = "Malapuram"
+    case PL = "Palakkad"
+    case PT = "Pathanamtitta"
+    case TV = "Trivandrum"
+    case TS = "Thrissur"
+    case WA = "Wayanad"
+    case UNKNOWN = "Unknown"
     
     static func getFromString(_ string: String?) -> District {
         switch string {
@@ -44,4 +44,6 @@ enum District {
         default: return District.UNKNOWN
         }
     }
+    
+    static let allValues = [AL, EK, ID, KN, KS, KL, KT, KZ, MA, PL, PT, TV, TS, WA]
 }
