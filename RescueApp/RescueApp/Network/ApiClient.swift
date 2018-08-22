@@ -9,13 +9,11 @@
 typealias ResourceNeeds = (_ requests: [RequestModel]) -> Void
 
 import Foundation
-import Reachability
 import CouchbaseLiteSwift
 
 class ApiClient: NSObject {
     private static let instance = ApiClient()
     private let defaultSession = URLSession(configuration: .default)
-    private let reachability = Reachability()!
     private let database = try? Database(name: "RescueApp")
     
     static var shared: ApiClient {
