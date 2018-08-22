@@ -117,8 +117,9 @@ extension HomeViewController {
     
     func getResources() {
         Overlay.shared.showWithMessage(NSLocalizedString(C.LoadingDataFromServer, comment: ""))
-        ApiClient.shared.getResourceNeeds { (_) in
+        ApiClient.shared.getResourceNeeds { [weak self] (_) in
             Overlay.shared.remove()
+            self?.refreshUI()
         }
     }
     
@@ -136,14 +137,30 @@ extension HomeViewController {
      */
     func refreshUI() {
         DispatchQueue.main.async { [weak self] in
-            let timestamp = UserDefaults.standard.integer(forKey: Constants.UserDefaultsKeys.REQUESTS_LAST_UPDATED_TIME)
-            if timestamp != 0 {
-                let formattedString = Utility.formattedDate(date: Date(timeIntervalSince1970: TimeInterval(timestamp)),
-                                                            format: "dd-MMMM-yyyy h:mm a")
-                self?.lastUpdatedTimeLabel.text = "Requests last updated: \(formattedString)"
+            self?.updateTimestamp()
+        }
+    }
+    
+    /**
+     this will update the timestamp value to be displayed on the UI
+     
+     */
+    func updateTimestamp() {
+        let timestamp = UserDefaults.standard.integer(forKey: Constants.UserDefaultsKeys.REQUESTS_LAST_UPDATED_TIME)
+        if timestamp != 0 {
+            let date = Date(timeIntervalSince1970: TimeInterval(timestamp))
+            let formattedString = Utility.formattedDate(date: date,
+                                                        format: "dd-MMMM-yyyy h:mm a")
+            lastUpdatedTimeLabel.text = "Requests last updated: \(formattedString)"
+            
+            if Date().timeIntervalSince(date) > Constants.DAY_IN_SECONDS {
+                lastUpdatedTimeLabel.backgroundColor = UIColor.red
+                lastUpdatedTimeLabel.textColor = UIColor.white
+            } else {
+                lastUpdatedTimeLabel.backgroundColor = UIColor.clear
+                lastUpdatedTimeLabel.textColor = UIColor.lightGray
             }
         }
-        
     }
 }
 

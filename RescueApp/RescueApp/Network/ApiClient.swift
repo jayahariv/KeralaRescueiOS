@@ -10,6 +10,7 @@ typealias ResourceNeeds = (_ requests: [RequestModel]) -> Void
 
 import Foundation
 import CouchbaseLiteSwift
+import Reachability
 
 class ApiClient: NSObject {
     private static let instance = ApiClient()
@@ -47,14 +48,14 @@ class ApiClient: NSObject {
      */
     func getResourceNeeds(completion: @escaping ResourceNeeds) {
         
-        let url = URL(string: APIConstants.RESOURCE_URL)
+        
         if let doc = database?.document(withID: "json") {
             let str = doc.string(forKey: "json")
             if str != nil {
                 return completion(getOfflineResourceNeeds())
             }
             
-        } else if let reachable = (try? url?.checkResourceIsReachable()) ?? false, reachable {
+        } else if let reachablity = Reachability(hostname: APIConstants.RESOURCE_URL), reachablity.connection != .none {
             getOnlineResourceNeeds(completion: completion)
             return
         }

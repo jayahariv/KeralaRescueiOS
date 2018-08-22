@@ -17,4 +17,5 @@ struct Constants {
     }
     
     static let AUG_19_2018_TIMESTAMP: TimeInterval = 1534636800
+    static let DAY_IN_SECONDS = TimeInterval(24 * 60 * 60)
 }
