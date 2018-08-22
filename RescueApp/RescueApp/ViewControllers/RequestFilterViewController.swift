@@ -58,13 +58,6 @@ class RequestFilterViewController: UIViewController {
                                              bottom: RAColorSet.RABLUE_GREENISH.cgColor,
                                              toView: clearAllButton)
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == C.segueToDistrictList {
-            let vc = segue.destination as! DistrictListViewController
-            vc.delegate = self
-        }
-    }
 
     // MARK: Button Actions
     
@@ -191,7 +184,12 @@ extension RequestFilterViewController: UITextFieldDelegate {
 
 extension RequestFilterViewController: DistrictListProtocol {
     func didSelectDistricts(_ districts: [District]) {
+        if var title = districts.first?.rawValue {
+            if districts.count > 1 {
+                title += "..."
+            }
+            districtSelector.setTitle(title, for: .normal)
+        }
         
-        // TODO: Filter the result
     }
 }

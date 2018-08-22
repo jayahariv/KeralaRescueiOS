@@ -55,6 +55,13 @@ class ResourseNeedsDetailViewController: UIViewController {
         callButton.setTitle(NSLocalizedString("Call", comment: ""), for: .selected)
         
         requestingForSelfLabel.text = NSLocalizedString("RequestingForSelfText", comment: "")
+        
+        sendMessageButton.isEnabled = MFMessageComposeViewController.canSendText()
+        var callButtonEnabled = false
+        if let url = URL(string: "tel://") {
+            callButtonEnabled = UIApplication.shared.canOpenURL(url)
+        }
+        callButton.isEnabled = callButtonEnabled
     }
     
     func populateData() {
