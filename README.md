@@ -18,6 +18,9 @@ Users can filter the result using the locations keyword, for example "munnar", "
 ## Version 1.0.0
 Version 1.0.0 is a quick release, so it only included the read-only version of data. Which anyone can look for the people in need. 
 
+## Suggestions or Issues
+Please log an issue, if you feel like a cool feature or an issue with the current application. If anyone wants to download the application and check it, you can add your email address in this [issue](https://github.com/jayahariv/KeralaRescueiOS/issues/6). We will send the testflight invite to you.
+
 ## Data 
 Currently we are using the data from keralarescue.in. We hardcoded some data if users are not having internet connectivity or if the service is down. Data which is hardcoded is dated on 19th Auguest, 2018. 
 
