@@ -125,4 +125,5 @@ class FilterModel: NSObject {
     var locationName:String = ""
     var keyWord:String = ""
     var timePeriod:Int = 0
+    var districts = [District]()
 }
