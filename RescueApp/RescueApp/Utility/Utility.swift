@@ -18,3 +18,22 @@ struct Alert {
         return alert
     }
 }
+
+final class Utility: NSObject {
+    /**
+     convert the given date to the given format
+ 
+     - parameters:
+         - date: date to be converted.
+         - format: pass in the format string.
+     - returns: formatted string from the date
+     */
+    static func formattedDate(date: Date?, format: String) -> String {
+        guard let _date = date else {
+            return "--"
+        }
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        return formatter.string(from: _date)
+    }
+}

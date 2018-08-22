@@ -14,6 +14,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var headingLabel: UILabel!
     @IBOutlet weak var subHeadingLabel: UILabel!
     @IBOutlet weak var headingContainer: UIView!
+    @IBOutlet weak var lastUpdatedTimeLabel: UILabel!
     
     private struct C {
         static let foodSegueID = "foodRequest"
@@ -92,7 +93,7 @@ extension HomeViewController {
         headingLabel.text = NSLocalizedString(C.headingLabelText, comment: "localised")
         subHeadingLabel.text = NSLocalizedString(C.subHeadingLabelText, comment: "localised")
         
-        if !UserDefaults.standard.bool(forKey: "firstTimeLoggedIn") {
+        if !UserDefaults.standard.bool(forKey: Constants.UserDefaultsKeys.FIRST_TIME_LOGIN) {
             let alert = Alert.errorAlert(title: NSLocalizedString(C.alertTitle, comment: "localized"), message: nil)
             present(alert, animated: true, completion: nil)
             UserDefaults.standard.set(true, forKey: "firstTimeLoggedIn")
@@ -100,6 +101,7 @@ extension HomeViewController {
         
         titleLabel.text = NSLocalizedString("AppTitle", comment: "localised")
         
+        refreshUI()
     }
     
     func clearSavedFilters() {
@@ -122,9 +124,26 @@ extension HomeViewController {
     
     func refresh() {
         Overlay.shared.showWithMessage(NSLocalizedString(C.LoadingDataFromServer, comment: ""))
-        ApiClient.shared.getOnlineData(completion: { (_) in
+        ApiClient.shared.getOnlineData(completion: { [weak self] (_) in
             Overlay.shared.remove()
+            self?.refreshUI()
         })
+    }
+    
+    /**
+     refresh any UI when the something changes can be done inside this method
+     
+     */
+    func refreshUI() {
+        DispatchQueue.main.async { [weak self] in
+            let timestamp = UserDefaults.standard.integer(forKey: Constants.UserDefaultsKeys.REQUESTS_LAST_UPDATED_TIME)
+            if timestamp != 0 {
+                let formattedString = Utility.formattedDate(date: Date(timeIntervalSince1970: TimeInterval(timestamp)),
+                                                            format: "dd-MMMM-yyyy h:mm a")
+                self?.lastUpdatedTimeLabel.text = "Requests last updated: \(formattedString)"
+            }
+        }
+        
     }
 }
 

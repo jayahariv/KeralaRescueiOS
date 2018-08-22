@@ -130,20 +130,23 @@ private extension ApiClient {
                 return
             }
             
-            if let json = String(data: data, encoding: .utf8) {
-                let doc = MutableDocument(id: "json")
-                doc.setString(json, forKey: "json")
-                try? self?.database?.saveDocument(doc)
-            }
-            
-            let decoder = JSONDecoder()
-            
             do {
                 
+                if let json = String(data: data, encoding: .utf8) {
+                    let doc = MutableDocument(id: "json")
+                    doc.setString(json, forKey: "json")
+                    try? self?.database?.saveDocument(doc)
+                }
+                
+                let decoder = JSONDecoder()
                 let requestsData = try decoder.decode(RequestsData.self, from: data)
                 
                 // filter the result
                 ResultOptimizer.shared.save(requestsData.data)
+                
+                // save last updated time
+                let timestamp = Int(Date().timeIntervalSince1970)
+                UserDefaults.standard.set(timestamp, forKey: Constants.UserDefaultsKeys.REQUESTS_LAST_UPDATED_TIME)
                 
                 completion(requestsData.data)
                 

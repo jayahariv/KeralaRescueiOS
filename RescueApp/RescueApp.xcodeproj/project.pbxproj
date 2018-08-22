@@ -16,6 +16,7 @@
 		082235FE212A604E00D2808D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 082235FC212A604E00D2808D /* InfoPlist.strings */; };
 		08223606212A806100D2808D /* RequestFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08223605212A806100D2808D /* RequestFilterViewController.swift */; };
 		0822360A212BB16B00D2808D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08223609212BB16B00D2808D /* Colors.swift */; };
+		08223610212CFD3800D2808D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0822360F212CFD3800D2808D /* Constants.swift */; };
 		0864D51E212A45EC00DE403D /* OfflineData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0864D51D212A45EC00DE403D /* OfflineData.plist */; };
 		0864D523212A53AE00DE403D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0864D525212A53AE00DE403D /* Localizable.strings */; };
 		08FDDE5F2129F9D0006B84BE /* RequestsDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FDDE5E2129F9D0006B84BE /* RequestsDictionary.swift */; };
@@ -86,6 +87,7 @@
 		08223609212BB16B00D2808D /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		0822360C212BCC6300D2808D /* ml-IN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ml-IN"; path = "ml-IN.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		0822360E212BCC7100D2808D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		0822360F212CFD3800D2808D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0864D51D212A45EC00DE403D /* OfflineData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = OfflineData.plist; sourceTree = "<group>"; };
 		0864D524212A53AE00DE403D /* ml-IN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ml-IN"; path = "ml-IN.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		0864D526212A53E200DE403D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				082230432127A72F00B7FBF2 /* Overlay.swift */,
 				0864D51D212A45EC00DE403D /* OfflineData.plist */,
 				08223609212BB16B00D2808D /* Colors.swift */,
+				0822360F212CFD3800D2808D /* Constants.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -536,6 +539,7 @@
 				08223606212A806100D2808D /* RequestFilterViewController.swift in Sources */,
 				E9DBF99F212785E000CFD933 /* DistrictEnum.swift in Sources */,
 				082230462127CB8700B7FBF2 /* ResultOptimizer.swift in Sources */,
+				08223610212CFD3800D2808D /* Constants.swift in Sources */,
 				0822304D2127E7F500B7FBF2 /* Utility.swift in Sources */,
 				75DA37372128A0DC00A9D00A /* ResourseNeedsDetailViewController.swift in Sources */,
 				08FDDE5F2129F9D0006B84BE /* RequestsDictionary.swift in Sources */,

@@ -136,17 +136,30 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last updated: --" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ad4-O1-kPi">
+                                <rect key="frame" x="20" y="160" width="374" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="khG-61-CFs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="ad4-O1-kPi" firstAttribute="top" secondItem="PIy-LI-Qxy" secondAttribute="bottom" id="539-7b-nNg"/>
                             <constraint firstItem="eRk-hW-cHH" firstAttribute="top" secondItem="qGM-Pt-3Nk" secondAttribute="bottom" constant="27" id="6St-M0-fpa"/>
                             <constraint firstItem="eRk-hW-cHH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="82r-Yo-xuU"/>
                             <constraint firstItem="PIy-LI-Qxy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="BDC-xE-7Ic"/>
                             <constraint firstItem="PIy-LI-Qxy" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="D4W-IM-HFL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ad4-O1-kPi" secondAttribute="trailing" constant="20" id="DME-rY-Juz"/>
                             <constraint firstItem="qGM-Pt-3Nk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="N9f-1I-b3y"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eRk-hW-cHH" secondAttribute="trailing" constant="16" id="e4V-6v-3Kg"/>
                             <constraint firstItem="qGM-Pt-3Nk" firstAttribute="top" secondItem="PIy-LI-Qxy" secondAttribute="bottom" constant="34" id="eyi-hm-DFv"/>
                             <constraint firstItem="PIy-LI-Qxy" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="hPv-d7-1DL"/>
+                            <constraint firstItem="ad4-O1-kPi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="rJr-ZE-eAe"/>
+                            <constraint firstItem="ad4-O1-kPi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zAS-0M-ub5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -160,6 +173,7 @@
                     <connections>
                         <outlet property="headingContainer" destination="PIy-LI-Qxy" id="0zJ-Nk-Gjk"/>
                         <outlet property="headingLabel" destination="lal-wa-b26" id="6nu-sp-efv"/>
+                        <outlet property="lastUpdatedTimeLabel" destination="ad4-O1-kPi" id="hPw-Qs-6oc"/>
                         <outlet property="subHeadingLabel" destination="eRk-hW-cHH" id="4Ja-CM-324"/>
                         <outlet property="titleLabel" destination="5P4-fV-pEn" id="fo6-SN-tMT"/>
                     </connections>
