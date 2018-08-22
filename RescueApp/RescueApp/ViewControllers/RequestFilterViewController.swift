@@ -128,6 +128,10 @@ private extension RequestFilterViewController {
     func configureUI() {
         UIApplication.shared.statusBarStyle = .lightContent
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        
+        addBorder(districtSelector)
+        addBorder(locationTextfield)
+        addBorder(keywordsTextfield)
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         guard let _filterModel = appDelegate.filterModel else {
             return
@@ -135,6 +139,12 @@ private extension RequestFilterViewController {
         locationTextfield.text = _filterModel.locationName
         keywordsTextfield.text = _filterModel.keyWord
         updateDistrictButtonTitle(_filterModel.districts)
+    }
+    
+    func addBorder(_ view: UIView) {
+        view.layer.cornerRadius = 5
+        view.layer.borderWidth = 1
+        view.layer.borderColor = RAColorSet.TEXTFIELD_BORDER.cgColor
     }
     
     /**

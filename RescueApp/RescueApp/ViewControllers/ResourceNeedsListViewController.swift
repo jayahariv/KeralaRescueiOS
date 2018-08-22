@@ -135,7 +135,6 @@ extension ResourceNeedsListViewController: UITableViewDelegate {
 
 extension ResourceNeedsListViewController: RequestFilterProtocol {
     func didFinishApplyingFilters(filters: [RequestModel]) {
-        print(filters)
         requests = filters
         tableView.reloadData()
     }
