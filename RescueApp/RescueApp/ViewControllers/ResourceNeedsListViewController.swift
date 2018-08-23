@@ -25,6 +25,9 @@ class ResourceNeedsListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 150
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -121,7 +124,7 @@ extension ResourceNeedsListViewController: UITableViewDataSource {
 extension ResourceNeedsListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return UITableViewAutomaticDimension
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
