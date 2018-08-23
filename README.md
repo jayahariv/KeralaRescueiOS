@@ -21,7 +21,7 @@ Users can filter the result using the locations keyword, for example "munnar", "
 Quick release, so it only included the read-only version of data. Which anyone can look for the people in need. 
 
 ### See it in AppStore
-<a href="https://itunes.apple.com/ae/app/kerala-rescue/id1432467893?mt=8">
+<a href="https://itunes.apple.com/ae/app/kerala-rescue/id1432467893?mt=8" target="_blank">
   <img width="45" alt="check in appstore" src="https://user-images.githubusercontent.com/10448770/44550744-fa2a7280-a6d9-11e8-9053-6f0f680c5a72.png">
 </a>
 
