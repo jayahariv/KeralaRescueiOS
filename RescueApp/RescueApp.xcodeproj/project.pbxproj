@@ -460,11 +460,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0864D51E212A45EC00DE403D /* OfflineData.plist in Resources */,
-<<<<<<< HEAD
 				DAA81A44212E5CC900AA0ECA /* GoogleService-Info.plist in Resources */,
-=======
 				08F599F7212E9B7D00785841 /* Contacts.storyboard in Resources */,
->>>>>>> d07fd3706f81e486529f3d1751941672dce456ad
 				E9DBF9742127806A00CFD933 /* LaunchScreen.storyboard in Resources */,
 				E9DBF9712127806A00CFD933 /* Assets.xcassets in Resources */,
 				0864D523212A53AE00DE403D /* Localizable.strings in Resources */,
