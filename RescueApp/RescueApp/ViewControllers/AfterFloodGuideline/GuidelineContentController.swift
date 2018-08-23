@@ -71,15 +71,15 @@ class GuidelineContentController: UIViewController {
     
     override func loadView() {
         let view = UIView()
-        view.backgroundColor = UIColor.white
+        view.backgroundColor = .white
         
         tableView = UITableView(frame: CGRect.zero, style: .plain)
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.backgroundColor = .clear
+        tableView.backgroundColor = RAColorSet.TABLE_BACKGROUND
         tableView.allowsSelection = true
-        tableView.separatorStyle = .singleLine
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: Constants.CellIndentifier)
+        tableView.separatorStyle = .none
+        tableView.register(ContentTopicCell.self, forCellReuseIdentifier: ContentTopicCell.CellIndentifier)
 
         view.addSubview(tableView)
         
@@ -117,6 +117,9 @@ class GuidelineContentController: UIViewController {
             let contents = snapshot.value as? [String : AnyObject] ?? [:]
             for content in contents {
                 let menuRow = MenuRowItem(withTitle: content.key)
+                if self.menuRows.count == 0 {
+                    self.fetchSubtopic(menuRow: menuRow)
+                }
                 self.menuRows.append(menuRow)
             }
         })
@@ -129,6 +132,20 @@ class GuidelineContentController: UIViewController {
 //            }
 //        })
     }
+    
+    private func fetchSubtopic(menuRow: MenuRowItem) {
+        menuRow.isOpen = !menuRow.isOpen
+        if menuRow.subTopic.count == 0 {
+            ref?.child(menuRow.title).observe(DataEventType.value, with: { (snapshot) in
+                let contents = snapshot.value as? [String : AnyObject] ?? [:]
+                for content in contents {
+                    let subTopic = SubTopic(title: content.key, url: content.value as! String)
+                    menuRow.subTopic.append(subTopic)
+                    self.tableView.reloadData()
+                }
+            })
+        }
+    }
 }
 
 
@@ -139,7 +156,7 @@ extension GuidelineContentController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return Constants.CellContenrHeaderHeight
+        return UITableViewAutomaticDimension
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -148,11 +165,11 @@ extension GuidelineContentController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: Constants.CellIndentifier)
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: ContentTopicCell.CellIndentifier) as! ContentTopicCell
         let subTopic = self.menuRows[indexPath.section].subTopic[indexPath.row]
-        cell?.textLabel?.text = subTopic.title
-        cell?.accessoryType = .disclosureIndicator
-        return cell!
+        cell.initialize(withTitle: subTopic.title)
+        cell.accessoryType = .disclosureIndicator
+        return cell
     }
 }
 
@@ -170,7 +187,7 @@ extension GuidelineContentController: UITableViewDelegate {
 //        }
         var view = headers[section]
         if view == nil {
-            view = ContentTitleView(frame: .zero, titleText: menuRow.title)
+            view = ContentTitleView(frame: .zero, titleText: menuRow.title, isExpanded: menuRow.subTopic.isEmpty)
             headers[section] = view
         }
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleContentHeaderTap))
@@ -192,17 +209,7 @@ extension GuidelineContentController: UITableViewDelegate {
     {
         if let tag = sender.view?.tag, let headerView = sender.view as? ContentTitleView {
             let menuRow = self.menuRows[tag]
-            menuRow.isOpen = !menuRow.isOpen
-            if menuRow.subTopic.count == 0 {
-                ref?.child(menuRow.title).observe(DataEventType.value, with: { (snapshot) in
-                    let contents = snapshot.value as? [String : AnyObject] ?? [:]
-                    for content in contents {
-                        let subTopic = SubTopic(title: content.key, url: content.value as! String)
-                        menuRow.subTopic.append(subTopic)
-                        self.tableView.reloadData()
-                    }
-                })
-            }
+            fetchSubtopic(menuRow: menuRow)
             headerView.toggle()
             self.tableView.reloadData()
         }
@@ -215,7 +222,8 @@ class ContentTitleView: UIView {
     let title: UILabel = {
         let label = UILabel(frame: CGRect.zero)
         label.textAlignment = .left
-        label.font = UIFont.systemFont(ofSize: 18)
+        label.textColor = RAColorSet.DARK_TEXT_COLOR
+        label.font = UIFont.boldSystemFont(ofSize: 18)
         label.numberOfLines = 0
         label.setContentCompressionResistancePriority(UILayoutPriority.defaultLow, for: .horizontal)
         return label
@@ -236,11 +244,11 @@ class ContentTitleView: UIView {
         icon.image = isExpanded ? UIImage(named: "Collapse") : UIImage(named: "Expand")
     }
     
-    init(frame: CGRect, titleText: String) {
+    init(frame: CGRect, titleText: String, isExpanded: Bool) {
         super.init(frame: frame)
         
         self.backgroundColor = RAColorSet.HEADER_BACKGROUD
-        isExpanded = false
+        self.isExpanded = isExpanded
         title.text = titleText.uppercased()
         
         self.addSubview(title)
