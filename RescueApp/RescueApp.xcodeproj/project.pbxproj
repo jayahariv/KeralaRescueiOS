@@ -23,6 +23,8 @@
 		0864D523212A53AE00DE403D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0864D525212A53AE00DE403D /* Localizable.strings */; };
 		08F599F3212E8EB600785841 /* ReliefCamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F599F2212E8EB600785841 /* ReliefCamp.swift */; };
 		08F599F5212E90E000785841 /* ReliefCampsDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F599F4212E90E000785841 /* ReliefCampsDictionary.swift */; };
+		08F599F7212E9B7D00785841 /* Contacts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08F599F6212E9B7D00785841 /* Contacts.storyboard */; };
+		08F599FA212E9BCB00785841 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F599F9212E9BCB00785841 /* ContactsViewController.swift */; };
 		08FDDE5F2129F9D0006B84BE /* RequestsDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FDDE5E2129F9D0006B84BE /* RequestsDictionary.swift */; };
 		28386F612128191E0012F429 /* TagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28386F5D2128191E0012F429 /* TagCollectionViewCell.xib */; };
 		28386F622128191E0012F429 /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28386F5E2128191E0012F429 /* TagCollectionViewCell.swift */; };
@@ -97,6 +99,8 @@
 		0864D526212A53E200DE403D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		08F599F2212E8EB600785841 /* ReliefCamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReliefCamp.swift; sourceTree = "<group>"; };
 		08F599F4212E90E000785841 /* ReliefCampsDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReliefCampsDictionary.swift; sourceTree = "<group>"; };
+		08F599F6212E9B7D00785841 /* Contacts.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Contacts.storyboard; sourceTree = "<group>"; };
+		08F599F9212E9BCB00785841 /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
 		08FDDE5E2129F9D0006B84BE /* RequestsDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsDictionary.swift; sourceTree = "<group>"; };
 		0C95AB2BC92A00D878E0C564 /* Pods-RescueAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RescueAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RescueAppUITests/Pods-RescueAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		1CE4AA0045A339F04DBAB0DA /* Pods_RescueAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RescueAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -195,6 +199,7 @@
 		08223604212A804600D2808D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				08F599F8212E9B8F00785841 /* Contacts */,
 				E9DBF96B2127806700CFD933 /* HomeViewController.swift */,
 				08223605212A806100D2808D /* RequestFilterViewController.swift */,
 				E9DBF9992127829000CFD933 /* ResourceNeedsMapViewController.swift */,
@@ -210,8 +215,17 @@
 			children = (
 				E9DBF96D2127806700CFD933 /* Main.storyboard */,
 				E9DBF9722127806A00CFD933 /* LaunchScreen.storyboard */,
+				08F599F6212E9B7D00785841 /* Contacts.storyboard */,
 			);
 			path = Xibs;
+			sourceTree = "<group>";
+		};
+		08F599F8212E9B8F00785841 /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				08F599F9212E9BCB00785841 /* ContactsViewController.swift */,
+			);
+			path = Contacts;
 			sourceTree = "<group>";
 		};
 		28386F5C212818B10012F429 /* Search */ = {
@@ -429,6 +443,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0864D51E212A45EC00DE403D /* OfflineData.plist in Resources */,
+				08F599F7212E9B7D00785841 /* Contacts.storyboard in Resources */,
 				E9DBF9742127806A00CFD933 /* LaunchScreen.storyboard in Resources */,
 				E9DBF9712127806A00CFD933 /* Assets.xcassets in Resources */,
 				0864D523212A53AE00DE403D /* Localizable.strings in Resources */,
@@ -539,6 +554,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9DBF9A22127872A00CFD933 /* ApiClient.swift in Sources */,
+				08F599FA212E9BCB00785841 /* ContactsViewController.swift in Sources */,
 				08F599F5212E90E000785841 /* ReliefCampsDictionary.swift in Sources */,
 				0822360A212BB16B00D2808D /* Colors.swift in Sources */,
 				0822304B2127E6F400B7FBF2 /* RAAddressTypeahead.swift in Sources */,
