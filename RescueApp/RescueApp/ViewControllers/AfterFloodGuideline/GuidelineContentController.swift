@@ -10,10 +10,16 @@ import Foundation
 import UIKit
 import Cartography
 import FirebaseDatabase
+import SafariServices
+
+struct SubTopic {
+    var title: String
+    var url: String
+}
 
 class MenuRowItem {
     var title: String = ""
-    var subTopic: [String] = []
+    var subTopic: [SubTopic] = []
     var isOpen: Bool = false
     
     init(withTitle title: String) {
@@ -24,6 +30,8 @@ class MenuRowItem {
 class GuidelineContentController: UIViewController {
     var ref: DatabaseReference?
     var databaseHandle: DatabaseHandle?
+    private var headers: [Int: ContentTitleView] = [:]
+    
     private struct Constants {
         static let title = "Guidelines"
         static let LoadingDataFromServer = "LoadingDataFromServer"
@@ -112,13 +120,14 @@ class GuidelineContentController: UIViewController {
                 self.menuRows.append(menuRow)
             }
         })
-        ref?.child(DBKeys.MainNote).observe(DataEventType.value, with: { (snapshot) in
-            if let note = snapshot.value as? String, note.count > 0 {
-                self.mainNote = note
-                let menuRow = MenuRowItem(withTitle: note)
-                self.menuRows.insert(menuRow, at: 0)
-            }
-        })
+        // TODO: Add it later
+//        ref?.child(DBKeys.MainNote).observe(DataEventType.value, with: { (snapshot) in
+//            if let note = snapshot.value as? String, note.count > 0 {
+//                self.mainNote = note
+//                let menuRow = MenuRowItem(withTitle: note)
+//                self.menuRows.insert(menuRow, at: 0)
+//            }
+//        })
     }
 }
 
@@ -140,8 +149,9 @@ extension GuidelineContentController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: Constants.CellIndentifier)
-        let subtitle = self.menuRows[indexPath.section].subTopic[indexPath.row]
-        cell?.textLabel?.text = subtitle
+        let subTopic = self.menuRows[indexPath.section].subTopic[indexPath.row]
+        cell?.textLabel?.text = subTopic.title
+        cell?.accessoryType = .disclosureIndicator
         return cell!
     }
 }
@@ -154,50 +164,54 @@ extension GuidelineContentController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 
         let menuRow = self.menuRows[section]
-        if section == 0 {
-            return GuidelineMainNotice(frame: .zero, titleText: menuRow.title, subtitleText: nil)
+        // TODO: Add it later
+//        if section == 0 {
+//            return GuidelineMainNotice(frame: .zero, titleText: menuRow.title, subtitleText: nil)
+//        }
+        var view = headers[section]
+        if view == nil {
+            view = ContentTitleView(frame: .zero, titleText: menuRow.title)
+            headers[section] = view
         }
-        let view = ContentTitleView(frame: .zero, titleText: menuRow.title)
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleContentHeaderTap))
         tapRecognizer.numberOfTapsRequired = 1
         tapRecognizer.numberOfTouchesRequired = 1
-        view.tag = section
-        view.addGestureRecognizer(tapRecognizer)
+        view?.tag = section
+        view?.addGestureRecognizer(tapRecognizer)
         return view
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let menuRow = self.menuRows[indexPath.section]
-        let subtitle = menuRow.subTopic[indexPath.row]
-        let path = menuRow.title + "/" + subtitle
-        ref?.child(path).observe(DataEventType.value, with: { (snapshot) in
-            let contents = snapshot.value as? [String : AnyObject] ?? [:]
-            for content in contents {
-                print(content)
-            }
-        })
+        let subTopic = menuRow.subTopic[indexPath.row]
+        let safariView = SFSafariViewController(url: URL(string: subTopic.url)!)
+        navigationController?.present(safariView, animated: true)
     }
     
     @objc func handleContentHeaderTap(sender: UIGestureRecognizer)
     {
-        if let tag = sender.view?.tag {
+        if let tag = sender.view?.tag, let headerView = sender.view as? ContentTitleView {
             let menuRow = self.menuRows[tag]
             menuRow.isOpen = !menuRow.isOpen
             if menuRow.subTopic.count == 0 {
                 ref?.child(menuRow.title).observe(DataEventType.value, with: { (snapshot) in
                     let contents = snapshot.value as? [String : AnyObject] ?? [:]
                     for content in contents {
-                        menuRow.subTopic.append(content.key)
+                        let subTopic = SubTopic(title: content.key, url: content.value as! String)
+                        menuRow.subTopic.append(subTopic)
                         self.tableView.reloadData()
                     }
                 })
             }
+            headerView.toggle()
             self.tableView.reloadData()
         }
     }
 }
 
 class ContentTitleView: UIView {
+    var isExpanded = false
+    
     let title: UILabel = {
         let label = UILabel(frame: CGRect.zero)
         label.textAlignment = .left
@@ -208,7 +222,7 @@ class ContentTitleView: UIView {
     }()
     
     let icon: UIImageView = {
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "cross"))
+        let imageView = UIImageView(image: #imageLiteral(resourceName: "Expand"))
         imageView.isUserInteractionEnabled = false
         constrain(imageView) {
             $0.height == 20
@@ -217,11 +231,17 @@ class ContentTitleView: UIView {
         return imageView
     }()
     
+    func toggle() {
+        isExpanded = !isExpanded
+        icon.image = isExpanded ? UIImage(named: "Collapse") : UIImage(named: "Expand")
+    }
+    
     init(frame: CGRect, titleText: String) {
         super.init(frame: frame)
         
-        self.backgroundColor = .lightGray
-        title.text = titleText
+        self.backgroundColor = RAColorSet.HEADER_BACKGROUD
+        isExpanded = false
+        title.text = titleText.uppercased()
         
         self.addSubview(title)
         self.addSubview(icon)

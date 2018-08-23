@@ -19,6 +19,7 @@ struct RAColorSet {
     static let GRADIENTSTART = UIColor(red: 72/255, green: 201/255, blue: 104/255, alpha: 1.0)
     static let GRADIENTEND = UIColor(red: 69/255, green: 189/255, blue: 236/255, alpha: 1.0)
     static let TEXTFIELD_BORDER = UIColor(red: 197/255, green: 197/255, blue: 197/255, alpha: 1.0)
+    static let HEADER_BACKGROUD = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
 }
 
 final class Colors: NSObject {
