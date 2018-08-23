@@ -31,6 +31,9 @@
 		75DA37292127EF6E00A9D00A /* ListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DA37282127EF6E00A9D00A /* ListViewCell.swift */; };
 		75DA37372128A0DC00A9D00A /* ResourseNeedsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DA37362128A0DC00A9D00A /* ResourseNeedsDetailViewController.swift */; };
 		ACC4BDC9B27F0806EBB0AB63 /* Pods_RescueApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59D2A431FA5AD15EF5F0D3EB /* Pods_RescueApp.framework */; };
+		DAA81A44212E5CC900AA0ECA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAA81A43212E5CC800AA0ECA /* GoogleService-Info.plist */; };
+		DAA81A47212E740E00AA0ECA /* GuidelineContentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA81A46212E740E00AA0ECA /* GuidelineContentController.swift */; };
+		DAA81A49212E804400AA0ECA /* GuidelineMainNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA81A48212E804400AA0ECA /* GuidelineMainNotice.swift */; };
 		E9DBF96A2127806700CFD933 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DBF9692127806700CFD933 /* AppDelegate.swift */; };
 		E9DBF96C2127806700CFD933 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DBF96B2127806700CFD933 /* HomeViewController.swift */; };
 		E9DBF96F2127806700CFD933 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9DBF96D2127806700CFD933 /* Main.storyboard */; };
@@ -108,6 +111,9 @@
 		A59EEFF9F5B713B364EE93C6 /* Pods-RescueApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RescueApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RescueApp/Pods-RescueApp.debug.xcconfig"; sourceTree = "<group>"; };
 		A5E416EC82330986E089BA2C /* Pods-RescueAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RescueAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RescueAppTests/Pods-RescueAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B2A1D660814759FDB289EA02 /* Pods-RescueApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RescueApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-RescueApp/Pods-RescueApp.release.xcconfig"; sourceTree = "<group>"; };
+		DAA81A43212E5CC800AA0ECA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DAA81A46212E740E00AA0ECA /* GuidelineContentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidelineContentController.swift; sourceTree = "<group>"; };
+		DAA81A48212E804400AA0ECA /* GuidelineMainNotice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidelineMainNotice.swift; sourceTree = "<group>"; };
 		E9DBF9662127806700CFD933 /* RescueApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RescueApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9DBF9692127806700CFD933 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9DBF96B2127806700CFD933 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -190,6 +196,7 @@
 		08223604212A804600D2808D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				DAA81A45212E73BA00AA0ECA /* AfterFloodGuideline */,
 				E9DBF96B2127806700CFD933 /* HomeViewController.swift */,
 				08223605212A806100D2808D /* RequestFilterViewController.swift */,
 				E9DBF9992127829000CFD933 /* ResourceNeedsMapViewController.swift */,
@@ -233,6 +240,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		DAA81A45212E73BA00AA0ECA /* AfterFloodGuideline */ = {
+			isa = PBXGroup;
+			children = (
+				DAA81A46212E740E00AA0ECA /* GuidelineContentController.swift */,
+				DAA81A48212E804400AA0ECA /* GuidelineMainNotice.swift */,
+			);
+			path = AfterFloodGuideline;
+			sourceTree = "<group>";
+		};
 		E9DBF95D2127806700CFD933 = {
 			isa = PBXGroup;
 			children = (
@@ -268,6 +284,7 @@
 				082235F8212A5FD000D2808D /* Info.plist */,
 				082235FC212A604E00D2808D /* InfoPlist.strings */,
 				0864D525212A53AE00DE403D /* Localizable.strings */,
+				DAA81A43212E5CC800AA0ECA /* GoogleService-Info.plist */,
 				E9DBF9692127806700CFD933 /* AppDelegate.swift */,
 				E9DBF9702127806A00CFD933 /* Assets.xcassets */,
 			);
@@ -423,6 +440,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0864D51E212A45EC00DE403D /* OfflineData.plist in Resources */,
+				DAA81A44212E5CC900AA0ECA /* GoogleService-Info.plist in Resources */,
 				E9DBF9742127806A00CFD933 /* LaunchScreen.storyboard in Resources */,
 				E9DBF9712127806A00CFD933 /* Assets.xcassets in Resources */,
 				0864D523212A53AE00DE403D /* Localizable.strings in Resources */,
@@ -510,15 +528,23 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-RescueApp/Pods-RescueApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Cartography/Cartography.framework",
 				"${PODS_ROOT}/CouchbaseLite-Swift-Enterprise/iOS/CouchbaseLiteSwift.framework",
 				"${PODS_ROOT}/CouchbaseLite-Swift-Enterprise/iOS/CouchbaseLiteSwift.framework.dSYM",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cartography.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CouchbaseLiteSwift.framework",
 				"${DWARF_DSYM_FOLDER_PATH}/CouchbaseLiteSwift.framework.dSYM",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -537,6 +563,7 @@
 				0822304B2127E6F400B7FBF2 /* RAAddressTypeahead.swift in Sources */,
 				082230442127A72F00B7FBF2 /* Overlay.swift in Sources */,
 				75DA37292127EF6E00A9D00A /* ListViewCell.swift in Sources */,
+				DAA81A49212E804400AA0ECA /* GuidelineMainNotice.swift in Sources */,
 				E9DBF99D2127846E00CFD933 /* RequestModel.swift in Sources */,
 				0822304121279FD200B7FBF2 /* ResourceNeedsListViewController.swift in Sources */,
 				E9DBF96C2127806700CFD933 /* HomeViewController.swift in Sources */,
@@ -548,6 +575,7 @@
 				0822304D2127E7F500B7FBF2 /* Utility.swift in Sources */,
 				75DA37372128A0DC00A9D00A /* ResourseNeedsDetailViewController.swift in Sources */,
 				08FDDE5F2129F9D0006B84BE /* RequestsDictionary.swift in Sources */,
+				DAA81A47212E740E00AA0ECA /* GuidelineContentController.swift in Sources */,
 				0822303F212799EA00B7FBF2 /* APIConstants.swift in Sources */,
 				28386F642128191E0012F429 /* TagFlowLayout.swift in Sources */,
 				28386F622128191E0012F429 /* TagCollectionViewCell.swift in Sources */,

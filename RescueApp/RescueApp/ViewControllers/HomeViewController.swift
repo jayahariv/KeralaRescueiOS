@@ -76,6 +76,11 @@ class HomeViewController: UIViewController {
     @IBAction func onRefresh(_ sender: Any) {
         refresh()
     }
+    
+    @IBAction func onGuideTap(_ sender: Any) {
+        let guideViewController = GuidelineContentController()
+        self.navigationController?.pushViewController(guideViewController, animated: true)
+    }
 }
 
 extension HomeViewController {

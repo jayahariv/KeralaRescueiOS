@@ -165,6 +165,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="mu5-pv-dXR">
+                        <barButtonItem key="leftBarButtonItem" title="Guidelines" id="Bba-Vp-yau" userLabel="Help">
+                            <connections>
+                                <action selector="onGuideTap:" destination="BYZ-38-t0r" id="fOv-ZE-jsB"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="6k5-Ox-8nS">
                             <connections>
                                 <action selector="onRefresh:" destination="BYZ-38-t0r" id="IyL-EU-XRN"/>

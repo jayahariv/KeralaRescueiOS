@@ -8,6 +8,7 @@
 
 import UIKit
 import CouchbaseLiteSwift
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                       forKey: Constants.UserDefaultsKeys.REQUESTS_LAST_UPDATED_TIME)
             UserDefaults.standard.synchronize()
         }
+        FirebaseApp.configure()
         return true
     }
 }

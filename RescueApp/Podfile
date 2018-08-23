@@ -6,6 +6,9 @@ target 'RescueApp' do
   # Pods for RescueApp
   pod 'CouchbaseLite-Swift-Enterprise', '~> 2.0.0'
   pod 'ReachabilitySwift'
+  pod 'Firebase/Core'
+  pod 'Firebase/Database'
+  pod 'Cartography'
 
   target 'RescueAppTests' do
     inherit! :search_paths
