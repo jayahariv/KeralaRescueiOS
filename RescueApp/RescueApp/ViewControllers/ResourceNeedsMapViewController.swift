@@ -55,7 +55,7 @@ extension ResourceNeedsMapViewController {
 
     func getResources() {
         Overlay.shared.show()
-        ApiClient.shared.getResourceNeeds { [weak self] (_) in
+        ApiClient.shared.getIndividualRequests(.regular) {  [weak self] (_) in
             Overlay.shared.remove()
             self?.updateMap()
         }

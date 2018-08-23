@@ -1,10 +1,10 @@
 //
 /*
-ResultOptimizer.swift
+RAStore.swift
 Created on: 8/17/18
 
 Abstract:
- this will optmize the result from the server.
+ this class will be the singelton store!!!
 
 */
 
@@ -17,14 +17,15 @@ enum RequestType: String {
     case clothes = "Clothes"
 }
 
-final class ResultOptimizer: NSObject {
+final class RAStore: NSObject {
     
-    private static var instance = ResultOptimizer()
+    private static var instance = RAStore()
     
-    static var shared: ResultOptimizer {
+    static var shared: RAStore {
         return instance
     }
     
+    /// MARK: INDIVIDUAL REQUESTS RELATED
     var locations = [String: String]()
     var filtered = [String: RequestModel]()
     var forFood = [RequestModel]()
@@ -32,7 +33,16 @@ final class ResultOptimizer: NSObject {
     var forMedicine = [RequestModel]()
     var forClothes = [RequestModel]()
     
-    func save(_ list: [RequestModel]) {
+    /// MARK: RELIFE CAMP RELATED
+    var reliefcamps = [ReliefCamp]()
+    
+    /**
+     save the individual requests list. it will optmize the result and filter the unwanted resulst before saving
+     
+     - parameters:
+        - list: list of requests
+     */
+    func saveIndividualRequests(_ list: [RequestModel]) {
         for request in list {
             
             guard let phone = request.requestee_phone else {
@@ -103,5 +113,14 @@ final class ResultOptimizer: NSObject {
         case .clothes:
             return forClothes
         }
+    }
+    
+    // MARK: RELIEF CAMPS METHODS
+    func saveReliefCamps(_ list: [ReliefCamp]) {
+        reliefcamps = list
+    }
+    
+    func getReliefCamps() -> [ReliefCamp] {
+        return reliefcamps
     }
 }

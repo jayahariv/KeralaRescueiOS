@@ -54,7 +54,7 @@ class ResourceNeedsListViewController: UIViewController {
         if segue.identifier == C.segueToFilter {
             let nc = segue.destination as! UINavigationController
             let vc = nc.topViewController as! RequestFilterViewController
-            vc.requests = ResultOptimizer.shared.getRequests(requestsType)
+            vc.requests = RAStore.shared.getRequests(requestsType)
             vc.delegate = self
             vc.requestType = requestsType
         }
