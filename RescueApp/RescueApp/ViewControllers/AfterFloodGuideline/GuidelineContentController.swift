@@ -187,7 +187,7 @@ extension GuidelineContentController: UITableViewDelegate {
 //        }
         var view = headers[section]
         if view == nil {
-            view = ContentTitleView(frame: .zero, titleText: menuRow.title, isExpanded: menuRow.subTopic.isEmpty)
+            view = ContentTitleView(frame: .zero, titleText: menuRow.title, isExpanded: menuRow.isOpen)
             headers[section] = view
         }
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleContentHeaderTap))
@@ -249,6 +249,7 @@ class ContentTitleView: UIView {
         
         self.backgroundColor = RAColorSet.HEADER_BACKGROUD
         self.isExpanded = isExpanded
+        icon.image = isExpanded ? UIImage(named: "Collapse") : UIImage(named: "Expand")
         title.text = titleText.uppercased()
         
         self.addSubview(title)
