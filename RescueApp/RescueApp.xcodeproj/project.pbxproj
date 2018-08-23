@@ -10,7 +10,7 @@
 		0822303F212799EA00B7FBF2 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0822303E212799EA00B7FBF2 /* APIConstants.swift */; };
 		0822304121279FD200B7FBF2 /* ResourceNeedsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0822304021279FD200B7FBF2 /* ResourceNeedsListViewController.swift */; };
 		082230442127A72F00B7FBF2 /* Overlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082230432127A72F00B7FBF2 /* Overlay.swift */; };
-		082230462127CB8700B7FBF2 /* ResultOptimizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082230452127CB8700B7FBF2 /* ResultOptimizer.swift */; };
+		082230462127CB8700B7FBF2 /* RAStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082230452127CB8700B7FBF2 /* RAStore.swift */; };
 		0822304B2127E6F400B7FBF2 /* RAAddressTypeahead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0822304A2127E6F400B7FBF2 /* RAAddressTypeahead.swift */; };
 		0822304D2127E7F500B7FBF2 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0822304C2127E7F500B7FBF2 /* Utility.swift */; };
 		082235FE212A604E00D2808D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 082235FC212A604E00D2808D /* InfoPlist.strings */; };
@@ -21,6 +21,8 @@
 		08223614212D378B00D2808D /* DistrictTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08223613212D378B00D2808D /* DistrictTableViewCell.swift */; };
 		0864D51E212A45EC00DE403D /* OfflineData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0864D51D212A45EC00DE403D /* OfflineData.plist */; };
 		0864D523212A53AE00DE403D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0864D525212A53AE00DE403D /* Localizable.strings */; };
+		08F599F3212E8EB600785841 /* ReliefCamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F599F2212E8EB600785841 /* ReliefCamp.swift */; };
+		08F599F5212E90E000785841 /* ReliefCampsDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F599F4212E90E000785841 /* ReliefCampsDictionary.swift */; };
 		08FDDE5F2129F9D0006B84BE /* RequestsDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FDDE5E2129F9D0006B84BE /* RequestsDictionary.swift */; };
 		28386F612128191E0012F429 /* TagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28386F5D2128191E0012F429 /* TagCollectionViewCell.xib */; };
 		28386F622128191E0012F429 /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28386F5E2128191E0012F429 /* TagCollectionViewCell.swift */; };
@@ -78,7 +80,7 @@
 		0822303E212799EA00B7FBF2 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		0822304021279FD200B7FBF2 /* ResourceNeedsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceNeedsListViewController.swift; sourceTree = "<group>"; };
 		082230432127A72F00B7FBF2 /* Overlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Overlay.swift; sourceTree = "<group>"; };
-		082230452127CB8700B7FBF2 /* ResultOptimizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultOptimizer.swift; sourceTree = "<group>"; };
+		082230452127CB8700B7FBF2 /* RAStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAStore.swift; sourceTree = "<group>"; };
 		0822304A2127E6F400B7FBF2 /* RAAddressTypeahead.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAAddressTypeahead.swift; sourceTree = "<group>"; };
 		0822304C2127E7F500B7FBF2 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		082235F8212A5FD000D2808D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -93,6 +95,8 @@
 		0864D51D212A45EC00DE403D /* OfflineData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = OfflineData.plist; sourceTree = "<group>"; };
 		0864D524212A53AE00DE403D /* ml-IN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ml-IN"; path = "ml-IN.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		0864D526212A53E200DE403D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		08F599F2212E8EB600785841 /* ReliefCamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReliefCamp.swift; sourceTree = "<group>"; };
+		08F599F4212E90E000785841 /* ReliefCampsDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReliefCampsDictionary.swift; sourceTree = "<group>"; };
 		08FDDE5E2129F9D0006B84BE /* RequestsDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsDictionary.swift; sourceTree = "<group>"; };
 		0C95AB2BC92A00D878E0C564 /* Pods-RescueAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RescueAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RescueAppUITests/Pods-RescueAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		1CE4AA0045A339F04DBAB0DA /* Pods_RescueAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RescueAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -168,6 +172,7 @@
 		082230422127A71A00B7FBF2 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				082230452127CB8700B7FBF2 /* RAStore.swift */,
 				0822304C2127E7F500B7FBF2 /* Utility.swift */,
 				082230432127A72F00B7FBF2 /* Overlay.swift */,
 				0864D51D212A45EC00DE403D /* OfflineData.plist */,
@@ -297,8 +302,9 @@
 			children = (
 				E9DBF99C2127846E00CFD933 /* RequestModel.swift */,
 				E9DBF99E212785E000CFD933 /* DistrictEnum.swift */,
-				082230452127CB8700B7FBF2 /* ResultOptimizer.swift */,
 				08FDDE5E2129F9D0006B84BE /* RequestsDictionary.swift */,
+				08F599F2212E8EB600785841 /* ReliefCamp.swift */,
+				08F599F4212E90E000785841 /* ReliefCampsDictionary.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -533,6 +539,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9DBF9A22127872A00CFD933 /* ApiClient.swift in Sources */,
+				08F599F5212E90E000785841 /* ReliefCampsDictionary.swift in Sources */,
 				0822360A212BB16B00D2808D /* Colors.swift in Sources */,
 				0822304B2127E6F400B7FBF2 /* RAAddressTypeahead.swift in Sources */,
 				082230442127A72F00B7FBF2 /* Overlay.swift in Sources */,
@@ -543,7 +550,7 @@
 				08223606212A806100D2808D /* RequestFilterViewController.swift in Sources */,
 				E9DBF99F212785E000CFD933 /* DistrictEnum.swift in Sources */,
 				08223614212D378B00D2808D /* DistrictTableViewCell.swift in Sources */,
-				082230462127CB8700B7FBF2 /* ResultOptimizer.swift in Sources */,
+				082230462127CB8700B7FBF2 /* RAStore.swift in Sources */,
 				08223610212CFD3800D2808D /* Constants.swift in Sources */,
 				0822304D2127E7F500B7FBF2 /* Utility.swift in Sources */,
 				75DA37372128A0DC00A9D00A /* ResourseNeedsDetailViewController.swift in Sources */,
@@ -551,6 +558,7 @@
 				0822303F212799EA00B7FBF2 /* APIConstants.swift in Sources */,
 				28386F642128191E0012F429 /* TagFlowLayout.swift in Sources */,
 				28386F622128191E0012F429 /* TagCollectionViewCell.swift in Sources */,
+				08F599F3212E8EB600785841 /* ReliefCamp.swift in Sources */,
 				28386F632128191E0012F429 /* RescueSearchView.swift in Sources */,
 				E9DBF96A2127806700CFD933 /* AppDelegate.swift in Sources */,
 				08223612212D310600D2808D /* DistrictListViewController.swift in Sources */,

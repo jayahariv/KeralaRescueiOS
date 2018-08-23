@@ -28,7 +28,7 @@ class HomeViewController: UIViewController {
     }
     
     private var requests:  [String: RequestModel] {
-        return ResultOptimizer.shared.filtered
+        return RAStore.shared.filtered
     }
 
     override func viewDidLoad() {
@@ -55,16 +55,16 @@ class HomeViewController: UIViewController {
         var requests = [RequestModel]()
         var requestType: RequestType!
         if segue.identifier == C.foodSegueID {
-            requests = ResultOptimizer.shared.forFood
+            requests = RAStore.shared.forFood
             requestType = .food
         } else if segue.identifier == C.waterSegueID {
-            requests = ResultOptimizer.shared.forWater
+            requests = RAStore.shared.forWater
             requestType = .water
         } else if segue.identifier == C.medicineSegueID {
-            requests = ResultOptimizer.shared.forMedicine
+            requests = RAStore.shared.forMedicine
             requestType = .medicine
         } else if segue.identifier == C.clothesSegueID {
-            requests = ResultOptimizer.shared.forClothes
+            requests = RAStore.shared.forClothes
             requestType = .clothes
         }
         
@@ -117,7 +117,7 @@ extension HomeViewController {
     
     func getResources() {
         Overlay.shared.showWithMessage(NSLocalizedString(C.LoadingDataFromServer, comment: ""))
-        ApiClient.shared.getResourceNeeds { [weak self] (_) in
+        ApiClient.shared.getIndividualRequests(.regular) { [weak self]  (_) in
             Overlay.shared.remove()
             self?.refreshUI()
         }
@@ -125,10 +125,10 @@ extension HomeViewController {
     
     func refresh() {
         Overlay.shared.showWithMessage(NSLocalizedString(C.LoadingDataFromServer, comment: ""))
-        ApiClient.shared.getOnlineData(completion: { [weak self] (_) in
+        ApiClient.shared.getIndividualRequests(.online) {  [weak self] (_) in
             Overlay.shared.remove()
             self?.refreshUI()
-        })
+        }
     }
     
     /**

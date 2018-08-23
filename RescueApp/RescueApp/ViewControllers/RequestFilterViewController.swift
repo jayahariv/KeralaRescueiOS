@@ -112,7 +112,7 @@ final class RequestFilterViewController: UIViewController {
     @IBAction func onClearAllFilters(_ sender: Any) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.filterModel = nil
-        delegate?.didFinishApplyingFilters(filters: ResultOptimizer.shared.getRequests(requestType))
+        delegate?.didFinishApplyingFilters(filters: RAStore.shared.getRequests(requestType))
         dismiss(animated: true, completion: nil)
     }
 }
