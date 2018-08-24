@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Heros of Kerala-->
+        <scene sceneID="2NB-9B-5Cd">
+            <objects>
+                <viewController id="mGP-bc-zBf" customClass="PhotoGalleryViewController" customModule="RescueApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4fc-5N-xZ7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iMw-7k-quG">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mEV-ke-smo">
+                                    <size key="itemSize" width="150" height="150"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="25" minY="10" maxX="25" maxY="10"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="center" reuseIdentifier="collectionCell" id="wY5-FC-iIK" customClass="PhotoCollectionViewCell" customModule="RescueApp" customModuleProvider="target">
+                                        <rect key="frame" x="25" y="10" width="150" height="150"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nb2-Ah-IXc">
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <connections>
+                                            <outlet property="backgroundImage" destination="nb2-Ah-IXc" id="9q1-fG-2Wn"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="mGP-bc-zBf" id="w3V-Mx-1Vq"/>
+                                    <outlet property="delegate" destination="mGP-bc-zBf" id="YAZ-c4-NCN"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="iMw-7k-quG" firstAttribute="bottom" secondItem="jJc-K7-kMb" secondAttribute="bottom" id="52D-1G-mMf"/>
+                            <constraint firstItem="iMw-7k-quG" firstAttribute="trailing" secondItem="jJc-K7-kMb" secondAttribute="trailing" id="aC3-Kr-kgl"/>
+                            <constraint firstItem="iMw-7k-quG" firstAttribute="top" secondItem="jJc-K7-kMb" secondAttribute="top" id="gXN-tl-hqN"/>
+                            <constraint firstItem="iMw-7k-quG" firstAttribute="leading" secondItem="jJc-K7-kMb" secondAttribute="leading" id="oyj-di-jF8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jJc-K7-kMb"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Heros of Kerala" id="MhQ-1o-175"/>
+                    <connections>
+                        <outlet property="collectionView" destination="iMw-7k-quG" id="HIY-sU-rhd"/>
+                        <segue destination="gzG-Yc-Kcs" kind="show" identifier="segueToPreview" id="Nkh-lZ-OGL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0zM-TG-Lr6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="888.79999999999995" y="225.33733133433284"/>
+        </scene>
+        <!--Photo Preview View Controller-->
+        <scene sceneID="Rpe-hI-pe9">
+            <objects>
+                <viewController id="gzG-Yc-Kcs" customClass="PhotoPreviewViewController" customModule="RescueApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iyi-Zm-ips">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u1W-DJ-e6G">
+                                <rect key="frame" x="10" y="74" width="355" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="I0V-aQ-s7x"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="--" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="mKj-kI-f2f">
+                                <rect key="frame" x="10" y="394" width="355" height="263"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.92941176469999998" green="0.92941176469999998" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="mKj-kI-f2f" firstAttribute="leading" secondItem="QgW-Oq-idR" secondAttribute="leading" constant="10" id="3Pk-77-scY"/>
+                            <constraint firstItem="mKj-kI-f2f" firstAttribute="top" secondItem="u1W-DJ-e6G" secondAttribute="bottom" constant="20" id="Nom-YR-Yg1"/>
+                            <constraint firstItem="u1W-DJ-e6G" firstAttribute="top" secondItem="QgW-Oq-idR" secondAttribute="top" constant="10" id="aar-wQ-1Nf"/>
+                            <constraint firstItem="u1W-DJ-e6G" firstAttribute="leading" secondItem="QgW-Oq-idR" secondAttribute="leading" constant="10" id="hux-2g-hyJ"/>
+                            <constraint firstItem="mKj-kI-f2f" firstAttribute="trailing" secondItem="QgW-Oq-idR" secondAttribute="trailing" constant="-10" id="jNi-Nf-M4s"/>
+                            <constraint firstItem="u1W-DJ-e6G" firstAttribute="trailing" secondItem="QgW-Oq-idR" secondAttribute="trailing" constant="-10" id="sbK-4f-qQH"/>
+                            <constraint firstItem="mKj-kI-f2f" firstAttribute="bottom" secondItem="QgW-Oq-idR" secondAttribute="bottom" constant="-10" id="xKX-cw-Aqt"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="QgW-Oq-idR"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="u1W-DJ-e6G" id="sM2-gm-NEr"/>
+                        <outlet property="textView" destination="mKj-kI-f2f" id="CGq-zY-lia"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Gd-eL-omC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1973.5999999999999" y="225.33733133433284"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="GHv-zA-sAH">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7eB-tW-PNZ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="l6G-Se-UVg">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.90980392160000001" green="0.3921568627" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="mGP-bc-zBf" kind="relationship" relationship="rootViewController" id="8qb-ge-S63"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z2u-o4-M9W" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-50.399999999999999" y="225.33733133433284"/>
+        </scene>
+    </scenes>
+</document>
