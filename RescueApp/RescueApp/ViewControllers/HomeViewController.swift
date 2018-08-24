@@ -80,6 +80,9 @@ class HomeViewController: UIViewController {
     @IBAction func onGuideTap(_ sender: Any) {
         let guideViewController = GuidelineContentController()
         self.navigationController?.pushViewController(guideViewController, animated: true)
+        
+       /* let viewController:SurveyListViewController = UIStoryboard(name: "Survey", bundle: nil).instantiateViewController(withIdentifier: "SurveyListViewController") as! SurveyListViewController
+        self.navigationController?.pushViewController(viewController, animated: true)*/
     }
 }
 
