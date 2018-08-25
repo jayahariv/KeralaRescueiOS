@@ -24,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.standard.synchronize()
         }
         FirebaseApp.configure()
+        FirebaseAPIConfigure.shared.configure()
         return true
     }
 }

@@ -104,6 +104,7 @@ final class ApiClient: NSObject {
 // MARK: INDIVIDUAL REQUESTS METHODS
 
 private extension ApiClient {
+    
     func fetchFileDataAndSave() {
         if let path = Bundle.main.path(forResource: APIConstants.PLIST_KEYS.NAME, ofType: "plist"),
             let myDict = NSDictionary(contentsOfFile: path),
@@ -136,7 +137,7 @@ private extension ApiClient {
     }
     
     func getOnlineResourceNeeds(completion: @escaping IndividualRequestsCompletionHandler) {
-        guard let url = URL(string: APIConstants.URL.INDIVIDUAL_REQUESTS) else {
+        guard let url = FirebaseAPIConfigure.shared.getIndividualRequestsURL() else {
             return
         }
         var urlRequest = URLRequest(url: url)
@@ -205,7 +206,7 @@ private extension ApiClient {
         - completion handler:  self descriptive
      */
     func getOnlineReliefCamps(_ completion: @escaping ReliefCampsCompletionHandler) {
-        guard let url = URL(string: APIConstants.URL.RELIEF_CAMPS) else {
+        guard let url = FirebaseAPIConfigure.shared.getReliefCampsRequestsURL() else {
             return
         }
         var urlRequest = URLRequest(url: url)
