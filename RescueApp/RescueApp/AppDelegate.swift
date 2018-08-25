@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CouchbaseLiteSwift
 import Firebase
 
 @UIApplicationMain
@@ -15,7 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    var database: Database?
     var filterModel:FilterModel?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {

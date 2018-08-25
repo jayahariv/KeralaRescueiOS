@@ -9,6 +9,8 @@ target 'RescueApp' do
   pod 'Firebase/Core'
   pod 'Firebase/Database'
   pod 'Cartography'
+  pod 'Firebase/Storage'
+  pod 'FirebaseUI/Storage'
 
   target 'RescueAppTests' do
     inherit! :search_paths
