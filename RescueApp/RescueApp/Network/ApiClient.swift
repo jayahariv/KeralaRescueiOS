@@ -8,11 +8,14 @@
 
 typealias IndividualRequestsCompletionHandler = (_ requests: [RequestModel]) -> Void
 typealias ReliefCampsCompletionHandler = (_ requests: [ReliefCamp]) -> Void
+typealias GuidelinesCompletionHandler = (_ requests: [MenuRowItem]) -> Void
+typealias GuidelinesSubtopicCompletionHandler = (_ requests: MenuRowItem) -> Void
 
 
 import Foundation
 import CouchbaseLiteSwift
 import Reachability
+import FirebaseDatabase
 
 /**
  These are used to get each end point with different types.
@@ -25,13 +28,36 @@ enum ApiClientRequestType {
     case online
 }
 
+private struct FirebaseDBKeys {
+    static let Guildelines = "Guildelines"
+    static let Contents = "Contents"
+    static let MainNote = "MainNote"
+}
+
 final class ApiClient: NSObject {
     private static let instance = ApiClient()
     private let defaultSession = URLSession(configuration: .default)
     private let database = try? Database(name: "RescueApp")
     
+    // set the firebase reference
+    private let firebaseRef = Database.database().reference()
+    
     static var shared: ApiClient {
         return instance
+    }
+    
+    static var isConnected: Bool {
+        if let reachablity = Reachability(hostname: APIConstants.URL.INDIVIDUAL_REQUESTS), reachablity.connection != .none {
+            return true
+        }
+        return false
+    }
+    
+    static var isWifiConnected: Bool {
+        if let reachablity = Reachability(hostname: APIConstants.URL.INDIVIDUAL_REQUESTS), reachablity.connection == .wifi {
+            return true
+        }
+        return false
     }
     
     // MARK: PUBLIC METHODS
@@ -98,6 +124,60 @@ final class ApiClient: NSObject {
             
             completion(getOfflineReliefCamps())
         }
+    }
+    
+    func getGuidelines(completion: @escaping GuidelinesCompletionHandler) {
+        var menuRows = [MenuRowItem]()
+        if let path = Bundle.main.path(forResource: "Guidelines", ofType: "json") {
+            do {
+                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+                let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
+                if let jsonResult = jsonResult as? Dictionary<String, AnyObject> {
+                    let contents = jsonResult[FirebaseDBKeys.Contents] as! Dictionary<String, AnyObject>
+                    for content in contents {
+                        let menuRow = MenuRowItem(withTitle: content.key)
+                        menuRow.isOpen = menuRows.isEmpty
+                        let subtopics = jsonResult[content.key] as! Dictionary<String, AnyObject>
+                        for subtopic in subtopics {
+                            let topicContent = subtopic.value as! Dictionary<String, String>
+                            let subTopic = SubTopic(title:  subtopic.key, url: topicContent["url"], html: topicContent["html"])
+                            menuRow.subTopic.append(subTopic)
+                        }
+                        menuRows.append(menuRow)
+                    }
+                }
+            } catch let error as NSError {
+                print("NSError CAUGHT ERROR \(error) -- Never executed")
+            } catch {
+                // handle error
+                print("error with the offline guideline")
+            }
+            completion(menuRows)
+        }
+    }
+    
+    func updateGuidelineContent() {
+        if ApiClient.isConnected {
+            firebaseRef.child(FirebaseDBKeys.Guildelines).observe(DataEventType.value, with: { (snapshot) in
+                let contents = snapshot.value as? [String : AnyObject] ?? [:]
+                let file: FileHandle? = FileHandle(forWritingAtPath: "Guidelines.json")
+                if file != nil {
+                    do{
+                        let jsonData = try JSONSerialization.data(withJSONObject: contents, options: .init(rawValue: 0))
+                        print(NSString(data: jsonData, encoding: 1)!)
+                        file?.write(jsonData)
+                    }
+                    catch {
+                        
+                    }
+                    file?.closeFile()
+                }
+                else {
+                    print("Ooops! Something went wrong!")
+                }
+            })
+        }
+
     }
 }
 
