@@ -51,9 +51,13 @@ extension ContactsListViewController: UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let contact = contacts[indexPath.row]
-        guard let first = contact.numbers?.first else {
-            return
+        let alert = UIAlertController(title: "Select the number to call", message: nil, preferredStyle: .actionSheet)
+        for number in contact.numbers ?? [] {
+            alert.addAction(UIAlertAction(title: number, style: .default, handler: { (_) in
+                Utility.call(number)
+            }))
         }
-        Utility.call(first)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
 }
