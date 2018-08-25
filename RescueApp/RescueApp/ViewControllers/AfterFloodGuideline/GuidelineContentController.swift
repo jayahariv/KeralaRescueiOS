@@ -9,12 +9,12 @@
 import Foundation
 import UIKit
 import Cartography
-import FirebaseDatabase
 import SafariServices
 
 struct SubTopic {
     var title: String
-    var url: String
+    var url: String?
+    var html: String?
 }
 
 class MenuRowItem {
@@ -28,8 +28,6 @@ class MenuRowItem {
 }
 
 class GuidelineContentController: UIViewController {
-    var ref: DatabaseReference?
-    var databaseHandle: DatabaseHandle?
     private var headers: [Int: ContentTitleView] = [:]
     
     private struct Constants {
@@ -101,8 +99,6 @@ class GuidelineContentController: UIViewController {
         tableView.isHidden = true
         Overlay.shared.showWithMessage(NSLocalizedString(Constants.LoadingDataFromServer, comment: ""))
 
-        // set the firebase reference
-        ref = Database.database().reference()
         fetchData()
     }
     
@@ -113,38 +109,10 @@ class GuidelineContentController: UIViewController {
     }
     
     private func fetchData() {
-        ref?.child(DBKeys.Contents).observe(DataEventType.value, with: { (snapshot) in
-            let contents = snapshot.value as? [String : AnyObject] ?? [:]
-            for content in contents {
-                let menuRow = MenuRowItem(withTitle: content.key)
-                if self.menuRows.count == 0 {
-                    self.fetchSubtopic(menuRow: menuRow)
-                }
-                self.menuRows.append(menuRow)
-            }
+        ApiClient.shared.getGuidelines(completion: { (menuRows) in
+            Overlay.shared.remove()
+            self.menuRows = menuRows
         })
-        // TODO: Add it later
-//        ref?.child(DBKeys.MainNote).observe(DataEventType.value, with: { (snapshot) in
-//            if let note = snapshot.value as? String, note.count > 0 {
-//                self.mainNote = note
-//                let menuRow = MenuRowItem(withTitle: note)
-//                self.menuRows.insert(menuRow, at: 0)
-//            }
-//        })
-    }
-    
-    private func fetchSubtopic(menuRow: MenuRowItem) {
-        menuRow.isOpen = !menuRow.isOpen
-        if menuRow.subTopic.count == 0 {
-            ref?.child(menuRow.title).observe(DataEventType.value, with: { (snapshot) in
-                let contents = snapshot.value as? [String : AnyObject] ?? [:]
-                for content in contents {
-                    let subTopic = SubTopic(title: content.key, url: content.value as! String)
-                    menuRow.subTopic.append(subTopic)
-                    self.tableView.reloadData()
-                }
-            })
-        }
     }
 }
 
@@ -181,10 +149,6 @@ extension GuidelineContentController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 
         let menuRow = self.menuRows[section]
-        // TODO: Add it later
-//        if section == 0 {
-//            return GuidelineMainNotice(frame: .zero, titleText: menuRow.title, subtitleText: nil)
-//        }
         var view = headers[section]
         if view == nil {
             view = ContentTitleView(frame: .zero, titleText: menuRow.title, isExpanded: menuRow.isOpen)
@@ -201,15 +165,20 @@ extension GuidelineContentController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let menuRow = self.menuRows[indexPath.section]
         let subTopic = menuRow.subTopic[indexPath.row]
-        let safariView = SFSafariViewController(url: URL(string: subTopic.url)!)
-        navigationController?.present(safariView, animated: true)
+        if let pageHtml = subTopic.html, !pageHtml.isEmpty {
+            let webController = WebController(withPageHtml: pageHtml)
+            navigationController?.pushViewController(webController, animated: true)
+        } else {
+            let safariView = SFSafariViewController(url: URL(string: subTopic.url!)!)
+            navigationController?.present(safariView, animated: true)
+        }
     }
     
     @objc func handleContentHeaderTap(sender: UIGestureRecognizer)
     {
         if let tag = sender.view?.tag, let headerView = sender.view as? ContentTitleView {
             let menuRow = self.menuRows[tag]
-            fetchSubtopic(menuRow: menuRow)
+            menuRow.isOpen = !menuRow.isOpen
             headerView.toggle()
             self.tableView.reloadData()
         }
