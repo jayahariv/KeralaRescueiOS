@@ -178,6 +178,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TTL-j5-lBo">
                                         <rect key="frame" x="266" y="0.0" width="34" height="30"/>
                                         <state key="normal" title="send"/>
+                                        <connections>
+                                            <action selector="onSend" destination="gzG-Yc-Kcs" eventType="touchUpInside" id="0ps-28-F29"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -198,6 +201,7 @@
                         <viewLayoutGuide key="safeArea" id="QgW-Oq-idR"/>
                     </view>
                     <connections>
+                        <outlet property="commentTextField" destination="3Ey-ZB-oX7" id="hlj-fM-fVF"/>
                         <outlet property="tableView" destination="JOH-0b-hxy" id="kcw-mg-KIX"/>
                     </connections>
                 </viewController>

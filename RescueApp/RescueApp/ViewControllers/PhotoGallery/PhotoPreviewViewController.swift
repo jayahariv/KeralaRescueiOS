@@ -21,10 +21,16 @@ class PhotoPreviewViewController: UIViewController {
     
     ///PRIVATE
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var commentTextField: UITextField!
     private var ref: DatabaseReference?
     private var image: UIImage? = UIImage(named: "placeholder.jpg")
     private let storageRef: StorageReference =  Storage.storage().reference()
     private var comments = [[String: AnyObject]]()
+    private struct C {
+        struct FirebaseKeys {
+            static let root = "heros_of_India_comments"
+        }
+    }
     
     // MARK: View lifecycle
     
@@ -47,6 +53,14 @@ class PhotoPreviewViewController: UIViewController {
     @IBAction func onCancel() {
         dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func onSend() {
+        guard let comment = commentTextField.text else {
+            return
+        }
+        
+        sendComment(comment)
+    }
 }
 
 // MARK: Helper methods
@@ -56,9 +70,13 @@ private extension PhotoPreviewViewController {
      do all UI actions necessary during loading the view
      */
     func configureUI() {
-        // all configs
+        // implement if needed
     }
     
+    /**
+     downloads the image from the server
+     
+     */
     func downloadImage() {
         guard let url = photo.url else {
             return
@@ -82,12 +100,16 @@ private extension PhotoPreviewViewController {
         }
     }
     
+    /**
+     loads the comments for the photo
+     
+     */
     func loadComments() {
         guard let photoID = photo.id else {
             return
         }
         ref = Database.database().reference()
-        ref?.child("heros_of_India_comments/\(photoID)").observe(DataEventType.value, with: { [weak self] (snapshot) in
+        ref?.child("\(C.FirebaseKeys.root)/\(photoID)").observe(DataEventType.value, with: { [weak self] (snapshot) in
             let contents = snapshot.value as? [String : AnyObject] ?? [:]
             if let tempComments = Array(contents.values) as? [[String: AnyObject]] {
                 self?.comments = tempComments
@@ -96,9 +118,30 @@ private extension PhotoPreviewViewController {
         })
     }
     
+    /**
+     refreshs the tableview
+     
+     */
     func refreshTableView() {
         DispatchQueue.main.async { [weak self] in
             self?.tableView.reloadData()
+        }
+    }
+    
+    /**
+     sends the comment to the firebase
+     
+     - parameters:
+        - comment: string which will be saved with the timestamp to the server for the respective photo
+     - todo: add author info too
+     */
+    func sendComment(_ comment: String) {
+        let now = String(Int(Date().timeIntervalSince1970))
+        if let photoID = photo.id {
+            ref = Database.database().reference()
+            ref?.child(C.FirebaseKeys.root)
+                .child(photoID)
+                .updateChildValues([now: ["comment": comment, "timestamp": now]])
         }
     }
 }
@@ -125,25 +168,15 @@ extension PhotoPreviewViewController: UITableViewDataSource, UITableViewDelegate
             description.text = photo.story
         default:
             cell = tableView.dequeueReusableCell(withIdentifier: "commentCell")
-            let commentTextField = cell.viewWithTag(1) as! UILabel
-            let authorTextField = cell.viewWithTag(2) as! UILabel
-            let timestampTextField = cell.viewWithTag(3) as! UILabel
+            let commentLabel = cell.viewWithTag(1) as! UILabel
+            let authorLabel = cell.viewWithTag(2) as! UILabel
+            let timestampLabel = cell.viewWithTag(3) as! UILabel
             
             let comment = comments[indexPath.row]
-            commentTextField.text = comment["comment"] as? String
-            authorTextField.text = comment["author"] as? String
-            timestampTextField.text = String(comment["timestamp"] as! Int)
+            commentLabel.text = comment["comment"] as? String
+            authorLabel.text = comment["author"] as? String
+            timestampLabel.text = comment["timestamp"] as? String
         }
         return cell
     }
-    
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        switch indexPath.section {
-//        case 0:
-//            return 300
-//        default:
-//            return 100
-//        }
-//    }
-    
 }
