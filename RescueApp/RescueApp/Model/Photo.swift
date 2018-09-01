@@ -11,6 +11,9 @@ Abstract:
 import Foundation
 
 final class Photo: NSObject {
+    
+    var id: String?
+    
     // storage URL
     var url: String?
 
@@ -22,6 +25,7 @@ final class Photo: NSObject {
     
     init(_ dictionary: [String: AnyObject]) {
         super.init()
+        id = dictionary["id"] as? String
         url = dictionary["url"] as? String
         name = dictionary["name"] as? String
         story = dictionary["story"] as? String
