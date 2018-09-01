@@ -63,6 +63,7 @@
 		E9DBF99F212785E000CFD933 /* DistrictEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DBF99E212785E000CFD933 /* DistrictEnum.swift */; };
 		E9DBF9A22127872A00CFD933 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DBF9A12127872A00CFD933 /* ApiClient.swift */; };
 		E9F925F4213B2DC000CD9437 /* HowToPrepare.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9F925F3213B2DC000CD9437 /* HowToPrepare.storyboard */; };
+		E9F925F8213B2F9B00CD9437 /* ResourceNeeds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9F925F7213B2F9B00CD9437 /* ResourceNeeds.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -166,6 +167,7 @@
 		E9DBF99E212785E000CFD933 /* DistrictEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistrictEnum.swift; sourceTree = "<group>"; };
 		E9DBF9A12127872A00CFD933 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		E9F925F3213B2DC000CD9437 /* HowToPrepare.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HowToPrepare.storyboard; sourceTree = "<group>"; };
+		E9F925F7213B2F9B00CD9437 /* ResourceNeeds.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ResourceNeeds.storyboard; sourceTree = "<group>"; };
 		F4846D0D0422408AF15B81C8 /* Pods-RescueAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RescueAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RescueAppUITests/Pods-RescueAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -234,16 +236,12 @@
 		08223604212A804600D2808D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E9F925F6213B2F6100CD9437 /* Home */,
+				DAA81A45212E73BA00AA0ECA /* AfterFloodGuideline */,
+				08F599F8212E9B8F00785841 /* EmergencyContacts */,
 				491FAFAE21301FD3003160CF /* Survey */,
 				08F599FB212FB41E00785841 /* PhotoGallery */,
-				DAA81A45212E73BA00AA0ECA /* AfterFloodGuideline */,
-				08F599F8212E9B8F00785841 /* Contacts */,
-				E9DBF96B2127806700CFD933 /* HomeViewController.swift */,
-				08223605212A806100D2808D /* RequestFilterViewController.swift */,
-				E9DBF9992127829000CFD933 /* ResourceNeedsMapViewController.swift */,
-				0822304021279FD200B7FBF2 /* ResourceNeedsListViewController.swift */,
-				75DA37362128A0DC00A9D00A /* ResourseNeedsDetailViewController.swift */,
-				08223611212D310600D2808D /* DistrictListViewController.swift */,
+				E9F925F5213B2F4E00CD9437 /* ResourceNeeds__UNUSED */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -257,17 +255,18 @@
 				08F599FE212FB44F00785841 /* PhotoGallery.storyboard */,
 				491FAFB1213021FA003160CF /* Survey.storyboard */,
 				E9F925F3213B2DC000CD9437 /* HowToPrepare.storyboard */,
+				E9F925F7213B2F9B00CD9437 /* ResourceNeeds.storyboard */,
 			);
 			path = Xibs;
 			sourceTree = "<group>";
 		};
-		08F599F8212E9B8F00785841 /* Contacts */ = {
+		08F599F8212E9B8F00785841 /* EmergencyContacts */ = {
 			isa = PBXGroup;
 			children = (
 				08F599F9212E9BCB00785841 /* ContactsViewController.swift */,
 				08F59A062130E5D200785841 /* ContactsListViewController.swift */,
 			);
-			path = Contacts;
+			path = EmergencyContacts;
 			sourceTree = "<group>";
 		};
 		08F599FB212FB41E00785841 /* PhotoGallery */ = {
@@ -386,14 +385,9 @@
 		E9DBF99B2127844100CFD933 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E9DBF99C2127846E00CFD933 /* RequestModel.swift */,
-				E9DBF99E212785E000CFD933 /* DistrictEnum.swift */,
-				08FDDE5E2129F9D0006B84BE /* RequestsDictionary.swift */,
-				08F599F2212E8EB600785841 /* ReliefCamp.swift */,
-				08F599F4212E90E000785841 /* ReliefCampsDictionary.swift */,
-				08F59A00212FB61D00785841 /* Photo.swift */,
-				08F59A082130E67A00785841 /* Contact.swift */,
-				08F59A0A213A46F700785841 /* PhotoComment.swift */,
+				E9F925FB213B305400CD9437 /* Contacts */,
+				E9F925FA213B304600CD9437 /* PhotoGallery */,
+				E9F925F9213B303400CD9437 /* ResourceNeeds */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -405,6 +399,55 @@
 				0822303E212799EA00B7FBF2 /* APIConstants.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		E9F925F5213B2F4E00CD9437 /* ResourceNeeds__UNUSED */ = {
+			isa = PBXGroup;
+			children = (
+				08223605212A806100D2808D /* RequestFilterViewController.swift */,
+				E9DBF9992127829000CFD933 /* ResourceNeedsMapViewController.swift */,
+				0822304021279FD200B7FBF2 /* ResourceNeedsListViewController.swift */,
+				75DA37362128A0DC00A9D00A /* ResourseNeedsDetailViewController.swift */,
+				08223611212D310600D2808D /* DistrictListViewController.swift */,
+			);
+			path = ResourceNeeds__UNUSED;
+			sourceTree = "<group>";
+		};
+		E9F925F6213B2F6100CD9437 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				E9DBF96B2127806700CFD933 /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		E9F925F9213B303400CD9437 /* ResourceNeeds */ = {
+			isa = PBXGroup;
+			children = (
+				E9DBF99C2127846E00CFD933 /* RequestModel.swift */,
+				E9DBF99E212785E000CFD933 /* DistrictEnum.swift */,
+				08FDDE5E2129F9D0006B84BE /* RequestsDictionary.swift */,
+				08F599F2212E8EB600785841 /* ReliefCamp.swift */,
+				08F599F4212E90E000785841 /* ReliefCampsDictionary.swift */,
+			);
+			path = ResourceNeeds;
+			sourceTree = "<group>";
+		};
+		E9F925FA213B304600CD9437 /* PhotoGallery */ = {
+			isa = PBXGroup;
+			children = (
+				08F59A00212FB61D00785841 /* Photo.swift */,
+				08F59A0A213A46F700785841 /* PhotoComment.swift */,
+			);
+			path = PhotoGallery;
+			sourceTree = "<group>";
+		};
+		E9F925FB213B305400CD9437 /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				08F59A082130E67A00785841 /* Contact.swift */,
+			);
+			path = Contacts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -529,6 +572,7 @@
 				DABD53E82130B09900B287F1 /* Guidelines.json in Resources */,
 				28386F612128191E0012F429 /* TagCollectionViewCell.xib in Resources */,
 				082235FE212A604E00D2808D /* InfoPlist.strings in Resources */,
+				E9F925F8213B2F9B00CD9437 /* ResourceNeeds.storyboard in Resources */,
 				E9DBF96F2127806700CFD933 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
