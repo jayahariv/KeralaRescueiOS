@@ -36,5 +36,4 @@ final class PhotoComment: NSObject {
             validated = isValidated
         }
     }
-    
 }

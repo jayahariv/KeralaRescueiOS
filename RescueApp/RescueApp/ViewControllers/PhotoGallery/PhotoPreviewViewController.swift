@@ -109,20 +109,21 @@ private extension PhotoPreviewViewController {
             return
         }
         ref = Database.database().reference()
-        ref?.child("\(C.FirebaseKeys.root)/\(photoID)").observe(DataEventType.value, with: { [weak self] (snapshot) in
-            let contents = snapshot.value as? [String : AnyObject] ?? [:]
-            if let listComments = Array(contents.values) as? [[String: AnyObject]] {
-                var tempComments = [PhotoComment]()
-                for dict in listComments {
-                    let photoComment = PhotoComment(dict)
-                    if photoComment.validated {
-                        tempComments.append(photoComment)
+        ref?.child("\(C.FirebaseKeys.root)/\(photoID)")
+            .observe(DataEventType.value, with: { [weak self] (snapshot) in
+                let contents = snapshot.value as? [String : AnyObject] ?? [:]
+                if let listComments = Array(contents.values) as? [[String: AnyObject]] {
+                    var tempComments = [PhotoComment]()
+                    for dict in listComments {
+                        let photoComment = PhotoComment(dict)
+                        if photoComment.validated {
+                            tempComments.append(photoComment)
+                        }
                     }
+                    self?.comments = tempComments
+                    self?.refreshTableView()
                 }
-                self?.comments = tempComments
-                self?.refreshTableView()
-            }
-        })
+            })
     }
     
     /**
@@ -143,12 +144,16 @@ private extension PhotoPreviewViewController {
      - todo: add author info too
      */
     func sendComment(_ comment: String) {
+        Overlay.shared.show()
         let now = String(Int(Date().timeIntervalSince1970))
         if let photoID = photo.id {
             ref = Database.database().reference()
             ref?.child(C.FirebaseKeys.root)
                 .child(photoID)
-                .updateChildValues([now: ["comment": comment, "timestamp": now]])
+                .updateChildValues([now: ["comment": comment, "timestamp": now, "isValidated": false]]) { [weak self] (data, error) in
+                    Overlay.shared.remove()
+                    self?.commentTextField.text = nil
+            }
         }
     }
 }
