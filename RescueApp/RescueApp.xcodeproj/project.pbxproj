@@ -62,6 +62,7 @@
 		E9DBF99D2127846E00CFD933 /* RequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DBF99C2127846E00CFD933 /* RequestModel.swift */; };
 		E9DBF99F212785E000CFD933 /* DistrictEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DBF99E212785E000CFD933 /* DistrictEnum.swift */; };
 		E9DBF9A22127872A00CFD933 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DBF9A12127872A00CFD933 /* ApiClient.swift */; };
+		E9F925F4213B2DC000CD9437 /* HowToPrepare.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9F925F3213B2DC000CD9437 /* HowToPrepare.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -164,6 +165,7 @@
 		E9DBF99C2127846E00CFD933 /* RequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestModel.swift; sourceTree = "<group>"; };
 		E9DBF99E212785E000CFD933 /* DistrictEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistrictEnum.swift; sourceTree = "<group>"; };
 		E9DBF9A12127872A00CFD933 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		E9F925F3213B2DC000CD9437 /* HowToPrepare.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HowToPrepare.storyboard; sourceTree = "<group>"; };
 		F4846D0D0422408AF15B81C8 /* Pods-RescueAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RescueAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RescueAppUITests/Pods-RescueAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -254,6 +256,7 @@
 				08F599F6212E9B7D00785841 /* Contacts.storyboard */,
 				08F599FE212FB44F00785841 /* PhotoGallery.storyboard */,
 				491FAFB1213021FA003160CF /* Survey.storyboard */,
+				E9F925F3213B2DC000CD9437 /* HowToPrepare.storyboard */,
 			);
 			path = Xibs;
 			sourceTree = "<group>";
@@ -515,6 +518,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				08F599FF212FB44F00785841 /* PhotoGallery.storyboard in Resources */,
+				E9F925F4213B2DC000CD9437 /* HowToPrepare.storyboard in Resources */,
 				0864D51E212A45EC00DE403D /* OfflineData.plist in Resources */,
 				DAA81A44212E5CC900AA0ECA /* GoogleService-Info.plist in Resources */,
 				08F599F7212E9B7D00785841 /* Contacts.storyboard in Resources */,
@@ -889,7 +893,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -912,7 +916,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
