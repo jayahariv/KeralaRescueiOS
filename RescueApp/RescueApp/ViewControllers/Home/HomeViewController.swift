@@ -8,14 +8,15 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+final class HomeViewController: UIViewController {
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var headingLabel: UILabel!
-    @IBOutlet weak var subHeadingLabel: UILabel!
-    @IBOutlet weak var headingContainer: UIView!
-    @IBOutlet weak var tableView: UITableView!
-    
+    ///PRIVATE
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var headingLabel: UILabel!
+    @IBOutlet private weak var subHeadingLabel: UILabel!
+    @IBOutlet private weak var headingContainer: UIView!
+    @IBOutlet private weak var tableView: UITableView!
+    // FileConstants
     private struct C {
         struct SEGUE {
             static let SURVEY = "segueToSurvey"
@@ -36,19 +37,18 @@ class HomeViewController: UIViewController {
             static let color = "color"
         }
     }
-    private var requests:  [String: RequestModel] {
-        return RAStore.shared.filtered
-    }
     private var homeCells: [[String: AnyObject]] {
         return [
             [C.HomeCellKeys.title: "How to Prepare", C.HomeCellKeys.color: RAColorSet.RED],
-            [C.HomeCellKeys.title: "Tips after a Flood", C.HomeCellKeys.color: RAColorSet.LIGHT_BLUE],
+            [C.HomeCellKeys.title: "After a Flood", C.HomeCellKeys.color: RAColorSet.LIGHT_BLUE],
             [C.HomeCellKeys.title: "Emergency Contacts", C.HomeCellKeys.color: RAColorSet.PURPLE],
             [C.HomeCellKeys.title: "Usahidi Survey app", C.HomeCellKeys.color: RAColorSet.GREEN],
             [C.HomeCellKeys.title: "2018 Rescue Photos", C.HomeCellKeys.color: RAColorSet.YELLOW]
         ] as [[String: AnyObject]]
     }
-
+    
+    // MARK: View lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -57,21 +57,15 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateUI()
-        clearSavedFilters()
-        navigationController?.isNavigationBarHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.isNavigationBarHidden = false
     }
-    
-    @IBAction func onGuideTap(_ sender: Any) {
-        
-       /* let viewController:SurveyListViewController = UIStoryboard(name: "Survey", bundle: nil).instantiateViewController(withIdentifier: "SurveyListViewController") as! SurveyListViewController
-        self.navigationController?.pushViewController(viewController, animated: true)*/
-    }
 }
+
+// MARK: Helper functions
 
 extension HomeViewController {
     
@@ -97,21 +91,19 @@ extension HomeViewController {
         
         titleLabel.text = NSLocalizedString("AppTitle", comment: "localised")
     }
-    
-    func clearSavedFilters() {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.filterModel = nil
-    }
-    
+
     func updateUI() {
         navigationController?.navigationBar.barTintColor = RAColorSet.DARK_BLUE
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.isNavigationBarHidden = true
         if let statusBar: UIView = UIApplication.shared.value(forKey: "statusBar") as? UIView {
             statusBar.backgroundColor = RAColorSet.DARK_BLUE
         }
     }
 }
+
+// MARK: HomeViewController -> UITableViewDataSource, UITableViewDelegate
 
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {

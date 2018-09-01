@@ -16,10 +16,6 @@ final class HowToPrepareViewController: UIViewController, RANavigationProtocol {
         super.viewDidLoad()
         configureUI()
     }
-    
-    // MARK: Button Actions
-    
-    // add buttons here
 }
 
 // MARK: Helper methods
