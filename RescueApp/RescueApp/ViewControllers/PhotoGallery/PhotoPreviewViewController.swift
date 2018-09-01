@@ -25,7 +25,7 @@ class PhotoPreviewViewController: UIViewController {
     private var ref: DatabaseReference?
     private var image: UIImage? = UIImage(named: "placeholder.jpg")
     private let storageRef: StorageReference =  Storage.storage().reference()
-    private var comments = [[String: AnyObject]]()
+    private var comments = [PhotoComment]()
     private struct C {
         struct FirebaseKeys {
             static let root = "heros_of_India_comments"
@@ -111,7 +111,14 @@ private extension PhotoPreviewViewController {
         ref = Database.database().reference()
         ref?.child("\(C.FirebaseKeys.root)/\(photoID)").observe(DataEventType.value, with: { [weak self] (snapshot) in
             let contents = snapshot.value as? [String : AnyObject] ?? [:]
-            if let tempComments = Array(contents.values) as? [[String: AnyObject]] {
+            if let listComments = Array(contents.values) as? [[String: AnyObject]] {
+                var tempComments = [PhotoComment]()
+                for dict in listComments {
+                    let photoComment = PhotoComment(dict)
+                    if photoComment.validated {
+                        tempComments.append(photoComment)
+                    }
+                }
                 self?.comments = tempComments
                 self?.refreshTableView()
             }
@@ -146,6 +153,8 @@ private extension PhotoPreviewViewController {
     }
 }
 
+// MARK: PhotoPreviewViewController -> UITableViewDataSource, UITableViewDelegate
+
 extension PhotoPreviewViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -173,10 +182,17 @@ extension PhotoPreviewViewController: UITableViewDataSource, UITableViewDelegate
             let timestampLabel = cell.viewWithTag(3) as! UILabel
             
             let comment = comments[indexPath.row]
-            commentLabel.text = comment["comment"] as? String
-            authorLabel.text = comment["author"] as? String
-            timestampLabel.text = comment["timestamp"] as? String
+            commentLabel.text = comment.content
+            authorLabel.text = comment.author
+            timestampLabel.text = comment.formattedDate
         }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0: return nil
+        default: return "Comments"
+        }
     }
 }
