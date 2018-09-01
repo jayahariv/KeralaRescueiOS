@@ -18,7 +18,7 @@ struct Topic {
     var url: String?
 }
 
-class SurveyListViewController: UIViewController {
+class SurveyListViewController: UIViewController, RANavigationProtocol {
     
     var ref: DatabaseReference?
     var databaseHandle: DatabaseHandle?
@@ -29,8 +29,8 @@ class SurveyListViewController: UIViewController {
         super.viewDidLoad()
         ref = Database.database().reference()
         fetchSurveys()
-
-        // Do any additional setup after loading the view.
+        
+        configureNavigationBar(RAColorSet.GREEN)
     }
 
     override func didReceiveMemoryWarning() {

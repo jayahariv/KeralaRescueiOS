@@ -21,20 +21,21 @@ final class ContactsListViewController: UIViewController {
         static let cellId = "contactsListCell"
     }
 
-    
     // MARK: View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureUI()
     }
 }
 
 // MARK: Helper methods
 
 extension ContactsListViewController {
-    
+    func configureUI() {
+        // implement
+    }
 }
-
 
 extension ContactsListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

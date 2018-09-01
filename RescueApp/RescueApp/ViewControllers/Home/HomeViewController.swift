@@ -58,6 +58,12 @@ class HomeViewController: UIViewController {
         super.viewWillAppear(animated)
         updateUI()
         clearSavedFilters()
+        navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.isNavigationBarHidden = false
     }
     
     @IBAction func onGuideTap(_ sender: Any) {
@@ -70,11 +76,6 @@ class HomeViewController: UIViewController {
 extension HomeViewController {
     
     func configureUI() {
-        // title color
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
-        if let statusBar: UIView = UIApplication.shared.value(forKey: "statusBar") as? UIView {
-            statusBar.backgroundColor = RAColorSet.DARK_BLUE
-        }
         var frame = CGRect.zero
         frame.size.height = .leastNormalMagnitude
         tableView.tableHeaderView = UIView(frame: frame)
@@ -106,6 +107,9 @@ extension HomeViewController {
         navigationController?.navigationBar.barTintColor = RAColorSet.DARK_BLUE
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
+        if let statusBar: UIView = UIApplication.shared.value(forKey: "statusBar") as? UIView {
+            statusBar.backgroundColor = RAColorSet.DARK_BLUE
+        }
     }
 }
 
@@ -123,6 +127,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         let homeCellInfo = homeCells[indexPath.section]
         cell?.textLabel?.text = homeCellInfo[C.HomeCellKeys.title] as? String
         cell?.backgroundColor = homeCellInfo[C.HomeCellKeys.color] as? UIColor
+        cell?.selectionStyle = .none
         return cell!
     }
     

@@ -11,7 +11,7 @@ Abstract:
 import UIKit
 import FirebaseDatabase
 
-final class PhotoGalleryViewController: UIViewController {
+final class PhotoGalleryViewController: UIViewController, RANavigationProtocol {
     
     // MARK:  Properties
     /// PRIVATE
@@ -53,8 +53,7 @@ private extension PhotoGalleryViewController {
      
      */
     func configureUI() {
-        navigationController?.navigationBar.titleTextAttributes =
-            [NSAttributedStringKey.foregroundColor: UIColor.white]
+        configureNavigationBar(RAColorSet.YELLOW)
     }
     
     /**

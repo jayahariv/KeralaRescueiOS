@@ -126,9 +126,6 @@ private extension RequestFilterViewController {
      here all the UI is configured once when view is loaded
      */
     func configureUI() {
-        UIApplication.shared.statusBarStyle = .lightContent
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
-        
         addBorder(districtSelector)
         addBorder(locationTextfield)
         addBorder(keywordsTextfield)

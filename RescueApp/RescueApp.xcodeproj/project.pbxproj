@@ -64,6 +64,8 @@
 		E9DBF9A22127872A00CFD933 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DBF9A12127872A00CFD933 /* ApiClient.swift */; };
 		E9F925F4213B2DC000CD9437 /* HowToPrepare.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9F925F3213B2DC000CD9437 /* HowToPrepare.storyboard */; };
 		E9F925F8213B2F9B00CD9437 /* ResourceNeeds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9F925F7213B2F9B00CD9437 /* ResourceNeeds.storyboard */; };
+		E9F925FE213B4F1600CD9437 /* HowToPrepareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F925FD213B4F1600CD9437 /* HowToPrepareViewController.swift */; };
+		E9F92604213B56C500CD9437 /* RANavigationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F92603213B56C500CD9437 /* RANavigationProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -168,6 +170,8 @@
 		E9DBF9A12127872A00CFD933 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		E9F925F3213B2DC000CD9437 /* HowToPrepare.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HowToPrepare.storyboard; sourceTree = "<group>"; };
 		E9F925F7213B2F9B00CD9437 /* ResourceNeeds.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ResourceNeeds.storyboard; sourceTree = "<group>"; };
+		E9F925FD213B4F1600CD9437 /* HowToPrepareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToPrepareViewController.swift; sourceTree = "<group>"; };
+		E9F92603213B56C500CD9437 /* RANavigationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RANavigationProtocol.swift; sourceTree = "<group>"; };
 		F4846D0D0422408AF15B81C8 /* Pods-RescueAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RescueAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RescueAppUITests/Pods-RescueAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -236,7 +240,9 @@
 		08223604212A804600D2808D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E9F92602213B55A200CD9437 /* Helpers */,
 				E9F925F6213B2F6100CD9437 /* Home */,
+				E9F925FC213B4F0300CD9437 /* HowToPrepare */,
 				DAA81A45212E73BA00AA0ECA /* AfterFloodGuideline */,
 				08F599F8212E9B8F00785841 /* EmergencyContacts */,
 				491FAFAE21301FD3003160CF /* Survey */,
@@ -250,11 +256,11 @@
 			isa = PBXGroup;
 			children = (
 				E9DBF96D2127806700CFD933 /* Main.storyboard */,
+				E9F925F3213B2DC000CD9437 /* HowToPrepare.storyboard */,
 				E9DBF9722127806A00CFD933 /* LaunchScreen.storyboard */,
 				08F599F6212E9B7D00785841 /* Contacts.storyboard */,
 				08F599FE212FB44F00785841 /* PhotoGallery.storyboard */,
 				491FAFB1213021FA003160CF /* Survey.storyboard */,
-				E9F925F3213B2DC000CD9437 /* HowToPrepare.storyboard */,
 				E9F925F7213B2F9B00CD9437 /* ResourceNeeds.storyboard */,
 			);
 			path = Xibs;
@@ -448,6 +454,22 @@
 				08F59A082130E67A00785841 /* Contact.swift */,
 			);
 			path = Contacts;
+			sourceTree = "<group>";
+		};
+		E9F925FC213B4F0300CD9437 /* HowToPrepare */ = {
+			isa = PBXGroup;
+			children = (
+				E9F925FD213B4F1600CD9437 /* HowToPrepareViewController.swift */,
+			);
+			path = HowToPrepare;
+			sourceTree = "<group>";
+		};
+		E9F92602213B55A200CD9437 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E9F92603213B56C500CD9437 /* RANavigationProtocol.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -699,6 +721,7 @@
 				08F599FD212FB43C00785841 /* PhotoGalleryViewController.swift in Sources */,
 				0822304B2127E6F400B7FBF2 /* RAAddressTypeahead.swift in Sources */,
 				082230442127A72F00B7FBF2 /* Overlay.swift in Sources */,
+				E9F92604213B56C500CD9437 /* RANavigationProtocol.swift in Sources */,
 				75DA37292127EF6E00A9D00A /* ListViewCell.swift in Sources */,
 				DAA81A49212E804400AA0ECA /* GuidelineMainNotice.swift in Sources */,
 				08F59A03212FB8FF00785841 /* PhotoCollectionViewCell.swift in Sources */,
@@ -719,6 +742,7 @@
 				08FDDE5F2129F9D0006B84BE /* RequestsDictionary.swift in Sources */,
 				DAA81A47212E740E00AA0ECA /* GuidelineContentController.swift in Sources */,
 				0822303F212799EA00B7FBF2 /* APIConstants.swift in Sources */,
+				E9F925FE213B4F1600CD9437 /* HowToPrepareViewController.swift in Sources */,
 				28386F642128191E0012F429 /* TagFlowLayout.swift in Sources */,
 				28386F622128191E0012F429 /* TagCollectionViewCell.swift in Sources */,
 				DABD53E6212F6D2300B287F1 /* CardCell.swift in Sources */,

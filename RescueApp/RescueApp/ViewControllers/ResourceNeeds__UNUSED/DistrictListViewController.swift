@@ -63,7 +63,6 @@ private extension DistrictListViewController {
      
      */
     func configureUI() {
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         guard let filterModel = appDelegate.filterModel else {
             return

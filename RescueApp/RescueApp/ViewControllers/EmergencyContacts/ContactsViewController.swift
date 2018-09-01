@@ -11,7 +11,7 @@ Abstract:
 import UIKit
 import FirebaseDatabase
 
-final class ContactsViewController: UIViewController {
+final class ContactsViewController: UIViewController, RANavigationProtocol {
     
     // MARK: Properties
     /// PRIVATE
@@ -55,7 +55,7 @@ private extension ContactsViewController {
      
      */
     func configureUI() {
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        configureNavigationBar(RAColorSet.PURPLE)
     }
     
     /**

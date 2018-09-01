@@ -27,7 +27,7 @@ class MenuRowItem {
     }
 }
 
-class GuidelineContentController: UIViewController {
+class GuidelineContentController: UIViewController, RANavigationProtocol {
     private var headers: [Int: ContentTitleView] = [:]
     
     private struct Constants {
@@ -95,6 +95,7 @@ class GuidelineContentController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = NSLocalizedString(Constants.title, comment: "")
+        configureNavigationBar(RAColorSet.LIGHT_BLUE)
         
         tableView.isHidden = true
         Overlay.shared.showWithMessage(NSLocalizedString(Constants.LoadingDataFromServer, comment: ""))
