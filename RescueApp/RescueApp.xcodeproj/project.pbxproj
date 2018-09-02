@@ -28,7 +28,6 @@
 		08F599FD212FB43C00785841 /* PhotoGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F599FC212FB43C00785841 /* PhotoGalleryViewController.swift */; };
 		08F599FF212FB44F00785841 /* PhotoGallery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08F599FE212FB44F00785841 /* PhotoGallery.storyboard */; };
 		08F59A01212FB61D00785841 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F59A00212FB61D00785841 /* Photo.swift */; };
-		08F59A03212FB8FF00785841 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F59A02212FB8FF00785841 /* PhotoCollectionViewCell.swift */; };
 		08F59A05212FC98100785841 /* PhotoPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F59A04212FC98100785841 /* PhotoPreviewViewController.swift */; };
 		08F59A072130E5D200785841 /* ContactsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F59A062130E5D200785841 /* ContactsListViewController.swift */; };
 		08F59A092130E67A00785841 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F59A082130E67A00785841 /* Contact.swift */; };
@@ -124,7 +123,6 @@
 		08F599FC212FB43C00785841 /* PhotoGalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGalleryViewController.swift; sourceTree = "<group>"; };
 		08F599FE212FB44F00785841 /* PhotoGallery.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PhotoGallery.storyboard; sourceTree = "<group>"; };
 		08F59A00212FB61D00785841 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
-		08F59A02212FB8FF00785841 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		08F59A04212FC98100785841 /* PhotoPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPreviewViewController.swift; sourceTree = "<group>"; };
 		08F59A062130E5D200785841 /* ContactsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsListViewController.swift; sourceTree = "<group>"; };
 		08F59A082130E67A00785841 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
@@ -279,7 +277,6 @@
 			isa = PBXGroup;
 			children = (
 				08F599FC212FB43C00785841 /* PhotoGalleryViewController.swift */,
-				08F59A02212FB8FF00785841 /* PhotoCollectionViewCell.swift */,
 				08F59A04212FC98100785841 /* PhotoPreviewViewController.swift */,
 			);
 			path = PhotoGallery;
@@ -724,7 +721,6 @@
 				E9F92604213B56C500CD9437 /* RANavigationProtocol.swift in Sources */,
 				75DA37292127EF6E00A9D00A /* ListViewCell.swift in Sources */,
 				DAA81A49212E804400AA0ECA /* GuidelineMainNotice.swift in Sources */,
-				08F59A03212FB8FF00785841 /* PhotoCollectionViewCell.swift in Sources */,
 				E9DBF99D2127846E00CFD933 /* RequestModel.swift in Sources */,
 				0822304121279FD200B7FBF2 /* ResourceNeedsListViewController.swift in Sources */,
 				E9DBF96C2127806700CFD933 /* HomeViewController.swift in Sources */,

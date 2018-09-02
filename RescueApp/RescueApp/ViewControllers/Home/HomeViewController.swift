@@ -43,7 +43,7 @@ final class HomeViewController: UIViewController {
             [C.HomeCellKeys.title: "After a Flood", C.HomeCellKeys.color: RAColorSet.LIGHT_BLUE],
             [C.HomeCellKeys.title: "Emergency Contacts", C.HomeCellKeys.color: RAColorSet.PURPLE],
             [C.HomeCellKeys.title: "Usahidi Survey app", C.HomeCellKeys.color: RAColorSet.GREEN],
-            [C.HomeCellKeys.title: "2018 Rescue Photos", C.HomeCellKeys.color: RAColorSet.YELLOW]
+            [C.HomeCellKeys.title: "Rescue Photos '18", C.HomeCellKeys.color: RAColorSet.YELLOW]
         ] as [[String: AnyObject]]
     }
     

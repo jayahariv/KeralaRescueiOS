@@ -10,15 +10,18 @@ Abstract:
 
 import UIKit
 import FirebaseDatabase
+import FirebaseStorage
+import FirebaseUI
 
 final class PhotoGalleryViewController: UIViewController, RANavigationProtocol {
     
     // MARK:  Properties
     /// PRIVATE
-    @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private weak var tableView: UITableView!
     private var images = [Photo]()
     private struct C {
-        static let collectionCellID = "collectionCell"
+        static let TITLE = "Rescue Photos '18"
+        static let tableViewCellID = "photoGalleryTableViewCell"
         static let IMAGE_VIEW_TAG = 1
         struct FirebaseKeys {
             static let HEROS_OF_INDIA_ROOT = "heros_of_India"
@@ -27,6 +30,7 @@ final class PhotoGalleryViewController: UIViewController, RANavigationProtocol {
         static let segueToPreview = "segueToPreview"
     }
     private var ref: DatabaseReference?
+    private let storageRef: StorageReference =  Storage.storage().reference()
     
     // MARK: View Lifecycle
     
@@ -43,6 +47,9 @@ final class PhotoGalleryViewController: UIViewController, RANavigationProtocol {
         }
     }
     
+    @objc func onBack() {
+        navigationController?.popViewController(animated: true)
+    }
 }
 
 // MARK: Helper methods
@@ -53,6 +60,11 @@ private extension PhotoGalleryViewController {
      
      */
     func configureUI() {
+        title = C.TITLE
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "back",
+                                                           style: .done,
+                                                           target: self,
+                                                           action: #selector(onBack))
         configureNavigationBar(RAColorSet.YELLOW)
     }
     
@@ -82,29 +94,31 @@ private extension PhotoGalleryViewController {
      */
     func refreshUI() {
         DispatchQueue.main.async { [weak self] in
-            self?.collectionView.reloadData()
+            self?.tableView.reloadData()
         }
     }
 }
 
-// MARK: PhotoGalleryViewController -> UICollectionViewDataSource
-
-extension PhotoGalleryViewController: UICollectionViewDataSource, UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+extension PhotoGalleryViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return images.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: C.collectionCellID,
-                                                      for: indexPath) as! PhotoCollectionViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: C.tableViewCellID)
         let photo = images[indexPath.row]
+        let imageView = cell?.viewWithTag(1) as! UIImageView
         if let url = photo.url {
-            cell.setBackground(url)
+            let reference = storageRef.child(url)
+            let placeholderImage = UIImage(named: "placeholder.jpg")
+            imageView.sd_setImage(with: reference, placeholderImage: placeholderImage)
         }
-        return cell
+        let descriptionLabel = cell?.viewWithTag(2) as! UILabel
+        descriptionLabel.text = photo.name
+        return cell!
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: C.segueToPreview, sender: images[indexPath.row])
     }
 }

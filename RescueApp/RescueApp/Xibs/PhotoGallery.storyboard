@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Heros of Kerala-->
+        <!--Heros of 2018-->
         <scene sceneID="2NB-9B-5Cd">
             <objects>
                 <viewController id="mGP-bc-zBf" customClass="PhotoGalleryViewController" customModule="RescueApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,53 +19,55 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iMw-7k-quG">
-                                <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="opU-Up-Tfi">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mEV-ke-smo">
-                                    <size key="itemSize" width="120" height="120"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="25" minY="10" maxX="25" maxY="10"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="center" reuseIdentifier="collectionCell" id="wY5-FC-iIK" customClass="PhotoCollectionViewCell" customModule="RescueApp" customModuleProvider="target">
-                                        <rect key="frame" x="25" y="10" width="120" height="120"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="photoGalleryTableViewCell" id="tXx-Uz-2AL">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tXx-Uz-2AL" id="JKE-BF-mub">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nb2-Ah-IXc">
-                                                    <rect key="frame" x="4" y="4" width="111" height="111"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mEG-Vm-TpW">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="164"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="164" id="SUl-31-Xah"/>
+                                                    </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ryz-4s-EYb">
+                                                    <rect key="frame" x="15" y="168" width="290" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
-                                        </view>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <connections>
-                                            <outlet property="backgroundImage" destination="nb2-Ah-IXc" id="9q1-fG-2Wn"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
+                                            <constraints>
+                                                <constraint firstItem="ryz-4s-EYb" firstAttribute="top" secondItem="mEG-Vm-TpW" secondAttribute="bottom" constant="4" id="2Dw-0I-lrQ"/>
+                                                <constraint firstItem="ryz-4s-EYb" firstAttribute="trailing" secondItem="JKE-BF-mub" secondAttribute="trailingMargin" id="8S7-hA-UEY"/>
+                                                <constraint firstItem="ryz-4s-EYb" firstAttribute="bottom" secondItem="JKE-BF-mub" secondAttribute="bottomMargin" id="eSl-q1-zAz"/>
+                                                <constraint firstItem="mEG-Vm-TpW" firstAttribute="leading" secondItem="JKE-BF-mub" secondAttribute="leading" id="g5E-MX-nEd"/>
+                                                <constraint firstAttribute="trailing" secondItem="mEG-Vm-TpW" secondAttribute="trailing" id="kkY-pa-Gih"/>
+                                                <constraint firstItem="ryz-4s-EYb" firstAttribute="leading" secondItem="JKE-BF-mub" secondAttribute="leadingMargin" id="nLM-UK-T2W"/>
+                                                <constraint firstItem="mEG-Vm-TpW" firstAttribute="top" secondItem="JKE-BF-mub" secondAttribute="top" id="nWJ-Up-vIU"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="mGP-bc-zBf" id="w3V-Mx-1Vq"/>
-                                    <outlet property="delegate" destination="mGP-bc-zBf" id="YAZ-c4-NCN"/>
+                                    <outlet property="dataSource" destination="mGP-bc-zBf" id="ReG-YS-N6f"/>
+                                    <outlet property="delegate" destination="mGP-bc-zBf" id="77s-EI-NZz"/>
                                 </connections>
-                            </collectionView>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="iMw-7k-quG" firstAttribute="bottom" secondItem="jJc-K7-kMb" secondAttribute="bottom" id="52D-1G-mMf"/>
-                            <constraint firstItem="iMw-7k-quG" firstAttribute="trailing" secondItem="jJc-K7-kMb" secondAttribute="trailing" id="aC3-Kr-kgl"/>
-                            <constraint firstItem="iMw-7k-quG" firstAttribute="top" secondItem="jJc-K7-kMb" secondAttribute="top" id="gXN-tl-hqN"/>
-                            <constraint firstItem="iMw-7k-quG" firstAttribute="leading" secondItem="jJc-K7-kMb" secondAttribute="leading" id="oyj-di-jF8"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="jJc-K7-kMb"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Heros of Kerala" id="MhQ-1o-175"/>
+                    <navigationItem key="navigationItem" title="Heros of 2018" id="MhQ-1o-175"/>
                     <connections>
-                        <outlet property="collectionView" destination="iMw-7k-quG" id="HIY-sU-rhd"/>
+                        <outlet property="tableView" destination="opU-Up-Tfi" id="7Fd-Gd-xdY"/>
                         <segue destination="gzG-Yc-Kcs" kind="show" identifier="segueToPreview" id="Nkh-lZ-OGL"/>
                     </connections>
                 </viewController>

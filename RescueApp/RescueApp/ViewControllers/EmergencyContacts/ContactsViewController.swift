@@ -52,6 +52,10 @@ final class ContactsViewController: UIViewController, RANavigationProtocol {
             vc.contacts = payload[C.SEGUE_PAYLOAD_KEY.CONTACTS] as! [Contact]
         }
     }
+    
+    @objc func onBack() {
+        navigationController?.popViewController(animated: true)
+    }
 }
 
 // MARK: Helper methods
@@ -62,8 +66,12 @@ private extension ContactsViewController {
      
      */
     func configureUI() {
-        configureNavigationBar(RAColorSet.PURPLE)
         title = C.TITLE
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "back",
+                                                           style: .done,
+                                                           target: self,
+                                                           action: #selector(onBack))
+        configureNavigationBar(RAColorSet.PURPLE)
     }
     
     /**

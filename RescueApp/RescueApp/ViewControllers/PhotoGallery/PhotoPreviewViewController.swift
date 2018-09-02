@@ -70,7 +70,7 @@ private extension PhotoPreviewViewController {
      do all UI actions necessary during loading the view
      */
     func configureUI() {
-        // implement if needed
+        title = photo.name
     }
     
     /**
