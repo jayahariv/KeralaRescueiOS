@@ -21,20 +21,21 @@ final class HowToPrepareViewController: UIViewController, RANavigationProtocol {
     /// StringConstants in this file.
     private struct C {
         struct FIREBASE_KEYS {
-            static let ROOT = "how_to_prepare"
-            static let SECTION_NAME = "sections"
-            static let SECTION_DETAIL = "section_details"
+            static let ROOT = "survival_skills_flood"
+            static let TITLE = "title"
+            static let INFO = "info"
         }
         static let CELL_ID = "howToPrepareTableCell"
-        static let TITLE = "How to Prepare"
+        static let TITLE = "Prepare for a Flood"
     }
+    private var periods = [DisasterPeriod]()
 
     // MARK: View lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        fetchHowToPrepareFromFirebase()
+        fetchSurvivalSkillsFromFirebase()
     }
 }
 
@@ -55,26 +56,18 @@ extension HowToPrepareViewController {
      loads the prepration data from Firebase
      
      */
-    func fetchHowToPrepareFromFirebase() {
+    func fetchSurvivalSkillsFromFirebase() {
         ref = Database.database().reference()
         ref?.child(C.FIREBASE_KEYS.ROOT).observe(DataEventType.value, with: { [weak self] (snapshot) in
-            let howToPrepareGuides = snapshot.value as? [String: AnyObject] ?? [:]
-            self?.howToPrepareSections = howToPrepareGuides[C.FIREBASE_KEYS.SECTION_NAME] as? [String: String] ?? [:]
-            if let names = self?.howToPrepareSections.keys {
-                self?.howToPrepareSectionNames = Array(names)
+            let disasterStages = snapshot.value as? [String: AnyObject] ?? [:]
+            var periods = [DisasterPeriod]()
+            for stage in disasterStages.values {
+                let title = stage[C.FIREBASE_KEYS.TITLE] as! String
+                let info = stage[C.FIREBASE_KEYS.INFO] as! [String: AnyObject]
+                let period = DisasterPeriod(title, info: info)
+                periods.append(period)
             }
-            
-            let details = howToPrepareGuides[C.FIREBASE_KEYS.SECTION_DETAIL] as? [String: AnyObject] ?? [:]
-            for sectionDetail in details {
-                if let value = sectionDetail.value as? [String: String] {
-                    var howToPrepareGuides = [HowToPrepareModel]()
-                    for prepareGuide in value {
-                        let prepareModel = HowToPrepareModel(prepareGuide.key, info: prepareGuide.value)
-                        howToPrepareGuides.append(prepareModel)
-                    }
-                    self?.howToPrepareSectionDetails[sectionDetail.key] = howToPrepareGuides
-                }
-            }
+            self?.periods = periods
             self?.refreshUI()
         })
     }
@@ -94,7 +87,7 @@ extension HowToPrepareViewController {
 
 extension HowToPrepareViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return howToPrepareSectionNames.count
+        return periods.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -102,8 +95,8 @@ extension HowToPrepareViewController: UITableViewDataSource, UITableViewDelegate
         if cell == nil {
             cell = UITableViewCell(style: .default, reuseIdentifier: C.CELL_ID)
         }
-        let contact = howToPrepareSections[howToPrepareSectionNames[indexPath.row]]
-        cell?.textLabel?.text = contact
+        let disasterPeriod = periods[indexPath.row]
+        cell?.textLabel?.text = disasterPeriod.title
         return cell!
     }
     

@@ -20,6 +20,7 @@
 		08223612212D310600D2808D /* DistrictListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08223611212D310600D2808D /* DistrictListViewController.swift */; };
 		08223614212D378B00D2808D /* DistrictTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08223613212D378B00D2808D /* DistrictTableViewCell.swift */; };
 		0829E1C2213C729B002CEE21 /* HowToPrepareModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0829E1C1213C729B002CEE21 /* HowToPrepareModel.swift */; };
+		0829E1C4213C8172002CEE21 /* SurvivalSkills.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0829E1C3213C8172002CEE21 /* SurvivalSkills.swift */; };
 		0864D51E212A45EC00DE403D /* OfflineData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0864D51D212A45EC00DE403D /* OfflineData.plist */; };
 		0864D523212A53AE00DE403D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0864D525212A53AE00DE403D /* Localizable.strings */; };
 		08F599F3212E8EB600785841 /* ReliefCamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F599F2212E8EB600785841 /* ReliefCamp.swift */; };
@@ -115,6 +116,7 @@
 		08223611212D310600D2808D /* DistrictListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistrictListViewController.swift; sourceTree = "<group>"; };
 		08223613212D378B00D2808D /* DistrictTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistrictTableViewCell.swift; sourceTree = "<group>"; };
 		0829E1C1213C729B002CEE21 /* HowToPrepareModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToPrepareModel.swift; sourceTree = "<group>"; };
+		0829E1C3213C8172002CEE21 /* SurvivalSkills.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurvivalSkills.swift; sourceTree = "<group>"; };
 		0864D51D212A45EC00DE403D /* OfflineData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = OfflineData.plist; sourceTree = "<group>"; };
 		0864D524212A53AE00DE403D /* ml-IN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ml-IN"; path = "ml-IN.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		0864D526212A53E200DE403D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 			isa = PBXGroup;
 			children = (
 				0829E1C1213C729B002CEE21 /* HowToPrepareModel.swift */,
+				0829E1C3213C8172002CEE21 /* SurvivalSkills.swift */,
 			);
 			path = HowToPrepare;
 			sourceTree = "<group>";
@@ -737,6 +740,7 @@
 				E9DBF96C2127806700CFD933 /* HomeViewController.swift in Sources */,
 				08223606212A806100D2808D /* RequestFilterViewController.swift in Sources */,
 				E9DBF99F212785E000CFD933 /* DistrictEnum.swift in Sources */,
+				0829E1C4213C8172002CEE21 /* SurvivalSkills.swift in Sources */,
 				08F59A05212FC98100785841 /* PhotoPreviewViewController.swift in Sources */,
 				08223614212D378B00D2808D /* DistrictTableViewCell.swift in Sources */,
 				082230462127CB8700B7FBF2 /* RAStore.swift in Sources */,
