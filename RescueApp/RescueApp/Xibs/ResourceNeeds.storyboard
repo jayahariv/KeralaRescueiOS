@@ -61,7 +61,7 @@
                         <viewLayoutGuide key="safeArea" id="AfW-zt-q31"/>
                     </view>
                     <navigationItem key="navigationItem" id="bX7-mD-LFU">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="refresh" id="b2i-U5-UTj">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="refresh" id="b2i-U5-UTj">
                             <connections>
                                 <action selector="onRefresh" destination="tBS-fc-UTr" id="avx-Ac-cIj"/>
                             </connections>

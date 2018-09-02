@@ -135,8 +135,9 @@ extension ContactsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let sectionDetail = contactsSectionDetails[contactKeys[indexPath.row]]
+        let departmentName = contactsSections[contactKeys[indexPath.row]] ?? "--"
         performSegue(withIdentifier: C.segueToList,
                      sender: [C.SEGUE_PAYLOAD_KEY.CONTACTS: sectionDetail ?? [],
-                              C.SEGUE_PAYLOAD_KEY.DEPARTMENT_NAME: contactsSections[contactKeys[indexPath.row]]])
+                              C.SEGUE_PAYLOAD_KEY.DEPARTMENT_NAME: departmentName])
     }
 }
