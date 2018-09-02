@@ -116,9 +116,7 @@ private extension PhotoPreviewViewController {
                     var tempComments = [PhotoComment]()
                     for dict in listComments {
                         let photoComment = PhotoComment(dict)
-                        if photoComment.validated {
-                            tempComments.append(photoComment)
-                        }
+                        tempComments.append(photoComment)
                     }
                     self?.comments = tempComments
                     self?.refreshTableView()
