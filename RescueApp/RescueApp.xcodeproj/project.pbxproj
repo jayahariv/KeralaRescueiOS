@@ -222,7 +222,6 @@
 				0822304C2127E7F500B7FBF2 /* Utility.swift */,
 				082230432127A72F00B7FBF2 /* Overlay.swift */,
 				DABD53E72130B09800B287F1 /* Guidelines.json */,
-				0864D51D212A45EC00DE403D /* OfflineData.plist */,
 				08223609212BB16B00D2808D /* Colors.swift */,
 				0822360F212CFD3800D2808D /* Constants.swift */,
 			);
@@ -274,6 +273,14 @@
 				0829E1C3213C8172002CEE21 /* SurvivalSkills.swift */,
 			);
 			path = HowToPrepare;
+			sourceTree = "<group>";
+		};
+		0829E1C7213C95A5002CEE21 /* OfflineData */ = {
+			isa = PBXGroup;
+			children = (
+				0864D51D212A45EC00DE403D /* OfflineData.plist */,
+			);
+			path = OfflineData;
 			sourceTree = "<group>";
 		};
 		08F599F8212E9B8F00785841 /* EmergencyContacts */ = {
@@ -362,6 +369,7 @@
 		E9DBF9682127806700CFD933 /* RescueApp */ = {
 			isa = PBXGroup;
 			children = (
+				0829E1C7213C95A5002CEE21 /* OfflineData */,
 				28386F5C212818B10012F429 /* Search */,
 				082230492127E6F400B7FBF2 /* View */,
 				082230422127A71A00B7FBF2 /* Utility */,

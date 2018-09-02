@@ -67,17 +67,49 @@ extension DisasterPeriodViewController {
         ref = Database.database().reference()
         ref?.child(C.FIREBASE_KEYS.ROOT).observe(DataEventType.value, with: { [weak self] (snapshot) in
             let disasterStages = snapshot.value as? [String: AnyObject] ?? [:]
-            var periods = [DisasterPeriod]()
-            for stage in disasterStages.values {
-                let title = stage[C.FIREBASE_KEYS.TITLE] as! String
-                let info = stage[C.FIREBASE_KEYS.INFO] as! [String: AnyObject]
-                let period = DisasterPeriod(title, info: info)
-                periods.append(period)
-            }
-            self?.periods = periods
-            self?.refreshUI()
+            self?.parseAndPopulateSurvivalSkills(disasterStages)
         })
     }
+    
+    /**
+     fetch the survival skills from locally
+     
+     */
+    func fetchLocalSurvivalSkills() {
+        if
+            let path = Bundle.main.path(forResource: APIConstants.PLIST_KEYS.NAME, ofType: "plist"),
+            let myDict = NSDictionary(contentsOfFile: path),
+            let json = myDict["survival_skills_flood"] as? String
+        {
+            let data = json.data(using: .utf8)
+            do {
+                if let disasterStages = try JSONSerialization.jsonObject(with: data!, options: []) as? [String: AnyObject] {
+                    parseAndPopulateSurvivalSkills(disasterStages)
+                }
+            } catch {
+                print(error)
+            }
+        }
+    }
+    
+    /**
+     parse the disaster stages and show it in the UI
+     
+     - parameters:
+        - disasterStages: list of disaster stages and its survival skills.
+     */
+    func parseAndPopulateSurvivalSkills(_ disasterStages: [String: AnyObject]) {
+        var tempPeriods = [DisasterPeriod]()
+        for stage in disasterStages.values {
+            let title = stage[C.FIREBASE_KEYS.TITLE] as! String
+            let info = stage[C.FIREBASE_KEYS.INFO] as! [String: AnyObject]
+            let period = DisasterPeriod(title, info: info)
+            tempPeriods.append(period)
+        }
+        periods = tempPeriods
+        refreshUI()
+    }
+    
     
     /**
      refreshes the UI to reflect the new data
