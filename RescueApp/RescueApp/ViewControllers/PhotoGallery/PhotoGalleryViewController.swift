@@ -46,10 +46,6 @@ final class PhotoGalleryViewController: UIViewController, RANavigationProtocol {
             vc.photo = sender as! Photo
         }
     }
-    
-    @objc func onBack() {
-        navigationController?.popViewController(animated: true)
-    }
 }
 
 // MARK: Helper methods
@@ -61,10 +57,7 @@ private extension PhotoGalleryViewController {
      */
     func configureUI() {
         title = C.TITLE
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "back",
-                                                           style: .done,
-                                                           target: self,
-                                                           action: #selector(onBack))
+        navigationItem.backBarButtonItem = UIBarButtonItem()
         configureNavigationBar(RAColorSet.YELLOW)
     }
     

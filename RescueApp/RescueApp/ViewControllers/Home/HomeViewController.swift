@@ -75,9 +75,7 @@ extension HomeViewController {
         tableView.tableHeaderView = UIView(frame: frame)
         
         // back button
-        let backItem = UIBarButtonItem()
-        backItem.title = "Home"
-        navigationItem.backBarButtonItem = backItem
+        navigationItem.backBarButtonItem = UIBarButtonItem()
         
         // set texts
         headingLabel.text = NSLocalizedString(C.headingLabelText, comment: "localised")
