@@ -13,6 +13,7 @@ import UIKit
 final class ContactsListViewController: UIViewController {
     
     var contacts = [Contact]()
+    var departmentName: String!
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: Properties
@@ -33,7 +34,7 @@ final class ContactsListViewController: UIViewController {
 
 extension ContactsListViewController {
     func configureUI() {
-        // implement
+        title = departmentName
     }
 }
 

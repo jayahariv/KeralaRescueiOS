@@ -28,6 +28,11 @@ final class ContactsViewController: UIViewController, RANavigationProtocol {
             static let SECTION_DETAILS = "section_details"
         }
         static let segueToList = "segueToContactList"
+        static let TITLE = "Emergency Contacts"
+        struct SEGUE_PAYLOAD_KEY {
+            static let CONTACTS = "contacts"
+            static let DEPARTMENT_NAME = "departmentName"
+        }
     }
     private var ref: DatabaseReference?
 
@@ -42,7 +47,9 @@ final class ContactsViewController: UIViewController, RANavigationProtocol {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == C.segueToList {
             let vc = segue.destination as! ContactsListViewController
-            vc.contacts = sender as! [Contact]
+            let payload = sender as!  [String: AnyObject]
+            vc.departmentName = payload[C.SEGUE_PAYLOAD_KEY.DEPARTMENT_NAME] as? String
+            vc.contacts = payload[C.SEGUE_PAYLOAD_KEY.CONTACTS] as! [Contact]
         }
     }
 }
@@ -56,6 +63,7 @@ private extension ContactsViewController {
      */
     func configureUI() {
         configureNavigationBar(RAColorSet.PURPLE)
+        title = C.TITLE
     }
     
     /**
@@ -119,6 +127,8 @@ extension ContactsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let sectionDetail = contactsSectionDetails[contactKeys[indexPath.row]]
-        performSegue(withIdentifier: C.segueToList, sender: sectionDetail ?? [])
+        performSegue(withIdentifier: C.segueToList,
+                     sender: [C.SEGUE_PAYLOAD_KEY.CONTACTS: sectionDetail ?? [],
+                              C.SEGUE_PAYLOAD_KEY.DEPARTMENT_NAME: contactsSections[contactKeys[indexPath.row]]])
     }
 }
