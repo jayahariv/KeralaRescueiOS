@@ -19,8 +19,8 @@
 		08223610212CFD3800D2808D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0822360F212CFD3800D2808D /* Constants.swift */; };
 		08223612212D310600D2808D /* DistrictListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08223611212D310600D2808D /* DistrictListViewController.swift */; };
 		08223614212D378B00D2808D /* DistrictTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08223613212D378B00D2808D /* DistrictTableViewCell.swift */; };
-		0829E1C2213C729B002CEE21 /* HowToPrepareModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0829E1C1213C729B002CEE21 /* HowToPrepareModel.swift */; };
 		0829E1C4213C8172002CEE21 /* SurvivalSkills.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0829E1C3213C8172002CEE21 /* SurvivalSkills.swift */; };
+		0829E1C6213C88F6002CEE21 /* SurvivalSkillsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0829E1C5213C88F6002CEE21 /* SurvivalSkillsViewController.swift */; };
 		0864D51E212A45EC00DE403D /* OfflineData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0864D51D212A45EC00DE403D /* OfflineData.plist */; };
 		0864D523212A53AE00DE403D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0864D525212A53AE00DE403D /* Localizable.strings */; };
 		08F599F3212E8EB600785841 /* ReliefCamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F599F2212E8EB600785841 /* ReliefCamp.swift */; };
@@ -65,7 +65,7 @@
 		E9DBF9A22127872A00CFD933 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DBF9A12127872A00CFD933 /* ApiClient.swift */; };
 		E9F925F4213B2DC000CD9437 /* HowToPrepare.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9F925F3213B2DC000CD9437 /* HowToPrepare.storyboard */; };
 		E9F925F8213B2F9B00CD9437 /* ResourceNeeds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9F925F7213B2F9B00CD9437 /* ResourceNeeds.storyboard */; };
-		E9F925FE213B4F1600CD9437 /* HowToPrepareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F925FD213B4F1600CD9437 /* HowToPrepareViewController.swift */; };
+		E9F925FE213B4F1600CD9437 /* DisasterPeriodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F925FD213B4F1600CD9437 /* DisasterPeriodViewController.swift */; };
 		E9F92604213B56C500CD9437 /* RANavigationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F92603213B56C500CD9437 /* RANavigationProtocol.swift */; };
 /* End PBXBuildFile section */
 
@@ -115,8 +115,8 @@
 		0822360F212CFD3800D2808D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		08223611212D310600D2808D /* DistrictListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistrictListViewController.swift; sourceTree = "<group>"; };
 		08223613212D378B00D2808D /* DistrictTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistrictTableViewCell.swift; sourceTree = "<group>"; };
-		0829E1C1213C729B002CEE21 /* HowToPrepareModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToPrepareModel.swift; sourceTree = "<group>"; };
 		0829E1C3213C8172002CEE21 /* SurvivalSkills.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurvivalSkills.swift; sourceTree = "<group>"; };
+		0829E1C5213C88F6002CEE21 /* SurvivalSkillsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurvivalSkillsViewController.swift; sourceTree = "<group>"; };
 		0864D51D212A45EC00DE403D /* OfflineData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = OfflineData.plist; sourceTree = "<group>"; };
 		0864D524212A53AE00DE403D /* ml-IN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ml-IN"; path = "ml-IN.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		0864D526212A53E200DE403D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -172,7 +172,7 @@
 		E9DBF9A12127872A00CFD933 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		E9F925F3213B2DC000CD9437 /* HowToPrepare.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HowToPrepare.storyboard; sourceTree = "<group>"; };
 		E9F925F7213B2F9B00CD9437 /* ResourceNeeds.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ResourceNeeds.storyboard; sourceTree = "<group>"; };
-		E9F925FD213B4F1600CD9437 /* HowToPrepareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToPrepareViewController.swift; sourceTree = "<group>"; };
+		E9F925FD213B4F1600CD9437 /* DisasterPeriodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisasterPeriodViewController.swift; sourceTree = "<group>"; };
 		E9F92603213B56C500CD9437 /* RANavigationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RANavigationProtocol.swift; sourceTree = "<group>"; };
 		F4846D0D0422408AF15B81C8 /* Pods-RescueAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RescueAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RescueAppUITests/Pods-RescueAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -271,7 +271,6 @@
 		0829E1C0213C7283002CEE21 /* HowToPrepare */ = {
 			isa = PBXGroup;
 			children = (
-				0829E1C1213C729B002CEE21 /* HowToPrepareModel.swift */,
 				0829E1C3213C8172002CEE21 /* SurvivalSkills.swift */,
 			);
 			path = HowToPrepare;
@@ -470,7 +469,8 @@
 		E9F925FC213B4F0300CD9437 /* HowToPrepare */ = {
 			isa = PBXGroup;
 			children = (
-				E9F925FD213B4F1600CD9437 /* HowToPrepareViewController.swift */,
+				E9F925FD213B4F1600CD9437 /* DisasterPeriodViewController.swift */,
+				0829E1C5213C88F6002CEE21 /* SurvivalSkillsViewController.swift */,
 			);
 			path = HowToPrepare;
 			sourceTree = "<group>";
@@ -722,6 +722,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0829E1C6213C88F6002CEE21 /* SurvivalSkillsViewController.swift in Sources */,
 				08F59A092130E67A00785841 /* Contact.swift in Sources */,
 				E9DBF9A22127872A00CFD933 /* ApiClient.swift in Sources */,
 				08F599FA212E9BCB00785841 /* ContactsViewController.swift in Sources */,
@@ -753,12 +754,11 @@
 				08FDDE5F2129F9D0006B84BE /* RequestsDictionary.swift in Sources */,
 				DAA81A47212E740E00AA0ECA /* GuidelineContentController.swift in Sources */,
 				0822303F212799EA00B7FBF2 /* APIConstants.swift in Sources */,
-				E9F925FE213B4F1600CD9437 /* HowToPrepareViewController.swift in Sources */,
+				E9F925FE213B4F1600CD9437 /* DisasterPeriodViewController.swift in Sources */,
 				28386F642128191E0012F429 /* TagFlowLayout.swift in Sources */,
 				28386F622128191E0012F429 /* TagCollectionViewCell.swift in Sources */,
 				DABD53E6212F6D2300B287F1 /* CardCell.swift in Sources */,
 				08F599F3212E8EB600785841 /* ReliefCamp.swift in Sources */,
-				0829E1C2213C729B002CEE21 /* HowToPrepareModel.swift in Sources */,
 				28386F632128191E0012F429 /* RescueSearchView.swift in Sources */,
 				E9DBF96A2127806700CFD933 /* AppDelegate.swift in Sources */,
 				08223612212D310600D2808D /* DistrictListViewController.swift in Sources */,

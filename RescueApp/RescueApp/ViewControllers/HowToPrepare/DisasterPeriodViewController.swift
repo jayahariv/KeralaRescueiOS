@@ -1,23 +1,23 @@
 //
-//  HowToPrepareViewController.swift
-//  RescueApp
-//
-//  Created by Jayahari Vavachan on 9/1/18.
-//  Copyright © 2018 Jayahari Vavachan. All rights reserved.
-//
+/*
+ SurvivalSkillsViewController.swift
+ Created on: 1/9/18
+ 
+ Abstract:
+ this will show disaster periods, like before, after, during disasters.
+ 
+ */
 
 import UIKit
 import FirebaseDatabase
 
-final class HowToPrepareViewController: UIViewController, RANavigationProtocol {
+final class DisasterPeriodViewController: UIViewController, RANavigationProtocol {
     
     // MARK: Properties
     /// PRIVATE
     @IBOutlet private weak var tableView: UITableView!
-    private var howToPrepareSectionNames = [String]()
-    private var howToPrepareSections = [String: String]()
-    private var howToPrepareSectionDetails = [String: [HowToPrepareModel]]()
     private var ref: DatabaseReference?
+    private var periods = [DisasterPeriod]()
     /// StringConstants in this file.
     private struct C {
         struct FIREBASE_KEYS {
@@ -25,10 +25,10 @@ final class HowToPrepareViewController: UIViewController, RANavigationProtocol {
             static let TITLE = "title"
             static let INFO = "info"
         }
-        static let CELL_ID = "howToPrepareTableCell"
-        static let TITLE = "Prepare for a Flood"
+        static let CELL_ID = "disasterPeriodTableCell"
+        static let TITLE = "Prepare"
+        static let SEGUE_TO_SURVIVAL_SKILLS = "segueToSurvivalSkillsViewController"
     }
-    private var periods = [DisasterPeriod]()
 
     // MARK: View lifecycle
     
@@ -37,11 +37,18 @@ final class HowToPrepareViewController: UIViewController, RANavigationProtocol {
         configureUI()
         fetchSurvivalSkillsFromFirebase()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == C.SEGUE_TO_SURVIVAL_SKILLS {
+            let vc = segue.destination as! SurvivalSkillsViewController
+            vc.situations = sender as! [DisasterSituation]
+        }
+    }
 }
 
 // MARK: Helper methods
 
-extension HowToPrepareViewController {
+extension DisasterPeriodViewController {
     /**
      configurs the UI once when view is loaded inside this method
      
@@ -83,9 +90,9 @@ extension HowToPrepareViewController {
     }
 }
 
-// MARK: HowToPrepareViewController -> UITableViewDataSource, UITableViewDelegate
+// MARK: DisasterPeriodViewController -> UITableViewDataSource, UITableViewDelegate
 
-extension HowToPrepareViewController: UITableViewDataSource, UITableViewDelegate {
+extension DisasterPeriodViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return periods.count
     }
@@ -101,7 +108,7 @@ extension HowToPrepareViewController: UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // implement
+        performSegue(withIdentifier: C.SEGUE_TO_SURVIVAL_SKILLS, sender: periods[indexPath.row].situations)
     }
 }
 

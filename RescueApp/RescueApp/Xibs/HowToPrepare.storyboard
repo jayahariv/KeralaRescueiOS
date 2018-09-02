@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--How To Prepare View Controller-->
+        <!--Disaster Period View Controller-->
         <scene sceneID="b13-BO-TEk">
             <objects>
-                <viewController storyboardIdentifier="HowToPrepareViewController" id="fBD-ho-bhz" customClass="HowToPrepareViewController" customModule="RescueApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DisasterPeriodViewController" id="fBD-ho-bhz" customClass="DisasterPeriodViewController" customModule="RescueApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ocl-40-m85">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="howToPrepareTableCell" textLabel="EBt-cA-e6W" style="IBUITableViewCellStyleDefault" id="g8R-Wl-jAU">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="disasterPeriodTableCell" textLabel="EBt-cA-e6W" style="IBUITableViewCellStyleDefault" id="g8R-Wl-jAU">
                                         <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="g8R-Wl-jAU" id="VXl-Us-h0V">
@@ -57,11 +57,61 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="Zul-gA-Gff" id="emS-Rb-9q2"/>
+                        <segue destination="nDx-4z-Jxh" kind="show" identifier="segueToSurvivalSkillsViewController" id="MQc-t4-HVM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Dd-4n-3Or" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="216.34182908545728"/>
+        </scene>
+        <!--Survival Skills View Controller-->
+        <scene sceneID="YUI-6u-3ak">
+            <objects>
+                <viewController id="nDx-4z-Jxh" customClass="SurvivalSkillsViewController" customModule="RescueApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KIi-pP-ChM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="lCm-5z-Jkq">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="survivalSkillsCell" textLabel="GAX-BI-mcS" style="IBUITableViewCellStyleDefault" id="qd0-8v-RMq">
+                                        <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qd0-8v-RMq" id="8YU-2w-bxB">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GAX-BI-mcS">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.4823529412" green="0.54901960780000003" blue="0.61176470589999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="nDx-4z-Jxh" id="XcU-y1-wxC"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="lCm-5z-Jkq" firstAttribute="bottom" secondItem="fvv-2d-pvA" secondAttribute="bottom" id="ELf-Lh-H8E"/>
+                            <constraint firstItem="lCm-5z-Jkq" firstAttribute="trailing" secondItem="fvv-2d-pvA" secondAttribute="trailing" id="SQy-C4-4lm"/>
+                            <constraint firstItem="lCm-5z-Jkq" firstAttribute="leading" secondItem="fvv-2d-pvA" secondAttribute="leading" id="hER-qj-fTt"/>
+                            <constraint firstItem="lCm-5z-Jkq" firstAttribute="top" secondItem="KIi-pP-ChM" secondAttribute="top" id="qob-AT-3Es"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fvv-2d-pvA"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K2V-oK-VTM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="956" y="216"/>
         </scene>
     </scenes>
 </document>

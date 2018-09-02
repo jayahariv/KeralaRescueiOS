@@ -39,8 +39,8 @@ final class HomeViewController: UIViewController {
     }
     private var homeCells: [[String: AnyObject]] {
         return [
-            [C.HomeCellKeys.title: "How to Prepare", C.HomeCellKeys.color: RAColorSet.RED],
-            [C.HomeCellKeys.title: "After a Flood", C.HomeCellKeys.color: RAColorSet.LIGHT_BLUE],
+            [C.HomeCellKeys.title: "Prepare", C.HomeCellKeys.color: RAColorSet.RED],
+            [C.HomeCellKeys.title: "After A Flood", C.HomeCellKeys.color: RAColorSet.LIGHT_BLUE],
             [C.HomeCellKeys.title: "Emergency Contacts", C.HomeCellKeys.color: RAColorSet.PURPLE],
             [C.HomeCellKeys.title: "Usahidi Survey app", C.HomeCellKeys.color: RAColorSet.GREEN],
             [C.HomeCellKeys.title: "Rescue Photos '18", C.HomeCellKeys.color: RAColorSet.YELLOW]
