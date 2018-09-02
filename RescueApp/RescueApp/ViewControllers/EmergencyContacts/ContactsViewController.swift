@@ -65,6 +65,7 @@ private extension ContactsViewController {
         title = C.TITLE
         navigationItem.backBarButtonItem = UIBarButtonItem()
         configureNavigationBar(RAColorSet.PURPLE)
+        tableView.tableFooterView = UIView()
     }
     
     /**

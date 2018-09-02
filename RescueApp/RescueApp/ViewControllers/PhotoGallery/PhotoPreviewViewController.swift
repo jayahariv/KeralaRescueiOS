@@ -38,9 +38,7 @@ class PhotoPreviewViewController: UIViewController {
         super.viewDidLoad()
         
         configureUI()
-        
         downloadImage()
-        
         loadComments()
     }
     

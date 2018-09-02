@@ -35,6 +35,7 @@ final class ContactsListViewController: UIViewController {
 extension ContactsListViewController {
     func configureUI() {
         title = departmentName
+        tableView.tableFooterView = UIView()
     }
 }
 
