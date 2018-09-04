@@ -42,7 +42,7 @@ final class HomeViewController: UIViewController {
             [C.HomeCellKeys.title: "Prepare", C.HomeCellKeys.color: RAColorSet.RED],
             [C.HomeCellKeys.title: "After A Flood", C.HomeCellKeys.color: RAColorSet.LIGHT_BLUE],
             [C.HomeCellKeys.title: "Emergency Contacts", C.HomeCellKeys.color: RAColorSet.PURPLE],
-            [C.HomeCellKeys.title: "Usahidi Survey app", C.HomeCellKeys.color: RAColorSet.GREEN],
+//            [C.HomeCellKeys.title: "Usahidi Survey app", C.HomeCellKeys.color: RAColorSet.GREEN],
             [C.HomeCellKeys.title: "Rescue Photos '18", C.HomeCellKeys.color: RAColorSet.YELLOW]
         ] as [[String: AnyObject]]
     }
@@ -133,8 +133,6 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         case 2:
             identifier = C.SEGUE.CONTACTS
         case 3:
-            identifier = C.SEGUE.SURVEY
-        case 4:
             identifier = C.SEGUE.PHOTO_GALLERY
         default:
             abort()
