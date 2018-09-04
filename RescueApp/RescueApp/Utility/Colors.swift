@@ -22,6 +22,7 @@ struct RAColorSet {
     static let YELLOW = UIColor(red: 250/255, green: 181/255, blue: 0, alpha: 1.0)
     
     // MISC
+    static let AFTER_FLOOD_HEADER_BLACK = UIColor(red: 14/255, green: 14/255, blue: 14/255, alpha: 1.0)
     static let RABLUE_GREENISH = UIColor(red: 102/255, green: 189/255, blue: 231/255, alpha: 1.0)
     static let RAGREEN = UIColor(red: 109/255, green: 195/255, blue: 132/255, alpha: 1.0)
     static let GRADIENTSTART = UIColor(red: 72/255, green: 201/255, blue: 104/255, alpha: 1.0)

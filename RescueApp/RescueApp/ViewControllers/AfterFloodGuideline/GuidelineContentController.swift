@@ -48,6 +48,7 @@ class GuidelineContentController: UIViewController, RANavigationProtocol {
         button.contentMode = .center
         button.setTitle("Content from: afterflood.in", for: .normal)
         button.setTitleColor(RAColorSet.LINK_COLOR, for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         constrain(button) {
             $0.width == 250
             $0.height == 35
@@ -86,8 +87,9 @@ class GuidelineContentController: UIViewController, RANavigationProtocol {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.allowsSelection = true
-        tableView.separatorStyle = .none
+        tableView.separatorStyle = .singleLine
         tableView.register(ContentTopicCell.self, forCellReuseIdentifier: ContentTopicCell.CellIndentifier)
+        tableView.tableFooterView = UIView()
 
         view.addSubview(tableView)
         view.addSubview(afterFlood)
@@ -212,8 +214,8 @@ class ContentTitleView: UIView {
     let title: UILabel = {
         let label = UILabel(frame: CGRect.zero)
         label.textAlignment = .left
-        label.textColor = RAColorSet.DARK_TEXT_COLOR
-        label.font = UIFont.boldSystemFont(ofSize: 18)
+        label.textColor = RAColorSet.AFTER_FLOOD_HEADER_BLACK
+        label.font = UIFont.boldSystemFont(ofSize: 14)
         label.numberOfLines = 0
         label.setContentCompressionResistancePriority(UILayoutPriority.defaultLow, for: .horizontal)
         return label
@@ -240,7 +242,7 @@ class ContentTitleView: UIView {
         self.backgroundColor = .white
         self.isExpanded = isExpanded
         icon.image = isExpanded ? UIImage(named: "minus") : UIImage(named: "plus")
-        title.text = titleText.uppercased()
+        title.text = titleText
         let separator = UIView()
         separator.backgroundColor = RAColorSet.TEXTFIELD_BORDER
 

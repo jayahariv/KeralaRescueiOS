@@ -35,7 +35,12 @@ final class DisasterPeriodViewController: UIViewController, RANavigationProtocol
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        fetchSurvivalSkillsFromFirebase()
+        if ApiClient.isConnected {
+            fetchSurvivalSkillsFromFirebase()
+        } else {
+            fetchLocalSurvivalSkills()
+        }
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

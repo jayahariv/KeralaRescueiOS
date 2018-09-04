@@ -57,7 +57,7 @@ class ContentTopicCell: CardCell {
     let title: UILabel = {
         let label = UILabel(frame: CGRect.zero)
         label.textAlignment = .left
-        label.font = UIFont.systemFont(ofSize: 16)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.numberOfLines = 0
         label.textColor = RAColorSet.SECONDARY_TEXT_COLOR
         return label
