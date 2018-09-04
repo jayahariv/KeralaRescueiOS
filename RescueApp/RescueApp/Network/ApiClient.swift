@@ -136,7 +136,6 @@ final class ApiClient: NSObject {
                     let contents = jsonResult[FirebaseDBKeys.Contents] as! Dictionary<String, AnyObject>
                     for content in contents {
                         let menuRow = MenuRowItem(withTitle: content.key)
-                        menuRow.isOpen = menuRows.isEmpty
                         let subtopics = jsonResult[content.key] as! Dictionary<String, AnyObject>
                         for subtopic in subtopics {
                             let topicContent = subtopic.value as! Dictionary<String, String>

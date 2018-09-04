@@ -28,12 +28,11 @@ class Card: UIView {
 }
 
 class CardCell: UITableViewCell {
-    let cardView = Card()
-    
+    let cardView = UIView()
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        self.backgroundColor = UIColor.clear
+        self.backgroundColor = UIColor.white
         
         self.addSubview(cardView)
         self.selectionStyle = .none
@@ -71,7 +70,7 @@ class ContentTopicCell: CardCell {
 
         let margin: CGFloat = 20.0
         constrain(title) { title in
-            title.left == title.superview!.left + margin
+            title.left == title.superview!.left + 40
             title.top == title.superview!.top + 15
             title.bottom == title.superview!.bottom - 15
             title.right == title.superview!.right - margin

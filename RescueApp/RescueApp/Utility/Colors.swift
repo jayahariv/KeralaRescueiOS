@@ -31,6 +31,7 @@ struct RAColorSet {
     static let TABLE_BACKGROUND = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
     static let DARK_TEXT_COLOR = UIColor(red: 74/255, green: 74/255, blue: 74/255, alpha: 1.0)
     static let SECONDARY_TEXT_COLOR = UIColor(red: 100/255, green: 100/255, blue: 100/255, alpha: 1.0)
+    static let LINK_COLOR = UIColor(red: 68/255, green: 200/255, blue: 245/255, alpha: 1.0)
 }
 
 final class Colors: NSObject {

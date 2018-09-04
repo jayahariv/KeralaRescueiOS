@@ -29,9 +29,8 @@ class MenuRowItem {
 
 class GuidelineContentController: UIViewController, RANavigationProtocol {
     private var headers: [Int: ContentTitleView] = [:]
-    
     private struct Constants {
-        static let title = "Guidelines"
+        static let title = "Tips after a Flood"
         static let LoadingDataFromServer = "LoadingDataFromServer"
         static let CellIndentifier = "ContentCellIndentifier"
         static let CellContenrHeaderHeight: CGFloat = 60.0
@@ -44,6 +43,18 @@ class GuidelineContentController: UIViewController, RANavigationProtocol {
     }
     
     private var tableView: UITableView!
+    private let afterFlood: UIButton = {
+        let button = UIButton()
+        button.contentMode = .center
+        button.setTitle("Content from: afterflood.in", for: .normal)
+        button.setTitleColor(RAColorSet.LINK_COLOR, for: .normal)
+        constrain(button) {
+            $0.width == 250
+            $0.height == 35
+        }
+        return button
+    }()
+
     private var mainNote: String? {
         didSet {
             loadContents()
@@ -74,18 +85,22 @@ class GuidelineContentController: UIViewController, RANavigationProtocol {
         tableView = UITableView(frame: CGRect.zero, style: .plain)
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.backgroundColor = RAColorSet.TABLE_BACKGROUND
         tableView.allowsSelection = true
         tableView.separatorStyle = .none
         tableView.register(ContentTopicCell.self, forCellReuseIdentifier: ContentTopicCell.CellIndentifier)
 
         view.addSubview(tableView)
-        
-        constrain(tableView) { tableView in
+        view.addSubview(afterFlood)
+        afterFlood.addTarget(self, action: #selector(onAfterFloodTap), for: .touchUpInside)
+
+        constrain(tableView, afterFlood) { tableView, afterFlood in
             tableView.top == tableView.superview!.top
             tableView.left == tableView.superview!.left
             tableView.right == tableView.superview!.right
-            tableView.bottom == tableView.superview!.bottom
+            
+            afterFlood.top == tableView.bottom
+            afterFlood.centerX == afterFlood.superview!.centerX
+            afterFlood.bottom == afterFlood.superview!.bottom
         }
         
         self.view = view
@@ -101,6 +116,11 @@ class GuidelineContentController: UIViewController, RANavigationProtocol {
         Overlay.shared.showWithMessage(NSLocalizedString(Constants.LoadingDataFromServer, comment: ""))
 
         fetchData()
+    }
+    
+    @objc private func onAfterFloodTap() {
+        let safariView = SFSafariViewController(url: URL(string: "https://www.afterflood.in")!)
+        navigationController?.present(safariView, animated: true)
     }
     
     private func loadContents() {
@@ -211,28 +231,36 @@ class ContentTitleView: UIView {
     
     func toggle() {
         isExpanded = !isExpanded
-        icon.image = isExpanded ? UIImage(named: "Collapse") : UIImage(named: "Expand")
+        icon.image = isExpanded ? UIImage(named: "minus") : UIImage(named: "plus")
     }
     
     init(frame: CGRect, titleText: String, isExpanded: Bool) {
         super.init(frame: frame)
         
-        self.backgroundColor = RAColorSet.HEADER_BACKGROUD
+        self.backgroundColor = .white
         self.isExpanded = isExpanded
-        icon.image = isExpanded ? UIImage(named: "Collapse") : UIImage(named: "Expand")
+        icon.image = isExpanded ? UIImage(named: "minus") : UIImage(named: "plus")
         title.text = titleText.uppercased()
-        
+        let separator = UIView()
+        separator.backgroundColor = RAColorSet.TEXTFIELD_BORDER
+
         self.addSubview(title)
         self.addSubview(icon)
-        
+        self.addSubview(separator)
+
         let margin: CGFloat = 20.0
-        constrain(title, icon) { title, icon in
-            title.left == title.superview!.left + margin
-            title.centerY == title.superview!.centerY
-            
-            icon.left == title.right + 20
-            icon.right == icon.superview!.right - margin
+        constrain(title, icon, separator) { title, icon, separator in
+            icon.left == title.superview!.left + 20
             icon.centerY == icon.superview!.centerY
+ 
+            title.left == icon.right + 10
+            title.centerY == title.superview!.centerY
+            title.right == title.superview!.right - margin
+
+            separator.bottom == separator.superview!.bottom
+            separator.height == 0.5
+            separator.left == separator.superview!.left + 20
+            separator.right == separator.superview!.right - 20
         }
     }
     
