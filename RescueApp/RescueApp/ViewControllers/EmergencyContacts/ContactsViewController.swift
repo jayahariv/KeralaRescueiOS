@@ -41,7 +41,12 @@ final class ContactsViewController: UIViewController, RANavigationProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        loadFromFirebase()
+        
+        if ApiClient.isConnected {
+            loadFromFirebase()
+        } else {
+            fetchLocalContacts()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -77,26 +82,50 @@ private extension ContactsViewController {
         ref = Database.database().reference()
         ref?.child(C.FirebaseKeys.CONTACTS_ROOT).observe(DataEventType.value, with: { [weak self] (snapshot) in
             let contents = snapshot.value as? [String: AnyObject] ?? [:]
-            self?.contactsSections = contents[C.FirebaseKeys.SECTIONS] as? [String: String] ?? [:]
-            if let names = self?.contactsSections.keys {
-                self?.contactKeys = Array(names)
-            }
-            
-            let details = contents[C.FirebaseKeys.SECTION_DETAILS] as? [String: AnyObject] ?? [:]
-            for sectionDetail in details {
-                
-                if let value = sectionDetail.value as? [String: AnyObject] {
-                    var phones = [Contact]()
-                    for contacts in value {
-                        let contact = Contact(contacts.key, phone: contacts.value)
-                        phones.append(contact)
-                    }
-                    self?.contactsSectionDetails[sectionDetail.key] = phones
-                }    
-            }
-            
-            self?.refreshUI()
+            self?.parseAndPopulateContacts(contents)
         })
+    }
+    
+    func parseAndPopulateContacts(_ contents:  [String: AnyObject]) {
+        
+        contactsSections = contents[C.FirebaseKeys.SECTIONS] as? [String: String] ?? [:]
+        contactKeys = Array(contactsSections.keys)
+        
+        let details = contents[C.FirebaseKeys.SECTION_DETAILS] as? [String: AnyObject] ?? [:]
+        for sectionDetail in details {
+            
+            if let value = sectionDetail.value as? [String: AnyObject] {
+                var phones = [Contact]()
+                for contacts in value {
+                    let contact = Contact(contacts.key, phone: contacts.value)
+                    phones.append(contact)
+                }
+                contactsSectionDetails[sectionDetail.key] = phones
+            }
+        }
+        
+        refreshUI()
+    }
+    
+    /**
+     fetch the Contacts from locally
+     
+     */
+    func fetchLocalContacts() {
+        if
+            let path = Bundle.main.path(forResource: APIConstants.PLIST_KEYS.NAME, ofType: "plist"),
+            let myDict = NSDictionary(contentsOfFile: path),
+            let json = myDict["contacts"] as? String
+        {
+            let data = json.data(using: .utf8)
+            do {
+                if let contents = try JSONSerialization.jsonObject(with: data!, options: []) as? [String: AnyObject] {
+                    parseAndPopulateContacts(contents)
+                }
+            } catch {
+                print(error)
+            }
+        }
     }
     
     /**
