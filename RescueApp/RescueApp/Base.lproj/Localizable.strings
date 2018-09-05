@@ -6,9 +6,8 @@
   Copyright © 2018 Jayahari Vavachan. All rights reserved.
 */
 
-"HomeHeading" = "Reach out a helping hand for the needy. Choose from the given sections to share your spare commodities.";
-"HomeSubHeading" = "\"We make a living by what we get, We make a life by what we give.\"";
-"FirstAlert" = "We are using the data from keralarescue.in. We hardcoded some data if users are not having internet connectivity or service down time. So the date on which the data is hardcoded is August 19th, 2018.";
+"HOME_TOP_QUOTES_KERALA_RESCUE" = "Take time to learn survival skills before a flood, keep emergency contacts, be proud of what we achieved.";
+"HOME_BOTTOM_QUOTES_KERALA_RESCUE" = "\"there's no harm in hoping for the best as long as you're prepared for the worst.\"";
 "WeCareMessageBody" = "";
 "LoadingDataFromServer" = "Please wait, loading data...";
 "AppTitle" = "KERALA RESCUE";

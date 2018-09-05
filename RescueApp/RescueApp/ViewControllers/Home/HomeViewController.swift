@@ -28,8 +28,11 @@ final class HomeViewController: UIViewController {
         static let waterSegueID = "waterRequest"
         static let medicineSegueID = "medicineRequest"
         static let clothesSegueID = "clothesRequest"
+        // QUOTES on HOME PAGE
         static let headingLabelText = "HomeHeading"
         static let subHeadingLabelText = "HomeSubHeading"
+        static let TOP_QUOTES = "HOME_TOP_QUOTES_KERALA_RESCUE"
+        static let BOTTOM_QUOTES = "HOME_BOTTOM_QUOTES_KERALA_RESCUE"
         static let alertTitle = "FirstAlert"
         static let LoadingDataFromServer = "LoadingDataFromServer"
         struct HomeCellKeys {
@@ -78,8 +81,8 @@ extension HomeViewController {
         navigationItem.backBarButtonItem = UIBarButtonItem()
         
         // set texts
-        headingLabel.text = NSLocalizedString(C.headingLabelText, comment: "localised")
-        subHeadingLabel.text = NSLocalizedString(C.subHeadingLabelText, comment: "localised")
+        headingLabel.text = NSLocalizedString(C.TOP_QUOTES, comment: "localised")
+        subHeadingLabel.text = NSLocalizedString(C.BOTTOM_QUOTES, comment: "localised")
         
         titleLabel.text = NSLocalizedString("AppTitle", comment: "localised")
     }
