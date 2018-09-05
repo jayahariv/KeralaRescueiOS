@@ -81,12 +81,6 @@ extension HomeViewController {
         headingLabel.text = NSLocalizedString(C.headingLabelText, comment: "localised")
         subHeadingLabel.text = NSLocalizedString(C.subHeadingLabelText, comment: "localised")
         
-        if !UserDefaults.standard.bool(forKey: Constants.UserDefaultsKeys.FIRST_TIME_LOGIN) {
-            let alert = Alert.errorAlert(title: NSLocalizedString(C.alertTitle, comment: "localized"), message: nil)
-            present(alert, animated: true, completion: nil)
-            UserDefaults.standard.set(true, forKey: "firstTimeLoggedIn")
-        }
-        
         titleLabel.text = NSLocalizedString("AppTitle", comment: "localised")
     }
 
