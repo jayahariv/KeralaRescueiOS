@@ -6,9 +6,8 @@
   Copyright © 2018 Jayahari Vavachan. All rights reserved.
 */
 
-"HomeHeading" = "നിങ്ങൾക്കും നൽകാം ആവശ്യക്കാരന് ഒരു കൈസഹായം! അതിനായി തിരഞ്ഞെടുക്കുക, താഴെ കാണിച്ചിരിക്കുന്ന വിഭാങ്ങളിൽ ഒന്ന്.";
-"HomeSubHeading" = "\"നമ്മുക് ലഭ്യമാവുന്നത്കൊണ്ട് നാം ജീവിക്കുന്നു, മറ്റുള്ളവർക് വേണ്ടി ചെയ്യുന്നതിൽ നിന്നും നാം ജനിക്കുന്നു.\"";
-"FirstAlert" = "വിവരങ്ങൾ ലഭ്യമായത് keralarescue.in മുഖേന. ഫോൺ ഇന്റർനെറ്റ് സർവീസ് ഇല്ലാത്ത പക്ഷം ഓഗസ്റ്റ് 18th 2018 ഉള്ള വിവരങ്ങൾ കാണിക്കുന്നു. വിവരങ്ങളെപറ്റി കൂടുതൽ അറിയാൻ keralarescue.in സന്ദർശിക്കുക";
+"HOME_TOP_QUOTES_KERALA_RESCUE" = "Take time to learn survival skills before a flood, keep emergency contacts, be proud of what we achieved.";
+"HOME_BOTTOM_QUOTES_KERALA_RESCUE" = "\"there's no harm in hoping for the best as long as you're prepared for the worst.\"";
 "WeCareMessageBody" = "";
 "LoadingDataFromServer" = "വിവരങ്ങള്‍ ശേഖരിക്കുന്നു...";
 "AppTitle" = "കേരള റെസ്ക്യൂ";
@@ -28,3 +27,4 @@
 "LocationsSearchPlaceholder" = "സ്ഥലപ്പേര് ഉപയോഗിച് തിരയുക...";
 "KeywordsSearchPlaceholder" = "കീവേഡ് ഉപയോഗിച് തിരയുക, ഉദാ. rice, bread..";
 "Cancel" = "ക്യാൻസൽ";
+"Guidelines" = "Guidelines";

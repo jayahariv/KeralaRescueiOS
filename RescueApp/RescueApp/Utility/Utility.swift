@@ -36,4 +36,21 @@ final class Utility: NSObject {
         formatter.dateFormat = format
         return formatter.string(from: _date)
     }
+    
+    /**
+     this will triggers the call functionality
+     
+     - parameters:
+        - phone: phone number in string
+     */
+    static func call(_ phone: String) {
+        guard
+            let phoneURL = URL(string: "tel://\(phone)"),
+            UIApplication.shared.canOpenURL(phoneURL)
+        else {
+            return
+        }
+        
+        UIApplication.shared.open(phoneURL)
+    }
 }

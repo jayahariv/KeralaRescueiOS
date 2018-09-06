@@ -20,9 +20,9 @@ final class DistrictListViewController: UIViewController {
     // MARK: Properties
     /// PUBLIC
     var delegate: DistrictListProtocol?
+    var selectedDistricts = [Bool](repeating: false, count: 14)
     
     /// PRIVATE
-    private var selectedDistricts = [Bool](repeating: false, count: 14)
     @IBOutlet private weak var tableView: UITableView!
     private struct C {
         static let cellId = "districtCell"
@@ -63,7 +63,13 @@ private extension DistrictListViewController {
      
      */
     func configureUI() {
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        guard let filterModel = appDelegate.filterModel else {
+            return
+        }
+        filterModel.districts.forEach { (district) in
+            selectedDistricts[district.rawValue] = true
+        }
     }
 }
 
@@ -77,7 +83,8 @@ extension DistrictListViewController: UITableViewDataSource, UITableViewDelegate
         if cell == nil {
             cell = UITableViewCell(style: .default, reuseIdentifier: C.cellId)
         }
-        cell?.textLabel?.text = District.allValues[indexPath.row].rawValue
+        cell?.accessoryType = selectedDistricts[indexPath.row] ? .checkmark: .none
+        cell?.textLabel?.text = District.getDisplayLabels(District.allValues[indexPath.row])
         return cell!
     }
     

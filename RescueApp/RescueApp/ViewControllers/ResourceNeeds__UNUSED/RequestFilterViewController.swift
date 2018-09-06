@@ -19,12 +19,15 @@ protocol RequestFilterProtocol {
     func didFinishApplyingFilters(filters: [RequestModel])
 }
 
-class RequestFilterViewController: UIViewController {
+final class RequestFilterViewController: UIViewController {
     
+    // MARK: Properties
+    /// PUBLIC
     var requests = [RequestModel]()
     var delegate: RequestFilterProtocol?
     var requestType: RequestType!
     
+    /// PRIVATE
     @IBOutlet private weak var navigationBar: UINavigationBar!
     @IBOutlet private weak var locationTextfield: UITextField!
     @IBOutlet private weak var keywordsTextfield: UITextField!
@@ -32,10 +35,10 @@ class RequestFilterViewController: UIViewController {
     @IBOutlet private weak var clearAllButton: UIButton!
     @IBOutlet private weak var cancelButton: UIBarButtonItem!
     @IBOutlet private weak var districtSelector: UIButton!
-    
     private struct C {
         static let segueToDistrictList = "segueToDistrict"
     }
+    private var selectedDistricts = [District]()
     
     // MARK: View Lifecycle
 
@@ -57,6 +60,17 @@ class RequestFilterViewController: UIViewController {
         GradientHelper.addHorizontalGradient(RAColorSet.RAGREEN.cgColor,
                                              bottom: RAColorSet.RABLUE_GREENISH.cgColor,
                                              toView: clearAllButton)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == C.segueToDistrictList {
+            let navController = segue.destination as! UINavigationController
+            let vc = navController.topViewController as! DistrictListViewController
+            vc.delegate = self
+            selectedDistricts.forEach { (district) in
+                vc.selectedDistricts[district.rawValue] = true
+            }
+        }
     }
 
     // MARK: Button Actions
@@ -83,6 +97,11 @@ class RequestFilterViewController: UIViewController {
             filterModel.keyWord = ""
         }
         
+        if selectedDistricts.count > 0 {
+            filterModel.districts = selectedDistricts
+            filteredRequests = filterWithDistricts(selectedDistricts, requests: filteredRequests)
+        }
+        
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.filterModel = filterModel
         delegate?.didFinishApplyingFilters(filters: filteredRequests)
@@ -93,10 +112,9 @@ class RequestFilterViewController: UIViewController {
     @IBAction func onClearAllFilters(_ sender: Any) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.filterModel = nil
-        delegate?.didFinishApplyingFilters(filters: ResultOptimizer.shared.getRequests(requestType))
+        delegate?.didFinishApplyingFilters(filters: RAStore.shared.getRequests(requestType))
         dismiss(animated: true, completion: nil)
     }
-    
 }
 
 
@@ -108,14 +126,22 @@ private extension RequestFilterViewController {
      here all the UI is configured once when view is loaded
      */
     func configureUI() {
-        UIApplication.shared.statusBarStyle = .lightContent
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        addBorder(districtSelector)
+        addBorder(locationTextfield)
+        addBorder(keywordsTextfield)
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         guard let _filterModel = appDelegate.filterModel else {
             return
         }
         locationTextfield.text = _filterModel.locationName
         keywordsTextfield.text = _filterModel.keyWord
+        updateDistrictButtonTitle(_filterModel.districts)
+    }
+    
+    func addBorder(_ view: UIView) {
+        view.layer.cornerRadius = 5
+        view.layer.borderWidth = 1
+        view.layer.borderColor = RAColorSet.TEXTFIELD_BORDER.cgColor
     }
     
     /**
@@ -168,6 +194,39 @@ private extension RequestFilterViewController {
             $0.detailkit_util?.lowercased().contains(keywords.lowercased()) ?? false 
         }
     }
+    
+    /**
+     filter using districts
+     
+     - parameters:
+         - keywords: districts to filter
+         - requests: requests to be filtered.
+     - returns: result of filter
+     */
+    func filterWithDistricts(_ districts: [District], requests from: [RequestModel]) -> [RequestModel] {
+        return from.filter {
+            districts.contains($0.districtEnum)
+        }
+    }
+
+    /**
+     update district button title with the selected districts
+     
+     - parameters:
+        - districts: list of all selected districts
+     */
+    func updateDistrictButtonTitle(_ districts: [District]) {
+        guard districts.count > 0 else {
+            districtSelector.setTitle("", for: .normal)
+            return
+        }
+        let allDistricts = districts.reduce("") { (result, district) -> String in
+            return result + District.getDisplayLabels(district) + ", "
+        }
+        let endIndex = allDistricts.index(allDistricts.endIndex, offsetBy: -3)
+        let title = String(allDistricts[...endIndex])
+        districtSelector.setTitle(title, for: .normal)
+    }
 }
 
 
@@ -184,12 +243,7 @@ extension RequestFilterViewController: UITextFieldDelegate {
 
 extension RequestFilterViewController: DistrictListProtocol {
     func didSelectDistricts(_ districts: [District]) {
-        if var title = districts.first?.rawValue {
-            if districts.count > 1 {
-                title += "..."
-            }
-            districtSelector.setTitle(title, for: .normal)
-        }
-        
+        selectedDistricts = districts
+        updateDistrictButtonTitle(districts)
     }
 }

@@ -25,6 +25,9 @@ class ResourceNeedsListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 150
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,7 +54,7 @@ class ResourceNeedsListViewController: UIViewController {
         if segue.identifier == C.segueToFilter {
             let nc = segue.destination as! UINavigationController
             let vc = nc.topViewController as! RequestFilterViewController
-            vc.requests = ResultOptimizer.shared.getRequests(requestsType)
+            vc.requests = RAStore.shared.getRequests(requestsType)
             vc.delegate = self
             vc.requestType = requestsType
         }
@@ -121,7 +124,7 @@ extension ResourceNeedsListViewController: UITableViewDataSource {
 extension ResourceNeedsListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return UITableViewAutomaticDimension
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -135,7 +138,6 @@ extension ResourceNeedsListViewController: UITableViewDelegate {
 
 extension ResourceNeedsListViewController: RequestFilterProtocol {
     func didFinishApplyingFilters(filters: [RequestModel]) {
-        print(filters)
         requests = filters
         tableView.reloadData()
     }

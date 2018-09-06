@@ -8,22 +8,22 @@
 
 import Foundation
 
-enum District: String {
-    case AL = "Alapuzha"
-    case EK = "Ernakulam"
-    case ID = "Idukki"
-    case KN = "Kannur"
-    case KS = "Kasargod"
-    case KL = "Kollam"
-    case KT = "Kottayam"
-    case KZ = "kozhikodu"
-    case MA = "Malapuram"
-    case PL = "Palakkad"
-    case PT = "Pathanamtitta"
-    case TV = "Trivandrum"
-    case TS = "Thrissur"
-    case WA = "Wayanad"
-    case UNKNOWN = "Unknown"
+enum District: Int {
+    case AL = 0
+    case EK
+    case ID
+    case KN
+    case KS
+    case KL
+    case KT
+    case KZ
+    case MA
+    case PL
+    case PT
+    case TV
+    case TS
+    case WA
+    case UNKNOWN
     
     static func getFromString(_ string: String?) -> District {
         switch string {
@@ -42,6 +42,26 @@ enum District: String {
         case "koz": return District.KZ
         case "mpm": return District.MA
         default: return District.UNKNOWN
+        }
+    }
+    
+    static func getDisplayLabels(_ value: District) -> String {
+        switch value {
+        case .AL: return "Alapuzha"
+        case .EK: return "Ernakulam"
+        case .ID: return "Idukki"
+        case .KN: return "Kannur"
+        case .KS: return "Kasargod"
+        case .KL: return "Kollam"
+        case .KT: return "Kottayam"
+        case .KZ: return "kozhikodu"
+        case .MA: return "Malapuram"
+        case .PL: return "Palakkad"
+        case .PT: return "Pathanamtitta"
+        case .TV: return "Trivandrum"
+        case .TS: return "Thrissur"
+        case .WA: return "Wayanad"
+        case .UNKNOWN: return "Unknown"
         }
     }
     
