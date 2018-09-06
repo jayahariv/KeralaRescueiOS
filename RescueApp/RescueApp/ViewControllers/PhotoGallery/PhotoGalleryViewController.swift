@@ -28,6 +28,7 @@ final class PhotoGalleryViewController: UIViewController, RANavigationProtocol {
         }
         
         static let segueToPreview = "segueToPreview"
+        static let OFFLINE_ALERT_MESSAGE = "Photo Gallery requires internet connection. Please check your connection and try again."
     }
     private var ref: DatabaseReference?
     private let storageRef: StorageReference =  Storage.storage().reference()
@@ -56,9 +57,20 @@ private extension PhotoGalleryViewController {
      
      */
     func configureUI() {
+        tableView.isHidden = true
         title = C.TITLE
         navigationItem.backBarButtonItem = UIBarButtonItem()
         configureNavigationBar(RAColorSet.YELLOW)
+        if !ApiClient.isConnected {
+            let alert = Alert.errorAlert(title: C.OFFLINE_ALERT_MESSAGE,
+                                         message: nil,
+                                         cancelButton: false) { [weak self] in
+                                            self?.navigationController?.popViewController(animated: true)
+            }
+            present(alert, animated: true, completion: nil)
+        } else {
+            tableView.isHidden = false
+        }
     }
     
     /**
