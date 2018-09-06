@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="opU-Up-Tfi">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="449.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="photoGalleryTableViewCell" id="tXx-Uz-2AL">
@@ -60,18 +60,28 @@
                                     <outlet property="delegate" destination="mGP-bc-zBf" id="77s-EI-NZz"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yne-gt-Qeg">
+                                <rect key="frame" x="8" y="457.5" width="304" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="opU-Up-Tfi" firstAttribute="bottom" secondItem="jJc-K7-kMb" secondAttribute="bottom" id="KNs-QW-m6s"/>
+                            <constraint firstItem="jJc-K7-kMb" firstAttribute="bottom" secondItem="Yne-gt-Qeg" secondAttribute="bottom" constant="8" id="6W5-j1-EUd"/>
+                            <constraint firstItem="Yne-gt-Qeg" firstAttribute="top" secondItem="opU-Up-Tfi" secondAttribute="bottom" constant="8" id="GjY-Cu-2CO"/>
+                            <constraint firstItem="jJc-K7-kMb" firstAttribute="trailing" secondItem="Yne-gt-Qeg" secondAttribute="trailing" constant="8" id="NZp-kO-igF"/>
                             <constraint firstItem="opU-Up-Tfi" firstAttribute="top" secondItem="4fc-5N-xZ7" secondAttribute="top" id="REf-Yg-Bd7"/>
                             <constraint firstItem="opU-Up-Tfi" firstAttribute="leading" secondItem="jJc-K7-kMb" secondAttribute="leading" id="UM8-eh-kUS"/>
+                            <constraint firstItem="Yne-gt-Qeg" firstAttribute="leading" secondItem="jJc-K7-kMb" secondAttribute="leading" constant="8" id="XAR-K7-PRj"/>
                             <constraint firstItem="opU-Up-Tfi" firstAttribute="trailing" secondItem="jJc-K7-kMb" secondAttribute="trailing" id="ds4-1a-53V"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jJc-K7-kMb"/>
                     </view>
                     <navigationItem key="navigationItem" title="Heros of 2018" id="MhQ-1o-175"/>
                     <connections>
+                        <outlet property="courtesyLabel" destination="Yne-gt-Qeg" id="tmO-JG-My2"/>
                         <outlet property="tableView" destination="opU-Up-Tfi" id="7Fd-Gd-xdY"/>
                         <segue destination="gzG-Yc-Kcs" kind="show" identifier="segueToPreview" id="Nkh-lZ-OGL"/>
                     </connections>
@@ -184,6 +194,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="gzG-Yc-Kcs" id="uxR-Q2-UFG"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TTL-j5-lBo">
                                         <rect key="frame" x="266" y="0.0" width="34" height="30"/>
@@ -213,6 +226,7 @@
                         <viewLayoutGuide key="safeArea" id="QgW-Oq-idR"/>
                     </view>
                     <connections>
+                        <outlet property="commentSectionBottomConstraint" destination="dRp-Ba-BK0" id="IBr-57-73P"/>
                         <outlet property="commentTextField" destination="3Ey-ZB-oX7" id="hlj-fM-fVF"/>
                         <outlet property="tableView" destination="JOH-0b-hxy" id="kcw-mg-KIX"/>
                     </connections>

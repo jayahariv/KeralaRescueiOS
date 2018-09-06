@@ -30,7 +30,9 @@ class PhotoPreviewViewController: UIViewController {
         struct FirebaseKeys {
             static let root = "heros_of_India_comments"
         }
+        static let BOTTOM_PADDING_COMMENT_CONTAINER = 10
     }
+    @IBOutlet weak var commentSectionBottomConstraint: NSLayoutConstraint!
     
     // MARK: View lifecycle
     
@@ -40,6 +42,16 @@ class PhotoPreviewViewController: UIViewController {
         configureUI()
         downloadImage()
         loadComments()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        subscribeKeyboardNotifications()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        unsubscriberKeyboardNotifications()
     }
     
     // MARK: Button actions
@@ -195,5 +207,40 @@ extension PhotoPreviewViewController: UITableViewDataSource, UITableViewDelegate
         case 0: return nil
         default: return "Comments"
         }
+    }
+}
+
+extension PhotoPreviewViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
+
+// MARK: MemeEditorViewController: Notification Helpers
+extension PhotoPreviewViewController {
+    func subscribeKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardShown), name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardHide), name: .UIKeyboardWillHide, object: nil)
+    }
+    
+    func unsubscriberKeyboardNotifications() {
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardDidShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardDidHide, object: nil)
+    }
+    
+    @objc func keyboardShown(notification: Notification) {
+        commentSectionBottomConstraint.constant =
+            getKeyboardHeight(notification) + C.BOTTOM_PADDING_COMMENT_CONTAINER
+    }
+    
+    @objc func keyboardHide(notification: Notification) {
+        commentSectionBottomConstraint.constant = C.BOTTOM_PADDING_COMMENT_CONTAINER
+    }
+    
+    func getKeyboardHeight(_ notification: Notification) -> CGFloat {
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
+        return keyboardSize.cgRectValue.height
     }
 }

@@ -18,6 +18,7 @@ final class PhotoGalleryViewController: UIViewController, RANavigationProtocol {
     // MARK:  Properties
     /// PRIVATE
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var courtesyLabel: UILabel!
     private var images = [Photo]()
     private struct C {
         static let TITLE = "Rescue Photos '18"
@@ -29,6 +30,7 @@ final class PhotoGalleryViewController: UIViewController, RANavigationProtocol {
         
         static let segueToPreview = "segueToPreview"
         static let OFFLINE_ALERT_MESSAGE = "Photo Gallery requires internet connection. Please check your connection and try again."
+        static let COURTESY_TEXT = "Courtesy: public photos from facebook.com"
     }
     private var ref: DatabaseReference?
     private let storageRef: StorageReference =  Storage.storage().reference()
@@ -71,6 +73,7 @@ private extension PhotoGalleryViewController {
         } else {
             tableView.isHidden = false
         }
+        courtesyLabel.text = C.COURTESY_TEXT
     }
     
     /**
