@@ -19,3 +19,8 @@ In this version we will help people to read about how to prepare for a disaster,
 
 ## Data 
 All informations included are from the State Disaster Management Authority and afterflood.in. 
+
+## Screenshots
+![1home](https://user-images.githubusercontent.com/10448770/45177135-e77a6800-b1c6-11e8-8ff1-10f245069ad7.jpg)
+![1contacts](https://user-images.githubusercontent.com/10448770/45177134-e6e1d180-b1c6-11e8-89db-342f8ef50637.jpg)
+![1afterflood](https://user-images.githubusercontent.com/10448770/45177133-e6e1d180-b1c6-11e8-95f1-c3dde26308cc.jpg)
