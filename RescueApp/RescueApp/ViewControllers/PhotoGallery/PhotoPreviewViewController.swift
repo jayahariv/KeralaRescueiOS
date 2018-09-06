@@ -30,7 +30,7 @@ class PhotoPreviewViewController: UIViewController {
         struct FirebaseKeys {
             static let root = "heros_of_India_comments"
         }
-        static let BOTTOM_PADDING_COMMENT_CONTAINER = 10
+        static let BOTTOM_PADDING_COMMENT_CONTAINER: CGFloat = 10
     }
     @IBOutlet weak var commentSectionBottomConstraint: NSLayoutConstraint!
     

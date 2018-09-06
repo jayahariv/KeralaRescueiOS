@@ -30,7 +30,7 @@ final class PhotoGalleryViewController: UIViewController, RANavigationProtocol {
         
         static let segueToPreview = "segueToPreview"
         static let OFFLINE_ALERT_MESSAGE = "Photo Gallery requires internet connection. Please check your connection and try again."
-        static let COURTESY_TEXT = "Courtesy: public photos from facebook.com"
+        static let COURTESY_TEXT = "Courtesy: Public photos & stories from facebook.com"
     }
     private var ref: DatabaseReference?
     private let storageRef: StorageReference =  Storage.storage().reference()
