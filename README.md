@@ -17,6 +17,9 @@ During the Version 1.1, almost all the resuce and necessary food requirements ar
 
 In this version we will help people to read about how to prepare for a disaster, emergency contacts in case of emergency, photos of 2018 Kerala Rescue. Photo upload capability is not present, but users can send a comment to the existing photo.
 
+## Beta Testing
+Please add your email address to this [issue](https://github.com/jayahariv/KeralaRescueiOS/issues/6) or send email to rescueapp2018@gmail.com for adding yourself to beta. 
+
 ## Data 
 All informations included are from the State Disaster Management Authority and afterflood.in. 
 
