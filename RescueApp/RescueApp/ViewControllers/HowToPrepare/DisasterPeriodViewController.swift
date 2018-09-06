@@ -16,6 +16,7 @@ final class DisasterPeriodViewController: UIViewController, RANavigationProtocol
     // MARK: Properties
     /// PRIVATE
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var courtesyLabel: UILabel!
     private var ref: DatabaseReference?
     private var periods = [DisasterPeriod]()
     /// StringConstants in this file.
@@ -28,6 +29,7 @@ final class DisasterPeriodViewController: UIViewController, RANavigationProtocol
         static let CELL_ID = "disasterPeriodTableCell"
         static let TITLE = "Prepare"
         static let SEGUE_TO_SURVIVAL_SKILLS = "segueToSurvivalSkillsViewController"
+        static let COURTESY_LABEL = "Courtesy: getprepared.gc.ca, disastersupplycenter.com, sdma.kerala.gov.in"
     }
 
     // MARK: View lifecycle
@@ -62,6 +64,7 @@ extension DisasterPeriodViewController {
         configureNavigationBar(RAColorSet.RED)
         tableView.tableFooterView = UIView()
         title = C.TITLE
+        courtesyLabel.text = C.COURTESY_LABEL
     }
     
     /**

@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Zul-gA-Gff">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="636.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="disasterPeriodTableCell" textLabel="EBt-cA-e6W" style="IBUITableViewCellStyleDefault" id="g8R-Wl-jAU">
@@ -45,17 +45,27 @@
                                     <outlet property="delegate" destination="fBD-ho-bhz" id="s82-qX-AhK"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e4y-EB-prr">
+                                <rect key="frame" x="8" y="644.5" width="359" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Zul-gA-Gff" firstAttribute="bottom" secondItem="TPy-5l-pFN" secondAttribute="bottom" id="Hrx-1H-9nx"/>
+                            <constraint firstItem="e4y-EB-prr" firstAttribute="leading" secondItem="TPy-5l-pFN" secondAttribute="leading" constant="8" id="2XE-TB-Efk"/>
+                            <constraint firstItem="TPy-5l-pFN" firstAttribute="trailing" secondItem="e4y-EB-prr" secondAttribute="trailing" constant="8" id="L6x-Re-qSu"/>
                             <constraint firstItem="Zul-gA-Gff" firstAttribute="top" secondItem="ocl-40-m85" secondAttribute="top" id="VDN-bb-K7d"/>
+                            <constraint firstItem="e4y-EB-prr" firstAttribute="top" secondItem="Zul-gA-Gff" secondAttribute="bottom" constant="8" id="b9M-xU-OUQ"/>
                             <constraint firstItem="Zul-gA-Gff" firstAttribute="trailing" secondItem="TPy-5l-pFN" secondAttribute="trailing" id="s7g-Fm-T4F"/>
+                            <constraint firstItem="TPy-5l-pFN" firstAttribute="bottom" secondItem="e4y-EB-prr" secondAttribute="bottom" constant="8" id="vhh-db-Khr"/>
                             <constraint firstItem="Zul-gA-Gff" firstAttribute="leading" secondItem="TPy-5l-pFN" secondAttribute="leading" id="xWp-8f-fJJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="TPy-5l-pFN"/>
                     </view>
                     <connections>
+                        <outlet property="courtesyLabel" destination="e4y-EB-prr" id="Y4x-Pl-Psw"/>
                         <outlet property="tableView" destination="Zul-gA-Gff" id="emS-Rb-9q2"/>
                         <segue destination="nDx-4z-Jxh" kind="show" identifier="segueToSurvivalSkillsViewController" id="MQc-t4-HVM"/>
                     </connections>

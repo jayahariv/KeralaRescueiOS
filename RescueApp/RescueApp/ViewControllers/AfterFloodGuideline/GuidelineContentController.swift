@@ -46,9 +46,9 @@ class GuidelineContentController: UIViewController, RANavigationProtocol {
     private let afterFlood: UIButton = {
         let button = UIButton()
         button.contentMode = .center
-        button.setTitle("Content from: afterflood.in", for: .normal)
+        button.setTitle("Courtesy: afterflood.in", for: .normal)
         button.setTitleColor(RAColorSet.LINK_COLOR, for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 12)
         constrain(button) {
             $0.width == 250
             $0.height == 35

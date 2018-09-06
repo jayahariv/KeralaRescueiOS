@@ -17,6 +17,7 @@ final class ContactsViewController: UIViewController, RANavigationProtocol {
     /// PRIVATE
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var infoTitlaLabel: UILabel!
+    @IBOutlet private weak var dataSourceLabel: UILabel!
     private var contactKeys = [String]()
     private var contactsSections = [String: String]()
     private var contactsSectionDetails = [String: [Contact]]()
@@ -33,6 +34,7 @@ final class ContactsViewController: UIViewController, RANavigationProtocol {
             static let CONTACTS = "contacts"
             static let DEPARTMENT_NAME = "departmentName"
         }
+        static let DATA_SOURCE = "Courtesy: disasterlesskerala.org"
     }
     private var ref: DatabaseReference?
 
@@ -71,6 +73,7 @@ private extension ContactsViewController {
         navigationItem.backBarButtonItem = UIBarButtonItem()
         configureNavigationBar(RAColorSet.PURPLE)
         tableView.tableFooterView = UIView()
+        dataSourceLabel.text = C.DATA_SOURCE
     }
     
     /**
