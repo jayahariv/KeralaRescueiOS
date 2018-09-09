@@ -33,19 +33,19 @@ final class DisasterTopicsViewController: UIViewController, RANavigationProtocol
         static let TITLE = "Prepare"
         static let SEGUE_TO_SURVIVAL_SKILLS = "segueToSurvivalSkillsViewController"
         static let COURTESY_LABEL = "Courtesy: getprepared.gc.ca, disastersupplycenter.com, sdma.kerala.gov.in"
+        static let PLIST_PREPARE_GUIDE_KEY = "prepare"
     }
 
     // MARK: View lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureUI()
+        configureUIFromViewDidLoad()
         if ApiClient.isConnected {
-            fetchSurvivalSkillsFromFirebase()
+            fetchPrepareGuideFromFirebase()
         } else {
-            fetchLocalSurvivalSkills()
+            fetchPrepareGuideFromPLIST()
         }
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -58,26 +58,28 @@ final class DisasterTopicsViewController: UIViewController, RANavigationProtocol
 
 // MARK: Helper methods
 
-extension DisasterTopicsViewController {
-    func configureUI() {
+private extension DisasterTopicsViewController {
+    func configureUIFromViewDidLoad() {
         configureNavigationBar(RAColorSet.RED)
         tableView.tableFooterView = UIView()
         navigationItem.backBarButtonItem = UIBarButtonItem()
         courtesyLabel.text = C.COURTESY_LABEL
     }
     
-    func fetchSurvivalSkillsFromFirebase() {
+    func fetchPrepareGuideFromFirebase() {
+        Overlay.shared.show()
         ref = Database.database().reference()
         ref?.child(C.FIREBASE_KEYS.ROOT).observe(DataEventType.value, with: { [weak self] (snapshot) in
+            Overlay.shared.remove()
             self?.parseJSONPrepareFloodResponse(snapshot.value as? [String: AnyObject] ?? [:])
         })
     }
     
-    func fetchLocalSurvivalSkills() {
+    func fetchPrepareGuideFromPLIST() {
         if
             let path = Bundle.main.path(forResource: APIConstants.PLIST_KEYS.NAME, ofType: "plist"),
             let myDict = NSDictionary(contentsOfFile: path),
-            let json = myDict["prepare"] as? String
+            let json = myDict[C.PLIST_PREPARE_GUIDE_KEY] as? String
         {
             let data = json.data(using: .utf8)
             showDataInUI(data)

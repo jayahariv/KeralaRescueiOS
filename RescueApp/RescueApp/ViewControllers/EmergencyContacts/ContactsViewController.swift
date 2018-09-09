@@ -42,12 +42,11 @@ final class ContactsViewController: UIViewController, RANavigationProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureUI()
-        
+        configureUIFromViewDidLoad()
         if ApiClient.isConnected {
-            loadFromFirebase()
+            fetchContactsFromFirebase()
         } else {
-            fetchLocalContacts()
+            fetchContactsFromPLIST()
         }
     }
     
@@ -64,11 +63,7 @@ final class ContactsViewController: UIViewController, RANavigationProtocol {
 // MARK: Helper methods
 
 private extension ContactsViewController {
-    /**
-     configure all UI items inside this, once its loaded.
-     
-     */
-    func configureUI() {
+    func configureUIFromViewDidLoad() {
         title = C.TITLE
         navigationItem.backBarButtonItem = UIBarButtonItem()
         configureNavigationBar(RAColorSet.PURPLE)
@@ -76,21 +71,17 @@ private extension ContactsViewController {
         dataSourceLabel.text = C.DATA_SOURCE
     }
     
-    /**
-     load the contacts list from firebase
-     
-     - todo: implementation not done
-     */
-    func loadFromFirebase() {
+   func fetchContactsFromFirebase() {
+        Overlay.shared.show()
         ref = Database.database().reference()
         ref?.child(C.FirebaseKeys.CONTACTS_ROOT).observe(DataEventType.value, with: { [weak self] (snapshot) in
+            Overlay.shared.remove()
             let contents = snapshot.value as? [String: AnyObject] ?? [:]
             self?.parseAndPopulateContacts(contents)
         })
     }
     
     func parseAndPopulateContacts(_ contents:  [String: AnyObject]) {
-        
         contactsSections = contents[C.FirebaseKeys.SECTIONS] as? [String: String] ?? [:]
         contactKeys = Array(contactsSections.keys)
         
@@ -110,11 +101,7 @@ private extension ContactsViewController {
         refreshUI()
     }
     
-    /**
-     fetch the Contacts from locally
-     
-     */
-    func fetchLocalContacts() {
+    func fetchContactsFromPLIST() {
         if
             let path = Bundle.main.path(forResource: APIConstants.PLIST_KEYS.NAME, ofType: "plist"),
             let myDict = NSDictionary(contentsOfFile: path),
@@ -131,10 +118,6 @@ private extension ContactsViewController {
         }
     }
     
-    /**
-     refreshes the UI, especially tableview
-     
-     */
     func refreshUI() {
         DispatchQueue.main.async { [weak self] in
             self?.tableView.reloadData()
