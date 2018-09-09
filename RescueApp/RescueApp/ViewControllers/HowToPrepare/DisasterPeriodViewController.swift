@@ -59,10 +59,6 @@ final class DisasterPeriodViewController: UIViewController, RANavigationProtocol
 // MARK: Helper methods
 
 extension DisasterPeriodViewController {
-    /**
-     configurs the UI once when view is loaded inside this method
-     
-     */
     func configureUI() {
         configureNavigationBar(RAColorSet.RED)
         tableView.tableFooterView = UIView()
@@ -70,21 +66,13 @@ extension DisasterPeriodViewController {
         courtesyLabel.text = C.COURTESY_LABEL
     }
     
-    /**
-     loads the prepration data from Firebase
-     
-     */
     func fetchSurvivalSkillsFromFirebase() {
         ref = Database.database().reference()
         ref?.child(C.FIREBASE_KEYS.ROOT).observe(DataEventType.value, with: { [weak self] (snapshot) in
-            self?.parsePrepareFloodResponse(snapshot.value as? [String: AnyObject] ?? [:])
+            self?.parseJSONPrepareFloodResponse(snapshot.value as? [String: AnyObject] ?? [:])
         })
     }
     
-    /**
-     fetch the survival skills from locally
-     
-     */
     func fetchLocalSurvivalSkills() {
         if
             let path = Bundle.main.path(forResource: APIConstants.PLIST_KEYS.NAME, ofType: "plist"),
@@ -92,17 +80,24 @@ extension DisasterPeriodViewController {
             let json = myDict["prepare"] as? String
         {
             let data = json.data(using: .utf8)
-            do {
-                if let response = try JSONSerialization.jsonObject(with: data!, options: []) as? [String: AnyObject] {
-                    parsePrepareFloodResponse(response)
-                }
-            } catch {
-                print(error)
-            }
+            showDataInUI(data)
         }
     }
     
-    func parsePrepareFloodResponse(_ dictionary: [String: AnyObject]) {
+    func showDataInUI(_ data: Data?) {
+        guard let data = data else {
+            return
+        }
+        do {
+            if let response = try JSONSerialization.jsonObject(with: data, options: []) as? [String: AnyObject] {
+                parseJSONPrepareFloodResponse(response)
+            }
+        } catch {
+            print(error)
+        }
+    }
+    
+    func parseJSONPrepareFloodResponse(_ dictionary: [String: AnyObject]) {
         disaster = Disaster(dictionary)
         refreshUI()
     }
