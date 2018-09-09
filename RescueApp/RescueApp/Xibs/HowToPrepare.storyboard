@@ -105,7 +105,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="260" verticalHuggingPriority="260" horizontalCompressionResistancePriority="760" verticalCompressionResistancePriority="760" text="1." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lwo-F5-Bw9">
-                                                    <rect key="frame" x="15" y="10.5" width="12" height="22"/>
+                                                    <rect key="frame" x="15" y="10.5" width="12" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.98039215690000003" green="0.34509803919999998" blue="0.45882352939999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -127,7 +127,6 @@
                                                 <constraint firstItem="Lwo-F5-Bw9" firstAttribute="top" secondItem="8YU-2w-bxB" secondAttribute="topMargin" id="gyp-Oz-TIL"/>
                                                 <constraint firstItem="1u5-x2-yTy" firstAttribute="leading" secondItem="Lwo-F5-Bw9" secondAttribute="trailing" constant="8" id="mU0-4P-6lF"/>
                                                 <constraint firstItem="1u5-x2-yTy" firstAttribute="bottom" secondItem="8YU-2w-bxB" secondAttribute="bottomMargin" id="oGd-n0-ub5"/>
-                                                <constraint firstItem="Lwo-F5-Bw9" firstAttribute="bottom" secondItem="8YU-2w-bxB" secondAttribute="bottomMargin" id="pF5-nR-mKk"/>
                                                 <constraint firstItem="Lwo-F5-Bw9" firstAttribute="leading" secondItem="8YU-2w-bxB" secondAttribute="leadingMargin" id="rS4-3q-5Yg"/>
                                                 <constraint firstItem="1u5-x2-yTy" firstAttribute="leading" secondItem="Lwo-F5-Bw9" secondAttribute="trailing" constant="8" id="y72-pt-iuJ"/>
                                             </constraints>
