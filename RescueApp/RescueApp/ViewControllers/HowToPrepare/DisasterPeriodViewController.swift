@@ -17,13 +17,16 @@ final class DisasterPeriodViewController: UIViewController, RANavigationProtocol
     /// PRIVATE
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var courtesyLabel: UILabel!
+    @IBOutlet private weak var descriptionLabel: UILabel!
     private var ref: DatabaseReference?
-    private var periods = [DisasterPeriod]()
+    private var disaster: Disaster?
     /// StringConstants in this file.
     private struct C {
         struct FIREBASE_KEYS {
-            static let ROOT = "survival_skills_flood"
+            static let ROOT = "prepare/flood"
             static let TITLE = "title"
+            static let DESCRIPTION = "description"
+            static let TOPICS = "topics"
             static let INFO = "info"
         }
         static let CELL_ID = "disasterPeriodTableCell"
@@ -48,7 +51,7 @@ final class DisasterPeriodViewController: UIViewController, RANavigationProtocol
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == C.SEGUE_TO_SURVIVAL_SKILLS {
             let vc = segue.destination as! SurvivalSkillsViewController
-            vc.situations = sender as! [DisasterSituation]
+            vc.topic = sender as! DisasterTopic
         }
     }
 }
@@ -63,7 +66,7 @@ extension DisasterPeriodViewController {
     func configureUI() {
         configureNavigationBar(RAColorSet.RED)
         tableView.tableFooterView = UIView()
-        title = C.TITLE
+        navigationItem.backBarButtonItem = UIBarButtonItem()
         courtesyLabel.text = C.COURTESY_LABEL
     }
     
@@ -74,8 +77,7 @@ extension DisasterPeriodViewController {
     func fetchSurvivalSkillsFromFirebase() {
         ref = Database.database().reference()
         ref?.child(C.FIREBASE_KEYS.ROOT).observe(DataEventType.value, with: { [weak self] (snapshot) in
-            let disasterStages = snapshot.value as? [String: AnyObject] ?? [:]
-            self?.parseAndPopulateSurvivalSkills(disasterStages)
+            self?.parsePrepareFloodResponse(snapshot.value as? [String: AnyObject] ?? [:])
         })
     }
     
@@ -91,8 +93,8 @@ extension DisasterPeriodViewController {
         {
             let data = json.data(using: .utf8)
             do {
-                if let disasterStages = try JSONSerialization.jsonObject(with: data!, options: []) as? [String: AnyObject] {
-                    parseAndPopulateSurvivalSkills(disasterStages)
+                if let response = try JSONSerialization.jsonObject(with: data!, options: []) as? [String: AnyObject] {
+                    parsePrepareFloodResponse(response)
                 }
             } catch {
                 print(error)
@@ -100,31 +102,15 @@ extension DisasterPeriodViewController {
         }
     }
     
-    /**
-     parse the disaster stages and show it in the UI
-     
-     - parameters:
-        - disasterStages: list of disaster stages and its survival skills.
-     */
-    func parseAndPopulateSurvivalSkills(_ disasterStages: [String: AnyObject]) {
-        var tempPeriods = [DisasterPeriod]()
-        for stage in disasterStages.values {
-            let title = stage[C.FIREBASE_KEYS.TITLE] as! String
-            let info = stage[C.FIREBASE_KEYS.INFO] as! [String: AnyObject]
-            let period = DisasterPeriod(title, info: info)
-            tempPeriods.append(period)
-        }
-        periods = tempPeriods
+    func parsePrepareFloodResponse(_ dictionary: [String: AnyObject]) {
+        disaster = Disaster(dictionary)
         refreshUI()
     }
-    
-    
-    /**
-     refreshes the UI to reflect the new data
-     
-     */
+
     func refreshUI() {
         DispatchQueue.main.async { [weak self] in
+            self?.title = self?.disaster?.title
+            self?.descriptionLabel.text = self?.disaster?.desc
             self?.tableView.reloadData()
         }
     }
@@ -134,7 +120,7 @@ extension DisasterPeriodViewController {
 
 extension DisasterPeriodViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return periods.count
+        return disaster?.topics.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -142,13 +128,18 @@ extension DisasterPeriodViewController: UITableViewDataSource, UITableViewDelega
         if cell == nil {
             cell = UITableViewCell(style: .default, reuseIdentifier: C.CELL_ID)
         }
-        let disasterPeriod = periods[indexPath.row]
-        cell?.textLabel?.text = disasterPeriod.title
+        let topic = disaster?.topics[indexPath.row]
+        cell?.textLabel?.text = topic?.title
+        cell?.selectionStyle = .none
         return cell!
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: C.SEGUE_TO_SURVIVAL_SKILLS, sender: periods[indexPath.row].situations)
+        performSegue(withIdentifier: C.SEGUE_TO_SURVIVAL_SKILLS, sender: disaster?.topics[indexPath.row])
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "TAKE ACTION"
     }
 }
 

@@ -14,7 +14,7 @@ final class SurvivalSkillsViewController: UIViewController {
     
     // MARK: Properties
     ///PUBLIC
-    var situations = [DisasterSituation]()
+    var topic: DisasterTopic!
     ///PRIVATE
     private struct C {
         static let TABLEVIEW_CELL = "survivalSkillsCell"
@@ -35,7 +35,7 @@ extension SurvivalSkillsViewController {
      
      */
     func configureUI() {
-        title = C.TITLE
+        title = topic.title
     }
 }
 
@@ -43,19 +43,22 @@ extension SurvivalSkillsViewController {
 
 extension SurvivalSkillsViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return situations.count
+        return topic.situations.count
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return situations[section].skills.count
+        return topic.situations[section].skills.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: C.TABLEVIEW_CELL)
-        cell?.textLabel?.text = situations[indexPath.section].skills[indexPath.row]
+        let indexLabel = cell?.viewWithTag(1) as! UILabel
+        indexLabel.text = "\(indexPath.row + 1)."
+        let content = cell?.viewWithTag(2) as! UILabel
+        content.text = topic.situations[indexPath.section].skills[indexPath.row]
         return cell!
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return situations[section].title
+        return topic.situations[section].title
     }
 }
