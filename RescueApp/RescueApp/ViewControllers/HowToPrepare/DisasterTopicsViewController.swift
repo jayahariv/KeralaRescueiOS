@@ -1,17 +1,17 @@
 //
 /*
- SurvivalSkillsViewController.swift
+ DisasterTopicsViewController.swift
  Created on: 1/9/18
  
  Abstract:
- this will show disaster periods, like before, after, during disasters.
+ this will show disaster topics, like before, after, during disasters.
  
  */
 
 import UIKit
 import FirebaseDatabase
 
-final class DisasterPeriodViewController: UIViewController, RANavigationProtocol {
+final class DisasterTopicsViewController: UIViewController, RANavigationProtocol {
     
     // MARK: Properties
     /// PRIVATE
@@ -58,7 +58,7 @@ final class DisasterPeriodViewController: UIViewController, RANavigationProtocol
 
 // MARK: Helper methods
 
-extension DisasterPeriodViewController {
+extension DisasterTopicsViewController {
     func configureUI() {
         configureNavigationBar(RAColorSet.RED)
         tableView.tableFooterView = UIView()
@@ -113,7 +113,7 @@ extension DisasterPeriodViewController {
 
 // MARK: DisasterPeriodViewController -> UITableViewDataSource, UITableViewDelegate
 
-extension DisasterPeriodViewController: UITableViewDataSource, UITableViewDelegate {
+extension DisasterTopicsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return disaster?.topics.count ?? 0
     }

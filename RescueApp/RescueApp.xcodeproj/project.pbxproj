@@ -65,7 +65,7 @@
 		E9DBF9A22127872A00CFD933 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DBF9A12127872A00CFD933 /* ApiClient.swift */; };
 		E9F925F4213B2DC000CD9437 /* HowToPrepare.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9F925F3213B2DC000CD9437 /* HowToPrepare.storyboard */; };
 		E9F925F8213B2F9B00CD9437 /* ResourceNeeds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9F925F7213B2F9B00CD9437 /* ResourceNeeds.storyboard */; };
-		E9F925FE213B4F1600CD9437 /* DisasterPeriodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F925FD213B4F1600CD9437 /* DisasterPeriodViewController.swift */; };
+		E9F925FE213B4F1600CD9437 /* DisasterTopicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F925FD213B4F1600CD9437 /* DisasterTopicsViewController.swift */; };
 		E9F92604213B56C500CD9437 /* RANavigationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F92603213B56C500CD9437 /* RANavigationProtocol.swift */; };
 /* End PBXBuildFile section */
 
@@ -172,7 +172,7 @@
 		E9DBF9A12127872A00CFD933 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		E9F925F3213B2DC000CD9437 /* HowToPrepare.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HowToPrepare.storyboard; sourceTree = "<group>"; };
 		E9F925F7213B2F9B00CD9437 /* ResourceNeeds.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ResourceNeeds.storyboard; sourceTree = "<group>"; };
-		E9F925FD213B4F1600CD9437 /* DisasterPeriodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisasterPeriodViewController.swift; sourceTree = "<group>"; };
+		E9F925FD213B4F1600CD9437 /* DisasterTopicsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisasterTopicsViewController.swift; sourceTree = "<group>"; };
 		E9F92603213B56C500CD9437 /* RANavigationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RANavigationProtocol.swift; sourceTree = "<group>"; };
 		F4846D0D0422408AF15B81C8 /* Pods-RescueAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RescueAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RescueAppUITests/Pods-RescueAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -477,7 +477,7 @@
 		E9F925FC213B4F0300CD9437 /* HowToPrepare */ = {
 			isa = PBXGroup;
 			children = (
-				E9F925FD213B4F1600CD9437 /* DisasterPeriodViewController.swift */,
+				E9F925FD213B4F1600CD9437 /* DisasterTopicsViewController.swift */,
 				0829E1C5213C88F6002CEE21 /* SurvivalSkillsViewController.swift */,
 			);
 			path = HowToPrepare;
@@ -762,7 +762,7 @@
 				08FDDE5F2129F9D0006B84BE /* RequestsDictionary.swift in Sources */,
 				DAA81A47212E740E00AA0ECA /* GuidelineContentController.swift in Sources */,
 				0822303F212799EA00B7FBF2 /* APIConstants.swift in Sources */,
-				E9F925FE213B4F1600CD9437 /* DisasterPeriodViewController.swift in Sources */,
+				E9F925FE213B4F1600CD9437 /* DisasterTopicsViewController.swift in Sources */,
 				28386F642128191E0012F429 /* TagFlowLayout.swift in Sources */,
 				28386F622128191E0012F429 /* TagCollectionViewCell.swift in Sources */,
 				DABD53E6212F6D2300B287F1 /* CardCell.swift in Sources */,

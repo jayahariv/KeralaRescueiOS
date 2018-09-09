@@ -11,10 +11,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Disaster Period View Controller-->
+        <!--Disaster Topics View Controller-->
         <scene sceneID="b13-BO-TEk">
             <objects>
-                <viewController storyboardIdentifier="DisasterPeriodViewController" id="fBD-ho-bhz" customClass="DisasterPeriodViewController" customModule="RescueApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DisasterPeriodViewController" id="fBD-ho-bhz" customClass="DisasterTopicsViewController" customModule="RescueApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ocl-40-m85">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
