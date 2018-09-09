@@ -89,7 +89,7 @@ extension DisasterPeriodViewController {
         if
             let path = Bundle.main.path(forResource: APIConstants.PLIST_KEYS.NAME, ofType: "plist"),
             let myDict = NSDictionary(contentsOfFile: path),
-            let json = myDict["survival_skills_flood"] as? String
+            let json = myDict["prepare"] as? String
         {
             let data = json.data(using: .utf8)
             do {
