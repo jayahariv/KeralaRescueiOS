@@ -114,6 +114,7 @@ extension PhotoGalleryViewController: UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: C.tableViewCellID)
+        cell?.selectionStyle = .none
         let photo = images[indexPath.row]
         let imageView = cell?.viewWithTag(1) as! UIImageView
         if let url = photo.url {

@@ -156,6 +156,7 @@ extension ContactsViewController: UITableViewDataSource, UITableViewDelegate {
         }
         let contact = contactsSections[contactKeys[indexPath.row]]
         cell?.textLabel?.text = contact
+        cell?.selectionStyle = .none
         return cell!
     }
     

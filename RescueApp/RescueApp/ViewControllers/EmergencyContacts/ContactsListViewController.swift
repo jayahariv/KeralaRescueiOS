@@ -49,6 +49,7 @@ extension ContactsListViewController: UITableViewDataSource, UITableViewDelegate
         let contact = contacts[indexPath.row]
         cell?.textLabel?.text = contact.name
         cell?.detailTextLabel?.text = contact.numbers?.first
+        cell?.selectionStyle = .none
         return cell!
     }
     

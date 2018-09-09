@@ -199,6 +199,7 @@ extension PhotoPreviewViewController: UITableViewDataSource, UITableViewDelegate
             authorLabel.text = comment.author
             timestampLabel.text = comment.formattedDate
         }
+        cell?.selectionStyle = .none
         return cell
     }
     
