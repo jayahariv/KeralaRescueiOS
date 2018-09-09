@@ -39,7 +39,7 @@ class PhotoPreviewViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureUI()
+        configureUIFromDidLoad()
         downloadImage()
         loadComments()
     }
@@ -76,11 +76,15 @@ class PhotoPreviewViewController: UIViewController {
 // MARK: Helper methods
 
 private extension PhotoPreviewViewController {
-    /**
-     do all UI actions necessary during loading the view
-     */
-    func configureUI() {
+    
+    func configureUIFromDidLoad() {
         title = photo.name
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard(_:)))
+        tableView.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
+        commentTextField.resignFirstResponder()
     }
     
     /**
