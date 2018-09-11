@@ -20,6 +20,10 @@ In this version we will help people to read about how to prepare for a disaster,
 ## Beta Testing
 Please add your email address to this [issue](https://github.com/jayahariv/KeralaRescueiOS/issues/6) or send email to rescueapp2018@gmail.com for adding yourself to beta. 
 
+## Future Plans
+- Prepare section in Malayalam.
+- SOS Button.
+
 ## Data 
 All informations included are from the State Disaster Management Authority and afterflood.in. 
 
