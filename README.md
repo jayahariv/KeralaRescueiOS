@@ -24,6 +24,9 @@ Please add your email address to this [issue](https://github.com/jayahariv/Keral
 All informations included are from the State Disaster Management Authority and afterflood.in. 
 
 ## Screenshots
-![1home](https://user-images.githubusercontent.com/10448770/45177135-e77a6800-b1c6-11e8-8ff1-10f245069ad7.jpg)
-![1contacts](https://user-images.githubusercontent.com/10448770/45177134-e6e1d180-b1c6-11e8-89db-342f8ef50637.jpg)
-![1afterflood](https://user-images.githubusercontent.com/10448770/45177133-e6e1d180-b1c6-11e8-95f1-c3dde26308cc.jpg)
+![home_x_git](https://user-images.githubusercontent.com/10448770/45339567-1470a700-b548-11e8-8d05-c8c1c23ebe2f.png)
+![prepare_x_git](https://user-images.githubusercontent.com/10448770/45339569-15093d80-b548-11e8-867f-3ca5a4fe78f2.png)
+![survival_x_git](https://user-images.githubusercontent.com/10448770/45339570-15093d80-b548-11e8-8291-3c09a24ae6ed.png)
+![contacts_x_git](https://user-images.githubusercontent.com/10448770/45339566-1470a700-b548-11e8-9894-74a4a260a1a6.png)
+![after_x_git](https://user-images.githubusercontent.com/10448770/45339565-1470a700-b548-11e8-9d0b-e15c0628be00.png)
+![photos_x_git](https://user-images.githubusercontent.com/10448770/45339568-15093d80-b548-11e8-8bb1-98063678fc2c.png)
