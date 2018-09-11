@@ -67,8 +67,10 @@ extension DisasterTopicsViewController {
     }
     
     func fetchSurvivalSkillsFromFirebase() {
+        Overlay.shared.show()
         ref = Database.database().reference()
         ref?.child(C.FIREBASE_KEYS.ROOT).observe(DataEventType.value, with: { [weak self] (snapshot) in
+            Overlay.shared.remove()
             self?.parseJSONPrepareFloodResponse(snapshot.value as? [String: AnyObject] ?? [:])
         })
     }

@@ -39,7 +39,8 @@ final class PhotoGalleryViewController: UIViewController, RANavigationProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureUI()
+        configureUIFromViewDidLoad()
+        showAlertIfNoConnection()
         loadFromFirebase()
     }
     
@@ -54,15 +55,15 @@ final class PhotoGalleryViewController: UIViewController, RANavigationProtocol {
 // MARK: Helper methods
 
 private extension PhotoGalleryViewController {
-    /**
-     configure all ui components once when view is loaded
-     
-     */
-    func configureUI() {
+    func configureUIFromViewDidLoad() {
         tableView.isHidden = true
         title = C.TITLE
         navigationItem.backBarButtonItem = UIBarButtonItem()
         configureNavigationBar(RAColorSet.YELLOW)
+        courtesyLabel.text = C.COURTESY_TEXT
+    }
+    
+    func showAlertIfNoConnection() {
         if !ApiClient.isConnected {
             let alert = Alert.errorAlert(title: C.OFFLINE_ALERT_MESSAGE,
                                          message: nil,
@@ -73,16 +74,16 @@ private extension PhotoGalleryViewController {
         } else {
             tableView.isHidden = false
         }
-        courtesyLabel.text = C.COURTESY_TEXT
     }
     
-    /**
-     load the data from firebase to get all the images
-     
-     */
     func loadFromFirebase() {
+        guard ApiClient.isConnected else {
+            return
+        }
+        Overlay.shared.show()
         ref = Database.database().reference()
         ref?.child(C.FirebaseKeys.HEROS_OF_INDIA_ROOT).observe(DataEventType.value, with: { [weak self] (snapshot) in
+            Overlay.shared.remove()
             let contents = snapshot.value as? [String : AnyObject] ?? [:]
             var photos = [Photo]()
             for content in contents.values {

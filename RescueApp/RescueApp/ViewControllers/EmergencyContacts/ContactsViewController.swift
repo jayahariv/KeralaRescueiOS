@@ -82,8 +82,10 @@ private extension ContactsViewController {
      - todo: implementation not done
      */
     func loadFromFirebase() {
+        Overlay.shared.show()
         ref = Database.database().reference()
         ref?.child(C.FirebaseKeys.CONTACTS_ROOT).observe(DataEventType.value, with: { [weak self] (snapshot) in
+            Overlay.shared.remove()
             let contents = snapshot.value as? [String: AnyObject] ?? [:]
             self?.parseAndPopulateContacts(contents)
         })
