@@ -34,6 +34,13 @@ final class DisasterTopicsViewController: UIViewController, RANavigationProtocol
         static let SEGUE_TO_SURVIVAL_SKILLS = "segueToSurvivalSkillsViewController"
         static let COURTESY_LABEL = "Courtesy: getprepared.gc.ca, disastersupplycenter.com, sdma.kerala.gov.in"
         static let PLIST_PREPARE_GUIDE_KEY = "prepare"
+        static let TOPICS_HEADING = "TAKE ACTION"
+    }
+    
+    // SUPPORTED LANGUAGES
+    enum Language {
+        case english
+        case malayalam
     }
 
     // MARK: View lifecycle
@@ -54,6 +61,19 @@ final class DisasterTopicsViewController: UIViewController, RANavigationProtocol
             vc.topic = sender as! DisasterTopic
         }
     }
+    
+    // MARK: Button Click
+    @objc func onSelectLanguage() {
+        let alert = UIAlertController(title: "Select language", message: nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "English", style: .default, handler: { [weak self] (_) in
+            self?.changeLanguage(.english)
+        }))
+        alert.addAction(UIAlertAction(title: "Malayalam", style: .default, handler: { [weak self] (_) in
+            self?.changeLanguage(.malayalam)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
 }
 
 // MARK: Helper methods
@@ -64,6 +84,10 @@ private extension DisasterTopicsViewController {
         tableView.tableFooterView = UIView()
         navigationItem.backBarButtonItem = UIBarButtonItem()
         courtesyLabel.text = C.COURTESY_LABEL
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: ImageName.LANGUAGE_ICON),
+                                                            style: .done,
+                                                            target: self,
+                                                            action: #selector(onSelectLanguage))
     }
     
     func fetchPrepareGuideFromFirebase() {
@@ -111,6 +135,10 @@ private extension DisasterTopicsViewController {
             self?.tableView.reloadData()
         }
     }
+    
+    func changeLanguage(_ language: Language) {
+        // implement
+    }
 }
 
 // MARK: DisasterPeriodViewController -> UITableViewDataSource, UITableViewDelegate
@@ -136,7 +164,7 @@ extension DisasterTopicsViewController: UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "TAKE ACTION"
+        return C.TOPICS_HEADING
     }
 }
 
