@@ -23,7 +23,8 @@ final class DisasterTopicsViewController: UIViewController, RANavigationProtocol
     /// StringConstants in this file.
     private struct C {
         struct FIREBASE_KEYS {
-            static let ROOT = "prepare/flood"
+            static let ROOT_ENGLISH = "prepare/flood/english"
+            static let ROOT_MALAYALAM = "prepare/flood/malayalam"
             static let TITLE = "title"
             static let DESCRIPTION = "description"
             static let TOPICS = "topics"
@@ -33,19 +34,27 @@ final class DisasterTopicsViewController: UIViewController, RANavigationProtocol
         static let TITLE = "Prepare"
         static let SEGUE_TO_SURVIVAL_SKILLS = "segueToSurvivalSkillsViewController"
         static let COURTESY_LABEL = "Courtesy: getprepared.gc.ca, disastersupplycenter.com, sdma.kerala.gov.in"
+        static let PLIST_PREPARE_GUIDE_KEY = "prepare"
+        static let TOPICS_HEADING = "TAKE ACTION"
+    }
+    private var language: Language = .english
+    
+    // SUPPORTED LANGUAGES
+    enum Language {
+        case english
+        case malayalam
     }
 
     // MARK: View lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureUI()
+        configureUIFromViewDidLoad()
         if ApiClient.isConnected {
-            fetchSurvivalSkillsFromFirebase()
+            fetchPrepareGuideFromFirebase(.english)
         } else {
-            fetchLocalSurvivalSkills()
+            fetchPrepareGuideFromPLIST()
         }
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -54,32 +63,50 @@ final class DisasterTopicsViewController: UIViewController, RANavigationProtocol
             vc.topic = sender as! DisasterTopic
         }
     }
+    
+    // MARK: Button Click
+    @objc func onSelectLanguage() {
+        let alert = UIAlertController(title: "Select language", message: nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "English", style: .default, handler: { [weak self] (_) in
+            self?.changeLanguage(.english)
+        }))
+        alert.addAction(UIAlertAction(title: "Malayalam", style: .default, handler: { [weak self] (_) in
+            self?.changeLanguage(.malayalam)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
 }
 
 // MARK: Helper methods
 
-extension DisasterTopicsViewController {
-    func configureUI() {
+private extension DisasterTopicsViewController {
+    func configureUIFromViewDidLoad() {
         configureNavigationBar(RAColorSet.RED)
         tableView.tableFooterView = UIView()
         navigationItem.backBarButtonItem = UIBarButtonItem()
         courtesyLabel.text = C.COURTESY_LABEL
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: ImageName.LANGUAGE_ICON),
+                                                            style: .done,
+                                                            target: self,
+                                                            action: #selector(onSelectLanguage))
     }
     
-    func fetchSurvivalSkillsFromFirebase() {
+    func fetchPrepareGuideFromFirebase(_ language: Language) {
         Overlay.shared.show()
         ref = Database.database().reference()
-        ref?.child(C.FIREBASE_KEYS.ROOT).observe(DataEventType.value, with: { [weak self] (snapshot) in
-            Overlay.shared.remove()
-            self?.parseJSONPrepareFloodResponse(snapshot.value as? [String: AnyObject] ?? [:])
+        ref?.child(language == .english ? C.FIREBASE_KEYS.ROOT_ENGLISH : C.FIREBASE_KEYS.ROOT_MALAYALAM)
+            .observe(DataEventType.value, with: { [weak self] (snapshot) in
+                Overlay.shared.remove()
+                self?.parseJSONPrepareFloodResponse(snapshot.value as? [String: AnyObject] ?? [:])
         })
     }
     
-    func fetchLocalSurvivalSkills() {
+    func fetchPrepareGuideFromPLIST() {
         if
             let path = Bundle.main.path(forResource: APIConstants.PLIST_KEYS.NAME, ofType: "plist"),
             let myDict = NSDictionary(contentsOfFile: path),
-            let json = myDict["prepare"] as? String
+            let json = myDict[C.PLIST_PREPARE_GUIDE_KEY] as? String
         {
             let data = json.data(using: .utf8)
             showDataInUI(data)
@@ -111,6 +138,10 @@ extension DisasterTopicsViewController {
             self?.tableView.reloadData()
         }
     }
+    
+    func changeLanguage(_ language: Language) {
+        fetchPrepareGuideFromFirebase(language)
+    }
 }
 
 // MARK: DisasterPeriodViewController -> UITableViewDataSource, UITableViewDelegate
@@ -136,7 +167,7 @@ extension DisasterTopicsViewController: UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "TAKE ACTION"
+        return C.TOPICS_HEADING
     }
 }
 

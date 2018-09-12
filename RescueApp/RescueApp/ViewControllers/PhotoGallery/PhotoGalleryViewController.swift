@@ -41,7 +41,7 @@ final class PhotoGalleryViewController: UIViewController, RANavigationProtocol {
         super.viewDidLoad()
         configureUIFromViewDidLoad()
         showAlertIfNoConnection()
-        loadFromFirebase()
+        fetchPhotoGalleryFromFirebase()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -76,7 +76,11 @@ private extension PhotoGalleryViewController {
         }
     }
     
-    func loadFromFirebase() {
+    func popViewController() {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func fetchPhotoGalleryFromFirebase() {
         guard ApiClient.isConnected else {
             return
         }
@@ -97,10 +101,6 @@ private extension PhotoGalleryViewController {
         })
     }
     
-    /**
-     refresh the UI
-     
-     */
     func refreshUI() {
         DispatchQueue.main.async { [weak self] in
             self?.tableView.reloadData()
