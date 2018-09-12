@@ -82,7 +82,7 @@ final class DisasterTopicsViewController: UIViewController, RANavigationProtocol
 
 private extension DisasterTopicsViewController {
     func configureUIFromViewDidLoad() {
-        configureNavigationBar(RAColorSet.RED)
+        configureNavigationBar(RAColorSet.GREEN)
         tableView.tableFooterView = UIView()
         navigationItem.backBarButtonItem = UIBarButtonItem()
         courtesyLabel.text = C.COURTESY_LABEL

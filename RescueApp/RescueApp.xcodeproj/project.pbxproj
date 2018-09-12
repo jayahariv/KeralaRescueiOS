@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		08164DF82145A81B0030F601 /* ImageName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08164DF72145A81B0030F601 /* ImageName.swift */; };
+		08164DFA2149C0550030F601 /* EmergencySOS.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08164DF92149C0550030F601 /* EmergencySOS.storyboard */; };
+		08164DFD2149C0920030F601 /* EmergencySOSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08164DFC2149C0920030F601 /* EmergencySOSViewController.swift */; };
 		0822303F212799EA00B7FBF2 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0822303E212799EA00B7FBF2 /* APIConstants.swift */; };
 		082230442127A72F00B7FBF2 /* Overlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082230432127A72F00B7FBF2 /* Overlay.swift */; };
 		082230462127CB8700B7FBF2 /* RAStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082230452127CB8700B7FBF2 /* RAStore.swift */; };
@@ -96,6 +98,8 @@
 
 /* Begin PBXFileReference section */
 		08164DF72145A81B0030F601 /* ImageName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageName.swift; sourceTree = "<group>"; };
+		08164DF92149C0550030F601 /* EmergencySOS.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EmergencySOS.storyboard; sourceTree = "<group>"; };
+		08164DFC2149C0920030F601 /* EmergencySOSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencySOSViewController.swift; sourceTree = "<group>"; };
 		0822303E212799EA00B7FBF2 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		082230432127A72F00B7FBF2 /* Overlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Overlay.swift; sourceTree = "<group>"; };
 		082230452127CB8700B7FBF2 /* RAStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAStore.swift; sourceTree = "<group>"; };
@@ -205,6 +209,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		08164DFB2149C07E0030F601 /* EmergencySOS */ = {
+			isa = PBXGroup;
+			children = (
+				08164DFC2149C0920030F601 /* EmergencySOSViewController.swift */,
+			);
+			path = EmergencySOS;
+			sourceTree = "<group>";
+		};
 		082230422127A71A00B7FBF2 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
@@ -232,6 +244,7 @@
 		08223604212A804600D2808D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				08164DFB2149C07E0030F601 /* EmergencySOS */,
 				E9F92602213B55A200CD9437 /* Helpers */,
 				E9F925F6213B2F6100CD9437 /* Home */,
 				E9F925FC213B4F0300CD9437 /* HowToPrepare */,
@@ -252,6 +265,7 @@
 				08F599F6212E9B7D00785841 /* Contacts.storyboard */,
 				08F599FE212FB44F00785841 /* PhotoGallery.storyboard */,
 				491FAFB1213021FA003160CF /* Survey.storyboard */,
+				08164DF92149C0550030F601 /* EmergencySOS.storyboard */,
 			);
 			path = Xibs;
 			sourceTree = "<group>";
@@ -578,6 +592,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08164DFA2149C0550030F601 /* EmergencySOS.storyboard in Resources */,
 				08F599FF212FB44F00785841 /* PhotoGallery.storyboard in Resources */,
 				E9F925F4213B2DC000CD9437 /* HowToPrepare.storyboard in Resources */,
 				0864D51E212A45EC00DE403D /* OfflineData.plist in Resources */,
@@ -730,6 +745,7 @@
 				491FAFB021302016003160CF /* SurveyListViewController.swift in Sources */,
 				08F59A0B213A46F700785841 /* PhotoComment.swift in Sources */,
 				08223610212CFD3800D2808D /* Constants.swift in Sources */,
+				08164DFD2149C0920030F601 /* EmergencySOSViewController.swift in Sources */,
 				08F59A01212FB61D00785841 /* Photo.swift in Sources */,
 				0822304D2127E7F500B7FBF2 /* Utility.swift in Sources */,
 				08FDDE5F2129F9D0006B84BE /* RequestsDictionary.swift in Sources */,

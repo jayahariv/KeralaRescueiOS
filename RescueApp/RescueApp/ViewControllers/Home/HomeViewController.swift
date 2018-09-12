@@ -19,6 +19,7 @@ final class HomeViewController: UIViewController {
     // FileConstants
     private struct C {
         struct SEGUE {
+            static let EMERGENCY_SOS = "segueToEmergencySOS"
             static let SURVEY = "segueToSurvey"
             static let CONTACTS = "segueToContacts"
             static let PHOTO_GALLERY = "segueToPhotoGallery"
@@ -42,10 +43,10 @@ final class HomeViewController: UIViewController {
     }
     private var homeCells: [[String: AnyObject]] {
         return [
-            [C.HomeCellKeys.title: "Prepare", C.HomeCellKeys.color: RAColorSet.RED],
+            [C.HomeCellKeys.title: "Emergency / SOS", C.HomeCellKeys.color: RAColorSet.RED],
+            [C.HomeCellKeys.title: "Prepare", C.HomeCellKeys.color: RAColorSet.GREEN],
             [C.HomeCellKeys.title: "After A Flood", C.HomeCellKeys.color: RAColorSet.LIGHT_BLUE],
             [C.HomeCellKeys.title: "Emergency Contacts", C.HomeCellKeys.color: RAColorSet.PURPLE],
-//            [C.HomeCellKeys.title: "Usahidi Survey app", C.HomeCellKeys.color: RAColorSet.GREEN],
             [C.HomeCellKeys.title: "Rescue Photos '18", C.HomeCellKeys.color: RAColorSet.YELLOW]
         ] as [[String: AnyObject]]
     }
@@ -122,14 +123,16 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         var identifier: String!
         switch indexPath.section {
         case 0:
-            identifier = C.SEGUE.HOW_TO_PREPARE
+            identifier = C.SEGUE.EMERGENCY_SOS
         case 1:
+            identifier = C.SEGUE.HOW_TO_PREPARE
+        case 2:
             let guideViewController = GuidelineContentController()
             self.navigationController?.pushViewController(guideViewController, animated: true)
             return
-        case 2:
-            identifier = C.SEGUE.CONTACTS
         case 3:
+            identifier = C.SEGUE.CONTACTS
+        case 4:
             identifier = C.SEGUE.PHOTO_GALLERY
         default:
             abort()
