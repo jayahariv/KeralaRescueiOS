@@ -23,8 +23,18 @@ Appstore URL [here](https://itunes.apple.com/us/app/kerala-rescue/id1432467893).
 Please add your email address to this [issue](https://github.com/jayahariv/KeralaRescueiOS/issues/6) or send email to rescueapp2018@gmail.com for adding yourself to beta. 
 
 ## Future Plans
-- Prepare section in Malayalam.
-- SOS Button.
+- [x] Prepare section in Malayalam.
+- [ ] SOS Section.
+    - [ ] Flashlight
+    - [ ] SOS Light
+    - [ ] Alarm
+    - [ ] Mark as Safe
+    - [ ] Send SOS to immediate contacts  
+- [ ] Prepare section extension
+    - [ ] Earthquake
+    - [ ] Landslide / ഉരുൾപൊട്ടൽ
+    - [ ] Flu Season
+    - [ ] Thunderstorm / ഇടിമിന്നൽ
 
 ## Data 
 All informations included are from the State Disaster Management Authority and afterflood.in. 
