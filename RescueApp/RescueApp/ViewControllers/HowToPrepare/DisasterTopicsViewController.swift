@@ -23,7 +23,8 @@ final class DisasterTopicsViewController: UIViewController, RANavigationProtocol
     /// StringConstants in this file.
     private struct C {
         struct FIREBASE_KEYS {
-            static let ROOT = "prepare/flood"
+            static let ROOT_ENGLISH = "prepare/flood/english"
+            static let ROOT_MALAYALAM = "prepare/flood/malayalam"
             static let TITLE = "title"
             static let DESCRIPTION = "description"
             static let TOPICS = "topics"
@@ -36,6 +37,7 @@ final class DisasterTopicsViewController: UIViewController, RANavigationProtocol
         static let PLIST_PREPARE_GUIDE_KEY = "prepare"
         static let TOPICS_HEADING = "TAKE ACTION"
     }
+    private var language: Language = .english
     
     // SUPPORTED LANGUAGES
     enum Language {
@@ -49,7 +51,7 @@ final class DisasterTopicsViewController: UIViewController, RANavigationProtocol
         super.viewDidLoad()
         configureUIFromViewDidLoad()
         if ApiClient.isConnected {
-            fetchPrepareGuideFromFirebase()
+            fetchPrepareGuideFromFirebase(.english)
         } else {
             fetchPrepareGuideFromPLIST()
         }
@@ -90,19 +92,13 @@ private extension DisasterTopicsViewController {
                                                             action: #selector(onSelectLanguage))
     }
     
-<<<<<<< HEAD
-    func fetchPrepareGuideFromFirebase() {
+    func fetchPrepareGuideFromFirebase(_ language: Language) {
         Overlay.shared.show()
-||||||| merged common ancestors
-    func fetchSurvivalSkillsFromFirebase() {
-=======
-    func fetchSurvivalSkillsFromFirebase() {
-        Overlay.shared.show()
->>>>>>> 51724f66fc2d3a6b65479b9417fc7b671feacbbf
         ref = Database.database().reference()
-        ref?.child(C.FIREBASE_KEYS.ROOT).observe(DataEventType.value, with: { [weak self] (snapshot) in
-            Overlay.shared.remove()
-            self?.parseJSONPrepareFloodResponse(snapshot.value as? [String: AnyObject] ?? [:])
+        ref?.child(language == .english ? C.FIREBASE_KEYS.ROOT_ENGLISH : C.FIREBASE_KEYS.ROOT_MALAYALAM)
+            .observe(DataEventType.value, with: { [weak self] (snapshot) in
+                Overlay.shared.remove()
+                self?.parseJSONPrepareFloodResponse(snapshot.value as? [String: AnyObject] ?? [:])
         })
     }
     
@@ -144,7 +140,7 @@ private extension DisasterTopicsViewController {
     }
     
     func changeLanguage(_ language: Language) {
-        // implement
+        fetchPrepareGuideFromFirebase(language)
     }
 }
 

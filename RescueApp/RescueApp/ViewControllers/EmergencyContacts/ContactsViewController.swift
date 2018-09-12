@@ -71,25 +71,8 @@ private extension ContactsViewController {
         dataSourceLabel.text = C.DATA_SOURCE
     }
     
-<<<<<<< HEAD
    func fetchContactsFromFirebase() {
         Overlay.shared.show()
-||||||| merged common ancestors
-    /**
-     load the contacts list from firebase
-     
-     - todo: implementation not done
-     */
-    func loadFromFirebase() {
-=======
-    /**
-     load the contacts list from firebase
-     
-     - todo: implementation not done
-     */
-    func loadFromFirebase() {
-        Overlay.shared.show()
->>>>>>> 51724f66fc2d3a6b65479b9417fc7b671feacbbf
         ref = Database.database().reference()
         ref?.child(C.FirebaseKeys.CONTACTS_ROOT).observe(DataEventType.value, with: { [weak self] (snapshot) in
             Overlay.shared.remove()
