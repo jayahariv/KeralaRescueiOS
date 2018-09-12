@@ -39,6 +39,7 @@ final class PhotoGalleryViewController: UIViewController, RANavigationProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+<<<<<<< HEAD
         configureUIFromViewDidLoad()
         tableView.isHidden = true
         if !ApiClient.isConnected {
@@ -51,6 +52,14 @@ final class PhotoGalleryViewController: UIViewController, RANavigationProtocol {
         }
         tableView.isHidden = false
         fetchPhotoGalleryFromFirebase()
+||||||| merged common ancestors
+        configureUI()
+        loadFromFirebase()
+=======
+        configureUIFromViewDidLoad()
+        showAlertIfNoConnection()
+        loadFromFirebase()
+>>>>>>> 51724f66fc2d3a6b65479b9417fc7b671feacbbf
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -64,19 +73,74 @@ final class PhotoGalleryViewController: UIViewController, RANavigationProtocol {
 // MARK: Helper methods
 
 private extension PhotoGalleryViewController {
+<<<<<<< HEAD
     func configureUIFromViewDidLoad() {
+||||||| merged common ancestors
+    /**
+     configure all ui components once when view is loaded
+     
+     */
+    func configureUI() {
+        tableView.isHidden = true
+=======
+    func configureUIFromViewDidLoad() {
+        tableView.isHidden = true
+>>>>>>> 51724f66fc2d3a6b65479b9417fc7b671feacbbf
         title = C.TITLE
         navigationItem.backBarButtonItem = UIBarButtonItem()
         configureNavigationBar(RAColorSet.YELLOW)
+<<<<<<< HEAD
+        courtesyLabel.text = C.COURTESY_TEXT
+||||||| merged common ancestors
+        if !ApiClient.isConnected {
+            let alert = Alert.errorAlert(title: C.OFFLINE_ALERT_MESSAGE,
+                                         message: nil,
+                                         cancelButton: false) { [weak self] in
+                                            self?.navigationController?.popViewController(animated: true)
+            }
+            present(alert, animated: true, completion: nil)
+        } else {
+            tableView.isHidden = false
+        }
+        courtesyLabel.text = C.COURTESY_TEXT
+=======
         courtesyLabel.text = C.COURTESY_TEXT
     }
     
+    func showAlertIfNoConnection() {
+        if !ApiClient.isConnected {
+            let alert = Alert.errorAlert(title: C.OFFLINE_ALERT_MESSAGE,
+                                         message: nil,
+                                         cancelButton: false) { [weak self] in
+                                            self?.navigationController?.popViewController(animated: true)
+            }
+            present(alert, animated: true, completion: nil)
+        } else {
+            tableView.isHidden = false
+        }
+>>>>>>> 51724f66fc2d3a6b65479b9417fc7b671feacbbf
+    }
+    
+<<<<<<< HEAD
     func popViewController() {
         navigationController?.popViewController(animated: true)
     }
     
     func fetchPhotoGalleryFromFirebase() {
         Overlay.shared.show()
+||||||| merged common ancestors
+    /**
+     load the data from firebase to get all the images
+     
+     */
+    func loadFromFirebase() {
+=======
+    func loadFromFirebase() {
+        guard ApiClient.isConnected else {
+            return
+        }
+        Overlay.shared.show()
+>>>>>>> 51724f66fc2d3a6b65479b9417fc7b671feacbbf
         ref = Database.database().reference()
         ref?.child(C.FirebaseKeys.HEROS_OF_INDIA_ROOT).observe(DataEventType.value, with: { [weak self] (snapshot) in
             Overlay.shared.remove()

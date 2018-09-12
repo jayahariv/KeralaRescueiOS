@@ -81,6 +81,7 @@ private extension PhotoPreviewViewController {
         title = photo.name
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard(_:)))
         tableView.addGestureRecognizer(tapGesture)
+        tableView.tableFooterView = UIView()
     }
     
     @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {

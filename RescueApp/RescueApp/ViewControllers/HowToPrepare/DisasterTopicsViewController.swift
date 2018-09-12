@@ -90,8 +90,15 @@ private extension DisasterTopicsViewController {
                                                             action: #selector(onSelectLanguage))
     }
     
+<<<<<<< HEAD
     func fetchPrepareGuideFromFirebase() {
         Overlay.shared.show()
+||||||| merged common ancestors
+    func fetchSurvivalSkillsFromFirebase() {
+=======
+    func fetchSurvivalSkillsFromFirebase() {
+        Overlay.shared.show()
+>>>>>>> 51724f66fc2d3a6b65479b9417fc7b671feacbbf
         ref = Database.database().reference()
         ref?.child(C.FIREBASE_KEYS.ROOT).observe(DataEventType.value, with: { [weak self] (snapshot) in
             Overlay.shared.remove()
