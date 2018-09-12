@@ -35,6 +35,7 @@ Please add your email address to this [issue](https://github.com/jayahariv/Keral
     - [ ] Landslide / ഉരുൾപൊട്ടൽ
     - [ ] Flu Season
     - [ ] Thunderstorm / ഇടിമിന്നൽ
+- [ ] Localize Icons
 
 ## Data 
 All informations included are from the State Disaster Management Authority and afterflood.in. 
