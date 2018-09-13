@@ -25,7 +25,7 @@ Please add your email address to this [issue](https://github.com/jayahariv/Keral
 ## Future Plans
 - [x] Prepare section in Malayalam.
 - [ ] SOS Section.
-    - [ ] Flashlight
+    - [x] Flashlight
     - [ ] SOS Light
     - [ ] Alarm
     - [ ] Mark as Safe
