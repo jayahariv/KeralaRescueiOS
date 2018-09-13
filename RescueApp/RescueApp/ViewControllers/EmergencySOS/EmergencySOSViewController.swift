@@ -35,8 +35,9 @@ final class EmergencySOSViewController: UIViewController, RANavigationProtocol {
         initSystemVolumeHolder()
     }
     
+    // MARK: Button Actions
+    
     func onToggleFlashlight() {
-        print("onToggleFlashlight")
         if let device = AVCaptureDevice.default(for: .video), device.hasTorch {
             do {
                 try device.lockForConfiguration()
@@ -78,10 +79,8 @@ final class EmergencySOSViewController: UIViewController, RANavigationProtocol {
     func onToggleAlarm() {
         if audioPlayer.isPlaying {
             audioPlayer.stop()
-            hideMPVolumeView()
         } else {
             audioPlayer.play()
-            showMPVolumeView()
         }
     }
 }
@@ -114,15 +113,6 @@ private extension EmergencySOSViewController {
         systemVolumeHolder.backgroundColor = UIColor.clear
         let mpVolumeView = MPVolumeView(frame: systemVolumeHolder.bounds)
         systemVolumeHolder.addSubview(mpVolumeView)
-//        systemVolumeHolder.isHidden = true
-    }
-    
-    func showMPVolumeView() {
-//        systemVolumeHolder.isHidden = false
-    }
-    
-    func hideMPVolumeView() {
-//        systemVolumeHolder.isHidden = true
     }
 }
 
