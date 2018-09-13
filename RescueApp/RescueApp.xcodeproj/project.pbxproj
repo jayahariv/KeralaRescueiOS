@@ -10,6 +10,7 @@
 		08164DF82145A81B0030F601 /* ImageName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08164DF72145A81B0030F601 /* ImageName.swift */; };
 		08164DFA2149C0550030F601 /* EmergencySOS.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08164DF92149C0550030F601 /* EmergencySOS.storyboard */; };
 		08164DFD2149C0920030F601 /* EmergencySOSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08164DFC2149C0920030F601 /* EmergencySOSViewController.swift */; };
+		08165017214A9B9A0030F601 /* alarm.wav in Resources */ = {isa = PBXBuildFile; fileRef = 08165016214A9B990030F601 /* alarm.wav */; };
 		0822303F212799EA00B7FBF2 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0822303E212799EA00B7FBF2 /* APIConstants.swift */; };
 		082230442127A72F00B7FBF2 /* Overlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082230432127A72F00B7FBF2 /* Overlay.swift */; };
 		082230462127CB8700B7FBF2 /* RAStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082230452127CB8700B7FBF2 /* RAStore.swift */; };
@@ -100,6 +101,7 @@
 		08164DF72145A81B0030F601 /* ImageName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageName.swift; sourceTree = "<group>"; };
 		08164DF92149C0550030F601 /* EmergencySOS.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EmergencySOS.storyboard; sourceTree = "<group>"; };
 		08164DFC2149C0920030F601 /* EmergencySOSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencySOSViewController.swift; sourceTree = "<group>"; };
+		08165016214A9B990030F601 /* alarm.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = alarm.wav; sourceTree = "<group>"; };
 		0822303E212799EA00B7FBF2 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		082230432127A72F00B7FBF2 /* Overlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Overlay.swift; sourceTree = "<group>"; };
 		082230452127CB8700B7FBF2 /* RAStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAStore.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 		08164DFB2149C07E0030F601 /* EmergencySOS */ = {
 			isa = PBXGroup;
 			children = (
+				08165016214A9B990030F601 /* alarm.wav */,
 				08164DFC2149C0920030F601 /* EmergencySOSViewController.swift */,
 			);
 			path = EmergencySOS;
@@ -601,6 +604,7 @@
 				E9DBF9742127806A00CFD933 /* LaunchScreen.storyboard in Resources */,
 				E9DBF9712127806A00CFD933 /* Assets.xcassets in Resources */,
 				491FAFB2213021FA003160CF /* Survey.storyboard in Resources */,
+				08165017214A9B9A0030F601 /* alarm.wav in Resources */,
 				0864D523212A53AE00DE403D /* Localizable.strings in Resources */,
 				DABD53E82130B09900B287F1 /* Guidelines.json in Resources */,
 				28386F612128191E0012F429 /* TagCollectionViewCell.xib in Resources */,

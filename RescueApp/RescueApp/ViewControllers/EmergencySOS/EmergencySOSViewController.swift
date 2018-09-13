@@ -10,6 +10,7 @@ Abstract:
 
 import UIKit
 import AVFoundation
+import MediaPlayer
 
 final class EmergencySOSViewController: UIViewController, RANavigationProtocol {
     
@@ -21,21 +22,39 @@ final class EmergencySOSViewController: UIViewController, RANavigationProtocol {
         static let CELL_WITH_SWITCH_ID = "SOSCellWithSwitch"
         static let BASIC_CELL_ID = "SOSBasicCell"
     }
+    private var timer: Timer?
+    private var audioPlayer: AVAudioPlayer!
+    @IBOutlet private var systemVolumeHolder: UIView!
 
     // MARK: View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUIFromViewDidLoad()
+        initAudioPlayer()
+        initSystemVolumeHolder()
     }
     
     func onToggleFlashlight() {
+        print("onToggleFlashlight")
         if let device = AVCaptureDevice.default(for: .video), device.hasTorch {
             do {
                 try device.lockForConfiguration()
-                let torchOn = !device.isTorchActive
+                let torchOn = device.torchMode
                 try device.setTorchModeOn(level: 1.0)
-                device.torchMode = torchOn ? .on : .off
+                device.torchMode = torchOn == .off ? .on : .off
+                device.unlockForConfiguration()
+            } catch {
+                print("error")
+            }
+        }
+    }
+    
+    func turnOffFlashlight() {
+        if let device = AVCaptureDevice.default(for: .video), device.hasTorch {
+            do {
+                try device.lockForConfiguration()
+                device.torchMode = .off
                 device.unlockForConfiguration()
             } catch {
                 print("error")
@@ -44,7 +63,26 @@ final class EmergencySOSViewController: UIViewController, RANavigationProtocol {
     }
     
     func onToggleStrobeLight() {
-        // implement
+        if timer != nil {
+            timer?.invalidate()
+            timer = nil
+            turnOffFlashlight()
+        } else {
+            timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { [weak self] (_) in
+                self?.onToggleFlashlight()
+            }
+            timer?.fire()
+        }
+    }
+    
+    func onToggleAlarm() {
+        if audioPlayer.isPlaying {
+            audioPlayer.stop()
+            hideMPVolumeView()
+        } else {
+            audioPlayer.play()
+            showMPVolumeView()
+        }
     }
 }
 
@@ -54,6 +92,37 @@ private extension EmergencySOSViewController {
     func configureUIFromViewDidLoad() {
         configureNavigationBar(RAColorSet.RED)
         title = C.TITLE
+    }
+    
+    func initAudioPlayer() {
+        guard let path = Bundle.main.path(forResource: "alarm", ofType: "wav") else {
+            return
+        }
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+        } catch {
+            print("Audio Player cannot be initialized")
+            return
+        }
+        audioPlayer.prepareToPlay()
+        audioPlayer.volume = 1.0
+        audioPlayer.numberOfLoops = -1
+    }
+    
+    func initSystemVolumeHolder() {
+        systemVolumeHolder.backgroundColor = UIColor.clear
+        let mpVolumeView = MPVolumeView(frame: systemVolumeHolder.bounds)
+        systemVolumeHolder.addSubview(mpVolumeView)
+//        systemVolumeHolder.isHidden = true
+    }
+    
+    func showMPVolumeView() {
+//        systemVolumeHolder.isHidden = false
+    }
+    
+    func hideMPVolumeView() {
+//        systemVolumeHolder.isHidden = true
     }
 }
 
@@ -104,9 +173,27 @@ extension EmergencySOSViewController: UITableViewDataSource, UITableViewDelegate
             let cell = tableView.cellForRow(at: indexPath)
             let toggleSwitch = cell?.viewWithTag(2) as! UISwitch
             toggleSwitch.isOn = !toggleSwitch.isOn
-            onToggleFlashlight()
+            switch indexPath.row {
+            case 0:
+                onToggleFlashlight()
+            case 1:
+                onToggleStrobeLight()
+            case 2:
+                onToggleAlarm()
+            default:
+                abort()
+            }
+        case 1:
+            switch indexPath.row {
+            case 0:
+                print("I am safe")
+            case 1:
+                print("Help me")
+            default:
+                abort()
+            }
         default:
-            onToggleStrobeLight()
+            abort()
         }
     }
 }

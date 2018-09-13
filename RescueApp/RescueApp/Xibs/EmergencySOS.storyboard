@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="ygp-F0-pe3">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="589"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SOSCellWithSwitch" id="fBs-mV-Rt4">
@@ -66,16 +66,43 @@
                                     <outlet property="delegate" destination="Hkp-gT-CYd" id="yrJ-R3-Re1"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WkJ-Fi-amT">
+                                <rect key="frame" x="0.0" y="589" width="375" height="78"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="System Volume" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dWO-UO-D2L">
+                                        <rect key="frame" x="8" y="8" width="359" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CII-UQ-yMR">
+                                        <rect key="frame" x="8" y="37" width="359" height="33"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.87450980389999999" green="0.33333333329999998" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="78" id="9pO-Q5-3Ie"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ygp-F0-pe3" firstAttribute="leading" secondItem="h2e-Ko-Msa" secondAttribute="leading" id="0gQ-9K-Qve"/>
                             <constraint firstItem="ygp-F0-pe3" firstAttribute="top" secondItem="9zY-m8-LSI" secondAttribute="top" id="7sP-VA-wp2"/>
-                            <constraint firstItem="ygp-F0-pe3" firstAttribute="bottom" secondItem="h2e-Ko-Msa" secondAttribute="bottom" id="WHp-eY-gwF"/>
+                            <constraint firstItem="WkJ-Fi-amT" firstAttribute="top" secondItem="ygp-F0-pe3" secondAttribute="bottom" id="OS4-V5-fHI"/>
+                            <constraint firstItem="WkJ-Fi-amT" firstAttribute="bottom" secondItem="h2e-Ko-Msa" secondAttribute="bottom" id="VhP-SP-Ybc"/>
+                            <constraint firstItem="WkJ-Fi-amT" firstAttribute="leading" secondItem="h2e-Ko-Msa" secondAttribute="leading" id="ntL-Ao-xgW"/>
                             <constraint firstItem="ygp-F0-pe3" firstAttribute="trailing" secondItem="h2e-Ko-Msa" secondAttribute="trailing" id="vtq-h8-Je9"/>
+                            <constraint firstItem="WkJ-Fi-amT" firstAttribute="trailing" secondItem="h2e-Ko-Msa" secondAttribute="trailing" id="xjU-Cc-3FI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="h2e-Ko-Msa"/>
                     </view>
+                    <connections>
+                        <outlet property="systemVolumeHolder" destination="CII-UQ-yMR" id="8Cq-uy-GXq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9l3-mZ-GiC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
