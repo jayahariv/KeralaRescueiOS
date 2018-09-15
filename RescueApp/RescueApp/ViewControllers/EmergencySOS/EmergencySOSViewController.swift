@@ -16,11 +16,17 @@ final class EmergencySOSViewController: UIViewController, RANavigationProtocol {
     
     // MARK: Properties
     private let toolsSections = ["Flashlight", "Strobe Light", "Alarm"]
-    private let safetySections = ["I'm safe", "I need help"]
+    private let safetySections = [
+        [C.SAFETY_BUTTON_CONFIG.TITLE_KEY: "I'm Safe", C.SAFETY_BUTTON_CONFIG.COLOR_KEY: RAColorSet.GREEN],
+        [C.SAFETY_BUTTON_CONFIG.TITLE_KEY: "I Need Help", C.SAFETY_BUTTON_CONFIG.COLOR_KEY: RAColorSet.RED]]
     private struct C {
         static let TITLE = "Emergency/SOS"
         static let CELL_WITH_SWITCH_ID = "SOSCellWithSwitch"
-        static let BASIC_CELL_ID = "SOSBasicCell"
+        static let CELL_WITH_Button_ID = "SOSCellWithButton"
+        struct SAFETY_BUTTON_CONFIG {
+            static let TITLE_KEY = "title"
+            static let COLOR_KEY = "color"
+        }
     }
     private var timer: Timer?
     private var audioPlayer: AVAudioPlayer!
@@ -83,6 +89,10 @@ final class EmergencySOSViewController: UIViewController, RANavigationProtocol {
             audioPlayer.play()
         }
     }
+    
+    @objc func onSettingsClick(_ sender: Any) {
+        
+    }
 }
 
 // MARK: Helper Methods
@@ -91,6 +101,11 @@ private extension EmergencySOSViewController {
     func configureUIFromViewDidLoad() {
         configureNavigationBar(RAColorSet.RED)
         title = C.TITLE
+        navigationItem.rightBarButtonItem =
+            UIBarButtonItem(title: "Settings",
+                            style: .done,
+                            target: self,
+                            action: #selector(onSettingsClick(_:)))
     }
     
     func initAudioPlayer() {
@@ -118,8 +133,7 @@ private extension EmergencySOSViewController {
 
 extension EmergencySOSViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
-        // TODO: Only keeping tools currently
-        return 1
+        return 2
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var rowCount = 0
@@ -139,11 +153,15 @@ extension EmergencySOSViewController: UITableViewDataSource, UITableViewDelegate
             let label = cell.viewWithTag(1) as! UILabel
             label.text = toolsSections[indexPath.row]
         case 1:
-            cell = tableView.dequeueReusableCell(withIdentifier: C.BASIC_CELL_ID)
-            cell?.textLabel?.text = safetySections[indexPath.row]
+            cell = tableView.dequeueReusableCell(withIdentifier: C.CELL_WITH_Button_ID)
+            let label = cell.viewWithTag(1) as! UILabel
+            let safetyConfig = safetySections[indexPath.row]
+            label.text = safetyConfig[C.SAFETY_BUTTON_CONFIG.TITLE_KEY] as? String
+            label.backgroundColor = safetyConfig[C.SAFETY_BUTTON_CONFIG.COLOR_KEY] as? UIColor
         default:
             abort()
         }
+        cell.selectionStyle = .none
         return cell!
     }
     
@@ -185,5 +203,13 @@ extension EmergencySOSViewController: UITableViewDataSource, UITableViewDelegate
         default:
             abort()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        var height: CGFloat = 44.0
+        if indexPath.section == 1 {
+            height = 64
+        }
+        return height
     }
 }
