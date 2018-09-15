@@ -27,6 +27,7 @@ final class EmergencySOSViewController: UIViewController, RANavigationProtocol {
             static let TITLE_KEY = "title"
             static let COLOR_KEY = "color"
         }
+        static let SEGUE_TO_SETTINGS = "segueToSettings"
     }
     private var timer: Timer?
     private var audioPlayer: AVAudioPlayer!
@@ -91,7 +92,7 @@ final class EmergencySOSViewController: UIViewController, RANavigationProtocol {
     }
     
     @objc func onSettingsClick(_ sender: Any) {
-        
+        performSegue(withIdentifier: C.SEGUE_TO_SETTINGS, sender: nil)
     }
 }
 
@@ -101,6 +102,7 @@ private extension EmergencySOSViewController {
     func configureUIFromViewDidLoad() {
         configureNavigationBar(RAColorSet.RED)
         title = C.TITLE
+        navigationItem.backBarButtonItem = UIBarButtonItem()
         navigationItem.rightBarButtonItem =
             UIBarButtonItem(title: "Settings",
                             style: .done,
@@ -170,7 +172,7 @@ extension EmergencySOSViewController: UITableViewDataSource, UITableViewDelegate
         if section == 0 {
             title = "Emergency Tools"
         } else if section == 1 {
-            title = "Safety Check"
+            title = "Safety Actions"
         }
         return title
     }
