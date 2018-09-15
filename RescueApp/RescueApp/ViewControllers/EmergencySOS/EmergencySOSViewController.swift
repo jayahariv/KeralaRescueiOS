@@ -17,8 +17,8 @@ final class EmergencySOSViewController: UIViewController, RANavigationProtocol {
     // MARK: Properties
     private let toolsSections = ["Flashlight", "Strobe Light", "Alarm"]
     private let safetySections = [
-        [C.SAFETY_BUTTON_CONFIG.TITLE_KEY: "I'm Safe", C.SAFETY_BUTTON_CONFIG.COLOR_KEY: RAColorSet.GREEN],
-        [C.SAFETY_BUTTON_CONFIG.TITLE_KEY: "I Need Help", C.SAFETY_BUTTON_CONFIG.COLOR_KEY: RAColorSet.RED]]
+        [C.SAFETY_BUTTON_CONFIG.TITLE_KEY: "MARK AS SAFE", C.SAFETY_BUTTON_CONFIG.COLOR_KEY: RAColorSet.SAFE_GREEN],
+        [C.SAFETY_BUTTON_CONFIG.TITLE_KEY: "NEED HELP", C.SAFETY_BUTTON_CONFIG.COLOR_KEY: RAColorSet.WARNING_RED]]
     private struct C {
         static let TITLE = "Emergency/SOS"
         static let CELL_WITH_SWITCH_ID = "SOSCellWithSwitch"

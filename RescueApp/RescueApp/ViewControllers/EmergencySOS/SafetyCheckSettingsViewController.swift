@@ -20,6 +20,10 @@ final class SafetyCheckSettingsViewController: UIViewController {
     /// PRIVATE
     @IBOutlet private weak var textView: UITextView!
     @IBOutlet private weak var canShareLocationSwitch: UISwitch!
+    @IBOutlet private weak var contactsTableView: UITableView!
+    @IBOutlet private weak var noContactsWarningLabel: UILabel!
+    @IBOutlet private weak var addRecipientsButton: UIButton!
+    private var contacts = [String]()
     private struct C {
         static let CELL_ID = "safetyCheckCellID"
         static let TITLE = "Emergency Settings"
@@ -37,13 +41,21 @@ final class SafetyCheckSettingsViewController: UIViewController {
         super.viewWillDisappear(animated)
         saveLocationPreference()
     }
+    
+    @IBAction func onAddRecipients(_ sender: Any) {
+        // implement
+    }
 }
 
 private extension SafetyCheckSettingsViewController {
     func configureUIFromViewDidLoad() {
         title = C.TITLE
+        
         textView.text = fetchCustomDangerMessage() ?? Constants.DANGER_NEED_HELP_MESSAGE
         canShareLocationSwitch.isOn = fetchCanShareLocation()
+        addRecipientsButton.backgroundColor = RAColorSet.WARNING_RED
+        
+        configureContactsUI(contacts.count > 0)
     }
     
     func addTapToHideKeyboardGesture() {
@@ -79,27 +91,33 @@ private extension SafetyCheckSettingsViewController {
         }
         UserDefaults.standard.set(canShareLocationSwitch.isOn, forKey: Constants.UserDefaultsKeys.CAN_LOCATION_SHARED)
     }
+    
+    func configureContactsUI(_ contactsPresent: Bool) {
+        contactsTableView.isHidden = !contactsPresent
+        noContactsWarningLabel.isHidden = contactsPresent
+    }
 }
 
 
 extension SafetyCheckSettingsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return contacts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: C.CELL_ID)
         cell?.selectionStyle = .none
-        cell?.textLabel?.text = "NameOfContact"
+        cell?.textLabel?.text = contacts[indexPath.row]
         cell?.detailTextLabel?.text = "+91-1234567890"
         return cell!
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
-    }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Contacts"
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath.row)
     }
 }
 
