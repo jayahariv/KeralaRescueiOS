@@ -13,6 +13,7 @@ Abstract:
 */
 
 import UIKit
+import ContactsUI
 
 final class SafetyCheckSettingsViewController: UIViewController {
     
@@ -37,13 +38,22 @@ final class SafetyCheckSettingsViewController: UIViewController {
         addTapToHideKeyboardGesture()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setStatusBarColor(RAColorSet.RED)
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         saveLocationPreference()
     }
     
     @IBAction func onAddRecipients(_ sender: Any) {
-        // implement
+        let contactPicker = CNContactPickerViewController(nibName: nil, bundle: nil)
+        contactPicker.delegate = self
+        present(contactPicker, animated: true) { [weak self] in
+            self?.setStatusBarColor(RAColorSet.STATUS_BAR_COLOR)
+        }
     }
 }
 
@@ -96,6 +106,12 @@ private extension SafetyCheckSettingsViewController {
         contactsTableView.isHidden = !contactsPresent
         noContactsWarningLabel.isHidden = contactsPresent
     }
+    
+    func setStatusBarColor(_ color: UIColor) {
+        if let statusBar: UIView = UIApplication.shared.value(forKey: "statusBar") as? UIView {
+            statusBar.backgroundColor = color
+        }
+    }
 }
 
 
@@ -125,5 +141,15 @@ extension SafetyCheckSettingsViewController: UITextViewDelegate {
     func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
         saveDangerMessage(textView.text)
         return true
+    }
+}
+
+extension SafetyCheckSettingsViewController: CNContactPickerDelegate {
+    func contactPickerDidCancel(_ picker: CNContactPickerViewController) {
+        print("contactPickerDidCancel")
+    }
+    
+    func contactPicker(_ picker: CNContactPickerViewController, didSelect contacts: [CNContact]) {
+        print("didSelect:contacts")
     }
 }

@@ -103,11 +103,10 @@ private extension EmergencySOSViewController {
         configureNavigationBar(RAColorSet.RED)
         title = C.TITLE
         navigationItem.backBarButtonItem = UIBarButtonItem()
-        navigationItem.rightBarButtonItem =
-            UIBarButtonItem(title: "Settings",
-                            style: .done,
-                            target: self,
-                            action: #selector(onSettingsClick(_:)))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "settings"),
+                                                            style: .done,
+                                                            target: self,
+                                                            action: #selector(onSettingsClick(_:)))
     }
     
     func initAudioPlayer() {

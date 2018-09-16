@@ -35,6 +35,7 @@ struct RAColorSet {
     static let LINK_COLOR = UIColor(red: 68/255, green: 200/255, blue: 245/255, alpha: 1.0)
     static let WARNING_RED = UIColor(red: 210/255, green: 59/255, blue: 35/255, alpha: 1.0)
     static let SAFE_GREEN = UIColor(red: 66/255, green: 147/255, blue: 44/255, alpha: 1.0)
+    static let STATUS_BAR_COLOR = UIColor(red: 249/255, green: 249/255, blue: 249/255, alpha: 1.0)
 }
 
 final class Colors: NSObject {
