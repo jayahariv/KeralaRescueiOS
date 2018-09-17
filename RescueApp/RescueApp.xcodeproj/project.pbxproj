@@ -12,6 +12,7 @@
 		08164DFD2149C0920030F601 /* EmergencySOSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08164DFC2149C0920030F601 /* EmergencySOSViewController.swift */; };
 		08165017214A9B9A0030F601 /* alarm.wav in Resources */ = {isa = PBXBuildFile; fileRef = 08165016214A9B990030F601 /* alarm.wav */; };
 		0816544D214D61FF0030F601 /* SafetyCheckSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0816544C214D61FF0030F601 /* SafetyCheckSettingsViewController.swift */; };
+		08165453214EE82F0030F601 /* EmergencyContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08165452214EE82F0030F601 /* EmergencyContact.swift */; };
 		0822303F212799EA00B7FBF2 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0822303E212799EA00B7FBF2 /* APIConstants.swift */; };
 		082230442127A72F00B7FBF2 /* Overlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082230432127A72F00B7FBF2 /* Overlay.swift */; };
 		082230462127CB8700B7FBF2 /* RAStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082230452127CB8700B7FBF2 /* RAStore.swift */; };
@@ -104,6 +105,7 @@
 		08164DFC2149C0920030F601 /* EmergencySOSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencySOSViewController.swift; sourceTree = "<group>"; };
 		08165016214A9B990030F601 /* alarm.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = alarm.wav; sourceTree = "<group>"; };
 		0816544C214D61FF0030F601 /* SafetyCheckSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafetyCheckSettingsViewController.swift; sourceTree = "<group>"; };
+		08165452214EE82F0030F601 /* EmergencyContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyContact.swift; sourceTree = "<group>"; };
 		0822303E212799EA00B7FBF2 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		082230432127A72F00B7FBF2 /* Overlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Overlay.swift; sourceTree = "<group>"; };
 		082230452127CB8700B7FBF2 /* RAStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAStore.swift; sourceTree = "<group>"; };
@@ -221,6 +223,14 @@
 				0816544C214D61FF0030F601 /* SafetyCheckSettingsViewController.swift */,
 			);
 			path = EmergencySOS;
+			sourceTree = "<group>";
+		};
+		08165451214EE81A0030F601 /* SOS */ = {
+			isa = PBXGroup;
+			children = (
+				08165452214EE82F0030F601 /* EmergencyContact.swift */,
+			);
+			path = SOS;
 			sourceTree = "<group>";
 		};
 		082230422127A71A00B7FBF2 /* Utility */ = {
@@ -417,6 +427,7 @@
 		E9DBF99B2127844100CFD933 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				08165451214EE81A0030F601 /* SOS */,
 				0829E1C0213C7283002CEE21 /* HowToPrepare */,
 				E9F925FB213B305400CD9437 /* Contacts */,
 				E9F925FA213B304600CD9437 /* PhotoGallery */,
@@ -748,6 +759,7 @@
 				0829E1C4213C8172002CEE21 /* SurvivalSkills.swift in Sources */,
 				08F59A05212FC98100785841 /* PhotoPreviewViewController.swift in Sources */,
 				08223614212D378B00D2808D /* DistrictTableViewCell.swift in Sources */,
+				08165453214EE82F0030F601 /* EmergencyContact.swift in Sources */,
 				082230462127CB8700B7FBF2 /* RAStore.swift in Sources */,
 				491FAFB021302016003160CF /* SurveyListViewController.swift in Sources */,
 				08F59A0B213A46F700785841 /* PhotoComment.swift in Sources */,

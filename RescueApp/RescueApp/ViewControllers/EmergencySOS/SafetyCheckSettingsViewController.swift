@@ -14,6 +14,7 @@ Abstract:
 
 import UIKit
 import ContactsUI
+import CouchbaseLiteSwift
 
 final class SafetyCheckSettingsViewController: UIViewController {
     
@@ -24,7 +25,7 @@ final class SafetyCheckSettingsViewController: UIViewController {
     @IBOutlet private weak var contactsTableView: UITableView!
     @IBOutlet private weak var noContactsWarningLabel: UILabel!
     @IBOutlet private weak var addRecipientsButton: UIButton!
-    private var contacts = [String]()
+    private var contacts = [EmergencyContact]()
     private struct C {
         static let CELL_ID = "safetyCheckCellID"
         static let TITLE = "Emergency Settings"
@@ -36,6 +37,7 @@ final class SafetyCheckSettingsViewController: UIViewController {
         super.viewDidLoad()
         configureUIFromViewDidLoad()
         addTapToHideKeyboardGesture()
+        fetchContacts()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -66,6 +68,30 @@ private extension SafetyCheckSettingsViewController {
         addRecipientsButton.backgroundColor = RAColorSet.WARNING_RED
         
         configureContactsUI(contacts.count > 0)
+    }
+    
+    func fetchContacts() {
+        guard let database = try? Database(name: "RescueApp") else {
+            return
+        }
+        
+        let document = database.document(withID: APIConstants.CBL_KEYS.EMERGENCY_CONTACTS_ROOT_KEY)
+        var tempContacts = [EmergencyContact]()
+        for key in document?.keys ?? [] {
+            if
+                let emergencyContact = document?.string(forKey: key),
+                let contact = EmergencyContact.fromString(emergencyContact)
+            {
+                tempContacts.append(contact)
+            }
+        }
+        contacts = tempContacts
+        refreshContacts()
+    }
+    
+    func refreshContacts() {
+        configureContactsUI(contacts.count > 0)
+        contactsTableView.reloadData()
     }
     
     func addTapToHideKeyboardGesture() {
@@ -112,6 +138,16 @@ private extension SafetyCheckSettingsViewController {
             statusBar.backgroundColor = color
         }
     }
+    
+    func removeAllContacts() {
+        do {
+            let database = try Database(name: "RescueApp")
+            let doc = MutableDocument(id: APIConstants.CBL_KEYS.EMERGENCY_CONTACTS_ROOT_KEY)
+            try database.saveDocument(doc)
+        } catch {
+            print("test")
+        }
+    }
 }
 
 
@@ -123,7 +159,8 @@ extension SafetyCheckSettingsViewController: UITableViewDataSource, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: C.CELL_ID)
         cell?.selectionStyle = .none
-        cell?.textLabel?.text = contacts[indexPath.row]
+        let contact = contacts[indexPath.row]
+        cell?.textLabel?.text = contact.displayName
         cell?.detailTextLabel?.text = "+91-1234567890"
         return cell!
     }
@@ -145,11 +182,19 @@ extension SafetyCheckSettingsViewController: UITextViewDelegate {
 }
 
 extension SafetyCheckSettingsViewController: CNContactPickerDelegate {
-    func contactPickerDidCancel(_ picker: CNContactPickerViewController) {
-        print("contactPickerDidCancel")
-    }
-    
     func contactPicker(_ picker: CNContactPickerViewController, didSelect contacts: [CNContact]) {
-        print("didSelect:contacts")
+        var tempContacts = [EmergencyContact]()
+        for contact in contacts {
+            let contact = EmergencyContact.init(contact)
+            tempContacts.append(contact)
+        }
+        
+        removeAllContacts()
+        for contact in tempContacts {
+            contact.save()
+        }
+        
+        self.contacts = tempContacts
+        refreshContacts()
     }
 }

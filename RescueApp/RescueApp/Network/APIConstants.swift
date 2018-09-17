@@ -24,6 +24,13 @@ struct APIConstants {
     static let COUCHBASE_OFFLINE_SAVE_ROOT_KEY = "couchbase_offline_save_root_key"
     static let REQUESTS_OFFLINE_SAVE_KEY = "individual_requests_offline_save_key"
     static let RELIEF_CAMPS_OFFLINE_SAVE_KEY = "relief_camps_offline_save_key"
+    struct CBL_KEYS {
+        static let EMERGENCY_CONTACTS_ROOT_KEY = "couchbase_emergency_contacts_root_key"
+        static let FIRSTNAME = "firstName"
+        static let FAMILY_NAME = "familyName"
+        static let PHONE_NUMBERS = "phonenumbers"
+        static let EMAIL_ADDRESSES = "emailAddresses"
+    }
     
     // PLIST CONSTANTS
     struct PLIST_KEYS {
