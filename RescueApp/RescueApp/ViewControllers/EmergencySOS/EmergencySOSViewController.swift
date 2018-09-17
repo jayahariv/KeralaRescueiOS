@@ -28,6 +28,7 @@ final class EmergencySOSViewController: UIViewController, RANavigationProtocol {
             static let COLOR_KEY = "color"
         }
         static let SEGUE_TO_SETTINGS = "segueToSettings"
+        static let STROBE_TIME_INTERVAL = 0.2
     }
     private var timer: Timer?
     private var audioPlayer: AVAudioPlayer!
@@ -41,12 +42,16 @@ final class EmergencySOSViewController: UIViewController, RANavigationProtocol {
         super.viewDidLoad()
         configureUIFromViewDidLoad()
         initAudioPlayer()
-        initSystemVolumeHolder()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         fetchContacts()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        initSystemVolumeHolder()
     }
     
     // MARK: Button Actions
@@ -83,7 +88,7 @@ final class EmergencySOSViewController: UIViewController, RANavigationProtocol {
             timer = nil
             turnOffFlashlight()
         } else {
-            timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { [weak self] (_) in
+            timer = Timer.scheduledTimer(withTimeInterval: C.STROBE_TIME_INTERVAL, repeats: true) { [weak self] (_) in
                 self?.onToggleFlashlight()
             }
             timer?.fire()
@@ -133,8 +138,11 @@ private extension EmergencySOSViewController {
     }
     
     func initSystemVolumeHolder() {
+        let subview = systemVolumeHolder.viewWithTag(101)
+        subview?.removeFromSuperview()
         systemVolumeHolder.backgroundColor = UIColor.clear
         let mpVolumeView = MPVolumeView(frame: systemVolumeHolder.bounds)
+        mpVolumeView.tag = 101
         systemVolumeHolder.addSubview(mpVolumeView)
     }
     

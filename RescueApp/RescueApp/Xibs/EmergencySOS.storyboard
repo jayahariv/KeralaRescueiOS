@@ -83,8 +83,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CII-UQ-yMR">
-                                        <rect key="frame" x="8" y="36.333333333333371" width="398" height="33.666666666666657"/>
-                                        <color key="backgroundColor" red="0.87450980389999999" green="0.33333333329999998" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <rect key="frame" x="8" y="36.333333333333371" width="398" height="34"/>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -95,7 +94,6 @@
                                     <constraint firstItem="CII-UQ-yMR" firstAttribute="leading" secondItem="WkJ-Fi-amT" secondAttribute="leading" constant="8" id="UCk-jr-8Cc"/>
                                     <constraint firstAttribute="trailing" secondItem="CII-UQ-yMR" secondAttribute="trailing" constant="8" id="b9T-f5-Gn4"/>
                                     <constraint firstItem="dWO-UO-D2L" firstAttribute="top" secondItem="WkJ-Fi-amT" secondAttribute="top" constant="8" id="ihd-L3-FYE"/>
-                                    <constraint firstItem="CII-UQ-yMR" firstAttribute="top" secondItem="dWO-UO-D2L" secondAttribute="bottom" constant="8" id="jIe-S3-AzS"/>
                                     <constraint firstItem="dWO-UO-D2L" firstAttribute="leading" secondItem="WkJ-Fi-amT" secondAttribute="leading" constant="8" id="pvA-az-Kzf"/>
                                     <constraint firstAttribute="trailing" secondItem="dWO-UO-D2L" secondAttribute="trailing" constant="8" id="z8o-Be-X14"/>
                                 </constraints>
