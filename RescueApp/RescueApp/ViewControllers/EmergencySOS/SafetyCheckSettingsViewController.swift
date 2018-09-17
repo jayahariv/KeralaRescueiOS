@@ -71,21 +71,7 @@ private extension SafetyCheckSettingsViewController {
     }
     
     func fetchContacts() {
-        guard let database = try? Database(name: "RescueApp") else {
-            return
-        }
-        
-        let document = database.document(withID: APIConstants.CBL_KEYS.EMERGENCY_CONTACTS_ROOT_KEY)
-        var tempContacts = [EmergencyContact]()
-        for key in document?.keys ?? [] {
-            if
-                let emergencyContact = document?.string(forKey: key),
-                let contact = EmergencyContact.fromString(emergencyContact)
-            {
-                tempContacts.append(contact)
-            }
-        }
-        contacts = tempContacts
+        contacts = EmergencyContactUtil.fetchContacts()
         refreshContacts()
     }
     
@@ -161,7 +147,6 @@ extension SafetyCheckSettingsViewController: UITableViewDataSource, UITableViewD
         cell?.selectionStyle = .none
         let contact = contacts[indexPath.row]
         cell?.textLabel?.text = contact.displayName
-        cell?.detailTextLabel?.text = "+91-1234567890"
         return cell!
     }
     

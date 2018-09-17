@@ -32,6 +32,8 @@ final class EmergencySOSViewController: UIViewController, RANavigationProtocol {
     private var timer: Timer?
     private var audioPlayer: AVAudioPlayer!
     @IBOutlet private var systemVolumeHolder: UIView!
+    private var contacts = [EmergencyContact]()
+    @IBOutlet private weak var tableView: UITableView!
 
     // MARK: View Lifecycle
     
@@ -40,6 +42,11 @@ final class EmergencySOSViewController: UIViewController, RANavigationProtocol {
         configureUIFromViewDidLoad()
         initAudioPlayer()
         initSystemVolumeHolder()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchContacts()
     }
     
     // MARK: Button Actions
@@ -130,6 +137,11 @@ private extension EmergencySOSViewController {
         let mpVolumeView = MPVolumeView(frame: systemVolumeHolder.bounds)
         systemVolumeHolder.addSubview(mpVolumeView)
     }
+    
+    func fetchContacts() {
+        contacts = EmergencyContactUtil.fetchContacts()
+        tableView.reloadData()
+    }
 }
 
 extension EmergencySOSViewController: UITableViewDataSource, UITableViewDelegate {
@@ -159,6 +171,7 @@ extension EmergencySOSViewController: UITableViewDataSource, UITableViewDelegate
             let safetyConfig = safetySections[indexPath.row]
             label.text = safetyConfig[C.SAFETY_BUTTON_CONFIG.TITLE_KEY] as? String
             label.backgroundColor = safetyConfig[C.SAFETY_BUTTON_CONFIG.COLOR_KEY] as? UIColor
+            label.isEnabled = contacts.count > 0
         default:
             abort()
         }
@@ -172,6 +185,9 @@ extension EmergencySOSViewController: UITableViewDataSource, UITableViewDelegate
             title = "Emergency Tools"
         } else if section == 1 {
             title = "Safety Actions"
+            if contacts.count == 0 {
+                title = "\(title!) (INACTIVE)"
+            }
         }
         return title
     }
@@ -193,6 +209,9 @@ extension EmergencySOSViewController: UITableViewDataSource, UITableViewDelegate
                 abort()
             }
         case 1:
+            if contacts.count == 0 {
+                return
+            }
             switch indexPath.row {
             case 0:
                 print("I am safe")
