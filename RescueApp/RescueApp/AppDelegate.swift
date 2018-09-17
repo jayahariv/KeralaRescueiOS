@@ -25,6 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         FirebaseApp.configure()
         FirebaseAPIConfigure.shared.configure()
+        UserDefaults.standard.set(Constants.DANGER_NEED_HELP_MESSAGE,
+                                  forKey: Constants.UserDefaultsKeys.DANGER_NEED_HELP_MESSAGE)
         return true
     }
 }

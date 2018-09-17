@@ -49,6 +49,10 @@ final class EmergencyContact: NSObject, Codable {
         return (firstName ?? "--") + (familyName ?? "--")
     }
     
+    var contactNumbers: [String] {
+        return phoneNumbers
+    }
+    
     func save() {
         guard let identifier = id else {
             return

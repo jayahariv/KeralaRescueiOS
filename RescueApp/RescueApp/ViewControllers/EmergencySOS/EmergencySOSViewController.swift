@@ -11,6 +11,7 @@ Abstract:
 import UIKit
 import AVFoundation
 import MediaPlayer
+import MessageUI
 
 final class EmergencySOSViewController: UIViewController, RANavigationProtocol {
     
@@ -150,6 +151,17 @@ private extension EmergencySOSViewController {
         contacts = EmergencyContactUtil.fetchContacts()
         tableView.reloadData()
     }
+    
+    func sendMessage(_ message: String) {
+        
+        if (MFMessageComposeViewController.canSendText()) {
+            let controller = MFMessageComposeViewController()
+            controller.body = message
+            controller.recipients = contacts.map { $0.contactNumbers }.flatMap{ $0 }
+            controller.messageComposeDelegate = self
+            present(controller, animated: true, completion: nil)
+        }
+    }
 }
 
 extension EmergencySOSViewController: UITableViewDataSource, UITableViewDelegate {
@@ -222,9 +234,19 @@ extension EmergencySOSViewController: UITableViewDataSource, UITableViewDelegate
             }
             switch indexPath.row {
             case 0:
-                print("I am safe")
+                if let _ =
+                    UserDefaults
+                        .standard
+                        .string(forKey: Constants.UserDefaultsKeys.DANGER_NEED_HELP_MESSAGE) {
+                    sendMessage("I'm safe")
+                }
             case 1:
-                print("Help me")
+                if let danger =
+                    UserDefaults
+                        .standard
+                        .string(forKey: Constants.UserDefaultsKeys.DANGER_NEED_HELP_MESSAGE) {
+                    sendMessage(danger)
+                }
             default:
                 abort()
             }
@@ -239,5 +261,12 @@ extension EmergencySOSViewController: UITableViewDataSource, UITableViewDelegate
             height = 64
         }
         return height
+    }
+}
+
+extension EmergencySOSViewController: MFMessageComposeViewControllerDelegate {
+    func messageComposeViewController(_ controller: MFMessageComposeViewController,
+                                      didFinishWith result: MessageComposeResult) {
+        dismiss(animated: true, completion: nil)
     }
 }
