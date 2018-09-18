@@ -20,7 +20,8 @@ final class SafetyCheckSettingsViewController: UIViewController {
     
     // MARK: Properties
     /// PRIVATE
-    @IBOutlet private weak var textView: UITextView!
+    @IBOutlet private weak var helpNeededTextView: UITextView!
+    @IBOutlet private weak var markAsSafeTextView: UITextView!
     @IBOutlet private weak var canShareLocationSwitch: UISwitch!
     @IBOutlet private weak var contactsTableView: UITableView!
     @IBOutlet private weak var noContactsWarningLabel: UILabel!
@@ -63,10 +64,12 @@ private extension SafetyCheckSettingsViewController {
     func configureUIFromViewDidLoad() {
         title = C.TITLE
         
-        textView.text = fetchCustomDangerMessage() ?? Constants.DANGER_NEED_HELP_MESSAGE
+        helpNeededTextView.text =
+            fetchCustomMessage(Constants.UserDefaultsKeys.DANGER_NEED_HELP_MESSAGE) ?? Constants.DANGER_NEED_HELP_MESSAGE
+        markAsSafeTextView.text =
+            fetchCustomMessage(Constants.UserDefaultsKeys.MARK_AS_SAFE_MESSAGE) ?? Constants.MARK_AS_SAFE_MESSAGE
         canShareLocationSwitch.isOn = fetchCanShareLocation()
         addRecipientsButton.backgroundColor = RAColorSet.WARNING_RED
-        
         configureContactsUI(contacts.count > 0)
     }
     
@@ -86,21 +89,22 @@ private extension SafetyCheckSettingsViewController {
     }
     
     @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
-        textView.resignFirstResponder()
+        helpNeededTextView.resignFirstResponder()
+        markAsSafeTextView.resignFirstResponder()
     }
     
-    func fetchCustomDangerMessage() -> String? {
-        if let danger = UserDefaults.standard.string(forKey: Constants.UserDefaultsKeys.DANGER_NEED_HELP_MESSAGE) {
+    func fetchCustomMessage(_ key: String) -> String? {
+        if let danger = UserDefaults.standard.string(forKey: key) {
             return danger
         }
         return nil
     }
     
-    func saveDangerMessage(_ message: String) {
-        guard message != fetchCustomDangerMessage() else {
+    func saveMessage(_ message: String, key: String) {
+        guard message != fetchCustomMessage(key) else {
             return
         }
-        UserDefaults.standard.set(message, forKey: Constants.UserDefaultsKeys.DANGER_NEED_HELP_MESSAGE)
+        UserDefaults.standard.set(message, forKey: key)
     }
     
     func fetchCanShareLocation() -> Bool {
@@ -161,7 +165,10 @@ extension SafetyCheckSettingsViewController: UITableViewDataSource, UITableViewD
 
 extension SafetyCheckSettingsViewController: UITextViewDelegate {
     func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
-        saveDangerMessage(textView.text)
+        saveMessage(textView.text,
+                    key: textView == helpNeededTextView
+                        ? Constants.UserDefaultsKeys.DANGER_NEED_HELP_MESSAGE
+                        : Constants.UserDefaultsKeys.MARK_AS_SAFE_MESSAGE)
         return true
     }
 }

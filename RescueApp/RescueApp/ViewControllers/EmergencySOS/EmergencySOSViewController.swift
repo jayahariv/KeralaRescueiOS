@@ -152,7 +152,10 @@ private extension EmergencySOSViewController {
         tableView.reloadData()
     }
     
-    func sendMessage(_ message: String) {
+    func sendSMS(messageKey key: String) {
+        guard let message = UserDefaults.standard.string(forKey: key) else {
+            return
+        }
         
         if (MFMessageComposeViewController.canSendText()) {
             let controller = MFMessageComposeViewController()
@@ -234,19 +237,9 @@ extension EmergencySOSViewController: UITableViewDataSource, UITableViewDelegate
             }
             switch indexPath.row {
             case 0:
-                if let _ =
-                    UserDefaults
-                        .standard
-                        .string(forKey: Constants.UserDefaultsKeys.DANGER_NEED_HELP_MESSAGE) {
-                    sendMessage("I'm safe")
-                }
+                sendSMS(messageKey: Constants.UserDefaultsKeys.MARK_AS_SAFE_MESSAGE)
             case 1:
-                if let danger =
-                    UserDefaults
-                        .standard
-                        .string(forKey: Constants.UserDefaultsKeys.DANGER_NEED_HELP_MESSAGE) {
-                    sendMessage(danger)
-                }
+                sendSMS(messageKey: Constants.UserDefaultsKeys.DANGER_NEED_HELP_MESSAGE)
             default:
                 abort()
             }
