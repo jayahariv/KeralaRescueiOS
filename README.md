@@ -26,8 +26,8 @@ Please add your email address to this [issue](https://github.com/jayahariv/Keral
 - [x] Prepare section in Malayalam.
 - [ ] SOS Section.
     - [x] Flashlight
-    - [ ] SOS Light
-    - [ ] Alarm
+    - [x] SOS Light
+    - [x] Alarm
     - [ ] Mark as Safe
     - [ ] Send SOS to immediate contacts  
 - [ ] Prepare section extension
