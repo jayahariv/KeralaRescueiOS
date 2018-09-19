@@ -60,7 +60,7 @@ final class DisasterTopicsViewController: UIViewController, RANavigationProtocol
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == C.SEGUE_TO_SURVIVAL_SKILLS {
             let vc = segue.destination as! SurvivalSkillsViewController
-            vc.topic = sender as! DisasterTopic
+            vc.topic = sender as? DisasterTopic
         }
     }
     

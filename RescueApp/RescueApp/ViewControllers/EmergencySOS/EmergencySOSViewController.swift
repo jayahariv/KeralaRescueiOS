@@ -128,7 +128,13 @@ private extension EmergencySOSViewController {
         }
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+            try AVAudioSession.sharedInstance()
+                .setCategory(
+                    AVAudioSession.Category(
+                        rawValue: convertFromAVAudioSessionCategory(AVAudioSession.Category.playback)
+                    ),
+                    mode: AVAudioSession.Mode.default
+            )
         } catch {
             print("Audio Player cannot be initialized")
             return
@@ -262,4 +268,9 @@ extension EmergencySOSViewController: MFMessageComposeViewControllerDelegate {
                                       didFinishWith result: MessageComposeResult) {
         dismiss(animated: true, completion: nil)
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromAVAudioSessionCategory(_ input: AVAudioSession.Category) -> String {
+	return input.rawValue
 }

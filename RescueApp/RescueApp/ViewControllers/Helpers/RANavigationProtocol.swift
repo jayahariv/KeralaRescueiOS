@@ -17,6 +17,6 @@ extension RANavigationProtocol where Self: UIViewController {
             statusBar.backgroundColor = color
         }
         navigationController?.navigationBar.titleTextAttributes =
-            [NSAttributedStringKey.foregroundColor: UIColor.white]
+            [NSAttributedString.Key.foregroundColor: UIColor.white]
     }
 }

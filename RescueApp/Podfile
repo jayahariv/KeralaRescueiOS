@@ -4,9 +4,9 @@ target 'RescueApp' do
   use_frameworks!
 
   # Pods for RescueApp
-  pod 'CouchbaseLite-Swift-Enterprise', '~> 2.0.0'
+  pod 'CouchbaseLite-Swift-Enterprise'
   pod 'ReachabilitySwift'
-  pod 'Firebase/Core'
+  pod 'Firebase/Core', '5.2.0'
   pod 'Firebase/Database'
   pod 'Cartography'
   pod 'Firebase/Storage'
@@ -14,6 +14,13 @@ target 'RescueApp' do
 
   target 'RescueAppTests' do
     inherit! :search_paths
+    pod 'CouchbaseLite-Swift-Enterprise'
+    pod 'ReachabilitySwift'
+    pod 'Firebase/Core', '5.2.0'
+    pod 'Firebase/Database'
+    pod 'Cartography'
+    pod 'Firebase/Storage'
+    pod 'FirebaseUI/Storage'
   end
 
   target 'RescueAppUITests' do
