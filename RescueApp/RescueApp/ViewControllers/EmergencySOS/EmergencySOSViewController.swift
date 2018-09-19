@@ -10,12 +10,21 @@ Abstract:
 
 import UIKit
 import AVFoundation
+import CoreLocation
 import MediaPlayer
 import MessageUI
 
 final class EmergencySOSViewController: UIViewController, RANavigationProtocol {
     
     // MARK: Properties
+    /// IBOUTLETS
+    @IBOutlet private var systemVolumeHolder: UIView!
+    @IBOutlet private weak var tableView: UITableView!
+    /// PRIVATE
+    private var timer: Timer?
+    private var audioPlayer: AVAudioPlayer!
+    private var contacts = [EmergencyContact]()
+    private let locationManager = CLLocationManager()
     private let toolsSections = ["Flashlight", "Strobe Light", "Alarm"]
     private let safetySections = [
         [C.SAFETY_BUTTON_CONFIG.TITLE_KEY: "MARK AS SAFE", C.SAFETY_BUTTON_CONFIG.COLOR_KEY: RAColorSet.SAFE_GREEN],
@@ -31,11 +40,6 @@ final class EmergencySOSViewController: UIViewController, RANavigationProtocol {
         static let SEGUE_TO_SETTINGS = "segueToSettings"
         static let STROBE_TIME_INTERVAL = 0.2
     }
-    private var timer: Timer?
-    private var audioPlayer: AVAudioPlayer!
-    @IBOutlet private var systemVolumeHolder: UIView!
-    private var contacts = [EmergencyContact]()
-    @IBOutlet private weak var tableView: UITableView!
 
     // MARK: View Lifecycle
     
@@ -43,6 +47,7 @@ final class EmergencySOSViewController: UIViewController, RANavigationProtocol {
         super.viewDidLoad()
         configureUIFromViewDidLoad()
         initAudioPlayer()
+        initLocation()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -151,6 +156,15 @@ private extension EmergencySOSViewController {
         let mpVolumeView = MPVolumeView(frame: systemVolumeHolder.bounds)
         mpVolumeView.tag = 101
         systemVolumeHolder.addSubview(mpVolumeView)
+    }
+    
+    func initLocation() {
+        locationManager.requestWhenInUseAuthorization()
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
     }
     
     func fetchContacts() {
@@ -273,4 +287,11 @@ extension EmergencySOSViewController: MFMessageComposeViewControllerDelegate {
 // Helper function inserted by Swift 4.2 migrator.
 fileprivate func convertFromAVAudioSessionCategory(_ input: AVAudioSession.Category) -> String {
 	return input.rawValue
+}
+
+extension EmergencySOSViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        print("locations = \(locValue.latitude) \(locValue.longitude)")
+    }
 }

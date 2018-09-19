@@ -15,18 +15,21 @@ Abstract:
 import UIKit
 import ContactsUI
 import CouchbaseLiteSwift
+import CoreLocation
 
 final class SafetyCheckSettingsViewController: UIViewController {
     
     // MARK: Properties
-    /// PRIVATE
+    /// IBOUTLETS
     @IBOutlet private weak var helpNeededTextView: UITextView!
     @IBOutlet private weak var markAsSafeTextView: UITextView!
     @IBOutlet private weak var canShareLocationSwitch: UISwitch!
     @IBOutlet private weak var contactsTableView: UITableView!
     @IBOutlet private weak var noContactsWarningLabel: UILabel!
     @IBOutlet private weak var addRecipientsButton: UIButton!
+    /// iVARs
     private var contacts = [EmergencyContact]()
+    private let locationManager = CLLocationManager()
     private struct C {
         static let CELL_ID = "safetyCheckCellID"
         static let TITLE = "Emergency Settings"
@@ -51,12 +54,18 @@ final class SafetyCheckSettingsViewController: UIViewController {
         saveLocationPreference()
     }
     
+    // MARK: Button Actions
+    
     @IBAction func onAddRecipients(_ sender: Any) {
         let contactPicker = CNContactPickerViewController(nibName: nil, bundle: nil)
         contactPicker.delegate = self
         present(contactPicker, animated: true) { [weak self] in
             self?.setStatusBarColor(RAColorSet.STATUS_BAR_COLOR)
         }
+    }
+    
+    @IBAction func onToggleLocationSwitch(_ sender: Any) {
+        saveLocationPreference()
     }
 }
 
@@ -116,6 +125,9 @@ private extension SafetyCheckSettingsViewController {
             return
         }
         UserDefaults.standard.set(canShareLocationSwitch.isOn, forKey: Constants.UserDefaultsKeys.CAN_LOCATION_SHARED)
+        if canShareLocationSwitch.isOn {
+            locationManager.requestWhenInUseAuthorization()
+        }
     }
     
     func configureContactsUI(_ contactsPresent: Bool) {

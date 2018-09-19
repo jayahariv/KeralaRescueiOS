@@ -41,5 +41,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Location data will be used only when you initiate a Need Help or Mark As Safe feature. App will send coordinates as well as a google map URL to the emergency contacts. </string>
 </dict>
 </plist>
