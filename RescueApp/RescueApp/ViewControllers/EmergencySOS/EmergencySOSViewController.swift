@@ -25,6 +25,7 @@ final class EmergencySOSViewController: UIViewController, RANavigationProtocol {
     private var audioPlayer: AVAudioPlayer!
     private var contacts = [EmergencyContact]()
     private let locationManager = CLLocationManager()
+    private var currentLocation: CLLocationCoordinate2D?
     private let toolsSections = ["Flashlight", "Strobe Light", "Alarm"]
     private let safetySections = [
         [C.SAFETY_BUTTON_CONFIG.TITLE_KEY: "MARK AS SAFE", C.SAFETY_BUTTON_CONFIG.COLOR_KEY: RAColorSet.SAFE_GREEN],
@@ -47,17 +48,18 @@ final class EmergencySOSViewController: UIViewController, RANavigationProtocol {
         super.viewDidLoad()
         configureUIFromViewDidLoad()
         initAudioPlayer()
-        initLocation()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         fetchContacts()
+        updateLocationStatus()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         initSystemVolumeHolder()
+        locationManager.stopUpdatingLocation()
     }
     
     // MARK: Button Actions
@@ -158,7 +160,11 @@ private extension EmergencySOSViewController {
         systemVolumeHolder.addSubview(mpVolumeView)
     }
     
-    func initLocation() {
+    func updateLocationStatus() {
+        guard canShareCurrentLocation() else {
+            locationManager.stopUpdatingLocation()
+            return
+        }
         locationManager.requestWhenInUseAuthorization()
         if CLLocationManager.locationServicesEnabled() {
             locationManager.delegate = self
@@ -172,11 +178,19 @@ private extension EmergencySOSViewController {
         tableView.reloadData()
     }
     
+    func canShareCurrentLocation() -> Bool {
+        return UserDefaults.standard.bool(forKey: Constants.UserDefaultsKeys.CAN_LOCATION_SHARED)
+    }
+    
     func sendSMS(messageKey key: String) {
-        guard let message = UserDefaults.standard.string(forKey: key) else {
+        guard var message = UserDefaults.standard.string(forKey: key) else {
             return
         }
-        
+        if canShareCurrentLocation(), let location = currentLocation {
+            message = "\(message) Below are the details about my location. " +
+                "Google URL: https://www.google.com/maps/?q=\(location.latitude),\(location.longitude) " +
+                "Latitude: \(location.latitude) Longitude: \(location.longitude)"
+        }
         if (MFMessageComposeViewController.canSendText()) {
             let controller = MFMessageComposeViewController()
             controller.body = message
@@ -291,7 +305,9 @@ fileprivate func convertFromAVAudioSessionCategory(_ input: AVAudioSession.Categ
 
 extension EmergencySOSViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
-        print("locations = \(locValue.latitude) \(locValue.longitude)")
+        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else {
+            return
+        }
+        currentLocation = locValue
     }
 }
