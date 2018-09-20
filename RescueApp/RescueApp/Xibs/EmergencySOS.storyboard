@@ -200,8 +200,22 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dr9-2d-WFV">
+                                <rect key="frame" x="364" y="342.66666666666669" width="30" height="30"/>
+                                <state key="normal" title="Edit"/>
+                                <connections>
+                                    <action selector="onEdit:" destination="Jmz-W5-o2q" eventType="touchUpInside" id="Tih-MJ-5j0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pEX-Qb-GF4">
+                                <rect key="frame" x="287" y="342.66666666666669" width="57" height="30"/>
+                                <state key="normal" title="Clear All"/>
+                                <connections>
+                                    <action selector="onClearAll:" destination="Jmz-W5-o2q" eventType="touchUpInside" id="McO-nW-0Bw"/>
+                                </connections>
+                            </button>
                             <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="dtp-gq-0UZ">
-                                <rect key="frame" x="0.0" y="351.66666666666674" width="414" height="384.33333333333326"/>
+                                <rect key="frame" x="0.0" y="376.66666666666674" width="414" height="359.33333333333326"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="safetyCheckCellID" textLabel="Qi7-3k-NAx" style="IBUITableViewCellStyleDefault" id="x71-jX-i7W">
@@ -239,14 +253,18 @@
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="dtp-gq-0UZ" firstAttribute="top" secondItem="UeL-VE-7qR" secondAttribute="bottom" constant="25" id="10f-Hu-RSm"/>
+                            <constraint firstItem="dtp-gq-0UZ" firstAttribute="top" secondItem="UeL-VE-7qR" secondAttribute="bottom" constant="50" id="10f-Hu-RSm"/>
                             <constraint firstItem="Afc-IU-Q5d" firstAttribute="leading" secondItem="VQh-yG-X7u" secondAttribute="leading" constant="20" id="5bY-nP-TFd"/>
                             <constraint firstItem="UeL-VE-7qR" firstAttribute="top" secondItem="VQh-yG-X7u" secondAttribute="top" constant="15" id="AJu-KG-6AH"/>
                             <constraint firstItem="dtp-gq-0UZ" firstAttribute="leading" secondItem="VQh-yG-X7u" secondAttribute="leading" id="CPh-sq-apg"/>
+                            <constraint firstItem="dr9-2d-WFV" firstAttribute="leading" secondItem="pEX-Qb-GF4" secondAttribute="trailing" constant="20" id="Gid-Oj-dug"/>
                             <constraint firstItem="dtp-gq-0UZ" firstAttribute="trailing" secondItem="VQh-yG-X7u" secondAttribute="trailing" id="KQF-dS-cfZ"/>
                             <constraint firstItem="VQh-yG-X7u" firstAttribute="trailing" secondItem="UeL-VE-7qR" secondAttribute="trailing" constant="20" id="QHG-w4-2mV"/>
+                            <constraint firstItem="dtp-gq-0UZ" firstAttribute="top" secondItem="pEX-Qb-GF4" secondAttribute="bottom" constant="4" id="Vzx-tn-w2t"/>
                             <constraint firstItem="dtp-gq-0UZ" firstAttribute="bottom" secondItem="VQh-yG-X7u" secondAttribute="bottom" id="XPk-wx-ASE"/>
                             <constraint firstItem="VQh-yG-X7u" firstAttribute="trailing" secondItem="Afc-IU-Q5d" secondAttribute="trailing" constant="20" id="fqI-sl-Tnd"/>
+                            <constraint firstItem="dtp-gq-0UZ" firstAttribute="top" secondItem="dr9-2d-WFV" secondAttribute="bottom" constant="4" id="h84-r8-zFe"/>
+                            <constraint firstItem="VQh-yG-X7u" firstAttribute="trailing" secondItem="dr9-2d-WFV" secondAttribute="trailing" constant="20" id="skm-lh-GWv"/>
                             <constraint firstItem="UeL-VE-7qR" firstAttribute="leading" secondItem="VQh-yG-X7u" secondAttribute="leading" constant="20" id="uRE-lY-odS"/>
                             <constraint firstItem="Afc-IU-Q5d" firstAttribute="top" secondItem="UeL-VE-7qR" secondAttribute="bottom" constant="25" id="zea-er-yRe"/>
                         </constraints>

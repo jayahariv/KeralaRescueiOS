@@ -67,6 +67,15 @@ final class SafetyCheckSettingsViewController: UIViewController {
     @IBAction func onToggleLocationSwitch(_ sender: Any) {
         saveLocationPreference()
     }
+    
+    @IBAction func onEdit(_ sender: Any) {
+        isEditing = !isEditing
+        contactsTableView.setEditing(isEditing, animated: true)
+    }
+    
+    @IBAction func onClearAll(_ sender: Any) {
+        // implement
+    }
 }
 
 private extension SafetyCheckSettingsViewController {
@@ -173,6 +182,12 @@ extension SafetyCheckSettingsViewController: UITableViewDataSource, UITableViewD
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            print("delete \(indexPath.row)")
+        }
+    }
 }
 
 extension SafetyCheckSettingsViewController: UITextViewDelegate {
@@ -193,7 +208,6 @@ extension SafetyCheckSettingsViewController: CNContactPickerDelegate {
             tempContacts.append(contact)
         }
         
-        removeAllContacts()
         for contact in tempContacts {
             contact.save()
         }
