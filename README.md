@@ -19,17 +19,17 @@ In this version we will help people to read about how to prepare for a disaster,
 
 Appstore URL [here](https://itunes.apple.com/us/app/kerala-rescue/id1432467893). 
 
+## Version 1.2
+This is a small patch to the existing app which were mostly some feedback integration from the beta testing done during 1.1.
+
+Features of this version include
+- Prepare section content in malayalam 
+- Emeregency SOS Section with tools and safety checks
+
 ## Beta Testing
 Please add your email address to this [issue](https://github.com/jayahariv/KeralaRescueiOS/issues/6) or send email to rescueapp2018@gmail.com for adding yourself to beta. 
 
 ## Future Plans
-- [x] Prepare section in Malayalam.
-- [ ] SOS Section.
-    - [x] Flashlight
-    - [x] SOS Light
-    - [x] Alarm
-    - [ ] Mark as Safe
-    - [ ] Send SOS to immediate contacts  
 - [ ] Prepare section extension
     - [ ] Earthquake
     - [ ] Landslide / ഉരുൾപൊട്ടൽ
