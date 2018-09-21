@@ -33,6 +33,10 @@ Features of this version include
     - [ ] Flu Season
     - [ ] Thunderstorm / ഇടിമിന്നൽ
 - [ ] Localize Icons
+- [ ] Notifications / Important infos
+    - [ ] Articles to read about disaster situations in other countries.
+    - [ ] Surviving situations
+    - [ ] weekly once
 
 ## Data 
 All informations included are from the State Disaster Management Authority and afterflood.in. 
