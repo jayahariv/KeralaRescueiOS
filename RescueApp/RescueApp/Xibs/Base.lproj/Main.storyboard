@@ -141,6 +141,7 @@
                         <segue destination="dXr-wq-KST" kind="show" identifier="segueToPhotoGallery" id="siA-YO-L3j"/>
                         <segue destination="B61-Sc-VAR" kind="show" identifier="segueToContacts" id="VL4-1p-yUC"/>
                         <segue destination="kVa-12-QQA" kind="show" identifier="segueToHowToPrepare" id="508-0l-qd8"/>
+                        <segue destination="VMl-ju-PsJ" kind="show" identifier="segueToEmergencySOS" id="1oE-oW-ezH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -170,6 +171,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GTj-JB-WqY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2783" y="-991"/>
+        </scene>
+        <!--EmergencySOS-->
+        <scene sceneID="0ee-o1-7Le">
+            <objects>
+                <viewControllerPlaceholder storyboardName="EmergencySOS" id="VMl-ju-PsJ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fUS-mK-beA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2808" y="-1389"/>
         </scene>
         <!--HowToPrepare-->
         <scene sceneID="LV8-Fb-h30">

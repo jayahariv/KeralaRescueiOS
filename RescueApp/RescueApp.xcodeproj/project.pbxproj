@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		08164DF82145A81B0030F601 /* ImageName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08164DF72145A81B0030F601 /* ImageName.swift */; };
+		08164DFA2149C0550030F601 /* EmergencySOS.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08164DF92149C0550030F601 /* EmergencySOS.storyboard */; };
+		08164DFD2149C0920030F601 /* EmergencySOSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08164DFC2149C0920030F601 /* EmergencySOSViewController.swift */; };
+		08165017214A9B9A0030F601 /* alarm.wav in Resources */ = {isa = PBXBuildFile; fileRef = 08165016214A9B990030F601 /* alarm.wav */; };
+		0816544D214D61FF0030F601 /* SafetyCheckSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0816544C214D61FF0030F601 /* SafetyCheckSettingsViewController.swift */; };
+		08165453214EE82F0030F601 /* EmergencyContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08165452214EE82F0030F601 /* EmergencyContact.swift */; };
+		08165455214F33360030F601 /* EmergencyContactUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08165454214F33360030F601 /* EmergencyContactUtil.swift */; };
+		082057ED2153D4CD0034F45F /* Pods_RescueApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59D2A431FA5AD15EF5F0D3EB /* Pods_RescueApp.framework */; };
 		0822303F212799EA00B7FBF2 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0822303E212799EA00B7FBF2 /* APIConstants.swift */; };
 		082230442127A72F00B7FBF2 /* Overlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082230432127A72F00B7FBF2 /* Overlay.swift */; };
 		082230462127CB8700B7FBF2 /* RAStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082230452127CB8700B7FBF2 /* RAStore.swift */; };
@@ -37,12 +44,11 @@
 		28386F622128191E0012F429 /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28386F5E2128191E0012F429 /* TagCollectionViewCell.swift */; };
 		28386F632128191E0012F429 /* RescueSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28386F5F2128191E0012F429 /* RescueSearchView.swift */; };
 		28386F642128191E0012F429 /* TagFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28386F602128191E0012F429 /* TagFlowLayout.swift */; };
-		3F9FC6EAED58CD1EE4698A0E /* Pods_RescueAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CE4AA0045A339F04DBAB0DA /* Pods_RescueAppTests.framework */; };
 		491FAFB021302016003160CF /* SurveyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491FAFAF21302016003160CF /* SurveyListViewController.swift */; };
 		491FAFB2213021FA003160CF /* Survey.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 491FAFB1213021FA003160CF /* Survey.storyboard */; };
-		62AC70FEEF4DD6944AFBD284 /* Pods_RescueAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 662EF3BA2C627D0A61CDF329 /* Pods_RescueAppUITests.framework */; };
 		75DA37292127EF6E00A9D00A /* ListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DA37282127EF6E00A9D00A /* ListViewCell.swift */; };
-		ACC4BDC9B27F0806EBB0AB63 /* Pods_RescueApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59D2A431FA5AD15EF5F0D3EB /* Pods_RescueApp.framework */; };
+		7898CE99026828F6834E292A /* Pods_RescueAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5116ACA8CBD9D7C89D402F0 /* Pods_RescueAppTests.framework */; };
+		BD678C89C2E2EDB2524927C2 /* Pods_RescueAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F32AC322BDA95193DEEF607 /* Pods_RescueAppUITests.framework */; };
 		DAA81A44212E5CC900AA0ECA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAA81A43212E5CC800AA0ECA /* GoogleService-Info.plist */; };
 		DAA81A47212E740E00AA0ECA /* GuidelineContentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA81A46212E740E00AA0ECA /* GuidelineContentController.swift */; };
 		DAA81A49212E804400AA0ECA /* GuidelineMainNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA81A48212E804400AA0ECA /* GuidelineMainNotice.swift */; };
@@ -96,6 +102,12 @@
 
 /* Begin PBXFileReference section */
 		08164DF72145A81B0030F601 /* ImageName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageName.swift; sourceTree = "<group>"; };
+		08164DF92149C0550030F601 /* EmergencySOS.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EmergencySOS.storyboard; sourceTree = "<group>"; };
+		08164DFC2149C0920030F601 /* EmergencySOSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencySOSViewController.swift; sourceTree = "<group>"; };
+		08165016214A9B990030F601 /* alarm.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = alarm.wav; sourceTree = "<group>"; };
+		0816544C214D61FF0030F601 /* SafetyCheckSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafetyCheckSettingsViewController.swift; sourceTree = "<group>"; };
+		08165452214EE82F0030F601 /* EmergencyContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyContact.swift; sourceTree = "<group>"; };
+		08165454214F33360030F601 /* EmergencyContactUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyContactUtil.swift; sourceTree = "<group>"; };
 		0822303E212799EA00B7FBF2 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		082230432127A72F00B7FBF2 /* Overlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Overlay.swift; sourceTree = "<group>"; };
 		082230452127CB8700B7FBF2 /* RAStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAStore.swift; sourceTree = "<group>"; };
@@ -126,15 +138,14 @@
 		08F59A0A213A46F700785841 /* PhotoComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoComment.swift; sourceTree = "<group>"; };
 		08FDDE5E2129F9D0006B84BE /* RequestsDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsDictionary.swift; sourceTree = "<group>"; };
 		0C95AB2BC92A00D878E0C564 /* Pods-RescueAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RescueAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RescueAppUITests/Pods-RescueAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		1CE4AA0045A339F04DBAB0DA /* Pods_RescueAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RescueAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		28386F5D2128191E0012F429 /* TagCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TagCollectionViewCell.xib; sourceTree = "<group>"; };
 		28386F5E2128191E0012F429 /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagCollectionViewCell.swift; sourceTree = "<group>"; };
 		28386F5F2128191E0012F429 /* RescueSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RescueSearchView.swift; sourceTree = "<group>"; };
 		28386F602128191E0012F429 /* TagFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagFlowLayout.swift; sourceTree = "<group>"; };
 		491FAFAF21302016003160CF /* SurveyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyListViewController.swift; sourceTree = "<group>"; };
 		491FAFB1213021FA003160CF /* Survey.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Survey.storyboard; sourceTree = "<group>"; };
+		4F32AC322BDA95193DEEF607 /* Pods_RescueAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RescueAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59D2A431FA5AD15EF5F0D3EB /* Pods_RescueApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RescueApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		662EF3BA2C627D0A61CDF329 /* Pods_RescueAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RescueAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		75DA37282127EF6E00A9D00A /* ListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewCell.swift; sourceTree = "<group>"; };
 		7F0350EC64490B12D85ED635 /* Pods-RescueAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RescueAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RescueAppTests/Pods-RescueAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		A59EEFF9F5B713B364EE93C6 /* Pods-RescueApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RescueApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RescueApp/Pods-RescueApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -165,6 +176,7 @@
 		E9F925FD213B4F1600CD9437 /* DisasterTopicsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisasterTopicsViewController.swift; sourceTree = "<group>"; };
 		E9F92603213B56C500CD9437 /* RANavigationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RANavigationProtocol.swift; sourceTree = "<group>"; };
 		F4846D0D0422408AF15B81C8 /* Pods-RescueAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RescueAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RescueAppUITests/Pods-RescueAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		F5116ACA8CBD9D7C89D402F0 /* Pods_RescueAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RescueAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,7 +184,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ACC4BDC9B27F0806EBB0AB63 /* Pods_RescueApp.framework in Frameworks */,
+				082057ED2153D4CD0034F45F /* Pods_RescueApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,7 +192,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F9FC6EAED58CD1EE4698A0E /* Pods_RescueAppTests.framework in Frameworks */,
+				7898CE99026828F6834E292A /* Pods_RescueAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,7 +200,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62AC70FEEF4DD6944AFBD284 /* Pods_RescueAppUITests.framework in Frameworks */,
+				BD678C89C2E2EDB2524927C2 /* Pods_RescueAppUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,10 +211,29 @@
 			isa = PBXGroup;
 			children = (
 				59D2A431FA5AD15EF5F0D3EB /* Pods_RescueApp.framework */,
-				1CE4AA0045A339F04DBAB0DA /* Pods_RescueAppTests.framework */,
-				662EF3BA2C627D0A61CDF329 /* Pods_RescueAppUITests.framework */,
+				F5116ACA8CBD9D7C89D402F0 /* Pods_RescueAppTests.framework */,
+				4F32AC322BDA95193DEEF607 /* Pods_RescueAppUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		08164DFB2149C07E0030F601 /* EmergencySOS */ = {
+			isa = PBXGroup;
+			children = (
+				08165016214A9B990030F601 /* alarm.wav */,
+				08164DFC2149C0920030F601 /* EmergencySOSViewController.swift */,
+				0816544C214D61FF0030F601 /* SafetyCheckSettingsViewController.swift */,
+			);
+			path = EmergencySOS;
+			sourceTree = "<group>";
+		};
+		08165451214EE81A0030F601 /* SOS */ = {
+			isa = PBXGroup;
+			children = (
+				08165452214EE82F0030F601 /* EmergencyContact.swift */,
+				08165454214F33360030F601 /* EmergencyContactUtil.swift */,
+			);
+			path = SOS;
 			sourceTree = "<group>";
 		};
 		082230422127A71A00B7FBF2 /* Utility */ = {
@@ -232,6 +263,7 @@
 		08223604212A804600D2808D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				08164DFB2149C07E0030F601 /* EmergencySOS */,
 				E9F92602213B55A200CD9437 /* Helpers */,
 				E9F925F6213B2F6100CD9437 /* Home */,
 				E9F925FC213B4F0300CD9437 /* HowToPrepare */,
@@ -252,6 +284,7 @@
 				08F599F6212E9B7D00785841 /* Contacts.storyboard */,
 				08F599FE212FB44F00785841 /* PhotoGallery.storyboard */,
 				491FAFB1213021FA003160CF /* Survey.storyboard */,
+				08164DF92149C0550030F601 /* EmergencySOS.storyboard */,
 			);
 			path = Xibs;
 			sourceTree = "<group>";
@@ -397,6 +430,7 @@
 		E9DBF99B2127844100CFD933 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				08165451214EE81A0030F601 /* SOS */,
 				0829E1C0213C7283002CEE21 /* HowToPrepare */,
 				E9F925FB213B305400CD9437 /* Contacts */,
 				E9F925FA213B304600CD9437 /* PhotoGallery */,
@@ -499,6 +533,7 @@
 				E9DBF9762127806A00CFD933 /* Sources */,
 				E9DBF9772127806A00CFD933 /* Frameworks */,
 				E9DBF9782127806A00CFD933 /* Resources */,
+				26449CA04C56DE161EC368BF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -541,13 +576,16 @@
 				TargetAttributes = {
 					E9DBF9652127806700CFD933 = {
 						CreatedOnToolsVersion = 9.3.1;
+						LastSwiftMigration = 1000;
 					};
 					E9DBF9792127806A00CFD933 = {
 						CreatedOnToolsVersion = 9.3.1;
+						LastSwiftMigration = 1000;
 						TestTargetID = E9DBF9652127806700CFD933;
 					};
 					E9DBF9842127806A00CFD933 = {
 						CreatedOnToolsVersion = 9.3.1;
+						LastSwiftMigration = 1000;
 						TestTargetID = E9DBF9652127806700CFD933;
 					};
 				};
@@ -578,6 +616,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08164DFA2149C0550030F601 /* EmergencySOS.storyboard in Resources */,
 				08F599FF212FB44F00785841 /* PhotoGallery.storyboard in Resources */,
 				E9F925F4213B2DC000CD9437 /* HowToPrepare.storyboard in Resources */,
 				0864D51E212A45EC00DE403D /* OfflineData.plist in Resources */,
@@ -586,6 +625,7 @@
 				E9DBF9742127806A00CFD933 /* LaunchScreen.storyboard in Resources */,
 				E9DBF9712127806A00CFD933 /* Assets.xcassets in Resources */,
 				491FAFB2213021FA003160CF /* Survey.storyboard in Resources */,
+				08165017214A9B9A0030F601 /* alarm.wav in Resources */,
 				0864D523212A53AE00DE403D /* Localizable.strings in Resources */,
 				DABD53E82130B09900B287F1 /* Guidelines.json in Resources */,
 				28386F612128191E0012F429 /* TagCollectionViewCell.xib in Resources */,
@@ -611,6 +651,44 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		26449CA04C56DE161EC368BF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RescueAppTests/Pods-RescueAppTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Cartography/Cartography.framework",
+				"${PODS_ROOT}/CouchbaseLite-Swift-Enterprise/iOS/CouchbaseLiteSwift.framework",
+				"${PODS_ROOT}/CouchbaseLite-Swift-Enterprise/iOS/CouchbaseLiteSwift.framework.dSYM",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cartography.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CouchbaseLiteSwift.framework",
+				"${DWARF_DSYM_FOLDER_PATH}/CouchbaseLiteSwift.framework.dSYM",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RescueAppTests/Pods-RescueAppTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		3F063942D5864832A6622671 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -671,7 +749,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-RescueApp/Pods-RescueApp-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-RescueApp/Pods-RescueApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Cartography/Cartography.framework",
 				"${PODS_ROOT}/CouchbaseLite-Swift-Enterprise/iOS/CouchbaseLiteSwift.framework",
 				"${PODS_ROOT}/CouchbaseLite-Swift-Enterprise/iOS/CouchbaseLiteSwift.framework.dSYM",
@@ -696,7 +774,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RescueApp/Pods-RescueApp-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RescueApp/Pods-RescueApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -708,6 +786,7 @@
 			files = (
 				0829E1C6213C88F6002CEE21 /* SurvivalSkillsViewController.swift in Sources */,
 				08F59A092130E67A00785841 /* Contact.swift in Sources */,
+				08165455214F33360030F601 /* EmergencyContactUtil.swift in Sources */,
 				E9DBF9A22127872A00CFD933 /* ApiClient.swift in Sources */,
 				08F599FA212E9BCB00785841 /* ContactsViewController.swift in Sources */,
 				DABD53EA2130B8AA00B287F1 /* WebController.swift in Sources */,
@@ -726,10 +805,13 @@
 				0829E1C4213C8172002CEE21 /* SurvivalSkills.swift in Sources */,
 				08F59A05212FC98100785841 /* PhotoPreviewViewController.swift in Sources */,
 				08223614212D378B00D2808D /* DistrictTableViewCell.swift in Sources */,
+				08165453214EE82F0030F601 /* EmergencyContact.swift in Sources */,
 				082230462127CB8700B7FBF2 /* RAStore.swift in Sources */,
 				491FAFB021302016003160CF /* SurveyListViewController.swift in Sources */,
 				08F59A0B213A46F700785841 /* PhotoComment.swift in Sources */,
 				08223610212CFD3800D2808D /* Constants.swift in Sources */,
+				0816544D214D61FF0030F601 /* SafetyCheckSettingsViewController.swift in Sources */,
+				08164DFD2149C0920030F601 /* EmergencySOSViewController.swift in Sources */,
 				08F59A01212FB61D00785841 /* Photo.swift in Sources */,
 				0822304D2127E7F500B7FBF2 /* Utility.swift in Sources */,
 				08FDDE5F2129F9D0006B84BE /* RequestsDictionary.swift in Sources */,
@@ -874,7 +956,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				VALID_ARCHS = arm64;
+				VALID_ARCHS = "arm64 x86_64";
 			};
 			name = Debug;
 		};
@@ -930,7 +1012,7 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
-				VALID_ARCHS = arm64;
+				VALID_ARCHS = "arm64 x86_64";
 			};
 			name = Release;
 		};
@@ -942,7 +1024,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X6N62J5SQP;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/RescueApp",
+				);
 				INFOPLIST_FILE = RescueApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -952,8 +1037,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jayahariv.keralarescue;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "x86_64 arm64";
 			};
 			name = Debug;
 		};
@@ -965,7 +1051,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X6N62J5SQP;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/RescueApp",
+				);
 				INFOPLIST_FILE = RescueApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -975,8 +1064,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jayahariv.keralarescue;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "x86_64 arm64";
 			};
 			name = Release;
 		};
@@ -984,7 +1074,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A5E416EC82330986E089BA2C /* Pods-RescueAppTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X6N62J5SQP;
@@ -996,7 +1086,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kerala.RescueAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RescueApp.app/RescueApp";
 			};
@@ -1006,7 +1096,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7F0350EC64490B12D85ED635 /* Pods-RescueAppTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X6N62J5SQP;
@@ -1018,7 +1108,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kerala.RescueAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RescueApp.app/RescueApp";
 			};
@@ -1039,7 +1129,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kerala.RescueAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = RescueApp;
 			};
@@ -1060,7 +1150,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kerala.RescueAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = RescueApp;
 			};

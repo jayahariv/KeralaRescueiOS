@@ -47,7 +47,7 @@ final class PhotoGalleryViewController: UIViewController, RANavigationProtocol {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == C.segueToPreview {
             let vc = segue.destination as! PhotoPreviewViewController
-            vc.photo = sender as! Photo
+            vc.photo = sender as? Photo
         }
     }
 }

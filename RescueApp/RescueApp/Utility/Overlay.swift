@@ -33,14 +33,14 @@ final class Overlay: NSObject {
             DispatchQueue.main.async { [unowned self] in
                 self.view = UIView(frame: windowFrame)
                 
-                let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+                let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
                 let backgroundView = UIVisualEffectView(effect: blurEffect)
                 backgroundView.frame = windowFrame
                 self.view!.addSubview(backgroundView)
                 
                 
                 let center = self.view!.center
-                let activity = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+                let activity = UIActivityIndicatorView(style: .gray)
                 self.view?.addSubview(activity)
                 activity.center = center
                 activity.startAnimating()

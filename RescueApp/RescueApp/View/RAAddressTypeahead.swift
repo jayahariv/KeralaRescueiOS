@@ -58,24 +58,24 @@ final class RAAddressTypeahead: UITextField {
     override func layoutSubviews() {
         resultsTable.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint(item: resultsTable,
-                           attribute: NSLayoutAttribute.centerX,
-                           relatedBy: NSLayoutRelation.equal,
+                           attribute: NSLayoutConstraint.Attribute.centerX,
+                           relatedBy: NSLayoutConstraint.Relation.equal,
                            toItem: self,
-                           attribute: NSLayoutAttribute.centerX,
+                           attribute: NSLayoutConstraint.Attribute.centerX,
                            multiplier: 1,
                            constant: 0).isActive = true
         NSLayoutConstraint(item: resultsTable,
-                           attribute: NSLayoutAttribute.width,
-                           relatedBy: NSLayoutRelation.equal,
+                           attribute: NSLayoutConstraint.Attribute.width,
+                           relatedBy: NSLayoutConstraint.Relation.equal,
                            toItem: nil,
-                           attribute: NSLayoutAttribute.notAnAttribute,
+                           attribute: NSLayoutConstraint.Attribute.notAnAttribute,
                            multiplier: 1,
                            constant: frame.size.width).isActive = true
         NSLayoutConstraint(item: resultsTable,
-                           attribute: NSLayoutAttribute.height,
-                           relatedBy: NSLayoutRelation.equal,
+                           attribute: NSLayoutConstraint.Attribute.height,
+                           relatedBy: NSLayoutConstraint.Relation.equal,
                            toItem: nil,
-                           attribute: NSLayoutAttribute.notAnAttribute,
+                           attribute: NSLayoutConstraint.Attribute.notAnAttribute,
                            multiplier: 1,
                            constant: 176).isActive = true
         
@@ -124,10 +124,10 @@ private extension RAAddressTypeahead {
      */
     func addConstraintToShowResultsTableInBottom() {
         NSLayoutConstraint(item: resultsTable,
-                           attribute: NSLayoutAttribute.top,
-                           relatedBy: NSLayoutRelation.equal,
+                           attribute: NSLayoutConstraint.Attribute.top,
+                           relatedBy: NSLayoutConstraint.Relation.equal,
                            toItem: self,
-                           attribute: NSLayoutAttribute.bottom,
+                           attribute: NSLayoutConstraint.Attribute.bottom,
                            multiplier: 1,
                            constant: 12).isActive = true
     }
@@ -137,10 +137,10 @@ private extension RAAddressTypeahead {
      */
     func addConstraintToShowResultsTableInTop() {
         NSLayoutConstraint(item: resultsTable,
-                           attribute: NSLayoutAttribute.bottom,
-                           relatedBy: NSLayoutRelation.equal,
+                           attribute: NSLayoutConstraint.Attribute.bottom,
+                           relatedBy: NSLayoutConstraint.Relation.equal,
                            toItem: self,
-                           attribute: NSLayoutAttribute.top,
+                           attribute: NSLayoutConstraint.Attribute.top,
                            multiplier: 1,
                            constant: -12).isActive = true
     }
@@ -210,7 +210,7 @@ extension RAAddressTypeahead: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         text = results[indexPath.row].title
         let completion = results[indexPath.row]
-        let searchRequest = MKLocalSearchRequest(completion: completion)
+        let searchRequest = MKLocalSearch.Request(completion: completion)
         let search = MKLocalSearch(request: searchRequest)
         search.start { [unowned self] (response, error) in
             let placemark = response?.mapItems[0].placemark
