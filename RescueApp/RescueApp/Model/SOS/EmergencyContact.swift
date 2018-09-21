@@ -79,6 +79,28 @@ final class EmergencyContact: NSObject, Codable {
         }
     }
     
+    func delete() {
+        guard let identifier = id else {
+            return
+        }
+        
+       do {
+            let database = try Database(name: "RescueApp")
+            let savedDoc = database.document(withID: APIConstants.CBL_KEYS.EMERGENCY_CONTACTS_ROOT_KEY)
+            let doc = MutableDocument(id: APIConstants.CBL_KEYS.EMERGENCY_CONTACTS_ROOT_KEY)
+            for key in savedDoc?.keys ?? [] {
+                if let value = savedDoc?.string(forKey: key) {
+                    doc.setString(value, forKey: key)
+                }
+            }
+            doc.setString(nil, forKey: identifier)
+            try database.saveDocument(doc)
+            print("removed: \(identifier)")
+        } catch {
+            print("test")
+        }
+    }
+    
     func toString() -> String? {
         do {
             let numberData = try JSONSerialization.data(withJSONObject: phoneNumbers, options: [])
