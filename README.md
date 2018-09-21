@@ -1,6 +1,9 @@
+# [GO TO THIS REPO](https://github.com/KeralaRescueMobile/KeralaRescueiOS)
+## THIS REPO IS NOT MAINTAINED! 
+
 ![appicon](https://user-images.githubusercontent.com/10448770/44442270-ef5ec900-a585-11e8-9fe1-7313995c1e09.png)
 
-# Kerala Rescue iOS
+# Kerala Rescue iOS (deprecated)
 
 ## Overview
 Kerala Rescue is an iPhone app, which users will be able to prepare for a Flood, if in emergency they can contact respective operational centre. Users can also see Rescue Photos of 2018 Flood.
