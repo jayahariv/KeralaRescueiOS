@@ -26,9 +26,6 @@ Features of this version include
 - Prepare section content in malayalam 
 - Emeregency SOS Section with tools and safety checks
 
-## Beta Testing
-Please add your email address to this [issue](https://github.com/jayahariv/KeralaRescueiOS/issues/6) or send email to rescueapp2018@gmail.com for adding yourself to beta. 
-
 ## Future Plans
 - [ ] Prepare section extension
     - [ ] Earthquake
